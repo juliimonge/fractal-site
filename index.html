@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal — Ultra-Luxury Real Estate &amp; Development Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-brand">FRACTAL</div>
+    <div class="loader-bar-track">
+      <div id="loader-bar"></div>
+    </div>
+    <div id="loader-percent">0%</div>
+  </div>
+
+  <!-- Fixed Header -->
+  <header class="site-header" id="site-header">
+    <nav>
+      <div class="logo">FRACTAL</div>
+      <div class="nav-links">
+        <a href="#">Portfolio</a>
+        <a href="#">Services</a>
+        <a href="#">Markets</a>
+        <a href="#" class="nav-cta">Inquire</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Standalone (fixed, fades on scroll start) -->
+  <section class="hero-standalone" id="hero">
+    <div class="hero-inner">
+      <span class="section-label hero-label">Est. 2012 &nbsp;/&nbsp; London &nbsp;&middot;&nbsp; New York &nbsp;&middot;&nbsp; Dubai</span>
+      <h1 class="hero-heading">
+        <span class="word">FRACTAL</span>
+      </h1>
+      <p class="hero-tagline">Ultra-Luxury Real Estate<br>&amp; Development Marketing</p>
+      <div class="hero-rule"></div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Canvas (video frames, fixed) -->
+  <div class="canvas-wrap" id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- Dark Overlay (fixed, for stats section) -->
+  <div id="dark-overlay"></div>
+
+  <!-- Marquee 1 (fixed, slides left on scroll) -->
+  <div class="marquee-wrap" id="marquee-1" data-scroll-speed="-1800">
+    <div class="marquee-text">FRACTAL &nbsp;&middot;&nbsp; LUXURY REAL ESTATE &nbsp;&middot;&nbsp; DEVELOPMENT MARKETING &nbsp;&middot;&nbsp; ARCHITECTURAL EXCELLENCE &nbsp;&middot;&nbsp; PRECISION VISION &nbsp;&middot;&nbsp; FRACTAL &nbsp;&middot;&nbsp; LUXURY REAL ESTATE &nbsp;&middot;&nbsp; DEVELOPMENT MARKETING &nbsp;&middot;&nbsp; ARCHITECTURAL EXCELLENCE &nbsp;&middot;&nbsp;</div>
+  </div>
+
+  <!-- Marquee 2 (fixed, slides right on scroll) -->
+  <div class="marquee-wrap" id="marquee-2" data-scroll-speed="1200">
+    <div class="marquee-text">INVESTMENT GRADE &nbsp;&middot;&nbsp; MARKET INTELLIGENCE &nbsp;&middot;&nbsp; BESPOKE STRATEGY &nbsp;&middot;&nbsp; GLOBAL REACH &nbsp;&middot;&nbsp; LOCAL MASTERY &nbsp;&middot;&nbsp; INVESTMENT GRADE &nbsp;&middot;&nbsp; MARKET INTELLIGENCE &nbsp;&middot;&nbsp; BESPOKE STRATEGY &nbsp;&middot;&nbsp; GLOBAL REACH &nbsp;&middot;&nbsp;</div>
+  </div>
+
+  <!-- Main Scroll Container (1000vh — creates scroll space) -->
+  <div id="scroll-container">
+
+    <!-- Section 001: Redefining Luxury -->
+    <section class="scroll-section section-content align-left"
+             data-enter="5" data-leave="20" data-animation="slide-left">
+      <div class="section-inner">
+        <span class="section-label">001 &nbsp;/&nbsp; Philosophy</span>
+        <h2 class="section-heading">Redefining<br>Luxury</h2>
+        <p class="section-body">We curate the narrative of exceptional properties, translating architectural vision into desire. Every campaign is a landmark in itself.</p>
+        <span class="section-note">Since 2012, representing the world's most discerning developers</span>
+      </div>
+    </section>
+
+    <!-- Section 002: Architectural Vision -->
+    <section class="scroll-section section-content align-right"
+             data-enter="22" data-leave="37" data-animation="slide-right">
+      <div class="section-inner">
+        <span class="section-label">002 &nbsp;/&nbsp; Vision</span>
+        <h2 class="section-heading">Architectural<br>Vision</h2>
+        <p class="section-body">Every development tells a story. We ensure yours commands attention in the world's most discerning markets—where detail determines legacy.</p>
+        <span class="section-note">Strategic positioning across 28 global luxury markets</span>
+      </div>
+    </section>
+
+    <!-- Section 003: The Method -->
+    <section class="scroll-section section-content align-left"
+             data-enter="38" data-leave="52" data-animation="scale-up">
+      <div class="section-inner">
+        <span class="section-label">003 &nbsp;/&nbsp; Method</span>
+        <h2 class="section-heading">The Fractal<br>Method</h2>
+        <p class="section-body">Where precision meets artistry—our methodology transforms ambitious developments into cultural landmarks, driving sell-through at unprecedented velocity.</p>
+        <span class="section-note">Fully integrated from concept to completion</span>
+      </div>
+    </section>
+
+    <!-- Stats Section (center, dark overlay) -->
+    <section class="scroll-section section-stats"
+             data-enter="51" data-leave="66" data-animation="stagger-up">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-top">
+            <span class="stat-number" data-value="4.2" data-decimals="1">0</span>
+            <span class="stat-suffix">B+</span>
+          </div>
+          <span class="stat-label">In sales achieved</span>
+        </div>
+        <div class="stat">
+          <div class="stat-top">
+            <span class="stat-number" data-value="97" data-decimals="0">0</span>
+            <span class="stat-suffix">%</span>
+          </div>
+          <span class="stat-label">Average sell-out rate</span>
+        </div>
+        <div class="stat">
+          <div class="stat-top">
+            <span class="stat-number" data-value="28" data-decimals="0">0</span>
+            <span class="stat-suffix"></span>
+          </div>
+          <span class="stat-label">Global markets served</span>
+        </div>
+        <div class="stat">
+          <div class="stat-top">
+            <span class="stat-number" data-value="12" data-decimals="0">0</span>
+            <span class="stat-suffix"> yrs</span>
+          </div>
+          <span class="stat-label">Industry leadership</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 004: Market Intelligence -->
+    <section class="scroll-section section-content align-right"
+             data-enter="66" data-leave="80" data-animation="rotate-in">
+      <div class="section-inner">
+        <span class="section-label">004 &nbsp;/&nbsp; Intelligence</span>
+        <h2 class="section-heading">Market<br>Intelligence</h2>
+        <p class="section-body">Deep intelligence across global luxury markets enables strategic positioning that maximises value. We don't just sell properties—we position legacies.</p>
+        <span class="section-note">Proprietary data across every major luxury corridor</span>
+      </div>
+    </section>
+
+    <!-- CTA Section (persist) -->
+    <section class="scroll-section section-cta align-left"
+             data-enter="83" data-leave="100" data-animation="clip-reveal" data-persist="true">
+      <div class="section-inner">
+        <span class="section-label">005 &nbsp;/&nbsp; Contact</span>
+        <h2 class="section-heading cta-heading">Begin Your<br>Project</h2>
+        <p class="section-body">We work with a select number of clients annually. Every engagement begins with a private consultation to understand your vision in full.</p>
+        <a href="#" class="cta-button">Arrange a Consultation</a>
+        <p class="section-note">Strictly by referral and invitation only</p>
+      </div>
+    </section>
+
+  </div><!-- end #scroll-container -->
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

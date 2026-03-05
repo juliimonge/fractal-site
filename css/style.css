@@ -1,0 +1,557 @@
+/* =============================================
+   FRACTAL — Ultra-Luxury Real Estate Marketing
+   ============================================= */
+
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000000;
+  --gold: #C9A96E;
+  --gold-dim: rgba(201, 169, 110, 0.45);
+  --gold-line: rgba(201, 169, 110, 0.25);
+  --text-primary: #F0EDE8;
+  --text-secondary: rgba(240, 237, 232, 0.55);
+  --text-note: rgba(240, 237, 232, 0.35);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   Loader
+   ============================================= */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.loader-brand {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 300;
+  letter-spacing: 0.6em;
+  color: var(--text-primary);
+  padding-right: 0.6em; /* optical balance for letter-spacing */
+}
+
+.loader-bar-track {
+  width: 240px;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+#loader-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.15s linear;
+}
+
+#loader-percent {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   Fixed Site Header
+   ============================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 2rem 3.5vw;
+  mix-blend-mode: normal;
+  opacity: 0; /* JS animates in */
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header .logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  color: var(--text-primary);
+  padding-right: 0.45em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links .nav-cta {
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  padding: 0.55rem 1.4rem;
+  padding-right: calc(1.4rem + 0.18em);
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.nav-links .nav-cta:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+/* =============================================
+   Hero Standalone (fixed)
+   ============================================= */
+
+.hero-standalone {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 7vw;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 75vw;
+}
+
+.hero-label {
+  margin-bottom: 2rem;
+  opacity: 0; /* animated in by JS */
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 14vw, 16rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  line-height: 0.9;
+  color: var(--text-primary);
+  padding-right: 0.15em;
+}
+
+.hero-heading .word {
+  display: inline-block;
+  opacity: 0; /* animated in by JS */
+}
+
+.hero-tagline {
+  margin-top: 2.4rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-weight: 200;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  opacity: 0; /* animated in by JS */
+}
+
+.hero-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--gold-line);
+  margin-top: 2.8rem;
+  opacity: 0; /* animated in by JS */
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 7vw;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  opacity: 0; /* animated in by JS */
+}
+
+.scroll-text {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--text-note);
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold-dim);
+  transform-origin: left center;
+}
+
+/* =============================================
+   Canvas (video, fixed)
+   ============================================= */
+
+.canvas-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  clip-path: circle(0% at 50% 50%);
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================
+   Dark Overlay (fixed, for stats)
+   ============================================= */
+
+#dark-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   Marquees (fixed)
+   ============================================= */
+
+.marquee-wrap {
+  position: fixed;
+  z-index: 7;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+#marquee-1 {
+  bottom: 18%;
+}
+
+#marquee-2 {
+  bottom: 10%;
+}
+
+.marquee-text {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 10vw, 11rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(240, 237, 232, 0.06);
+  text-transform: uppercase;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* =============================================
+   Scroll Container (pure scroll space)
+   ============================================= */
+
+#scroll-container {
+  position: relative;
+  height: 1000vh;
+}
+
+/* =============================================
+   Content Sections (fixed, z-index 8)
+   ============================================= */
+
+.scroll-section {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Side alignment zones */
+.align-left .section-inner {
+  padding-left: 7vw;
+  max-width: 42vw;
+}
+
+.align-right .section-inner {
+  padding-left: 54vw;
+  max-width: calc(46vw);
+}
+
+/* Section label */
+.section-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.section-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* Section headings */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+/* Section body */
+.section-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1.6rem;
+}
+
+/* Section note */
+.section-note {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: var(--text-note);
+  text-transform: uppercase;
+  padding-left: 2.2rem;
+  position: relative;
+}
+
+.section-note::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1px;
+  background: var(--gold-line);
+}
+
+/* =============================================
+   Stats Section
+   ============================================= */
+
+.section-stats {
+  /* Full width, centered */
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0 8vw;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 0 3vw;
+  border-left: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.stat:first-child {
+  border-left: none;
+}
+
+.stat-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-suffix {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* =============================================
+   CTA Section
+   ============================================= */
+
+.section-cta {
+  pointer-events: auto; /* Re-enable pointer events for CTA */
+}
+
+.cta-heading {
+  color: var(--text-primary);
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2.4rem;
+  padding: 1rem 2.6rem;
+  padding-right: calc(2.6rem + 0.25em);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  text-decoration: none;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  pointer-events: auto;
+}
+
+.cta-button:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+/* =============================================
+   Mobile
+   ============================================= */
+
+@media (max-width: 768px) {
+  #scroll-container {
+    height: 600vh;
+  }
+
+  .align-left .section-inner,
+  .align-right .section-inner {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    max-width: 100%;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 0 8vw;
+  }
+
+  .stat {
+    border-left: none;
+    border-top: 1px solid rgba(201, 169, 110, 0.15);
+    padding: 2rem 0 0;
+  }
+
+  .stat:nth-child(1),
+  .stat:nth-child(2) {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .marquee-text {
+    font-size: 5rem;
+  }
+
+  #marquee-1 { bottom: 22%; }
+  #marquee-2 { bottom: 12%; }
+
+  .hero-heading {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+
+  .section-heading {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+}
