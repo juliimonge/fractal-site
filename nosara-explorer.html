@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NosaraExplorer — Luxury Coastal Real Estate</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+
+  :root {
+    --bg-deep: #0a0e17;
+    --bg-panel: rgba(12, 18, 30, 0.92);
+    --bg-card: rgba(16, 24, 42, 0.95);
+    --accent-gold: #c9a84c;
+    --accent-gold-light: #e8d48b;
+    --accent-teal: #2dd4a8;
+    --accent-blue: #3b82f6;
+    --accent-coral: #f97066;
+    --text-primary: #f0f2f5;
+    --text-secondary: #8892a4;
+    --text-muted: #505a6e;
+    --border: rgba(255,255,255,0.06);
+    --border-light: rgba(255,255,255,0.12);
+    --glass: rgba(255,255,255,0.03);
+    --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 6px;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    cursor: default;
+  }
+
+  /* ── Top Navigation ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
+    background: linear-gradient(180deg, rgba(10,14,23,0.95) 0%, rgba(10,14,23,0.0) 100%);
+    pointer-events: none;
+  }
+  .nav > * { pointer-events: all; }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 0.5px;
+  }
+  .nav-brand svg { width: 32px; height: 32px; }
+  .nav-controls {
+    display: flex; gap: 8px; align-items: center;
+  }
+  .nav-btn {
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    color: var(--text-secondary); border-radius: 40px;
+    padding: 8px 18px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+    backdrop-filter: blur(20px);
+  }
+  .nav-btn:hover { color: var(--text-primary); border-color: var(--accent-gold); background: rgba(201,168,76,0.1); }
+  .nav-btn.active { color: var(--accent-gold); border-color: var(--accent-gold); background: rgba(201,168,76,0.12); }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    position: fixed; top: 70px; left: 32px; z-index: 90;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-muted);
+    transition: var(--transition);
+  }
+  .breadcrumb span { cursor: pointer; transition: var(--transition); }
+  .breadcrumb span:hover { color: var(--accent-gold); }
+  .breadcrumb span.active { color: var(--text-secondary); }
+  .breadcrumb .sep { color: var(--text-muted); font-size: 10px; }
+
+  /* ── Canvas Container ── */
+  .map-container {
+    position: fixed; inset: 0;
+    perspective: 1200px;
+    overflow: hidden;
+  }
+  .map-world {
+    position: absolute;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  canvas#mapCanvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* ── Cluster Markers ── */
+  .cluster-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+  }
+  .cluster-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-gold) 0%, rgba(201,168,76,0.3) 70%);
+    border: 2px solid var(--accent-gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--bg-deep);
+    box-shadow: 0 0 20px rgba(201,168,76,0.4), 0 0 60px rgba(201,168,76,0.15);
+    transition: var(--transition);
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+  .cluster-marker:hover .cluster-dot {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px rgba(201,168,76,0.6), 0 0 80px rgba(201,168,76,0.25);
+  }
+  .cluster-label {
+    position: absolute; top: 56px; left: 50%; transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 11px; font-weight: 600; color: var(--text-primary);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    letter-spacing: 1px; text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .cluster-sub {
+    font-size: 9px; font-weight: 400; color: var(--accent-gold-light);
+    display: block; text-align: center; margin-top: 2px;
+    letter-spacing: 0.5px; text-transform: none;
+  }
+  @keyframes pulse-ring {
+    0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.4), 0 0 60px rgba(201,168,76,0.15); }
+    50% { box-shadow: 0 0 30px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2); }
+  }
+
+  /* ── Property Pins ── */
+  .property-pin {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    cursor: pointer; z-index: 10;
+    transition: var(--transition);
+    opacity: 0; pointer-events: none;
+  }
+  .property-pin.visible { opacity: 1; pointer-events: all; }
+  .pin-icon {
+    width: 36px; height: 44px;
+    position: relative;
+  }
+  .pin-icon svg { width: 100%; height: 100%; }
+  .pin-price {
+    position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    background: var(--accent-gold); color: var(--bg-deep);
+    font-size: 10px; font-weight: 700; padding: 2px 8px;
+    border-radius: 10px; white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .property-pin:hover { transform: translate(-50%, -100%) scale(1.15); z-index: 20; }
+
+  /* ── Hover Tooltip ── */
+  .hover-tooltip {
+    position: fixed; z-index: 200;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-lg);
+    pointer-events: none;
+    opacity: 0; transition: opacity 0.2s ease;
+    min-width: 220px;
+  }
+  .hover-tooltip.visible { opacity: 1; }
+  .hover-tooltip h4 {
+    font-size: 14px; font-weight: 600; color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .hover-tooltip p {
+    font-size: 12px; color: var(--text-secondary); line-height: 1.5;
+  }
+  .hover-tooltip .tt-tag {
+    display: inline-block; margin-top: 8px;
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .tt-tag.eco { background: rgba(45,212,168,0.15); color: var(--accent-teal); }
+  .tt-tag.luxury { background: rgba(201,168,76,0.15); color: var(--accent-gold); }
+  .tt-tag.mixed { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+
+  /* ── Side Panel (Property Detail) ── */
+  .detail-panel {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 440px; z-index: 80;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    backdrop-filter: blur(40px);
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-muted) transparent;
+  }
+  .detail-panel.open { transform: translateX(0); }
+  .detail-panel::-webkit-scrollbar { width: 4px; }
+  .detail-panel::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+  .dp-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    color: var(--text-secondary); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition); font-size: 18px; z-index: 5;
+  }
+  .dp-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+
+  .dp-hero {
+    height: 200px; position: relative; overflow: hidden;
+  }
+  .dp-hero-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(45,212,168,0.2) 0%, rgba(201,168,76,0.2) 50%, rgba(59,130,246,0.1) 100%);
+  }
+  .dp-hero-pattern {
+    position: absolute; inset: 0; opacity: 0.15;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 60% 70%, rgba(255,255,255,0.08) 1px, transparent 1px),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 40px 40px, 60px 60px, 30px 30px;
+  }
+  .dp-hero-badge {
+    position: absolute; bottom: 16px; left: 20px;
+    display: flex; gap: 8px;
+  }
+  .dp-badge {
+    font-size: 10px; font-weight: 600; padding: 4px 12px;
+    border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .dp-badge.zone { background: rgba(45,212,168,0.15); color: var(--accent-teal); border: 1px solid rgba(45,212,168,0.2); }
+  .dp-badge.status { background: rgba(201,168,76,0.15); color: var(--accent-gold); border: 1px solid rgba(201,168,76,0.2); }
+
+  .dp-body { padding: 24px 20px 40px; }
+  .dp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .dp-subtitle {
+    font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;
+  }
+  .dp-price {
+    font-size: 28px; font-weight: 800; color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .dp-price-sub {
+    font-size: 12px; color: var(--text-muted); margin-bottom: 24px;
+  }
+
+  .dp-section { margin-bottom: 24px; }
+  .dp-section-title {
+    font-size: 11px; font-weight: 600; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dp-section-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  /* Spec Grid */
+  .spec-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .spec-item {
+    background: var(--glass); border: 1px solid var(--border);
+    border-radius: var(--radius-xs); padding: 14px;
+    transition: var(--transition);
+  }
+  .spec-item:hover { border-color: var(--border-light); background: rgba(255,255,255,0.04); }
+  .spec-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px; font-size: 14px;
+  }
+  .spec-icon.water { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+  .spec-icon.electric { background: rgba(201,168,76,0.15); color: var(--accent-gold); }
+  .spec-icon.zone { background: rgba(45,212,168,0.15); color: var(--accent-teal); }
+  .spec-icon.land { background: rgba(249,112,102,0.15); color: var(--accent-coral); }
+  .spec-label {
+    font-size: 10px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .spec-value {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+  }
+  .spec-detail {
+    font-size: 11px; color: var(--text-secondary); margin-top: 2px;
+  }
+
+  /* Status Indicator */
+  .status-dot {
+    display: inline-block; width: 7px; height: 7px;
+    border-radius: 50%; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .status-dot.green { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+  .status-dot.yellow { background: #eab308; box-shadow: 0 0 6px rgba(234,179,8,0.5); }
+  .status-dot.red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+
+  /* Cadastral Grid */
+  .cadastral-container {
+    background: var(--glass); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 16px;
+    position: relative; overflow: hidden;
+  }
+  .cadastral-grid {
+    display: grid;
+    gap: 2px;
+    aspect-ratio: 4/3;
+    position: relative;
+  }
+  .cadastral-cell {
+    border-radius: 3px;
+    transition: var(--transition);
+    position: relative;
+    cursor: crosshair;
+  }
+  .cadastral-cell:hover { filter: brightness(1.3); }
+  .cadastral-cell.highlight {
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 0 12px rgba(201,168,76,0.3);
+  }
+  .cadastral-legend {
+    display: flex; gap: 16px; margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 10px; color: var(--text-secondary);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 3px;
+  }
+  .cadastral-meta {
+    display: flex; justify-content: space-between; margin-top: 10px;
+    padding-top: 10px; border-top: 1px solid var(--border);
+  }
+  .cadastral-meta span {
+    font-size: 10px; color: var(--text-muted);
+  }
+
+  /* Action Bar */
+  .dp-actions {
+    display: flex; gap: 10px; margin-top: 24px;
+  }
+  .dp-btn {
+    flex: 1; padding: 14px; border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    text-align: center;
+  }
+  .dp-btn.primary {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #b8943a 100%);
+    color: var(--bg-deep); border: none;
+  }
+  .dp-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .dp-btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+  }
+  .dp-btn.secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  /* ── Zoom Controls ── */
+  .zoom-controls {
+    position: fixed; bottom: 32px; right: 32px; z-index: 90;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .zoom-btn {
+    width: 44px; height: 44px;
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    border-radius: var(--radius-xs);
+    color: var(--text-secondary); font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition);
+    backdrop-filter: blur(20px);
+  }
+  .zoom-btn:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+  /* ── Mini Map ── */
+  .minimap {
+    position: fixed; bottom: 32px; left: 32px; z-index: 90;
+    width: 160px; height: 100px;
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden; backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+  }
+  .minimap canvas { width: 100%; height: 100%; }
+  .minimap-viewport {
+    position: absolute; border: 1.5px solid var(--accent-gold);
+    border-radius: 2px; pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .minimap-label {
+    position: absolute; bottom: 4px; right: 6px;
+    font-size: 8px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  /* ── Stats Bar ── */
+  .stats-bar {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 90;
+    display: flex; gap: 24px;
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    border-radius: 40px; padding: 10px 28px;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+  }
+  .stat-item {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .stat-num {
+    font-size: 16px; font-weight: 700; color: var(--accent-gold);
+  }
+  .stat-label {
+    font-size: 11px; color: var(--text-secondary);
+  }
+
+  /* ── Loading Screen ── */
+  .loading-screen {
+    position: fixed; inset: 0; z-index: 999;
+    background: var(--bg-deep);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.6s ease;
+  }
+  .loading-screen.hidden { opacity: 0; pointer-events: none; }
+  .loading-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 24px;
+  }
+  .loading-bar-track {
+    width: 200px; height: 3px;
+    background: var(--border); border-radius: 3px;
+    overflow: hidden;
+  }
+  .loading-bar-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .loading-text {
+    margin-top: 16px; font-size: 12px; color: var(--text-muted);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  /* ── Level Indicator ── */
+  .level-indicator {
+    position: fixed; top: 70px; right: 32px; z-index: 90;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    border-radius: 30px; padding: 6px 16px;
+    backdrop-filter: blur(20px);
+  }
+  .level-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border-light);
+    transition: var(--transition);
+  }
+  .level-dot.active { background: var(--accent-gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+  .level-label {
+    font-size: 11px; font-weight: 500; color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animate-in {
+    animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* ── Search Overlay ── */
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 150;
+    background: rgba(10,14,23,0.85);
+    backdrop-filter: blur(20px);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 15vh;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .search-overlay.open { opacity: 1; pointer-events: all; }
+  .search-box {
+    width: 560px;
+    background: var(--bg-card); border: 1px solid var(--border-light);
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .search-input-wrap {
+    display: flex; align-items: center; padding: 0 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .search-input-wrap svg { color: var(--text-muted); flex-shrink: 0; }
+  .search-input {
+    flex: 1; padding: 18px 14px;
+    background: transparent; border: none; outline: none;
+    font-size: 16px; color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+  }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-results { padding: 8px; }
+  .search-result-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px; border-radius: var(--radius-xs);
+    cursor: pointer; transition: var(--transition);
+  }
+  .search-result-item:hover { background: rgba(255,255,255,0.04); }
+  .search-result-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    background: rgba(201,168,76,0.1);
+  }
+  .search-result-text h5 { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .search-result-text p { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .search-hint {
+    padding: 12px 16px; border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--text-muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .search-hint kbd {
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    padding: 1px 6px; border-radius: 4px; font-size: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── Gamification XP Bar ── */
+  .xp-bar {
+    position: fixed; top: 70px; left: 50%; transform: translateX(-50%);
+    z-index: 90;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg-panel); border: 1px solid var(--border-light);
+    border-radius: 30px; padding: 8px 20px;
+    backdrop-filter: blur(20px);
+    opacity: 0; pointer-events: none;
+    transition: var(--transition);
+  }
+  .xp-bar.visible { opacity: 1; pointer-events: all; }
+  .xp-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: var(--bg-deep);
+  }
+  .xp-info { display: flex; flex-direction: column; }
+  .xp-level { font-size: 11px; font-weight: 600; color: var(--accent-gold); }
+  .xp-track {
+    width: 120px; height: 4px;
+    background: var(--border); border-radius: 4px;
+    overflow: hidden; margin-top: 3px;
+  }
+  .xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+  .xp-points {
+    font-size: 11px; color: var(--text-muted);
+  }
+
+  /* ── Achievement Toast ── */
+  .achievement-toast {
+    position: fixed; top: 110px; right: 32px; z-index: 200;
+    background: var(--bg-card); border: 1px solid var(--accent-gold);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2), var(--shadow-lg);
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(30px);
+  }
+  .achievement-toast.show { transform: translateX(0); }
+  .achievement-icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(45,212,168,0.2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .achievement-text h5 {
+    font-size: 12px; font-weight: 600; color: var(--accent-gold);
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .achievement-text p {
+    font-size: 13px; color: var(--text-primary); margin-top: 2px;
+  }
+  .achievement-xp {
+    font-size: 11px; color: var(--accent-teal); font-weight: 600; margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">NosaraExplorer</div>
+  <div class="loading-bar-track">
+    <div class="loading-bar-fill" id="loadingBar"></div>
+  </div>
+  <div class="loading-text" id="loadingText">Initializing satellite imagery</div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-brand">
+    <svg viewBox="0 0 32 32" fill="none">
+      <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M16 2v28M4 9l12 7 12-7M4 23l12-7 12 7" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <circle cx="16" cy="16" r="3" fill="currentColor" opacity="0.6"/>
+    </svg>
+    NosaraExplorer
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleSearch()" title="Ctrl+K">Search</button>
+    <button class="nav-btn active" id="btnSatellite">Satellite</button>
+    <button class="nav-btn" id="btnTopo">Topographic</button>
+    <button class="nav-btn" id="btnZones">Zones</button>
+    <button class="nav-btn" style="color:var(--accent-gold);border-color:var(--accent-gold);">
+      <span style="margin-right:4px;">&#9733;</span> 245 XP
+    </button>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb" id="breadcrumb">
+  <span onclick="zoomToLevel(0)" class="active">Nosara Region</span>
+</div>
+
+<!-- XP Bar -->
+<div class="xp-bar" id="xpBar">
+  <div class="xp-avatar">JM</div>
+  <div class="xp-info">
+    <span class="xp-level">Explorer Level 3</span>
+    <div class="xp-track"><div class="xp-fill" id="xpFill" style="width:45%"></div></div>
+  </div>
+  <span class="xp-points" id="xpPoints">245 / 500 XP</span>
+</div>
+
+<!-- Level Indicator -->
+<div class="level-indicator" id="levelIndicator">
+  <div class="level-dot active" id="lvl0"></div>
+  <div class="level-dot" id="lvl1"></div>
+  <div class="level-dot" id="lvl2"></div>
+  <span class="level-label" id="levelLabel">Region View</span>
+</div>
+
+<!-- Map -->
+<div class="map-container" id="mapContainer">
+  <div class="map-world" id="mapWorld">
+    <canvas id="mapCanvas"></canvas>
+    <div id="markersLayer"></div>
+  </div>
+</div>
+
+<!-- Hover Tooltip -->
+<div class="hover-tooltip" id="hoverTooltip"></div>
+
+<!-- Detail Panel -->
+<div class="detail-panel" id="detailPanel">
+  <button class="dp-close" onclick="closeDetail()">&times;</button>
+  <div id="detailContent"></div>
+</div>
+
+<!-- Zoom Controls -->
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()" title="Zoom in">+</button>
+  <button class="zoom-btn" onclick="zoomOut()" title="Zoom out">&minus;</button>
+  <button class="zoom-btn" onclick="resetView()" title="Reset view" style="font-size:14px;">&#8634;</button>
+</div>
+
+<!-- Mini Map -->
+<div class="minimap" id="minimap">
+  <canvas id="minimapCanvas"></canvas>
+  <div class="minimap-viewport" id="minimapViewport" style="top:10%;left:10%;width:80%;height:80%;"></div>
+  <div class="minimap-label">Nosara</div>
+</div>
+
+<!-- Stats Bar -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-item">
+    <span class="stat-num" id="statProperties">48</span>
+    <span class="stat-label">Properties</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="statAvg">$385K</span>
+    <span class="stat-label">Avg. Price</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="statArea">2,400</span>
+    <span class="stat-label">Hectares</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="statViews">1.2K</span>
+    <span class="stat-label">Views Today</span>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)toggleSearch()">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="search-input" id="searchInput" placeholder="Search properties, neighborhoods, features..." oninput="onSearchInput(this.value)">
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-result-item" onclick="zoomToLevel(1, 0); toggleSearch();">
+        <div class="search-result-icon">&#127965;</div>
+        <div class="search-result-text"><h5>Playa Guiones</h5><p>12 properties &middot; Eco-luxury zone</p></div>
+      </div>
+      <div class="search-result-item" onclick="zoomToLevel(1, 1); toggleSearch();">
+        <div class="search-result-icon">&#127796;</div>
+        <div class="search-result-text"><h5>Playa Pelada</h5><p>9 properties &middot; Beachfront residential</p></div>
+      </div>
+      <div class="search-result-item" onclick="zoomToLevel(1, 2); toggleSearch();">
+        <div class="search-result-icon">&#127795;</div>
+        <div class="search-result-text"><h5>Hills of Nosara</h5><p>15 properties &middot; Mixed-use development</p></div>
+      </div>
+      <div class="search-result-item" onclick="zoomToLevel(1, 3); toggleSearch();">
+        <div class="search-result-icon">&#127754;</div>
+        <div class="search-result-text"><h5>Garza</h5><p>8 properties &middot; Residential coast</p></div>
+      </div>
+    </div>
+    <div class="search-hint">
+      <kbd>&#8593;&#8595;</kbd> Navigate &nbsp; <kbd>&#9166;</kbd> Select &nbsp; <kbd>Esc</kbd> Close
+    </div>
+  </div>
+</div>
+
+<!-- Achievement Toast -->
+<div class="achievement-toast" id="achievementToast">
+  <div class="achievement-icon">&#127942;</div>
+  <div>
+    <div class="achievement-text">
+      <h5>Achievement Unlocked</h5>
+      <p id="achievementMsg">First Neighborhood Explored</p>
+    </div>
+    <div class="achievement-xp" id="achievementXP">+25 XP</div>
+  </div>
+</div>
+
+<script>
+// ═════════════════════════════════════════════
+// Data Model
+// ═════════════════════════════════════════════
+const NEIGHBORHOODS = [
+  {
+    id: 'guiones', name: 'Playa Guiones', tag: 'eco',
+    desc: 'Premier surf & eco-luxury destination',
+    x: 0.32, y: 0.42, count: 12,
+    properties: [
+      { id: 'G1', name: 'Lote Guiones Surf', price: '$425,000', priceNote: '$42/m\u00b2 \u00b7 Negotiable',
+        area: '10,120 m\u00b2', zone: 'Eco-Luxury', zoneColor: 'eco', landUse: 'ZMT Restricted',
+        water: { status: 'green', label: 'AyA Municipal', detail: 'Active connection \u00b7 12 m\u00b3/mo allocation' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V three-phase \u00b7 15kW capacity' },
+        cadastral: 'G-1842-2019', folio: '5-12847-000',
+        lat: 9.9685, lng: -85.6590, px: 0.28, py: 0.35 },
+      { id: 'G2', name: 'Vista Canopy Estate', price: '$680,000', priceNote: '$55/m\u00b2 \u00b7 Premium lot',
+        area: '12,360 m\u00b2', zone: 'Eco-Luxury', zoneColor: 'eco', landUse: 'Agricultural Transition',
+        water: { status: 'green', label: 'Well + AyA', detail: 'Dual source \u00b7 Artesian well 45m depth' },
+        electric: { status: 'yellow', label: 'Partial Grid', detail: '110V single-phase \u00b7 Upgrade available' },
+        cadastral: 'G-2103-2020', folio: '5-13201-000',
+        lat: 9.9672, lng: -85.6575, px: 0.34, py: 0.40 },
+      { id: 'G3', name: 'Sendero del Mar', price: '$295,000', priceNote: '$38/m\u00b2 \u00b7 Investment grade',
+        area: '7,760 m\u00b2', zone: 'Residential', zoneColor: 'luxury', landUse: 'Residential Low-Density',
+        water: { status: 'green', label: 'AyA Municipal', detail: 'Active \u00b7 8 m\u00b3/mo' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V \u00b7 10kW capacity' },
+        cadastral: 'G-0987-2021', folio: '5-14502-000',
+        lat: 9.9698, lng: -85.6610, px: 0.24, py: 0.30 },
+    ]
+  },
+  {
+    id: 'pelada', name: 'Playa Pelada', tag: 'luxury',
+    desc: 'Secluded beachfront & sunset views',
+    x: 0.55, y: 0.35, count: 9,
+    properties: [
+      { id: 'P1', name: 'Pelada Beachfront', price: '$890,000', priceNote: '$78/m\u00b2 \u00b7 Rare listing',
+        area: '11,410 m\u00b2', zone: 'Beachfront Luxury', zoneColor: 'luxury', landUse: 'ZMT Public + Concession',
+        water: { status: 'yellow', label: 'Well Only', detail: 'Private well \u00b7 32m depth \u00b7 Seasonal variance' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V three-phase \u00b7 20kW' },
+        cadastral: 'P-0456-2018', folio: '5-11203-000',
+        lat: 9.9720, lng: -85.6480, px: 0.52, py: 0.28 },
+      { id: 'P2', name: 'Sunset Ridge Lot', price: '$520,000', priceNote: '$48/m\u00b2 \u00b7 Ocean view',
+        area: '10,830 m\u00b2', zone: 'Residential', zoneColor: 'luxury', landUse: 'Residential Medium-Density',
+        water: { status: 'green', label: 'AyA + Backup', detail: 'Municipal + cistern 10,000L' },
+        electric: { status: 'green', label: 'ICE + Solar', detail: '220V + 5kW solar array installed' },
+        cadastral: 'P-1122-2020', folio: '5-13889-000',
+        lat: 9.9710, lng: -85.6500, px: 0.58, py: 0.33 },
+      { id: 'P3', name: 'Playa Pelada Heights', price: '$345,000', priceNote: '$40/m\u00b2',
+        area: '8,625 m\u00b2', zone: 'Mixed-Use', zoneColor: 'mixed', landUse: 'Commercial Transition',
+        water: { status: 'green', label: 'AyA Municipal', detail: 'Active connection' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V \u00b7 12kW' },
+        cadastral: 'P-1587-2021', folio: '5-14712-000',
+        lat: 9.9735, lng: -85.6465, px: 0.55, py: 0.38 },
+    ]
+  },
+  {
+    id: 'hills', name: 'Hills of Nosara', tag: 'mixed',
+    desc: 'Elevated jungle lots with valley views',
+    x: 0.45, y: 0.62, count: 15,
+    properties: [
+      { id: 'H1', name: 'Cerro Alto Parcel', price: '$195,000', priceNote: '$18/m\u00b2 \u00b7 Best value',
+        area: '10,830 m\u00b2', zone: 'Mixed-Use', zoneColor: 'mixed', landUse: 'Agricultural + Residential',
+        water: { status: 'yellow', label: 'Well Required', detail: 'No municipal \u00b7 Aquifer access confirmed' },
+        electric: { status: 'yellow', label: 'Line Extension', detail: '800m from nearest transformer' },
+        cadastral: 'H-3201-2019', folio: '5-12001-000',
+        lat: 9.9580, lng: -85.6530, px: 0.40, py: 0.55 },
+      { id: 'H2', name: 'Mirador Jungle Estate', price: '$310,000', priceNote: '$26/m\u00b2',
+        area: '11,920 m\u00b2', zone: 'Eco-Residential', zoneColor: 'eco', landUse: 'Forest Reserve Buffer',
+        water: { status: 'green', label: 'Spring + Well', detail: 'Natural spring \u00b7 Year-round flow confirmed' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V single-phase \u00b7 8kW' },
+        cadastral: 'H-2877-2020', folio: '5-13455-000',
+        lat: 9.9565, lng: -85.6510, px: 0.48, py: 0.60 },
+      { id: 'H3', name: 'Valle Nosara Plot', price: '$155,000', priceNote: '$15/m\u00b2 \u00b7 Entry-level',
+        area: '10,330 m\u00b2', zone: 'Agricultural', zoneColor: 'mixed', landUse: 'Agricultural Primary',
+        water: { status: 'red', label: 'No Connection', detail: 'Well drilling required \u00b7 Permit pending' },
+        electric: { status: 'red', label: 'Off-Grid', detail: 'Solar recommended \u00b7 1.2km to grid' },
+        cadastral: 'H-4010-2021', folio: '5-14890-000',
+        lat: 9.9550, lng: -85.6545, px: 0.43, py: 0.68 },
+    ]
+  },
+  {
+    id: 'garza', name: 'Garza', tag: 'luxury',
+    desc: 'Fishing village charm meets coastal luxury',
+    x: 0.68, y: 0.52, count: 8,
+    properties: [
+      { id: 'R1', name: 'Bahía Garza Lot', price: '$475,000', priceNote: '$52/m\u00b2',
+        area: '9,130 m\u00b2', zone: 'Residential', zoneColor: 'luxury', landUse: 'Coastal Residential',
+        water: { status: 'green', label: 'AyA Municipal', detail: 'Full pressure \u00b7 Reliable supply' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V three-phase \u00b7 25kW' },
+        cadastral: 'R-0812-2019', folio: '5-12456-000',
+        lat: 9.9620, lng: -85.6380, px: 0.65, py: 0.45 },
+      { id: 'R2', name: 'Garza Marina View', price: '$365,000', priceNote: '$44/m\u00b2',
+        area: '8,295 m\u00b2', zone: 'Mixed-Use', zoneColor: 'mixed', landUse: 'Commercial + Residential',
+        water: { status: 'green', label: 'AyA Municipal', detail: 'Active connection' },
+        electric: { status: 'green', label: 'ICE Grid', detail: '220V \u00b7 12kW' },
+        cadastral: 'R-1204-2020', folio: '5-13667-000',
+        lat: 9.9635, lng: -85.6400, px: 0.70, py: 0.50 },
+      { id: 'R3', name: 'Punta Garza Estate', price: '$1,200,000', priceNote: '$85/m\u00b2 \u00b7 Trophy lot',
+        area: '14,118 m\u00b2', zone: 'Beachfront Luxury', zoneColor: 'luxury', landUse: 'Tourism Concession',
+        water: { status: 'green', label: 'AyA + Cistern', detail: 'Municipal + 20,000L reserve' },
+        electric: { status: 'green', label: 'ICE + Solar', detail: '220V three-phase + 10kW solar' },
+        cadastral: 'R-0098-2017', folio: '5-10234-000',
+        lat: 9.9645, lng: -85.6360, px: 0.73, py: 0.55 },
+    ]
+  }
+];
+
+// ═════════════════════════════════════════════
+// State
+// ═════════════════════════════════════════════
+let currentLevel = 0; // 0=region, 1=neighborhood, 2=property
+let currentNeighborhood = null;
+let currentProperty = null;
+let xpTotal = 245;
+let xpLevel = 3;
+let achievements = new Set();
+let canvasCtx, miniCtx;
+let mapW, mapH;
+let animFrame;
+let hoverTarget = null;
+let time = 0;
+
+// ═════════════════════════════════════════════
+// Canvas Rendering
+// ═════════════════════════════════════════════
+function initCanvas() {
+  const canvas = document.getElementById('mapCanvas');
+  const miniCanvas = document.getElementById('minimapCanvas');
+  mapW = window.innerWidth;
+  mapH = window.innerHeight;
+  canvas.width = mapW * devicePixelRatio;
+  canvas.height = mapH * devicePixelRatio;
+  canvas.style.width = mapW + 'px';
+  canvas.style.height = mapH + 'px';
+  canvasCtx = canvas.getContext('2d');
+  canvasCtx.scale(devicePixelRatio, devicePixelRatio);
+
+  miniCanvas.width = 160 * devicePixelRatio;
+  miniCanvas.height = 100 * devicePixelRatio;
+  miniCtx = miniCanvas.getContext('2d');
+  miniCtx.scale(devicePixelRatio, devicePixelRatio);
+}
+
+function renderMap() {
+  time += 0.005;
+  const ctx = canvasCtx;
+  ctx.clearRect(0, 0, mapW, mapH);
+
+  // Ocean gradient
+  const oceanGrad = ctx.createRadialGradient(mapW*0.3, mapH*0.5, 0, mapW*0.5, mapH*0.5, mapW*0.8);
+  oceanGrad.addColorStop(0, '#0d1f3c');
+  oceanGrad.addColorStop(0.5, '#0a1628');
+  oceanGrad.addColorStop(1, '#060d18');
+  ctx.fillStyle = oceanGrad;
+  ctx.fillRect(0, 0, mapW, mapH);
+
+  // Animated water shimmer
+  ctx.save();
+  ctx.globalAlpha = 0.04;
+  for (let i = 0; i < 30; i++) {
+    const wx = (Math.sin(time*0.7 + i*0.8) * 0.5 + 0.5) * mapW;
+    const wy = (Math.cos(time*0.5 + i*1.1) * 0.5 + 0.5) * mapH;
+    const wr = 40 + Math.sin(time + i) * 20;
+    const wg = ctx.createRadialGradient(wx, wy, 0, wx, wy, wr);
+    wg.addColorStop(0, 'rgba(45, 140, 200, 0.6)');
+    wg.addColorStop(1, 'transparent');
+    ctx.fillStyle = wg;
+    ctx.fillRect(wx - wr, wy - wr, wr*2, wr*2);
+  }
+  ctx.restore();
+
+  // Coastline shape (Nosara peninsula)
+  drawCoastline(ctx);
+
+  // Terrain texture
+  drawTerrain(ctx);
+
+  // Road network
+  drawRoads(ctx);
+
+  // Grid overlay
+  if (currentLevel >= 1) {
+    drawGrid(ctx);
+  }
+
+  // Render minimap
+  renderMinimap();
+
+  animFrame = requestAnimationFrame(renderMap);
+}
+
+function drawCoastline(ctx) {
+  ctx.save();
+  ctx.beginPath();
+
+  // Simplified Nosara coastline shape
+  const cx = mapW * 0.5, cy = mapH * 0.5;
+  const scale = Math.min(mapW, mapH) * 0.42;
+
+  const coastPoints = [
+    [0.1, 0.3], [0.15, 0.2], [0.25, 0.15], [0.35, 0.12],
+    [0.45, 0.18], [0.55, 0.14], [0.65, 0.2], [0.72, 0.25],
+    [0.78, 0.35], [0.82, 0.45], [0.8, 0.55], [0.75, 0.65],
+    [0.7, 0.72], [0.6, 0.78], [0.5, 0.82], [0.4, 0.8],
+    [0.3, 0.75], [0.2, 0.68], [0.12, 0.55], [0.08, 0.42],
+    [0.1, 0.3]
+  ];
+
+  ctx.moveTo(mapW * coastPoints[0][0], mapH * coastPoints[0][1]);
+  for (let i = 1; i < coastPoints.length; i++) {
+    const p0 = coastPoints[i - 1];
+    const p1 = coastPoints[i];
+    const cpx = (p0[0] + p1[0]) / 2 * mapW;
+    const cpy = (p0[1] + p1[1]) / 2 * mapH;
+    ctx.quadraticCurveTo(mapW * p0[0], mapH * p0[1], cpx, cpy);
+  }
+  ctx.closePath();
+
+  // Land fill
+  const landGrad = ctx.createLinearGradient(0, 0, mapW, mapH);
+  landGrad.addColorStop(0, '#0f2818');
+  landGrad.addColorStop(0.3, '#132e1a');
+  landGrad.addColorStop(0.6, '#17331e');
+  landGrad.addColorStop(1, '#1a3820');
+  ctx.fillStyle = landGrad;
+  ctx.fill();
+
+  // Coast glow
+  ctx.strokeStyle = 'rgba(45, 212, 168, 0.2)';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(45, 212, 168, 0.08)';
+  ctx.lineWidth = 8;
+  ctx.stroke();
+
+  // Beach edge shimmer
+  ctx.strokeStyle = `rgba(232, 212, 139, ${0.08 + Math.sin(time*2)*0.03})`;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawTerrain(ctx) {
+  ctx.save();
+  ctx.globalAlpha = 0.12;
+
+  // Hills / elevation
+  const hillCenters = [
+    [0.35, 0.5, 80], [0.45, 0.62, 100], [0.55, 0.55, 70],
+    [0.3, 0.4, 60], [0.6, 0.4, 55], [0.5, 0.35, 50],
+    [0.4, 0.7, 75], [0.65, 0.6, 65]
+  ];
+
+  hillCenters.forEach(([hx, hy, hr]) => {
+    const x = mapW * hx + Math.sin(time + hx*10) * 2;
+    const y = mapH * hy + Math.cos(time + hy*10) * 2;
+    const grad = ctx.createRadialGradient(x, y, 0, x, y, hr);
+    grad.addColorStop(0, 'rgba(45, 80, 45, 0.8)');
+    grad.addColorStop(0.5, 'rgba(30, 60, 30, 0.4)');
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x - hr, y - hr, hr*2, hr*2);
+  });
+
+  // Vegetation dots
+  ctx.globalAlpha = 0.06;
+  const seed = 42;
+  for (let i = 0; i < 200; i++) {
+    const px = seededRandom(i * 3 + seed) * mapW * 0.7 + mapW * 0.1;
+    const py = seededRandom(i * 3 + seed + 1) * mapH * 0.7 + mapH * 0.12;
+    const pr = seededRandom(i * 3 + seed + 2) * 4 + 1;
+    ctx.beginPath();
+    ctx.arc(px, py, pr, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(${140 + seededRandom(i)*30}, 50%, ${20 + seededRandom(i+99)*15}%)`;
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawRoads(ctx) {
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.strokeStyle = '#8892a4';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([6, 4]);
+
+  // Main roads
+  const roads = [
+    [[0.15, 0.45], [0.30, 0.42], [0.45, 0.40], [0.55, 0.38], [0.70, 0.45]],
+    [[0.35, 0.25], [0.40, 0.35], [0.45, 0.50], [0.48, 0.65], [0.50, 0.75]],
+    [[0.30, 0.55], [0.40, 0.50], [0.55, 0.50], [0.65, 0.52]],
+    [[0.50, 0.30], [0.55, 0.40], [0.60, 0.55], [0.58, 0.65]],
+  ];
+
+  roads.forEach(road => {
+    ctx.beginPath();
+    ctx.moveTo(road[0][0] * mapW, road[0][1] * mapH);
+    for (let i = 1; i < road.length; i++) {
+      ctx.lineTo(road[i][0] * mapW, road[i][1] * mapH);
+    }
+    ctx.stroke();
+  });
+
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+function drawGrid(ctx) {
+  ctx.save();
+  ctx.globalAlpha = 0.05;
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 0.5;
+
+  const gridSize = currentLevel === 2 ? 30 : 60;
+  for (let x = 0; x < mapW; x += gridSize) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, mapH); ctx.stroke();
+  }
+  for (let y = 0; y < mapH; y += gridSize) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(mapW, y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function renderMinimap() {
+  const ctx = miniCtx;
+  const mw = 160, mh = 100;
+  ctx.clearRect(0, 0, mw, mh);
+
+  // Background
+  ctx.fillStyle = '#0a1628';
+  ctx.fillRect(0, 0, mw, mh);
+
+  // Simplified coast
+  ctx.beginPath();
+  const miniCoast = [
+    [0.1,0.3],[0.2,0.15],[0.4,0.12],[0.6,0.18],[0.8,0.35],
+    [0.8,0.55],[0.65,0.75],[0.45,0.82],[0.25,0.75],[0.1,0.5],[0.1,0.3]
+  ];
+  ctx.moveTo(miniCoast[0][0]*mw, miniCoast[0][1]*mh);
+  miniCoast.forEach(p => ctx.lineTo(p[0]*mw, p[1]*mh));
+  ctx.closePath();
+  ctx.fillStyle = '#132e1a';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(45,212,168,0.3)';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // Cluster dots
+  NEIGHBORHOODS.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x * mw, n.y * mh, 3, 0, Math.PI * 2);
+    ctx.fillStyle = currentNeighborhood === n ? '#c9a84c' : 'rgba(201,168,76,0.5)';
+    ctx.fill();
+  });
+
+  // Viewport rect
+  const vp = document.getElementById('minimapViewport');
+  if (currentLevel === 0) {
+    vp.style.cssText = 'top:5%;left:5%;width:90%;height:90%;border:1.5px solid var(--accent-gold);border-radius:2px;pointer-events:none;transition:all 0.3s ease;';
+  } else if (currentLevel === 1 && currentNeighborhood) {
+    const nx = currentNeighborhood.x * 100;
+    const ny = currentNeighborhood.y * 100;
+    vp.style.cssText = `top:${ny-15}%;left:${nx-18}%;width:36%;height:30%;border:1.5px solid var(--accent-gold);border-radius:2px;pointer-events:none;transition:all 0.3s ease;`;
+  } else if (currentLevel === 2) {
+    vp.style.cssText = 'top:35%;left:38%;width:24%;height:20%;border:1.5px solid var(--accent-gold);border-radius:2px;pointer-events:none;transition:all 0.3s ease;';
+  }
+}
+
+function seededRandom(seed) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+// ═════════════════════════════════════════════
+// Markers
+// ═════════════════════════════════════════════
+function renderMarkers() {
+  const layer = document.getElementById('markersLayer');
+  layer.innerHTML = '';
+
+  if (currentLevel === 0) {
+    // Show cluster markers
+    NEIGHBORHOODS.forEach((n, idx) => {
+      const marker = document.createElement('div');
+      marker.className = 'cluster-marker';
+      marker.style.left = (n.x * 100) + '%';
+      marker.style.top = (n.y * 100) + '%';
+      marker.innerHTML = `
+        <div class="cluster-dot">${n.count}</div>
+        <div class="cluster-label">${n.name}
+          <span class="cluster-sub">${n.desc}</span>
+        </div>
+      `;
+      marker.addEventListener('click', () => zoomToLevel(1, idx));
+      marker.addEventListener('mouseenter', (e) => showTooltip(e, n));
+      marker.addEventListener('mousemove', (e) => moveTooltip(e));
+      marker.addEventListener('mouseleave', hideTooltip);
+      layer.appendChild(marker);
+    });
+  } else if (currentLevel === 1 && currentNeighborhood) {
+    // Show property pins for current neighborhood
+    currentNeighborhood.properties.forEach((p, idx) => {
+      const pin = document.createElement('div');
+      pin.className = 'property-pin';
+      pin.style.left = (p.px * 100) + '%';
+      pin.style.top = (p.py * 100) + '%';
+      pin.innerHTML = `
+        <div class="pin-price">${p.price}</div>
+        <div class="pin-icon">
+          <svg viewBox="0 0 36 44" fill="none">
+            <path d="M18 0C8.06 0 0 8.06 0 18c0 13.5 18 26 18 26s18-12.5 18-26C36 8.06 27.94 0 18 0z"
+              fill="${p.zoneColor === 'eco' ? '#2dd4a8' : p.zoneColor === 'luxury' ? '#c9a84c' : '#3b82f6'}" opacity="0.85"/>
+            <circle cx="18" cy="17" r="7" fill="rgba(0,0,0,0.3)"/>
+            <circle cx="18" cy="17" r="5" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+      `;
+      pin.addEventListener('click', () => zoomToLevel(2, idx));
+      pin.addEventListener('mouseenter', (e) => showPropertyTooltip(e, p));
+      pin.addEventListener('mousemove', (e) => moveTooltip(e));
+      pin.addEventListener('mouseleave', hideTooltip);
+      // Animate in
+      setTimeout(() => pin.classList.add('visible'), 80 * idx);
+      layer.appendChild(pin);
+    });
+  }
+}
+
+// ═════════════════════════════════════════════
+// Tooltips
+// ═════════════════════════════════════════════
+function showTooltip(e, n) {
+  const tt = document.getElementById('hoverTooltip');
+  const tagClass = n.tag === 'eco' ? 'eco' : n.tag === 'luxury' ? 'luxury' : 'mixed';
+  const tagLabel = n.tag === 'eco' ? 'Eco-Luxury' : n.tag === 'luxury' ? 'Luxury Coastal' : 'Mixed-Use';
+  tt.innerHTML = `
+    <h4>${n.name}</h4>
+    <p>${n.desc}<br>${n.count} available properties</p>
+    <span class="tt-tag ${tagClass}">${tagLabel}</span>
+  `;
+  tt.classList.add('visible');
+  moveTooltip(e);
+}
+
+function showPropertyTooltip(e, p) {
+  const tt = document.getElementById('hoverTooltip');
+  tt.innerHTML = `
+    <h4>${p.name}</h4>
+    <p>${p.area} &middot; ${p.zone}<br>${p.price} &middot; ${p.landUse}</p>
+    <span class="tt-tag ${p.zoneColor === 'eco' ? 'eco' : p.zoneColor === 'luxury' ? 'luxury' : 'mixed'}">
+      ${p.zone}
+    </span>
+  `;
+  tt.classList.add('visible');
+  moveTooltip(e);
+}
+
+function moveTooltip(e) {
+  const tt = document.getElementById('hoverTooltip');
+  let x = e.clientX + 16;
+  let y = e.clientY - 10;
+  if (x + 240 > window.innerWidth) x = e.clientX - 240;
+  if (y + 120 > window.innerHeight) y = e.clientY - 120;
+  tt.style.left = x + 'px';
+  tt.style.top = y + 'px';
+}
+
+function hideTooltip() {
+  document.getElementById('hoverTooltip').classList.remove('visible');
+}
+
+// ═════════════════════════════════════════════
+// Zoom Navigation
+// ═════════════════════════════════════════════
+function zoomToLevel(level, index) {
+  const world = document.getElementById('mapWorld');
+
+  if (level === 0) {
+    currentLevel = 0;
+    currentNeighborhood = null;
+    currentProperty = null;
+    world.style.transform = 'scale(1) translate(0, 0)';
+    closeDetail();
+    updateBreadcrumb();
+    updateLevelIndicator();
+    renderMarkers();
+    updateStats(48, '$385K', '2,400', '1.2K');
+    return;
+  }
+
+  if (level === 1) {
+    const n = NEIGHBORHOODS[index];
+    currentLevel = 1;
+    currentNeighborhood = n;
+    currentProperty = null;
+    closeDetail();
+
+    const tx = -(n.x - 0.5) * 60;
+    const ty = -(n.y - 0.5) * 60;
+    world.style.transform = `scale(2.2) translate(${tx}%, ${ty}%)`;
+
+    updateBreadcrumb();
+    updateLevelIndicator();
+    setTimeout(() => renderMarkers(), 300);
+    updateStats(n.count, n.properties[0].price, n.properties.reduce((s,p) => s + parseInt(p.area.replace(/,/g,'')), 0).toLocaleString(), Math.floor(Math.random()*300 + 100));
+
+    // Gamification
+    if (!achievements.has('neighborhood_' + n.id)) {
+      achievements.add('neighborhood_' + n.id);
+      addXP(25, `${n.name} Explored`);
+    }
+    return;
+  }
+
+  if (level === 2 && currentNeighborhood) {
+    const p = currentNeighborhood.properties[index];
+    currentLevel = 2;
+    currentProperty = p;
+
+    const tx = -(p.px - 0.5) * 30;
+    const ty = -(p.py - 0.5) * 30;
+    world.style.transform = `scale(4) translate(${tx}%, ${ty}%)`;
+
+    updateBreadcrumb();
+    updateLevelIndicator();
+    showPropertyDetail(p);
+
+    // Gamification
+    if (!achievements.has('property_' + p.id)) {
+      achievements.add('property_' + p.id);
+      addXP(10, `${p.name} Viewed`);
+    }
+  }
+}
+
+function zoomIn() {
+  if (currentLevel === 0 && NEIGHBORHOODS.length > 0) {
+    zoomToLevel(1, 0);
+  } else if (currentLevel === 1 && currentNeighborhood && currentNeighborhood.properties.length > 0) {
+    zoomToLevel(2, 0);
+  }
+}
+
+function zoomOut() {
+  if (currentLevel === 2) {
+    const idx = NEIGHBORHOODS.indexOf(currentNeighborhood);
+    zoomToLevel(1, idx);
+  } else if (currentLevel === 1) {
+    zoomToLevel(0);
+  }
+}
+
+function resetView() {
+  zoomToLevel(0);
+}
+
+// ═════════════════════════════════════════════
+// Property Detail Panel
+// ═════════════════════════════════════════════
+function showPropertyDetail(p) {
+  const panel = document.getElementById('detailPanel');
+  const content = document.getElementById('detailContent');
+
+  const cadastralHTML = generateCadastralGrid(p);
+  const zBadgeColor = p.zoneColor === 'eco' ? 'zone' : 'status';
+
+  content.innerHTML = `
+    <div class="dp-hero">
+      <div class="dp-hero-gradient"></div>
+      <div class="dp-hero-pattern"></div>
+      <div class="dp-hero-badge">
+        <span class="dp-badge zone">${p.zone}</span>
+        <span class="dp-badge status">${p.landUse}</span>
+      </div>
+    </div>
+    <div class="dp-body">
+      <div class="dp-title">${p.name}</div>
+      <div class="dp-subtitle">${currentNeighborhood.name} &middot; Nosara, Guanacaste</div>
+      <div class="dp-price">${p.price}</div>
+      <div class="dp-price-sub">${p.priceNote} &middot; ${p.area}</div>
+
+      <div class="dp-section">
+        <div class="dp-section-title">Technical Specifications</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-icon water">&#128167;</div>
+            <div class="spec-label">Water Availability</div>
+            <div class="spec-value"><span class="status-dot ${p.water.status}"></span>${p.water.label}</div>
+            <div class="spec-detail">${p.water.detail}</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon electric">&#9889;</div>
+            <div class="spec-label">Electrical Connection</div>
+            <div class="spec-value"><span class="status-dot ${p.electric.status}"></span>${p.electric.label}</div>
+            <div class="spec-detail">${p.electric.detail}</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon zone">&#127968;</div>
+            <div class="spec-label">Zonification Type</div>
+            <div class="spec-value">${p.zone}</div>
+            <div class="spec-detail">Plan Regulador Canton de Nicoya</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon land">&#127758;</div>
+            <div class="spec-label">Land Use Designation</div>
+            <div class="spec-value">${p.landUse}</div>
+            <div class="spec-detail">SETENA Approved &middot; IDA Certified</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dp-section">
+        <div class="dp-section-title">Cadastral Plan</div>
+        ${cadastralHTML}
+      </div>
+
+      <div class="dp-section">
+        <div class="dp-section-title">Registry Information</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-label">Cadastral Plan #</div>
+            <div class="spec-value" style="font-family:monospace;font-size:12px;">${p.cadastral}</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Folio Real</div>
+            <div class="spec-value" style="font-family:monospace;font-size:12px;">${p.folio}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dp-section">
+        <div class="dp-section-title">Location</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-label">Latitude</div>
+            <div class="spec-value" style="font-family:monospace;font-size:12px;">${p.lat.toFixed(4)}\u00b0 N</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Longitude</div>
+            <div class="spec-value" style="font-family:monospace;font-size:12px;">${Math.abs(p.lng).toFixed(4)}\u00b0 W</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dp-actions">
+        <button class="dp-btn primary" onclick="alert('Request sent! (Mockup)')">Request Info</button>
+        <button class="dp-btn secondary" onclick="alert('Saved! (Mockup)')">&#9825; Save</button>
+      </div>
+    </div>
+  `;
+
+  panel.classList.add('open');
+}
+
+function generateCadastralGrid(p) {
+  // Generate a unique cadastral grid per property using the ID as seed
+  const seed = p.id.charCodeAt(0) * 100 + p.id.charCodeAt(1);
+  const cols = 8;
+  const rows = 6;
+  let cells = '';
+
+  const types = [
+    { color: 'rgba(45,212,168,0.25)', label: 'Buildable', border: 'rgba(45,212,168,0.4)' },
+    { color: 'rgba(201,168,76,0.2)', label: 'Setback', border: 'rgba(201,168,76,0.35)' },
+    { color: 'rgba(59,130,246,0.2)', label: 'Easement', border: 'rgba(59,130,246,0.35)' },
+    { color: 'rgba(249,112,102,0.15)', label: 'Protected', border: 'rgba(249,112,102,0.3)' },
+    { color: 'rgba(255,255,255,0.04)', label: 'Access', border: 'rgba(255,255,255,0.08)' },
+  ];
+
+  // Create a layout pattern
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      let typeIdx;
+      const isBorder = (r === 0 || r === rows-1 || c === 0 || c === cols-1);
+      const isCenter = (r >= 2 && r <= 3 && c >= 2 && c <= 5);
+      const isCorner = (r === 0 && c === 0) || (r === 0 && c === cols-1) || (r === rows-1 && c === 0) || (r === rows-1 && c === cols-1);
+
+      if (isCorner) typeIdx = 3; // Protected
+      else if (r === rows - 1 && c >= 3 && c <= 5) typeIdx = 4; // Access
+      else if (isBorder) typeIdx = 1; // Setback
+      else if (c === 1 && r >= 1 && r <= 2) typeIdx = 2; // Easement
+      else if (isCenter) typeIdx = 0; // Buildable
+      else typeIdx = Math.floor(seededRandom(seed + r * cols + c) * 2);
+
+      const t = types[typeIdx];
+      const highlight = isCenter ? 'highlight' : '';
+      cells += `<div class="cadastral-cell ${highlight}" style="background:${t.color};border:1px solid ${t.border};" title="${t.label}"></div>`;
+    }
+  }
+
+  return `
+    <div class="cadastral-container">
+      <div class="cadastral-grid" style="grid-template-columns:repeat(${cols},1fr);grid-template-rows:repeat(${rows},1fr);">
+        ${cells}
+      </div>
+      <div class="cadastral-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(45,212,168,0.5)"></div> Buildable</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(201,168,76,0.4)"></div> Setback</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(59,130,246,0.4)"></div> Easement</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(249,112,102,0.35)"></div> Protected</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,0.1)"></div> Access</div>
+      </div>
+      <div class="cadastral-meta">
+        <span>Plan: ${p.cadastral}</span>
+        <span>Scale: 1:1000</span>
+        <span>Area: ${p.area}</span>
+      </div>
+    </div>
+  `;
+}
+
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('open');
+}
+
+// ═════════════════════════════════════════════
+// UI Updates
+// ═════════════════════════════════════════════
+function updateBreadcrumb() {
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span onclick="zoomToLevel(0)" class="${currentLevel === 0 ? 'active' : ''}">Nosara Region</span>`;
+
+  if (currentLevel >= 1 && currentNeighborhood) {
+    const nIdx = NEIGHBORHOODS.indexOf(currentNeighborhood);
+    html += `<span class="sep">&#9656;</span>`;
+    html += `<span onclick="zoomToLevel(1, ${nIdx})" class="${currentLevel === 1 ? 'active' : ''}">${currentNeighborhood.name}</span>`;
+  }
+  if (currentLevel === 2 && currentProperty) {
+    html += `<span class="sep">&#9656;</span>`;
+    html += `<span class="active">${currentProperty.name}</span>`;
+  }
+  bc.innerHTML = html;
+}
+
+function updateLevelIndicator() {
+  const labels = ['Region View', 'Neighborhood', 'Property Detail'];
+  document.getElementById('levelLabel').textContent = labels[currentLevel];
+  for (let i = 0; i <= 2; i++) {
+    document.getElementById('lvl' + i).classList.toggle('active', i <= currentLevel);
+  }
+}
+
+function updateStats(props, avg, area, views) {
+  document.getElementById('statProperties').textContent = props;
+  document.getElementById('statAvg').textContent = avg;
+  document.getElementById('statArea').textContent = area;
+  document.getElementById('statViews').textContent = views;
+}
+
+// ═════════════════════════════════════════════
+// Gamification
+// ═════════════════════════════════════════════
+function addXP(amount, message) {
+  xpTotal += amount;
+  const xpForNext = 500;
+  const progress = Math.min((xpTotal % xpForNext) / xpForNext * 100, 100);
+
+  document.getElementById('xpFill').style.width = progress + '%';
+  document.getElementById('xpPoints').textContent = `${xpTotal % xpForNext} / ${xpForNext} XP`;
+
+  // Check level up
+  const newLevel = Math.floor(xpTotal / xpForNext) + 1;
+  if (newLevel > xpLevel) {
+    xpLevel = newLevel;
+    document.getElementById('xpFill').parentElement.previousElementSibling.textContent = `Explorer Level ${xpLevel}`;
+  }
+
+  // Show achievement toast
+  showAchievement(message, amount);
+
+  // Update nav XP
+  const navXP = document.querySelector('.nav-btn[style*="gold"]');
+  if (navXP) navXP.innerHTML = `<span style="margin-right:4px;">&#9733;</span> ${xpTotal} XP`;
+}
+
+function showAchievement(msg, xp) {
+  const toast = document.getElementById('achievementToast');
+  document.getElementById('achievementMsg').textContent = msg;
+  document.getElementById('achievementXP').textContent = `+${xp} XP`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+// ═════════════════════════════════════════════
+// Search
+// ═════════════════════════════════════════════
+function toggleSearch() {
+  const overlay = document.getElementById('searchOverlay');
+  overlay.classList.toggle('open');
+  if (overlay.classList.contains('open')) {
+    setTimeout(() => document.getElementById('searchInput').focus(), 100);
+  }
+}
+
+function onSearchInput(val) {
+  const results = document.getElementById('searchResults');
+  if (!val.trim()) {
+    // Show default results
+    results.innerHTML = NEIGHBORHOODS.map((n, i) => `
+      <div class="search-result-item" onclick="zoomToLevel(1, ${i}); toggleSearch();">
+        <div class="search-result-icon">&#127965;</div>
+        <div class="search-result-text"><h5>${n.name}</h5><p>${n.count} properties &middot; ${n.desc}</p></div>
+      </div>
+    `).join('');
+    return;
+  }
+
+  const lower = val.toLowerCase();
+  let matches = [];
+
+  NEIGHBORHOODS.forEach((n, ni) => {
+    if (n.name.toLowerCase().includes(lower) || n.desc.toLowerCase().includes(lower)) {
+      matches.push({ type: 'neighborhood', name: n.name, sub: `${n.count} properties`, ni, pi: null });
+    }
+    n.properties.forEach((p, pi) => {
+      if (p.name.toLowerCase().includes(lower) || p.zone.toLowerCase().includes(lower) || p.landUse.toLowerCase().includes(lower)) {
+        matches.push({ type: 'property', name: p.name, sub: `${p.price} &middot; ${p.zone}`, ni, pi });
+      }
+    });
+  });
+
+  results.innerHTML = matches.slice(0, 6).map(m => `
+    <div class="search-result-item" onclick="${m.type === 'neighborhood'
+      ? `zoomToLevel(1, ${m.ni}); toggleSearch();`
+      : `zoomToLevel(1, ${m.ni}); setTimeout(() => zoomToLevel(2, ${m.pi}), 600); toggleSearch();`}">
+      <div class="search-result-icon">${m.type === 'neighborhood' ? '&#127965;' : '&#128205;'}</div>
+      <div class="search-result-text"><h5>${m.name}</h5><p>${m.sub}</p></div>
+    </div>
+  `).join('') || '<div style="padding:20px;text-align:center;color:var(--text-muted);font-size:13px;">No results found</div>';
+}
+
+// ═════════════════════════════════════════════
+// Map view toggle
+// ═════════════════════════════════════════════
+document.getElementById('btnSatellite').addEventListener('click', function() {
+  setActiveView(this);
+});
+document.getElementById('btnTopo').addEventListener('click', function() {
+  setActiveView(this);
+});
+document.getElementById('btnZones').addEventListener('click', function() {
+  setActiveView(this);
+});
+
+function setActiveView(btn) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ═════════════════════════════════════════════
+// Keyboard
+// ═════════════════════════════════════════════
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('searchOverlay').classList.contains('open')) {
+      toggleSearch();
+    } else if (currentLevel > 0) {
+      zoomOut();
+    }
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    toggleSearch();
+  }
+});
+
+// ═════════════════════════════════════════════
+// Loading Sequence
+// ═════════════════════════════════════════════
+function runLoadingSequence() {
+  const bar = document.getElementById('loadingBar');
+  const text = document.getElementById('loadingText');
+  const steps = [
+    [20, 'Loading satellite imagery'],
+    [40, 'Mapping property boundaries'],
+    [60, 'Indexing cadastral records'],
+    [80, 'Rendering 3D terrain model'],
+    [100, 'Preparing your exploration']
+  ];
+
+  let i = 0;
+  function nextStep() {
+    if (i >= steps.length) {
+      setTimeout(() => {
+        document.getElementById('loadingScreen').classList.add('hidden');
+        document.getElementById('xpBar').classList.add('visible');
+        setTimeout(() => showAchievement('Welcome to NosaraExplorer', 0), 800);
+      }, 400);
+      return;
+    }
+    bar.style.width = steps[i][0] + '%';
+    text.textContent = steps[i][1];
+    i++;
+    setTimeout(nextStep, 500);
+  }
+  nextStep();
+}
+
+// ═════════════════════════════════════════════
+// Init
+// ═════════════════════════════════════════════
+function init() {
+  initCanvas();
+  renderMap();
+  renderMarkers();
+  updateBreadcrumb();
+  updateLevelIndicator();
+  runLoadingSequence();
+
+  window.addEventListener('resize', () => {
+    initCanvas();
+  });
+}
+
+init();
+</script>
+</body>
+</html>
