@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "agent_card": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Blue Water Properties",
+        "heading_size": "h3",
+        "text": "<p>Julián Monge represents buyers, sellers, and investors across Nosara, Playa Guiones, Pelada, and Garza. For listings and brokerage inquiries, please visit <a href=\"https://julianmonge.com\">julianmonge.com</a>.</p>",
+        "button_label": "Book a call",
+        "button_link": "https://calendly.com/julianmonge/intro",
+        "color_scheme": "background-2"
+      }
+    }
+  },
+  "order": ["main", "agent_card"]
+}

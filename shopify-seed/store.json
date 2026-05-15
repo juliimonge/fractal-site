@@ -1,0 +1,277 @@
+{
+  "store": {
+    "owner": "Julián Monge",
+    "brokerage": "Blue Water Properties",
+    "location": "Nosara, Costa Rica",
+    "subdomain": "shop.julianmonge.com",
+    "parent_site": "https://julianmonge.com",
+    "calendly_default": "https://calendly.com/julianmonge/intro"
+  },
+
+  "collections": [
+    {
+      "handle": "digital-products",
+      "title": "Digital Products",
+      "descriptionHtml": "<p>Editorial PDF guides, social templates, and presets — instant download via Shopify Digital Downloads.</p>",
+      "sortOrder": "MANUAL",
+      "seo": {
+        "title": "Digital guides for Nosara, Costa Rica — Julián Monge",
+        "description": "Instant-download PDF guides, Canva social templates, and Lightroom presets for buyers, agents, and creators in Nosara."
+      }
+    },
+    {
+      "handle": "services",
+      "title": "Services",
+      "descriptionHtml": "<p>Done-for-you content production packages. Book a call to scope the right package.</p>",
+      "sortOrder": "PRICE_ASC",
+      "seo": {
+        "title": "Content services for real estate agents in Nosara — Julián Monge",
+        "description": "Starter, Growth, and Full Production content packages for real estate agents and short-term rental owners in Costa Rica."
+      }
+    },
+    {
+      "handle": "nosara-merch",
+      "title": "Nosara Merch",
+      "descriptionHtml": "<p>Print-on-demand tees, caps, and stickers. Fulfilled by Printful.</p>",
+      "sortOrder": "MANUAL",
+      "seo": {
+        "title": "Nosara, Costa Rica merch — tees, caps, stickers",
+        "description": "Pura vida wearables for Nosara lovers. Printed on demand, shipped worldwide."
+      }
+    }
+  ],
+
+  "products": [
+    {
+      "collection": "digital-products",
+      "title": "Invest in Nosara — PDF Guide",
+      "handle": "invest-in-nosara",
+      "productType": "Digital Download",
+      "vendor": "Julián Monge",
+      "tags": ["digital", "guide", "nosara", "investment"],
+      "status": "ACTIVE",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>A 60+ page PDF on real estate investment in Nosara: market dynamics, neighborhoods (Guiones, Pelada, Garza), titled vs concession land, rental yields, and the buyer's process. Delivered as a downloadable PDF immediately after purchase.</p>",
+      "price": "29.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "29.00", "sku": "DG-INVEST-NOSARA", "requiresShipping": false, "taxable": false }
+      ],
+      "seo": {
+        "title": "Invest in Nosara — PDF buyer's guide | Julián Monge",
+        "description": "60+ page PDF guide to real estate investment in Nosara, Costa Rica. Market data, neighborhoods, titled vs concession, rental yields."
+      }
+    },
+    {
+      "collection": "digital-products",
+      "title": "Relocate to Nosara — Relocation Playbook",
+      "handle": "relocate-to-nosara",
+      "productType": "Digital Download",
+      "vendor": "Julián Monge",
+      "tags": ["digital", "guide", "nosara", "relocation"],
+      "status": "ACTIVE",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>A practical playbook for moving to Nosara: visas, residency paths, healthcare, schools, internet, vehicles, and a 90-day relocation checklist. PDF.</p>",
+      "price": "39.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "39.00", "sku": "DG-RELOCATE-NOSARA", "requiresShipping": false, "taxable": false }
+      ],
+      "seo": {
+        "title": "Relocate to Nosara — Costa Rica relocation playbook | Julián Monge",
+        "description": "Practical PDF playbook for moving to Nosara, Costa Rica: visas, residency, healthcare, schools, and a 90-day relocation checklist."
+      }
+    },
+    {
+      "collection": "digital-products",
+      "title": "Real Estate Agent Social Templates — Canva Pack",
+      "handle": "real-estate-social-templates",
+      "productType": "Digital Download",
+      "vendor": "Julián Monge",
+      "tags": ["digital", "canva", "real-estate", "social"],
+      "status": "ACTIVE",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>40+ Canva templates for real estate agents: listing announcements, just-sold, market updates, neighborhood guides, reels covers. Editable Canva file delivered as a link in a PDF.</p>",
+      "price": "19.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "19.00", "sku": "DG-CANVA-RE-PACK", "requiresShipping": false, "taxable": false }
+      ],
+      "seo": {
+        "title": "Real Estate Agent Canva Templates — 40+ social posts | Julián Monge",
+        "description": "Editable Canva templates for real estate agents: listing announcements, just-sold, market updates, neighborhood guides, reels."
+      }
+    },
+    {
+      "collection": "digital-products",
+      "title": "Nosara Coastal — Lightroom Preset Pack",
+      "handle": "nosara-coastal-lightroom-presets",
+      "productType": "Digital Download",
+      "vendor": "Julián Monge",
+      "tags": ["digital", "lightroom", "presets", "photography"],
+      "status": "ACTIVE",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>10 Lightroom presets tuned for Nosara's light — golden hour, overcast, jungle, surf, and interior real estate. Mobile and desktop compatible (.xmp and .dng).</p>",
+      "price": "15.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "15.00", "sku": "DG-LR-NOSARA-COASTAL", "requiresShipping": false, "taxable": false }
+      ],
+      "seo": {
+        "title": "Nosara Coastal Lightroom Presets — 10 pack | Julián Monge",
+        "description": "10 Lightroom presets tuned for Nosara's light. Golden hour, overcast, jungle, surf, interiors. Mobile and desktop."
+      }
+    },
+
+    {
+      "collection": "services",
+      "title": "Starter Content Package",
+      "handle": "starter-content-package",
+      "productType": "Service",
+      "vendor": "Julián Monge",
+      "tags": ["service", "content", "starter"],
+      "status": "ACTIVE",
+      "templateSuffix": "service",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>A one-listing or one-event content sprint. One half-day shoot, edited photo set, one short-form vertical video, and Instagram-ready posts. Best for agents and STR owners testing the waters.</p><ul><li>1 half-day shoot</li><li>20+ edited stills</li><li>1 short-form vertical video</li><li>5 Instagram post drafts</li></ul>",
+      "price": "450.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "450.00", "sku": "SRV-STARTER", "requiresShipping": false, "taxable": false }
+      ],
+      "metafields": [
+        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/starter" },
+        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
+      ],
+      "seo": {
+        "title": "Starter Content Package — Real estate content production, Nosara",
+        "description": "Half-day shoot, edited photos, one short-form video, and 5 Instagram posts. For agents and STR owners getting started."
+      }
+    },
+    {
+      "collection": "services",
+      "title": "Growth Package",
+      "handle": "growth-package",
+      "productType": "Service",
+      "vendor": "Julián Monge",
+      "tags": ["service", "content", "growth"],
+      "status": "ACTIVE",
+      "templateSuffix": "service",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>A monthly content engine for active listings or growing STR portfolios. Two shoots per month, photo + short-form video bundles, post drafts, and a monthly strategy call.</p><ul><li>2 half-day shoots / month</li><li>50+ edited stills / month</li><li>4 short-form vertical videos / month</li><li>10 Instagram post drafts</li><li>1 monthly strategy call</li></ul>",
+      "price": "950.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "950.00", "sku": "SRV-GROWTH", "requiresShipping": false, "taxable": false }
+      ],
+      "metafields": [
+        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/growth" },
+        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
+      ],
+      "seo": {
+        "title": "Growth Package — Monthly content production for real estate | Nosara",
+        "description": "Two shoots per month, 50+ photos, 4 short-form videos, post drafts, and a monthly strategy call. For active listings and STR portfolios."
+      }
+    },
+    {
+      "collection": "services",
+      "title": "Full Production Package",
+      "handle": "full-production-package",
+      "productType": "Service",
+      "vendor": "Julián Monge",
+      "tags": ["service", "content", "full-production"],
+      "status": "ACTIVE",
+      "templateSuffix": "service",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>End-to-end content production. Dedicated weekly capture, long-form and short-form video, drone, photography, copywriting, and content scheduling. For brokerages and developers.</p><ul><li>Weekly captures</li><li>Unlimited edited stills</li><li>Long-form + short-form video</li><li>Drone footage included</li><li>Copywriting + scheduling</li><li>Weekly strategy call</li></ul>",
+      "price": "1800.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "1800.00", "sku": "SRV-FULL-PRODUCTION", "requiresShipping": false, "taxable": false }
+      ],
+      "metafields": [
+        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/full-production" },
+        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
+      ],
+      "seo": {
+        "title": "Full Production Package — Weekly content for brokerages & developers | Nosara",
+        "description": "End-to-end content: weekly captures, long + short-form video, drone, photography, copy, scheduling. For brokerages and developers."
+      }
+    },
+
+    {
+      "collection": "nosara-merch",
+      "title": "Nosara CR Tee",
+      "handle": "nosara-cr-tee",
+      "productType": "Apparel",
+      "vendor": "Julián Monge",
+      "tags": ["merch", "printful", "apparel", "tee"],
+      "status": "DRAFT",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>Soft cotton tee with a minimal Nosara, CR mark. Printed on demand by Printful. Sizes XS–3XL.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "price": "32.00",
+      "options": ["Size", "Color"],
+      "variants": [
+        { "title": "S / Sand", "price": "32.00", "sku": "MERCH-TEE-S-SAND", "optionValues": [{"optionName":"Size","name":"S"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
+        { "title": "M / Sand", "price": "32.00", "sku": "MERCH-TEE-M-SAND", "optionValues": [{"optionName":"Size","name":"M"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
+        { "title": "L / Sand", "price": "32.00", "sku": "MERCH-TEE-L-SAND", "optionValues": [{"optionName":"Size","name":"L"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
+        { "title": "XL / Sand", "price": "32.00", "sku": "MERCH-TEE-XL-SAND", "optionValues": [{"optionName":"Size","name":"XL"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true }
+      ],
+      "seo": {
+        "title": "Nosara CR Tee — Pura vida apparel | Julián Monge",
+        "description": "Minimal Nosara, CR cotton tee. Printed on demand by Printful. Sizes XS–3XL."
+      }
+    },
+    {
+      "collection": "nosara-merch",
+      "title": "Nosara CR Cap",
+      "handle": "nosara-cr-cap",
+      "productType": "Headwear",
+      "vendor": "Julián Monge",
+      "tags": ["merch", "printful", "cap"],
+      "status": "DRAFT",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>Unstructured dad cap with a Nosara wordmark. Printed and embroidered on demand. One size adjustable.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "price": "28.00",
+      "options": ["Color"],
+      "variants": [
+        { "title": "Sand", "price": "28.00", "sku": "MERCH-CAP-SAND", "optionValues": [{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
+        { "title": "Deep Teal", "price": "28.00", "sku": "MERCH-CAP-TEAL", "optionValues": [{"optionName":"Color","name":"Deep Teal"}], "requiresShipping": true }
+      ],
+      "seo": {
+        "title": "Nosara CR Cap — Embroidered dad cap | Julián Monge",
+        "description": "Unstructured dad cap with embroidered Nosara wordmark. Printed on demand. One size adjustable."
+      }
+    },
+    {
+      "collection": "nosara-merch",
+      "title": "Nosara Sticker Pack",
+      "handle": "nosara-sticker-pack",
+      "productType": "Accessory",
+      "vendor": "Julián Monge",
+      "tags": ["merch", "printful", "sticker"],
+      "status": "DRAFT",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>A 3-pack of die-cut vinyl stickers — pelican, surfboard, Nosara wordmark. Weatherproof. Printed on demand.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "price": "8.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "8.00", "sku": "MERCH-STICKER-3PACK", "requiresShipping": true }
+      ],
+      "seo": {
+        "title": "Nosara Sticker Pack — 3 die-cut vinyl stickers | Julián Monge",
+        "description": "Weatherproof die-cut vinyl stickers: pelican, surfboard, Nosara wordmark. 3-pack, printed on demand."
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "header-group",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_text": "JULIÁN MONGE"
+      }
+    }
+  },
+  "order": ["header"]
+}

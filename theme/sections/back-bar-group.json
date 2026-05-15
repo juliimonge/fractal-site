@@ -1,0 +1,13 @@
+{
+  "type": "back-bar-group",
+  "name": "Back bar group",
+  "sections": {
+    "back-bar": {
+      "type": "back-bar",
+      "settings": {
+        "label": "Back to julianmonge.com"
+      }
+    }
+  },
+  "order": ["back-bar"]
+}

@@ -1,0 +1,33 @@
+{
+  "current": {
+    "color_brand_deep_teal": "#0C2830",
+    "color_brand_ocean_blue": "#17617C",
+    "color_brand_light_teal": "#99D6D8",
+    "color_brand_off_white": "#F5F0E6",
+    "color_brand_white": "#FFFFFF",
+
+    "type_header_font": "playfair_display_n5",
+    "type_body_font": "inter_n4",
+
+    "brand_parent_site_url": "https://julianmonge.com",
+    "brand_calendly_url": "https://calendly.com/julianmonge/intro",
+    "brand_tagline": "Real estate in Nosara, Costa Rica.",
+
+    "buttons_radius": 0,
+    "buttons_border_thickness": 1,
+    "page_width": 1280,
+
+    "predictive_search_enabled": true
+  },
+  "presets": {
+    "Brand": {
+      "color_brand_deep_teal": "#0C2830",
+      "color_brand_ocean_blue": "#17617C",
+      "color_brand_light_teal": "#99D6D8",
+      "color_brand_off_white": "#F5F0E6",
+      "color_brand_white": "#FFFFFF",
+      "type_header_font": "playfair_display_n5",
+      "type_body_font": "inter_n4"
+    }
+  }
+}

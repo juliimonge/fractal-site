@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "heading": "Nosara, considered.",
+        "subheading": "Editorial guides, services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.",
+        "button_label_1": "Explore digital guides",
+        "button_link_1": "shopify://collections/digital-products",
+        "button_label_2": "Browse services",
+        "button_link_2": "shopify://collections/services",
+        "image_overlay_opacity": 25,
+        "image_height": "large",
+        "color_scheme": "background-2",
+        "show_text_box": true,
+        "desktop_content_position": "middle-left",
+        "show_text_below": false,
+        "heading_size": "h0"
+      }
+    },
+    "featured_digital": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Digital guides",
+        "heading_size": "h2",
+        "description": "Instant-download playbooks for moving to, investing in, and creating content about Nosara.",
+        "collection": "digital-products",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "view_all_style": "link",
+        "show_view_all": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "featured_services": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Content services",
+        "heading_size": "h2",
+        "description": "Done-for-you content packages for real estate agents and short-term-rental owners.",
+        "collection": "services",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "view_all_style": "link",
+        "show_view_all": true,
+        "color_scheme": "background-2"
+      }
+    },
+    "featured_merch": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Nosara merch",
+        "heading_size": "h2",
+        "description": "Pura vida wearables. Printed on demand, shipped worldwide.",
+        "collection": "nosara-merch",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "view_all_style": "link",
+        "show_view_all": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "about_strip": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "About Julián",
+        "heading_size": "h2",
+        "text": "<p>Julián Monge is a real estate agent with Blue Water Properties in Nosara, Costa Rica. This shop is a small extension of that work — guides, services, and goods for people drawn to this coast.</p>",
+        "button_label": "Read more",
+        "button_link": "shopify://pages/about",
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": ["hero", "featured_digital", "featured_services", "featured_merch", "about_strip"]
+}

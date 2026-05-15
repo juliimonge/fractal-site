@@ -1,0 +1,62 @@
+{%- liquid
+  assign nav_logo = section.settings.logo
+  assign nav_title = section.settings.logo_text | default: shop.name
+-%}
+
+<header class="header header--brand page-width" role="banner">
+  <a href="{{ routes.root_url }}" class="header__heading-link" aria-label="{{ shop.name }}">
+    {%- if nav_logo != blank -%}
+      {{ nav_logo | image_url: width: 240 | image_tag:
+        loading: 'eager',
+        widths: '120, 240, 360',
+        height: nav_logo.height,
+        width: nav_logo.width,
+        alt: nav_title,
+        class: 'header__heading-logo'
+      }}
+    {%- else -%}
+      <span class="header__heading-logo">{{ nav_title }}</span>
+    {%- endif -%}
+  </a>
+
+  <nav class="header__inline-menu" aria-label="Primary">
+    <ul class="list-menu list-menu--inline" role="list">
+      <li><a href="{{ routes.collections_url }}/digital-products" class="header__menu-item">Shop</a></li>
+      <li><a href="{{ routes.collections_url }}/services" class="header__menu-item">Services</a></li>
+      <li><a href="{{ routes.root_url }}pages/about" class="header__menu-item">About</a></li>
+      <li><a href="{{ routes.root_url }}pages/contact" class="header__menu-item">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header__icons">
+    <a href="{{ routes.search_url }}" class="header__icon header__icon--search" aria-label="Search">
+      {% render 'icon-search' %}
+    </a>
+    <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" aria-label="Cart">
+      {% render 'icon-cart' %}
+      {%- if cart != empty -%}
+        <span class="cart-count-bubble">{{ cart.item_count }}</span>
+      {%- endif -%}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "JULIÁN MONGE"
+    }
+  ]
+}
+{% endschema %}

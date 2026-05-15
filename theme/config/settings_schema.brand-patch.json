@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_deep_teal",
+        "label": "Deep Teal",
+        "default": "#0C2830"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_ocean_blue",
+        "label": "Ocean Blue",
+        "default": "#17617C"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_light_teal",
+        "label": "Light Teal",
+        "default": "#99D6D8"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_off_white",
+        "label": "Warm Off-White",
+        "default": "#F5F0E6"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_white",
+        "label": "White",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "External links"
+      },
+      {
+        "type": "url",
+        "id": "brand_parent_site_url",
+        "label": "Parent site URL",
+        "info": "Used by the sticky back bar."
+      },
+      {
+        "type": "url",
+        "id": "brand_calendly_url",
+        "label": "Default Calendly URL",
+        "info": "Used by service product pages when no per-product metafield is set."
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "Brand tagline",
+        "default": "Real estate in Nosara, Costa Rica."
+      }
+    ]
+  }
+]

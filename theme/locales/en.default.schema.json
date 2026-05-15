@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "back-bar": {
+      "name": "Back bar",
+      "settings": {
+        "parent_site_url": {
+          "label": "Parent site URL"
+        },
+        "label": {
+          "label": "Link label"
+        }
+      }
+    }
+  }
+}

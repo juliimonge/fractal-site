@@ -1,0 +1,123 @@
+{%- liquid
+  assign calendly_url = product.metafields.custom.calendly_url | default: settings.brand_calendly_url | default: 'https://calendly.com/julianmonge'
+  assign cta_label = product.metafields.custom.cta_label | default: 'Book a call'
+-%}
+
+<section class="service-product page-width" data-section-id="{{ section.id }}">
+  <div class="service-product__grid">
+    <div class="service-product__media">
+      {%- if product.featured_media -%}
+        {{ product.featured_media | image_url: width: 1200 | image_tag:
+          loading: 'eager',
+          widths: '480, 720, 960, 1200',
+          alt: product.featured_media.alt | default: product.title,
+          class: 'service-product__image'
+        }}
+      {%- else -%}
+        <div class="service-product__image-placeholder brand-surface--ocean"></div>
+      {%- endif -%}
+    </div>
+
+    <div class="service-product__detail">
+      <p class="service-product__eyebrow">Services</p>
+      <h1 class="service-product__title h1">{{ product.title }}</h1>
+
+      <p class="service-product__price h3">
+        {{ product.price | money }}
+      </p>
+
+      <div class="service-product__description rte">
+        {{ product.description }}
+      </div>
+
+      <a
+        href="{{ calendly_url }}"
+        class="button button--primary service-product__cta"
+        target="_blank"
+        rel="noopener"
+        data-calendly-link
+        aria-label="{{ cta_label }} for {{ product.title | escape }}"
+      >
+        {{ cta_label }}
+      </a>
+
+      <p class="service-product__note">
+        Pricing is confirmed on the call. No charge until we both agree on scope.
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- comment -%}
+  Calendly inline-widget script — optional. The CTA opens the URL directly,
+  but if you want a popup overlay, this script enables it.
+{%- endcomment -%}
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ctas = document.querySelectorAll('[data-calendly-link]');
+    ctas.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          e.preventDefault();
+          window.Calendly.initPopupWidget({ url: el.getAttribute('href') });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .service-product { padding: 3rem 0 5rem; }
+  .service-product__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 750px) {
+    .service-product__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+  }
+  .service-product__image,
+  .service-product__image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+  .service-product__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    color: var(--brand-ocean-blue);
+    margin: 0 0 1rem;
+  }
+  .service-product__title { margin: 0 0 1rem; }
+  .service-product__price { margin: 0 0 1.5rem; color: var(--brand-ocean-blue); }
+  .service-product__description { margin-bottom: 2rem; line-height: 1.7; }
+  .service-product__cta { display: inline-block; min-width: 220px; text-align: center; }
+  .service-product__note { margin-top: 1rem; font-size: 0.8125rem; color: rgba(12,40,48,0.6); }
+</style>
+
+{% schema %}
+{
+  "name": "Service product",
+  "tag": "section",
+  "class": "section-service-product",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Service products bypass cart/checkout. The CTA opens Calendly. Configure the URL on the product via the `custom.calendly_url` metafield, or fall back to the Brand setting."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service product"
+    }
+  ]
+}
+{% endschema %}
