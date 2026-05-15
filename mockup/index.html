@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>shop.julianmonge.com — Theme mockup</title>
+<meta name="description" content="Static preview of the shop.julianmonge.com Shopify theme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+<style>
+  :root {
+    --deep-teal: #0C2830;
+    --ocean: #17617C;
+    --light-teal: #99D6D8;
+    --off-white: #F5F0E6;
+    --white: #FFFFFF;
+    --rule: rgba(12, 40, 48, 0.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--off-white);
+    color: var(--deep-teal);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--deep-teal);
+    margin: 0;
+  }
+  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; }
+  h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.15; }
+  h3 { font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.25; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--ocean); text-decoration: none; }
+  a:hover { color: var(--deep-teal); }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  @media (max-width: 749px) { .container { padding: 0 1.125rem; } }
+
+  /* ───── BACK BAR ───── */
+  .back-bar {
+    position: sticky; top: 0; z-index: 60;
+    background: var(--deep-teal);
+    color: var(--off-white);
+    border-bottom: 1px solid rgba(245, 240, 230, 0.08);
+  }
+  .back-bar__inner {
+    display: flex; align-items: center;
+    min-height: 38px;
+    padding: 0.5rem 1.5rem;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .back-bar a {
+    color: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: color 160ms ease;
+  }
+  .back-bar a:hover { color: var(--light-teal); }
+  .back-bar a:hover .arrow { transform: translateX(-3px); }
+  .arrow { display: inline-block; transition: transform 200ms ease; }
+
+  /* ───── HEADER ───── */
+  .header {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--rule);
+    position: sticky; top: 38px; z-index: 50;
+    backdrop-filter: blur(8px);
+    background-color: rgba(245, 240, 230, 0.92);
+  }
+  .header__inner {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 1.125rem 1.5rem;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .header__logo {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 1.125rem;
+    letter-spacing: 0.06em;
+    color: var(--deep-teal);
+    justify-self: start;
+  }
+  .header__nav ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; gap: 2.25rem;
+    justify-content: center;
+  }
+  .header__nav a {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--deep-teal);
+  }
+  .header__nav a:hover { color: var(--ocean); }
+  .header__icons {
+    display: flex; justify-content: flex-end; gap: 1.25rem;
+  }
+  .header__icons a {
+    color: var(--deep-teal);
+    display: inline-flex; align-items: center;
+    font-size: 0.875rem;
+  }
+  .icon { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  @media (max-width: 749px) {
+    .header__inner { grid-template-columns: 1fr auto; padding: 0.875rem 1.125rem; }
+    .header__nav { display: none; }
+    .header__icons { gap: 1rem; }
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+    color: var(--off-white);
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(12,40,48,0.55) 0%, rgba(12,40,48,0.35) 50%, rgba(12,40,48,0.7) 100%),
+      radial-gradient(at 70% 30%, #2a8aa6 0%, #17617C 35%, #0C2830 80%);
+    z-index: 0;
+  }
+  .hero__bg::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 80%, rgba(153,214,216,0.25) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 20%, rgba(245,240,230,0.15) 0%, transparent 50%);
+  }
+  .hero__inner {
+    position: relative; z-index: 1;
+    padding: 6rem 0 5rem;
+  }
+  .hero__eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    opacity: 0.85;
+  }
+  .hero h1 {
+    color: var(--off-white);
+    max-width: 18ch;
+    margin-bottom: 1.5rem;
+  }
+  .hero__lede {
+    font-size: 1.125rem;
+    max-width: 52ch;
+    opacity: 0.92;
+    margin-bottom: 2.5rem;
+  }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 0.875rem; }
+
+  /* ───── BUTTONS ───── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.9rem 1.75rem;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    cursor: pointer;
+    transition: all 200ms ease;
+    border-radius: 0;
+    text-decoration: none;
+  }
+  .btn--primary {
+    background: var(--deep-teal);
+    color: var(--white);
+    border-color: var(--deep-teal);
+  }
+  .btn--primary:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+  .btn--ghost {
+    background: transparent;
+    color: var(--off-white);
+    border-color: var(--off-white);
+  }
+  .btn--ghost:hover { background: var(--off-white); color: var(--deep-teal); }
+  .btn--secondary {
+    background: transparent;
+    color: var(--deep-teal);
+    border-color: var(--deep-teal);
+  }
+  .btn--secondary:hover { background: var(--deep-teal); color: var(--white); }
+
+  /* ───── SECTIONS ───── */
+  .section { padding: 5rem 0; }
+  .section--tight { padding: 3.5rem 0; }
+  .section--teal { background: var(--deep-teal); color: var(--off-white); }
+  .section--teal h2, .section--teal h3 { color: var(--off-white); }
+  .section--light-teal { background: var(--light-teal); }
+
+  .section__head {
+    display: flex; align-items: end; justify-content: space-between;
+    margin-bottom: 2.5rem; gap: 2rem;
+  }
+  .section__head-text { max-width: 56ch; }
+  .section__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin: 0 0 0.75rem;
+  }
+  .section--teal .section__eyebrow { color: var(--light-teal); }
+  .section__desc { opacity: 0.85; font-size: 1rem; margin: 0.75rem 0 0; }
+  .section__cta { white-space: nowrap; }
+  @media (max-width: 749px) {
+    .section { padding: 3.5rem 0; }
+    .section__head { flex-direction: column; align-items: start; }
+  }
+
+  /* ───── PRODUCT GRID ───── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 999px) { .grid, .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .grid, .grid--3 { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .card { display: flex; flex-direction: column; gap: 1rem; }
+  .card__media {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .section--teal .card__media { border-color: rgba(245,240,230,0.12); background: rgba(245,240,230,0.05); }
+  .card__media-art {
+    width: 75%; height: 75%;
+    background: var(--gradient, linear-gradient(135deg, var(--ocean), var(--deep-teal)));
+    color: var(--off-white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.2;
+  }
+  .card__media-art--pdf { background: linear-gradient(180deg, #17617C, #0C2830); }
+  .card__media-art--canva { background: linear-gradient(135deg, #99D6D8 0%, #17617C 100%); color: var(--deep-teal); }
+  .card__media-art--preset { background: linear-gradient(180deg, #F5C77A 0%, #D9846B 50%, #5A3A4F 100%); color: var(--off-white); }
+  .card__media-art--svc { background: linear-gradient(135deg, #0C2830 0%, #17617C 100%); }
+  .card__media-art--tee { background: linear-gradient(135deg, #E8DCC2, #C9B68E); color: var(--deep-teal); }
+  .card__media-art--cap { background: linear-gradient(135deg, #0C2830 0%, #1d4a5a 100%); }
+  .card__media-art--sticker { background: linear-gradient(135deg, #99D6D8, #F5F0E6); color: var(--deep-teal); }
+
+  .card__type {
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin: 0;
+  }
+  .section--teal .card__type { color: var(--light-teal); }
+  .card__title { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin: 0; }
+  .card__price { font-size: 0.95rem; opacity: 0.85; margin: 0; }
+  .card__cta { margin-top: 0.5rem; font-size: 0.8125rem; letter-spacing: 0.1em; }
+
+  /* ───── SERVICE BLOCK ───── */
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .section--teal .service-card { background: rgba(245,240,230,0.04); border-color: rgba(245,240,230,0.12); color: var(--off-white); }
+  .service-card h3 { font-size: 1.5rem; margin: 0; }
+  .section--teal .service-card h3 { color: var(--off-white); }
+  .service-card__price { font-family: var(--serif); font-size: 1.75rem; color: var(--ocean); }
+  .section--teal .service-card__price { color: var(--light-teal); }
+  .service-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.9375rem; opacity: 0.9; }
+  .service-card li { margin-bottom: 0.4rem; }
+  .service-card .btn { align-self: start; margin-top: 0.5rem; }
+
+  /* ───── SERVICE PRODUCT PAGE PREVIEW ───── */
+  .svc-page {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  @media (max-width: 899px) { .svc-page { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .svc-page__media {
+    aspect-ratio: 4/5; width: 100%;
+    background: linear-gradient(135deg, #0C2830 0%, #17617C 50%, #99D6D8 100%);
+    position: relative; overflow: hidden;
+  }
+  .svc-page__media::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(at 80% 20%, rgba(245,240,230,0.25), transparent 50%),
+      radial-gradient(at 20% 80%, rgba(12,40,48,0.4), transparent 60%);
+  }
+  .svc-page__eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--ocean);
+    margin: 0 0 1rem;
+  }
+  .svc-page__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .svc-page__price { font-family: var(--serif); font-size: 2rem; color: var(--ocean); margin-bottom: 1.5rem; }
+  .svc-page__desc { margin-bottom: 2rem; line-height: 1.7; }
+  .svc-page__cta { min-width: 240px; }
+  .svc-page__note {
+    margin-top: 1rem; font-size: 0.8125rem;
+    color: rgba(12,40,48,0.6);
+  }
+
+  /* ───── ABOUT STRIP ───── */
+  .about {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 4rem; align-items: center;
+  }
+  @media (max-width: 899px) { .about { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .about__portrait {
+    aspect-ratio: 4/5;
+    background:
+      radial-gradient(at 40% 30%, rgba(245,240,230,0.85), transparent 35%),
+      linear-gradient(135deg, #99D6D8 0%, #17617C 60%, #0C2830 100%);
+    position: relative;
+  }
+  .about__portrait::after {
+    content: "JM";
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 5rem;
+    color: var(--off-white); opacity: 0.85;
+    letter-spacing: 0.02em;
+  }
+  .about__body p { font-size: 1.0625rem; line-height: 1.7; }
+
+  /* ───── FOOTER ───── */
+  .footer {
+    background: var(--deep-teal);
+    color: var(--off-white);
+    padding: 4rem 0 2rem;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 899px) { .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  @media (max-width: 599px) { .footer__grid { grid-template-columns: 1fr; } }
+  .footer h4 {
+    font-family: var(--sans); font-size: 0.75rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light-teal); font-weight: 600;
+    margin: 0 0 1rem;
+  }
+  .footer ul { list-style: none; padding: 0; margin: 0; }
+  .footer li { margin-bottom: 0.6rem; }
+  .footer a { color: var(--off-white); font-size: 0.9rem; opacity: 0.85; }
+  .footer a:hover { color: var(--light-teal); opacity: 1; }
+  .footer__brand h3 {
+    font-family: var(--serif); font-size: 1.5rem;
+    color: var(--off-white); margin: 0 0 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .footer__brand p { font-size: 0.9rem; opacity: 0.75; max-width: 36ch; }
+  .footer__bottom {
+    border-top: 1px solid rgba(245,240,230,0.12);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between;
+    font-size: 0.8125rem; opacity: 0.65;
+  }
+  @media (max-width: 599px) { .footer__bottom { flex-direction: column; gap: 0.5rem; } }
+
+  /* ───── MOCKUP ANNOTATIONS ───── */
+  .annotation {
+    background: var(--light-teal);
+    color: var(--deep-teal);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    border-top: 1px solid rgba(12,40,48,0.1);
+    border-bottom: 1px solid rgba(12,40,48,0.1);
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── BACK BAR ───────── -->
+<aside class="back-bar" aria-label="Site navigation">
+  <div class="back-bar__inner">
+    <a href="https://julianmonge.com">
+      <span class="arrow">←</span>
+      <span>Back to julianmonge.com</span>
+    </a>
+  </div>
+</aside>
+
+<!-- ───────── HEADER ───────── -->
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">JULIÁN MONGE</div>
+    <nav class="header__nav">
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header__icons">
+      <a href="#search" aria-label="Search">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      </a>
+      <a href="#cart" aria-label="Cart">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18l-2 12H5L3 6zm0 0L2 3"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="annotation">— Homepage —</div>
+
+<!-- ───────── HERO ───────── -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="container hero__inner">
+    <p class="hero__eyebrow">Nosara · Costa Rica</p>
+    <h1>Nosara, considered.</h1>
+    <p class="hero__lede">Editorial guides, services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--ghost" href="#shop">Explore digital guides</a>
+      <a class="btn btn--ghost" href="#services">Browse services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FEATURED DIGITAL ───────── -->
+<section class="section" id="shop">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__head-text">
+        <p class="section__eyebrow">Collection 01</p>
+        <h2>Digital guides</h2>
+        <p class="section__desc">Instant-download playbooks for moving to, investing in, and creating content about Nosara.</p>
+      </div>
+      <a class="section__cta" href="#">View all →</a>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--pdf">Invest<br>in Nosara</div></div>
+        <p class="card__type">PDF guide</p>
+        <h3 class="card__title">Invest in Nosara</h3>
+        <p class="card__price">$29.00</p>
+      </article>
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--pdf">Relocate<br>to Nosara</div></div>
+        <p class="card__type">PDF playbook</p>
+        <h3 class="card__title">Relocate to Nosara</h3>
+        <p class="card__price">$39.00</p>
+      </article>
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--canva">Canva<br>Templates</div></div>
+        <p class="card__type">Canva pack</p>
+        <h3 class="card__title">Real Estate Social Templates</h3>
+        <p class="card__price">$19.00</p>
+      </article>
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--preset">Nosara<br>Coastal</div></div>
+        <p class="card__type">Lightroom presets</p>
+        <h3 class="card__title">Nosara Coastal Preset Pack</h3>
+        <p class="card__price">$15.00</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── SERVICES ───────── -->
+<section class="section section--teal" id="services">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__head-text">
+        <p class="section__eyebrow">Collection 02</p>
+        <h2>Content services</h2>
+        <p class="section__desc">Done-for-you content production for real estate agents and short-term rental owners. Book a call to scope the right package.</p>
+      </div>
+    </div>
+
+    <div class="grid grid--3">
+      <div class="service-card">
+        <p class="card__type">Starter</p>
+        <h3>Starter Content Package</h3>
+        <p class="service-card__price">$450</p>
+        <ul>
+          <li>1 half-day shoot</li>
+          <li>20+ edited stills</li>
+          <li>1 short-form vertical video</li>
+          <li>5 Instagram post drafts</li>
+        </ul>
+        <a class="btn btn--ghost" href="#service-page">Book a call</a>
+      </div>
+      <div class="service-card">
+        <p class="card__type">Growth</p>
+        <h3>Growth Package</h3>
+        <p class="service-card__price">$950</p>
+        <ul>
+          <li>2 half-day shoots / month</li>
+          <li>50+ edited stills / month</li>
+          <li>4 short-form vertical videos</li>
+          <li>Monthly strategy call</li>
+        </ul>
+        <a class="btn btn--ghost" href="#service-page">Book a call</a>
+      </div>
+      <div class="service-card">
+        <p class="card__type">Full Production</p>
+        <h3>Full Production Package</h3>
+        <p class="service-card__price">$1,800</p>
+        <ul>
+          <li>Weekly captures</li>
+          <li>Long-form + short-form video</li>
+          <li>Drone footage included</li>
+          <li>Copywriting + scheduling</li>
+        </ul>
+        <a class="btn btn--ghost" href="#service-page">Book a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── MERCH ───────── -->
+<section class="section" id="merch">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__head-text">
+        <p class="section__eyebrow">Collection 03</p>
+        <h2>Nosara merch</h2>
+        <p class="section__desc">Pura vida wearables. Printed on demand by Printful, shipped worldwide.</p>
+      </div>
+      <a class="section__cta" href="#">View all →</a>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--tee">NOSARA<br>—— CR ——</div></div>
+        <p class="card__type">Apparel</p>
+        <h3 class="card__title">Nosara CR Tee</h3>
+        <p class="card__price">$32.00</p>
+      </article>
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--cap">Nosara</div></div>
+        <p class="card__type">Headwear</p>
+        <h3 class="card__title">Nosara CR Cap</h3>
+        <p class="card__price">$28.00</p>
+      </article>
+      <article class="card">
+        <div class="card__media"><div class="card__media-art card__media-art--sticker">★ Pura ★<br>Vida</div></div>
+        <p class="card__type">Accessory</p>
+        <h3 class="card__title">Nosara Sticker Pack</h3>
+        <p class="card__price">$8.00</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── ABOUT STRIP ───────── -->
+<section class="section section--light-teal" id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about__portrait"></div>
+      <div class="about__body">
+        <p class="section__eyebrow">About</p>
+        <h2>Julián Monge</h2>
+        <p>Julián Monge is a real estate agent with <strong>Blue Water Properties</strong> in Nosara, Costa Rica — representing buyers, sellers, and investors across Playa Guiones, Pelada, Garza, and the broader Nicoya peninsula.</p>
+        <p>This shop is a small extension of that work — editorial guides, content services, and goods for people drawn to this coast.</p>
+        <a class="btn btn--secondary" href="#">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="annotation">— Service product page —</div>
+
+<!-- ───────── SERVICE PRODUCT PAGE PREVIEW ───────── -->
+<section class="section" id="service-page">
+  <div class="container">
+    <div class="svc-page">
+      <div class="svc-page__media"></div>
+      <div>
+        <p class="svc-page__eyebrow">Services</p>
+        <h1 class="svc-page__title">Growth Package</h1>
+        <p class="svc-page__price">$950.00</p>
+        <div class="svc-page__desc">
+          <p>A monthly content engine for active listings or growing STR portfolios. Two shoots per month, photo + short-form video bundles, post drafts, and a monthly strategy call.</p>
+          <ul>
+            <li>2 half-day shoots / month</li>
+            <li>50+ edited stills / month</li>
+            <li>4 short-form vertical videos / month</li>
+            <li>10 Instagram post drafts</li>
+            <li>1 monthly strategy call</li>
+          </ul>
+        </div>
+        <a class="btn btn--primary svc-page__cta" href="https://calendly.com/julianmonge/growth">Book a call</a>
+        <p class="svc-page__note">Pricing is confirmed on the call. No charge until we both agree on scope.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <h3>JULIÁN MONGE</h3>
+        <p>Real estate in Nosara, Costa Rica. A small shop of guides, services, and goods for this coast.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Digital guides</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Nosara merch</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Julián</a></li>
+          <li><a href="https://julianmonge.com">julianmonge.com</a></li>
+          <li><a href="#">Blue Water Properties</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Book a call</a></li>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Julián Monge — Blue Water Properties</span>
+      <span>shop.julianmonge.com</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
