@@ -3,21 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>shop.julianmonge.com — Theme mockup</title>
-<meta name="description" content="Static preview of the shop.julianmonge.com Shopify theme.">
+<title>shop.julianmonge.com — Nosara, considered.</title>
+<meta name="description" content="Editorial guides, services, and goods for Costa Rica's Pacific coast — from Julián Monge, real estate agent at Blue Water Properties, Nosara.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="shop.julianmonge.com — Nosara, considered.">
+<meta property="og:description" content="Editorial guides, services, and goods for Costa Rica's Pacific coast.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+
 <style>
   :root {
     --deep-teal: #0C2830;
+    --deep-teal-2: #103641;
     --ocean: #17617C;
+    --ocean-light: #2a8aa6;
     --light-teal: #99D6D8;
     --off-white: #F5F0E6;
+    --off-white-2: #EDE6D5;
     --white: #FFFFFF;
-    --rule: rgba(12, 40, 48, 0.12);
+    --gold: #C9A875;
+    --gold-deep: #A88654;
+    --terracotta: #C2725A;
+    --rule: rgba(12, 40, 48, 0.10);
+    --rule-strong: rgba(12, 40, 48, 0.20);
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --shadow-card: 0 1px 2px rgba(12,40,48,0.04), 0 8px 24px rgba(12,40,48,0.06);
+    --shadow-cover: 0 4px 12px rgba(12,40,48,0.10), 0 30px 60px rgba(12,40,48,0.18);
   }
 
   * { box-sizing: border-box; }
@@ -30,175 +46,250 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay across the whole page — subtle film texture */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 100;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--serif);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
     color: var(--deep-teal);
     margin: 0;
   }
-  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; }
-  h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.15; }
+  h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.98; }
+  h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.08; }
   h3 { font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.25; }
   p { margin: 0 0 1rem; }
-  a { color: var(--ocean); text-decoration: none; }
+  a { color: var(--ocean); text-decoration: none; transition: color 200ms ease; }
   a:hover { color: var(--deep-teal); }
 
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-  @media (max-width: 749px) { .container { padding: 0 1.125rem; } }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 2rem; }
+  @media (max-width: 749px) { .container { padding: 0 1.25rem; } }
 
-  /* ───── BACK BAR ───── */
+  /* ───────── BACK BAR ───────── */
   .back-bar {
-    position: sticky; top: 0; z-index: 60;
+    position: sticky; top: 0; z-index: 80;
     background: var(--deep-teal);
     color: var(--off-white);
-    border-bottom: 1px solid rgba(245, 240, 230, 0.08);
+    border-bottom: 1px solid rgba(245,240,230,0.08);
   }
   .back-bar__inner {
     display: flex; align-items: center;
-    min-height: 38px;
-    padding: 0.5rem 1.5rem;
-    max-width: 1280px; margin: 0 auto;
+    min-height: 40px;
+    padding: 0.5rem 2rem;
+    max-width: 1320px; margin: 0 auto;
   }
   .back-bar a {
     color: inherit;
+    font-family: var(--sans);
     font-size: 0.8125rem;
     font-weight: 500;
-    letter-spacing: 0.02em;
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 0.55rem;
     transition: color 160ms ease;
   }
   .back-bar a:hover { color: var(--light-teal); }
   .back-bar a:hover .arrow { transform: translateX(-3px); }
   .arrow { display: inline-block; transition: transform 200ms ease; }
+  @media (max-width: 749px) { .back-bar__inner { padding: 0.5rem 1.25rem; } }
 
-  /* ───── HEADER ───── */
+  /* ───────── HEADER ───────── */
   .header {
-    background: var(--off-white);
+    background-color: rgba(245, 240, 230, 0.88);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
     border-bottom: 1px solid var(--rule);
-    position: sticky; top: 38px; z-index: 50;
-    backdrop-filter: blur(8px);
-    background-color: rgba(245, 240, 230, 0.92);
+    position: sticky; top: 40px; z-index: 70;
   }
   .header__inner {
     display: grid; grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 1.125rem 1.5rem;
-    max-width: 1280px; margin: 0 auto;
+    padding: 1.25rem 2rem;
+    max-width: 1320px; margin: 0 auto;
   }
   .header__logo {
-    font-family: var(--serif); font-weight: 500;
+    font-family: var(--serif);
+    font-weight: 500;
     font-size: 1.125rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--deep-teal);
     justify-self: start;
   }
+  .header__logo small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.625rem;
+    letter-spacing: 0.28em;
+    font-weight: 500;
+    opacity: 0.55;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
   .header__nav ul {
     list-style: none; padding: 0; margin: 0;
-    display: flex; gap: 2.25rem;
+    display: flex; gap: 2.5rem;
     justify-content: center;
   }
   .header__nav a {
     font-family: var(--sans);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--deep-teal);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  .header__nav a::after {
+    content: "";
+    position: absolute; left: 0; bottom: 0;
+    height: 1px; width: 0;
+    background: var(--ocean);
+    transition: width 280ms cubic-bezier(0.2, 0.7, 0.3, 1);
   }
   .header__nav a:hover { color: var(--ocean); }
+  .header__nav a:hover::after { width: 100%; }
   .header__icons {
-    display: flex; justify-content: flex-end; gap: 1.25rem;
+    display: flex; justify-content: flex-end; gap: 1.5rem;
+    align-items: center;
   }
   .header__icons a {
     color: var(--deep-teal);
     display: inline-flex; align-items: center;
-    font-size: 0.875rem;
+    position: relative;
   }
-  .icon { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
-
-  @media (max-width: 749px) {
-    .header__inner { grid-template-columns: 1fr auto; padding: 0.875rem 1.125rem; }
+  .header__icons a:hover { color: var(--ocean); }
+  .cart-badge {
+    position: absolute; top: -6px; right: -8px;
+    background: var(--deep-teal); color: var(--off-white);
+    font-size: 0.625rem; font-weight: 600;
+    width: 16px; height: 16px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--sans);
+  }
+  .icon { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  @media (max-width: 899px) {
+    .header__inner { grid-template-columns: 1fr auto; padding: 1rem 1.25rem; }
     .header__nav { display: none; }
-    .header__icons { gap: 1rem; }
+    .header__icons { gap: 1.125rem; }
   }
 
-  /* ───── HERO ───── */
+  /* ───────── HERO ───────── */
   .hero {
     position: relative;
-    min-height: 78vh;
-    display: flex; align-items: center;
+    min-height: 92vh;
+    display: flex; align-items: end;
     overflow: hidden;
     color: var(--off-white);
+    background: #0C2830;
   }
-  .hero__bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(12,40,48,0.55) 0%, rgba(12,40,48,0.35) 50%, rgba(12,40,48,0.7) 100%),
-      radial-gradient(at 70% 30%, #2a8aa6 0%, #17617C 35%, #0C2830 80%);
-    z-index: 0;
-  }
-  .hero__bg::after {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      radial-gradient(ellipse at 20% 80%, rgba(153,214,216,0.25) 0%, transparent 40%),
-      radial-gradient(ellipse at 80% 20%, rgba(245,240,230,0.15) 0%, transparent 50%);
-  }
+  .hero__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .hero__inner {
-    position: relative; z-index: 1;
-    padding: 6rem 0 5rem;
+    position: relative; z-index: 2;
+    padding: 6rem 0 6rem;
+    width: 100%;
   }
   .hero__eyebrow {
     font-family: var(--sans);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-    margin: 0 0 1.5rem;
-    opacity: 0.85;
+    margin: 0 0 2rem;
+    opacity: 0.92;
+    display: inline-flex; align-items: center; gap: 1rem;
+  }
+  .hero__eyebrow::before {
+    content: ""; display: inline-block;
+    width: 32px; height: 1px; background: var(--light-teal);
   }
   .hero h1 {
     color: var(--off-white);
-    max-width: 18ch;
-    margin-bottom: 1.5rem;
+    max-width: 14ch;
+    margin-bottom: 1.75rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--light-teal);
+    font-weight: 400;
   }
   .hero__lede {
-    font-size: 1.125rem;
-    max-width: 52ch;
+    font-size: 1.1875rem;
+    max-width: 50ch;
     opacity: 0.92;
-    margin-bottom: 2.5rem;
+    line-height: 1.55;
+    margin-bottom: 3rem;
+    font-weight: 300;
   }
   .hero__ctas { display: flex; flex-wrap: wrap; gap: 0.875rem; }
+  .hero__scroll {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 0.625rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .hero__scroll-line {
+    width: 1px; height: 32px;
+    background: linear-gradient(to bottom, transparent, var(--off-white));
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
 
-  /* ───── BUTTONS ───── */
+  /* ───────── BUTTONS ───────── */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 0.9rem 1.75rem;
+    padding: 1rem 2rem;
     font-family: var(--sans);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     border: 1px solid currentColor;
     cursor: pointer;
-    transition: all 200ms ease;
+    transition: all 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
     border-radius: 0;
     text-decoration: none;
+    position: relative; overflow: hidden;
   }
   .btn--primary {
     background: var(--deep-teal);
     color: var(--white);
     border-color: var(--deep-teal);
   }
-  .btn--primary:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+  .btn--primary:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); transform: translateY(-1px); }
   .btn--ghost {
     background: transparent;
     color: var(--off-white);
     border-color: var(--off-white);
   }
   .btn--ghost:hover { background: var(--off-white); color: var(--deep-teal); }
+  .btn--ghost-teal {
+    background: transparent;
+    color: var(--light-teal);
+    border-color: var(--light-teal);
+  }
+  .btn--ghost-teal:hover { background: var(--light-teal); color: var(--deep-teal); }
   .btn--secondary {
     background: transparent;
     color: var(--deep-teal);
@@ -206,211 +297,345 @@
   }
   .btn--secondary:hover { background: var(--deep-teal); color: var(--white); }
 
-  /* ───── SECTIONS ───── */
-  .section { padding: 5rem 0; }
-  .section--tight { padding: 3.5rem 0; }
+  /* ───────── SECTIONS ───────── */
+  .section { padding: 7rem 0; position: relative; }
+  .section--tight { padding: 4rem 0; }
   .section--teal { background: var(--deep-teal); color: var(--off-white); }
-  .section--teal h2, .section--teal h3 { color: var(--off-white); }
-  .section--light-teal { background: var(--light-teal); }
+  .section--teal h2, .section--teal h3, .section--teal h4 { color: var(--off-white); }
+  .section--light-teal { background: linear-gradient(180deg, var(--light-teal) 0%, #b3dee0 100%); }
+  .section--cream { background: var(--off-white-2); }
+  @media (max-width: 749px) { .section { padding: 4.5rem 0; } }
 
   .section__head {
     display: flex; align-items: end; justify-content: space-between;
-    margin-bottom: 2.5rem; gap: 2rem;
+    margin-bottom: 4rem; gap: 3rem;
   }
-  .section__head-text { max-width: 56ch; }
+  .section__head-text { max-width: 60ch; }
   .section__eyebrow {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.34em;
     text-transform: uppercase;
     color: var(--ocean);
-    margin: 0 0 0.75rem;
+    margin: 0 0 1rem;
+    display: inline-flex; align-items: center; gap: 0.875rem;
+  }
+  .section__eyebrow::before {
+    content: ""; display: inline-block;
+    width: 24px; height: 1px; background: currentColor;
   }
   .section--teal .section__eyebrow { color: var(--light-teal); }
-  .section__desc { opacity: 0.85; font-size: 1rem; margin: 0.75rem 0 0; }
-  .section__cta { white-space: nowrap; }
+  .section__desc {
+    font-size: 1.0625rem;
+    opacity: 0.78;
+    line-height: 1.6;
+    margin: 1rem 0 0;
+    font-weight: 300;
+  }
+  .section__cta {
+    white-space: nowrap;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-teal);
+    border-bottom: 1px solid var(--deep-teal);
+    padding-bottom: 0.5rem;
+    transition: opacity 200ms ease;
+  }
+  .section__cta:hover { opacity: 0.55; }
+  .section--teal .section__cta { color: var(--light-teal); border-color: var(--light-teal); }
   @media (max-width: 749px) {
-    .section { padding: 3.5rem 0; }
-    .section__head { flex-direction: column; align-items: start; }
+    .section__head { flex-direction: column; align-items: start; margin-bottom: 2.5rem; }
   }
 
-  /* ───── PRODUCT GRID ───── */
+  /* ───────── PRODUCT GRID ───────── */
   .grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
   }
   .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  @media (max-width: 999px) { .grid, .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 599px) { .grid, .grid--3 { grid-template-columns: 1fr; gap: 2.5rem; } }
+  @media (max-width: 1099px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 749px) { .grid, .grid--3 { grid-template-columns: 1fr; gap: 3rem; } }
 
-  .card { display: flex; flex-direction: column; gap: 1rem; }
+  .card {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: transform 280ms ease;
+  }
+  .card:hover { transform: translateY(-4px); }
   .card__media {
     aspect-ratio: 4 / 5;
     width: 100%;
     background: var(--white);
-    border: 1px solid var(--rule);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
+    box-shadow: var(--shadow-cover);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
   }
-  .section--teal .card__media { border-color: rgba(245,240,230,0.12); background: rgba(245,240,230,0.05); }
-  .card__media-art {
-    width: 75%; height: 75%;
-    background: var(--gradient, linear-gradient(135deg, var(--ocean), var(--deep-teal)));
-    color: var(--off-white);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 1rem;
-    line-height: 1.2;
+  .section--teal .card__media { box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.35); }
+  .card__media svg, .card__media img {
+    width: 100%; height: 100%;
+    display: block;
+    object-fit: cover;
   }
-  .card__media-art--pdf { background: linear-gradient(180deg, #17617C, #0C2830); }
-  .card__media-art--canva { background: linear-gradient(135deg, #99D6D8 0%, #17617C 100%); color: var(--deep-teal); }
-  .card__media-art--preset { background: linear-gradient(180deg, #F5C77A 0%, #D9846B 50%, #5A3A4F 100%); color: var(--off-white); }
-  .card__media-art--svc { background: linear-gradient(135deg, #0C2830 0%, #17617C 100%); }
-  .card__media-art--tee { background: linear-gradient(135deg, #E8DCC2, #C9B68E); color: var(--deep-teal); }
-  .card__media-art--cap { background: linear-gradient(135deg, #0C2830 0%, #1d4a5a 100%); }
-  .card__media-art--sticker { background: linear-gradient(135deg, #99D6D8, #F5F0E6); color: var(--deep-teal); }
-
   .card__type {
     font-size: 0.6875rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--ocean);
-    margin: 0;
+    margin: 0 0 0.625rem;
+    font-weight: 500;
   }
   .section--teal .card__type { color: var(--light-teal); }
-  .card__title { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin: 0; }
-  .card__price { font-size: 0.95rem; opacity: 0.85; margin: 0; }
-  .card__cta { margin-top: 0.5rem; font-size: 0.8125rem; letter-spacing: 0.1em; }
+  .card__title { font-family: var(--serif); font-size: 1.375rem; font-weight: 500; margin: 0 0 0.5rem; line-height: 1.2; }
+  .card__price { font-size: 0.95rem; opacity: 0.78; margin: 0; font-family: var(--sans); }
 
-  /* ───── SERVICE BLOCK ───── */
+  /* ───────── SERVICE BLOCK ───────── */
   .service-card {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    padding: 2rem;
-    display: flex; flex-direction: column; gap: 1rem;
+    background: rgba(245,240,230,0.04);
+    border: 1px solid rgba(245,240,230,0.14);
+    padding: 2.75rem 2.5rem;
+    display: flex; flex-direction: column; gap: 1.25rem;
+    color: var(--off-white);
+    position: relative;
+    transition: border-color 240ms ease, background 240ms ease, transform 240ms ease;
   }
-  .section--teal .service-card { background: rgba(245,240,230,0.04); border-color: rgba(245,240,230,0.12); color: var(--off-white); }
-  .service-card h3 { font-size: 1.5rem; margin: 0; }
-  .section--teal .service-card h3 { color: var(--off-white); }
-  .service-card__price { font-family: var(--serif); font-size: 1.75rem; color: var(--ocean); }
-  .section--teal .service-card__price { color: var(--light-teal); }
-  .service-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.9375rem; opacity: 0.9; }
-  .service-card li { margin-bottom: 0.4rem; }
-  .service-card .btn { align-self: start; margin-top: 0.5rem; }
+  .service-card:hover { border-color: var(--light-teal); background: rgba(245,240,230,0.06); transform: translateY(-3px); }
+  .service-card__tier {
+    font-size: 0.625rem; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--light-teal); margin: 0;
+  }
+  .service-card h3 { font-size: 1.625rem; margin: 0; color: var(--off-white); letter-spacing: -0.01em; }
+  .service-card__price {
+    font-family: var(--serif); font-size: 2.25rem; font-weight: 400;
+    color: var(--light-teal); line-height: 1;
+    margin: 0.25rem 0 0.5rem;
+  }
+  .service-card__price small {
+    font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--off-white); opacity: 0.55; font-family: var(--sans);
+    margin-left: 0.4rem;
+  }
+  .service-card__hr { border: 0; height: 1px; background: rgba(245,240,230,0.12); margin: 0.5rem 0; }
+  .service-card ul { margin: 0; padding-left: 0; list-style: none; font-size: 0.9375rem; font-weight: 300; opacity: 0.92; }
+  .service-card li { padding: 0.4rem 0 0.4rem 1.25rem; position: relative; }
+  .service-card li::before {
+    content: ""; position: absolute; left: 0; top: 0.95rem;
+    width: 8px; height: 1px; background: var(--light-teal);
+  }
+  .service-card .btn { align-self: start; margin-top: 0.75rem; }
 
-  /* ───── SERVICE PRODUCT PAGE PREVIEW ───── */
+  /* ───────── SERVICE PRODUCT PAGE ───────── */
   .svc-page {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center;
+    display: grid; grid-template-columns: 5fr 6fr;
+    gap: 5rem; align-items: center;
   }
-  @media (max-width: 899px) { .svc-page { grid-template-columns: 1fr; gap: 2.5rem; } }
+  @media (max-width: 999px) { .svc-page { grid-template-columns: 1fr; gap: 3rem; } }
   .svc-page__media {
     aspect-ratio: 4/5; width: 100%;
-    background: linear-gradient(135deg, #0C2830 0%, #17617C 50%, #99D6D8 100%);
+    box-shadow: var(--shadow-cover);
     position: relative; overflow: hidden;
+    background: var(--deep-teal);
   }
-  .svc-page__media::after {
-    content: ""; position: absolute; inset: 0;
+  .svc-page__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .svc-page__media-fallback {
+    position: absolute; inset: 0;
     background:
-      radial-gradient(at 80% 20%, rgba(245,240,230,0.25), transparent 50%),
-      radial-gradient(at 20% 80%, rgba(12,40,48,0.4), transparent 60%);
+      radial-gradient(at 70% 30%, rgba(245,240,230,0.18), transparent 50%),
+      linear-gradient(180deg, #1a4654 0%, #0C2830 100%);
   }
   .svc-page__eyebrow {
-    font-size: 0.75rem; letter-spacing: 0.28em;
+    font-size: 0.6875rem; letter-spacing: 0.36em;
     text-transform: uppercase; color: var(--ocean);
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
+    display: inline-flex; align-items: center; gap: 0.75rem;
   }
-  .svc-page__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-  .svc-page__price { font-family: var(--serif); font-size: 2rem; color: var(--ocean); margin-bottom: 1.5rem; }
-  .svc-page__desc { margin-bottom: 2rem; line-height: 1.7; }
+  .svc-page__eyebrow::before {
+    content: ""; width: 24px; height: 1px; background: currentColor;
+  }
+  .svc-page__title { font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin: 0 0 1.25rem; letter-spacing: -0.02em; line-height: 1.05; }
+  .svc-page__price {
+    font-family: var(--serif); font-size: 2.25rem;
+    color: var(--ocean); margin: 0 0 2rem;
+    font-weight: 400;
+  }
+  .svc-page__desc { margin-bottom: 2.5rem; line-height: 1.7; font-size: 1.0625rem; max-width: 52ch; font-weight: 300; }
+  .svc-page__list {
+    list-style: none; padding: 0; margin: 0 0 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem;
+  }
+  @media (max-width: 599px) { .svc-page__list { grid-template-columns: 1fr; } }
+  .svc-page__list li {
+    padding-left: 1.5rem; position: relative; font-size: 0.95rem;
+  }
+  .svc-page__list li::before {
+    content: ""; position: absolute; left: 0; top: 0.7rem;
+    width: 10px; height: 1px; background: var(--ocean);
+  }
   .svc-page__cta { min-width: 240px; }
   .svc-page__note {
-    margin-top: 1rem; font-size: 0.8125rem;
-    color: rgba(12,40,48,0.6);
+    margin-top: 1.25rem; font-size: 0.8125rem;
+    color: rgba(12,40,48,0.55); max-width: 38ch;
   }
 
-  /* ───── ABOUT STRIP ───── */
+  /* ───────── ABOUT STRIP ───────── */
   .about {
-    display: grid; grid-template-columns: 1fr 1.2fr;
-    gap: 4rem; align-items: center;
+    display: grid; grid-template-columns: 5fr 7fr;
+    gap: 5rem; align-items: center;
   }
   @media (max-width: 899px) { .about { grid-template-columns: 1fr; gap: 2.5rem; } }
   .about__portrait {
     aspect-ratio: 4/5;
-    background:
-      radial-gradient(at 40% 30%, rgba(245,240,230,0.85), transparent 35%),
-      linear-gradient(135deg, #99D6D8 0%, #17617C 60%, #0C2830 100%);
+    box-shadow: var(--shadow-cover);
+    overflow: hidden;
     position: relative;
+    background: var(--deep-teal);
   }
-  .about__portrait::after {
-    content: "JM";
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 5rem;
-    color: var(--off-white); opacity: 0.85;
-    letter-spacing: 0.02em;
+  .about__portrait svg { width: 100%; height: 100%; display: block; }
+  .about__body p { font-size: 1.0625rem; line-height: 1.75; font-weight: 300; }
+  .about__body p:first-of-type { font-size: 1.25rem; font-weight: 400; }
+  .about__sig {
+    margin-top: 2rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ocean);
   }
-  .about__body p { font-size: 1.0625rem; line-height: 1.7; }
 
-  /* ───── FOOTER ───── */
+  /* ───────── EDITORIAL CALLOUT ───────── */
+  .marquee {
+    overflow: hidden; padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--off-white);
+  }
+  .marquee__track {
+    display: flex; gap: 4rem;
+    white-space: nowrap;
+    font-family: var(--serif);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--deep-teal);
+    animation: marquee 36s linear infinite;
+  }
+  .marquee__track span { display: inline-flex; align-items: center; gap: 4rem; }
+  .marquee__track span::after { content: "✦"; color: var(--gold); font-size: 0.6em; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ───────── FOOTER ───────── */
   .footer {
     background: var(--deep-teal);
     color: var(--off-white);
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 2.5rem;
+    position: relative;
+    overflow: hidden;
   }
-  .footer__grid {
+  .footer::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--light-teal), transparent);
+    opacity: 0.4;
+  }
+  .footer__top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
   }
-  @media (max-width: 899px) { .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-  @media (max-width: 599px) { .footer__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 899px) { .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+  @media (max-width: 549px) { .footer__top { grid-template-columns: 1fr; } }
+
+  .footer__brand-mark {
+    font-family: var(--serif); font-size: 1.875rem;
+    color: var(--off-white); margin: 0 0 0.5rem;
+    letter-spacing: 0.04em; font-weight: 500;
+  }
+  .footer__brand small {
+    display: block;
+    font-family: var(--sans); font-size: 0.625rem;
+    letter-spacing: 0.34em; text-transform: uppercase;
+    opacity: 0.55; margin-bottom: 1.5rem;
+  }
+  .footer__brand p { font-size: 0.9375rem; opacity: 0.72; max-width: 36ch; line-height: 1.7; font-weight: 300; }
+
   .footer h4 {
-    font-family: var(--sans); font-size: 0.75rem;
-    letter-spacing: 0.22em; text-transform: uppercase;
+    font-family: var(--sans); font-size: 0.6875rem;
+    letter-spacing: 0.26em; text-transform: uppercase;
     color: var(--light-teal); font-weight: 600;
-    margin: 0 0 1rem;
+    margin: 0 0 1.5rem;
   }
   .footer ul { list-style: none; padding: 0; margin: 0; }
-  .footer li { margin-bottom: 0.6rem; }
-  .footer a { color: var(--off-white); font-size: 0.9rem; opacity: 0.85; }
+  .footer li { margin-bottom: 0.85rem; }
+  .footer a { color: var(--off-white); font-size: 0.9375rem; opacity: 0.78; font-weight: 300; transition: opacity 200ms ease; }
   .footer a:hover { color: var(--light-teal); opacity: 1; }
-  .footer__brand h3 {
-    font-family: var(--serif); font-size: 1.5rem;
-    color: var(--off-white); margin: 0 0 0.75rem;
-    letter-spacing: 0.04em;
-  }
-  .footer__brand p { font-size: 0.9rem; opacity: 0.75; max-width: 36ch; }
-  .footer__bottom {
-    border-top: 1px solid rgba(245,240,230,0.12);
-    padding-top: 1.5rem;
-    display: flex; justify-content: space-between;
-    font-size: 0.8125rem; opacity: 0.65;
-  }
-  @media (max-width: 599px) { .footer__bottom { flex-direction: column; gap: 0.5rem; } }
 
-  /* ───── MOCKUP ANNOTATIONS ───── */
+  .footer__bottom {
+    border-top: 1px solid rgba(245,240,230,0.10);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem; opacity: 0.55;
+    font-weight: 300;
+  }
+  @media (max-width: 599px) { .footer__bottom { flex-direction: column; gap: 0.75rem; text-align: center; } }
+
+  /* ───────── MOCKUP SECTION DIVIDERS ───────── */
   .annotation {
-    background: var(--light-teal);
+    background: var(--off-white);
     color: var(--deep-teal);
-    padding: 0.5rem 1.25rem;
-    font-size: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    font-family: var(--sans);
+    font-size: 0.625rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     text-align: center;
-    border-top: 1px solid rgba(12,40,48,0.1);
-    border-bottom: 1px solid rgba(12,40,48,0.1);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    opacity: 0.55;
   }
+
+  /* Newsletter strip */
+  .newsletter {
+    background: var(--off-white-2);
+    padding: 5rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .newsletter__inner {
+    display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: center;
+  }
+  @media (max-width: 749px) { .newsletter__inner { grid-template-columns: 1fr; gap: 1.5rem; } }
+  .newsletter h2 { font-size: clamp(1.625rem, 3vw, 2.25rem); }
+  .newsletter p { opacity: 0.7; font-size: 1rem; max-width: 44ch; }
+  .newsletter__form {
+    display: flex; gap: 0;
+    border: 1px solid var(--deep-teal);
+  }
+  .newsletter__form input {
+    flex: 1; padding: 1rem 1.25rem;
+    border: 0; background: transparent;
+    font-family: var(--sans); font-size: 0.9375rem;
+    color: var(--deep-teal);
+  }
+  .newsletter__form input:focus { outline: none; }
+  .newsletter__form input::placeholder { color: rgba(12,40,48,0.5); }
+  .newsletter__form button {
+    background: var(--deep-teal); color: var(--off-white);
+    border: 0; padding: 1rem 2rem;
+    font-family: var(--sans); font-size: 0.75rem;
+    letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+    cursor: pointer; transition: background 200ms ease;
+  }
+  .newsletter__form button:hover { background: var(--ocean); }
 </style>
 </head>
 <body>
 
-<!-- ───────── BACK BAR ───────── -->
+<!-- ═════════ BACK BAR ═════════ -->
 <aside class="back-bar" aria-label="Site navigation">
   <div class="back-bar__inner">
     <a href="https://julianmonge.com">
@@ -420,10 +645,13 @@
   </div>
 </aside>
 
-<!-- ───────── HEADER ───────── -->
+<!-- ═════════ HEADER ═════════ -->
 <header class="header">
   <div class="header__inner">
-    <div class="header__logo">JULIÁN MONGE</div>
+    <div class="header__logo">
+      JULIÁN MONGE
+      <small>Blue Water Properties · Nosara</small>
+    </div>
     <nav class="header__nav">
       <ul>
         <li><a href="#shop">Shop</a></li>
@@ -436,63 +664,420 @@
       <a href="#search" aria-label="Search">
         <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
       </a>
+      <a href="#account" aria-label="Account">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </a>
       <a href="#cart" aria-label="Cart">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18l-2 12H5L3 6zm0 0L2 3"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-badge">2</span>
       </a>
     </div>
   </div>
 </header>
 
-<div class="annotation">— Homepage —</div>
-
-<!-- ───────── HERO ───────── -->
+<!-- ═════════ HERO ═════════ -->
 <section class="hero">
-  <div class="hero__bg"></div>
+  <!-- Layered SVG sunset over horizon with palms -->
+  <svg class="hero__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0C2830"/>
+        <stop offset="35%" stop-color="#103641"/>
+        <stop offset="60%" stop-color="#1d4458"/>
+        <stop offset="80%" stop-color="#3b6478"/>
+        <stop offset="92%" stop-color="#a87c5c"/>
+        <stop offset="100%" stop-color="#d4a373"/>
+      </linearGradient>
+      <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f0c282" stop-opacity="0.9"/>
+        <stop offset="40%" stop-color="#d4a373" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#d4a373" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3b6478"/>
+        <stop offset="50%" stop-color="#1d4458"/>
+        <stop offset="100%" stop-color="#0C2830"/>
+      </linearGradient>
+      <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0C2830" stop-opacity="0.55"/>
+        <stop offset="40%" stop-color="#0C2830" stop-opacity="0.0"/>
+        <stop offset="100%" stop-color="#0C2830" stop-opacity="0.7"/>
+      </linearGradient>
+      <pattern id="stars" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+        <circle cx="20" cy="40" r="0.8" fill="#F5F0E6" opacity="0.6"/>
+        <circle cx="100" cy="20" r="0.5" fill="#F5F0E6" opacity="0.5"/>
+        <circle cx="170" cy="80" r="0.7" fill="#F5F0E6" opacity="0.7"/>
+        <circle cx="60" cy="120" r="0.4" fill="#F5F0E6" opacity="0.4"/>
+        <circle cx="140" cy="160" r="0.5" fill="#F5F0E6" opacity="0.5"/>
+      </pattern>
+    </defs>
+
+    <!-- Sky -->
+    <rect width="1600" height="600" fill="url(#sky)"/>
+    <rect width="1600" height="350" fill="url(#stars)"/>
+
+    <!-- Sun glow + disc -->
+    <circle cx="1100" cy="585" r="280" fill="url(#sunGlow)"/>
+    <circle cx="1100" cy="585" r="58" fill="#f5d29b"/>
+
+    <!-- Distant headland -->
+    <path d="M0,610 Q280,580 480,605 T900,610 L900,640 L0,640 Z" fill="#0C2830" opacity="0.75"/>
+
+    <!-- Water -->
+    <rect y="610" width="1600" height="290" fill="url(#water)"/>
+
+    <!-- Sun reflection ripples -->
+    <ellipse cx="1100" cy="640" rx="200" ry="3" fill="#f5d29b" opacity="0.55"/>
+    <ellipse cx="1100" cy="665" rx="160" ry="2" fill="#f5d29b" opacity="0.4"/>
+    <ellipse cx="1100" cy="700" rx="220" ry="2.5" fill="#f5d29b" opacity="0.3"/>
+    <ellipse cx="1100" cy="745" rx="180" ry="2" fill="#f5d29b" opacity="0.22"/>
+    <ellipse cx="1100" cy="795" rx="240" ry="3" fill="#f5d29b" opacity="0.15"/>
+
+    <!-- Wave lines on water -->
+    <path d="M0,690 Q400,684 800,690 T1600,690" stroke="#F5F0E6" stroke-width="0.5" fill="none" opacity="0.18"/>
+    <path d="M0,730 Q400,725 800,730 T1600,730" stroke="#F5F0E6" stroke-width="0.5" fill="none" opacity="0.14"/>
+    <path d="M0,780 Q400,774 800,780 T1600,780" stroke="#F5F0E6" stroke-width="0.5" fill="none" opacity="0.10"/>
+
+    <!-- Foreground palm tree silhouette (left) -->
+    <g fill="#0C2830" opacity="0.92">
+      <path d="M180,900 L172,610 Q170,560 175,520 L182,520 Q187,560 188,610 L195,900 Z"/>
+      <!-- fronds -->
+      <path d="M178,520 Q120,510 70,530 Q120,520 178,535 Z"/>
+      <path d="M183,518 Q240,500 290,520 Q240,512 183,532 Z"/>
+      <path d="M178,520 Q140,470 100,460 Q150,475 180,530 Z"/>
+      <path d="M183,518 Q220,470 270,460 Q225,478 188,532 Z"/>
+      <path d="M180,520 Q170,460 165,415 Q180,460 185,530 Z"/>
+      <path d="M180,520 Q150,490 110,495 Q150,500 180,535 Z"/>
+      <path d="M183,520 Q210,485 250,490 Q215,500 185,535 Z"/>
+    </g>
+
+    <!-- Foreground palm tree silhouette (right) -->
+    <g fill="#0C2830" opacity="0.85">
+      <path d="M1420,900 L1413,640 Q1411,590 1417,550 L1423,550 Q1428,590 1429,640 L1432,900 Z"/>
+      <path d="M1418,550 Q1370,545 1330,565 Q1370,555 1418,565 Z"/>
+      <path d="M1423,548 Q1475,535 1520,555 Q1475,545 1422,562 Z"/>
+      <path d="M1418,550 Q1390,510 1360,505 Q1395,515 1420,562 Z"/>
+      <path d="M1423,548 Q1455,505 1495,500 Q1455,515 1425,562 Z"/>
+      <path d="M1420,550 Q1410,500 1408,460 Q1418,500 1425,562 Z"/>
+    </g>
+
+    <!-- Vignette overlay -->
+    <rect width="1600" height="900" fill="url(#vignette)"/>
+  </svg>
+
   <div class="container hero__inner">
     <p class="hero__eyebrow">Nosara · Costa Rica</p>
-    <h1>Nosara, considered.</h1>
-    <p class="hero__lede">Editorial guides, services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.</p>
+    <h1>Nosara, <em>considered.</em></h1>
+    <p class="hero__lede">Editorial guides, content services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.</p>
     <div class="hero__ctas">
-      <a class="btn btn--ghost" href="#shop">Explore digital guides</a>
-      <a class="btn btn--ghost" href="#services">Browse services</a>
+      <a class="btn btn--ghost-teal" href="#shop">Explore the shop</a>
+      <a class="btn btn--ghost" href="#services">Book a service</a>
     </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="hero__scroll-line"></span>
   </div>
 </section>
 
-<!-- ───────── FEATURED DIGITAL ───────── -->
+<!-- ═════════ MARQUEE ═════════ -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Pura vida.</span>
+    <span>Guiones · Pelada · Garza.</span>
+    <span>The Nicoya Peninsula.</span>
+    <span>Editorial real estate.</span>
+    <span>Pura vida.</span>
+    <span>Guiones · Pelada · Garza.</span>
+    <span>The Nicoya Peninsula.</span>
+    <span>Editorial real estate.</span>
+  </div>
+</section>
+
+<!-- ═════════ DIGITAL GUIDES ═════════ -->
 <section class="section" id="shop">
   <div class="container">
     <div class="section__head">
       <div class="section__head-text">
-        <p class="section__eyebrow">Collection 01</p>
-        <h2>Digital guides</h2>
-        <p class="section__desc">Instant-download playbooks for moving to, investing in, and creating content about Nosara.</p>
+        <p class="section__eyebrow">Collection 01 — Digital</p>
+        <h2>Editorial guides &amp; resources</h2>
+        <p class="section__desc">Instant-download playbooks for moving to, investing in, and creating about Nosara. Delivered to your inbox the moment you check out.</p>
       </div>
-      <a class="section__cta" href="#">View all →</a>
+      <a class="section__cta" href="#">View all four →</a>
     </div>
 
     <div class="grid">
+      <!-- INVEST IN NOSARA — Editorial book cover -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--pdf">Invest<br>in Nosara</div></div>
-        <p class="card__type">PDF guide</p>
+        <div class="card__media">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="invest-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0C2830"/>
+                <stop offset="60%" stop-color="#103641"/>
+                <stop offset="100%" stop-color="#17617C"/>
+              </linearGradient>
+              <radialGradient id="invest-sun" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C9A875" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#C9A875" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#invest-bg)"/>
+            <!-- horizon -->
+            <line x1="40" y1="265" x2="360" y2="265" stroke="#C9A875" stroke-width="0.8" opacity="0.7"/>
+            <!-- sun halo -->
+            <circle cx="200" cy="265" r="100" fill="url(#invest-sun)"/>
+            <!-- half sun -->
+            <path d="M150,265 A50,50 0 0 1 250,265 Z" fill="#C9A875"/>
+            <!-- crop corners -->
+            <line x1="24" y1="40" x2="60" y2="40" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="24" y1="40" x2="24" y2="76" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="376" y1="40" x2="340" y2="40" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="376" y1="40" x2="376" y2="76" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="24" y1="460" x2="60" y2="460" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="24" y1="460" x2="24" y2="424" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="376" y1="460" x2="340" y2="460" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <line x1="376" y1="460" x2="376" y2="424" stroke="#C9A875" stroke-width="0.5" opacity="0.5"/>
+            <!-- top eyebrow -->
+            <text x="200" y="64" font-family="Inter, sans-serif" font-size="9" letter-spacing="3.5" fill="#99D6D8" text-anchor="middle" opacity="0.8">GUIDE · 01</text>
+            <!-- title -->
+            <text x="200" y="370" font-family="Playfair Display, serif" font-size="38" font-weight="500" fill="#F5F0E6" text-anchor="middle">INVEST</text>
+            <text x="200" y="408" font-family="Playfair Display, serif" font-size="18" font-style="italic" fill="#C9A875" text-anchor="middle">in</text>
+            <text x="200" y="442" font-family="Playfair Display, serif" font-size="38" font-weight="500" fill="#F5F0E6" text-anchor="middle">NOSARA</text>
+            <!-- footer -->
+            <text x="200" y="475" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="2.5" fill="#F5F0E6" text-anchor="middle" opacity="0.55">JULIÁN MONGE</text>
+          </svg>
+        </div>
+        <p class="card__type">PDF Guide · 64pp</p>
         <h3 class="card__title">Invest in Nosara</h3>
         <p class="card__price">$29.00</p>
       </article>
+
+      <!-- RELOCATE TO NOSARA — Topographic map cover -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--pdf">Relocate<br>to Nosara</div></div>
-        <p class="card__type">PDF playbook</p>
+        <div class="card__media">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="500" fill="#F5F0E6"/>
+            <!-- topographic contour lines (Nicoya peninsula vibe) -->
+            <g stroke="#17617C" stroke-width="0.5" fill="none" opacity="0.55">
+              <path d="M-20,180 Q80,140 180,165 T380,150 T520,180"/>
+              <path d="M-20,200 Q80,165 180,185 T380,175 T520,205"/>
+              <path d="M-20,225 Q80,195 180,210 T380,205 T520,235"/>
+              <path d="M-20,255 Q80,230 180,240 T380,240 T520,270"/>
+              <path d="M-20,290 Q80,270 180,275 T380,280 T520,310"/>
+              <path d="M-20,330 Q80,315 180,315 T380,325 T520,355"/>
+            </g>
+            <g stroke="#17617C" stroke-width="0.4" fill="none" opacity="0.4">
+              <ellipse cx="125" cy="240" rx="80" ry="50"/>
+              <ellipse cx="125" cy="240" rx="60" ry="36"/>
+              <ellipse cx="125" cy="240" rx="40" ry="24"/>
+              <ellipse cx="270" cy="280" rx="65" ry="42"/>
+              <ellipse cx="270" cy="280" rx="48" ry="30"/>
+              <ellipse cx="270" cy="280" rx="30" ry="18"/>
+            </g>
+            <!-- coast line -->
+            <path d="M-10,415 Q60,395 130,408 Q220,425 290,400 Q360,388 410,402 L410,500 L-10,500 Z" fill="#99D6D8" opacity="0.5"/>
+            <path d="M-10,415 Q60,395 130,408 Q220,425 290,400 Q360,388 410,402" stroke="#17617C" stroke-width="1" fill="none"/>
+            <!-- compass mark -->
+            <g transform="translate(340,90)">
+              <circle r="22" fill="none" stroke="#17617C" stroke-width="0.8"/>
+              <path d="M0,-18 L4,0 L0,18 L-4,0 Z" fill="#17617C"/>
+              <text y="-26" font-family="Inter, sans-serif" font-size="7" letter-spacing="2" fill="#17617C" text-anchor="middle">N</text>
+            </g>
+            <!-- top eyebrow -->
+            <text x="40" y="64" font-family="Inter, sans-serif" font-size="9" letter-spacing="3.5" fill="#17617C" opacity="0.75">GUIDE · 02</text>
+            <!-- title -->
+            <text x="200" y="328" font-family="Playfair Display, serif" font-size="32" font-weight="500" fill="#0C2830" text-anchor="middle">RELOCATE</text>
+            <text x="200" y="354" font-family="Playfair Display, serif" font-size="16" font-style="italic" fill="#17617C" text-anchor="middle">to</text>
+            <text x="200" y="380" font-family="Playfair Display, serif" font-size="32" font-weight="500" fill="#0C2830" text-anchor="middle">NOSARA</text>
+            <!-- footer -->
+            <text x="200" y="475" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="2.5" fill="#0C2830" text-anchor="middle" opacity="0.5">A 90-DAY PLAYBOOK · JM</text>
+          </svg>
+        </div>
+        <p class="card__type">PDF Playbook · 80pp</p>
         <h3 class="card__title">Relocate to Nosara</h3>
         <p class="card__price">$39.00</p>
       </article>
+
+      <!-- CANVA TEMPLATES — Phone with grid of posts -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--canva">Canva<br>Templates</div></div>
-        <p class="card__type">Canva pack</p>
+        <div class="card__media">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="canva-bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#99D6D8"/>
+                <stop offset="100%" stop-color="#17617C"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#canva-bg)"/>
+            <!-- Phone frame -->
+            <rect x="110" y="62" width="180" height="350" rx="22" fill="#0C2830"/>
+            <rect x="118" y="70" width="164" height="334" rx="14" fill="#F5F0E6"/>
+            <!-- notch -->
+            <rect x="178" y="76" width="44" height="6" rx="3" fill="#0C2830"/>
+            <!-- header strip -->
+            <rect x="118" y="92" width="164" height="22" fill="#0C2830" opacity="0.06"/>
+            <circle cx="132" cy="103" r="6" fill="#17617C"/>
+            <rect x="144" y="100" width="50" height="3" rx="1" fill="#0C2830" opacity="0.6"/>
+            <rect x="144" y="106" width="32" height="2.5" rx="1" fill="#0C2830" opacity="0.3"/>
+            <!-- 3x3 post grid -->
+            <g>
+              <!-- row 1 -->
+              <rect x="124" y="124" width="46" height="46" fill="#0C2830"/>
+              <text x="147" y="151" font-family="Playfair Display, serif" font-size="9" fill="#F5F0E6" text-anchor="middle">JUST</text>
+              <text x="147" y="161" font-family="Playfair Display, serif" font-size="9" fill="#F5F0E6" text-anchor="middle">SOLD</text>
+
+              <rect x="174" y="124" width="46" height="46" fill="#17617C"/>
+              <circle cx="197" cy="147" r="11" fill="#C9A875"/>
+
+              <rect x="224" y="124" width="46" height="46" fill="#99D6D8"/>
+              <text x="247" y="150" font-family="Playfair Display, serif" font-size="8" fill="#0C2830" text-anchor="middle">NOSARA</text>
+
+              <!-- row 2 -->
+              <rect x="124" y="174" width="46" height="46" fill="#C9A875"/>
+              <line x1="130" y1="195" x2="164" y2="195" stroke="#0C2830" stroke-width="0.6"/>
+              <text x="147" y="208" font-family="Inter, sans-serif" font-size="6" letter-spacing="1" fill="#0C2830" text-anchor="middle">MARKET</text>
+
+              <rect x="174" y="174" width="46" height="46" fill="#F5F0E6"/>
+              <text x="197" y="200" font-family="Playfair Display, serif" font-size="9" font-style="italic" fill="#17617C" text-anchor="middle">pura</text>
+              <text x="197" y="210" font-family="Playfair Display, serif" font-size="9" font-style="italic" fill="#17617C" text-anchor="middle">vida</text>
+
+              <rect x="224" y="174" width="46" height="46" fill="#0C2830"/>
+              <path d="M232,205 Q247,193 262,205" stroke="#99D6D8" stroke-width="1.2" fill="none"/>
+
+              <!-- row 3 -->
+              <rect x="124" y="224" width="46" height="46" fill="#17617C"/>
+              <rect x="130" y="231" width="34" height="22" fill="#F5F0E6" opacity="0.85"/>
+              <text x="147" y="263" font-family="Inter, sans-serif" font-size="5.5" letter-spacing="1" fill="#F5F0E6" text-anchor="middle">LISTING</text>
+
+              <rect x="174" y="224" width="46" height="46" fill="#99D6D8"/>
+              <path d="M180,260 L195,235 L210,255 L216,245" stroke="#0C2830" stroke-width="1.2" fill="none"/>
+
+              <rect x="224" y="224" width="46" height="46" fill="#C9A875" opacity="0.85"/>
+              <text x="247" y="252" font-family="Playfair Display, serif" font-size="10" fill="#0C2830" text-anchor="middle">★</text>
+            </g>
+            <!-- caption row -->
+            <rect x="124" y="285" width="146" height="2.5" rx="1" fill="#0C2830" opacity="0.4"/>
+            <rect x="124" y="293" width="100" height="2.5" rx="1" fill="#0C2830" opacity="0.25"/>
+            <rect x="124" y="305" width="50" height="6" rx="3" fill="#0C2830"/>
+            <!-- title overlay -->
+            <text x="200" y="445" font-family="Playfair Display, serif" font-size="24" font-weight="500" fill="#F5F0E6" text-anchor="middle">40+ Canva Templates</text>
+            <text x="200" y="465" font-family="Inter, sans-serif" font-size="8" letter-spacing="3" fill="#F5F0E6" text-anchor="middle" opacity="0.8">FOR REAL ESTATE AGENTS</text>
+          </svg>
+        </div>
+        <p class="card__type">Canva Templates · 40+</p>
         <h3 class="card__title">Real Estate Social Templates</h3>
         <p class="card__price">$19.00</p>
       </article>
+
+      <!-- LIGHTROOM PRESETS — Filmstrip with swatches -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--preset">Nosara<br>Coastal</div></div>
-        <p class="card__type">Lightroom presets</p>
+        <div class="card__media">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="lr-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#0a0a0a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#lr-bg)"/>
+            <!-- filmstrip perforations -->
+            <g fill="#0a0a0a">
+              <rect x="0" y="0" width="400" height="22" fill="#000"/>
+              <rect x="0" y="478" width="400" height="22" fill="#000"/>
+            </g>
+            <g fill="#1a1a1a">
+              <rect x="8" y="6" width="14" height="10" rx="1"/>
+              <rect x="32" y="6" width="14" height="10" rx="1"/>
+              <rect x="56" y="6" width="14" height="10" rx="1"/>
+              <rect x="80" y="6" width="14" height="10" rx="1"/>
+              <rect x="104" y="6" width="14" height="10" rx="1"/>
+              <rect x="128" y="6" width="14" height="10" rx="1"/>
+              <rect x="152" y="6" width="14" height="10" rx="1"/>
+              <rect x="176" y="6" width="14" height="10" rx="1"/>
+              <rect x="200" y="6" width="14" height="10" rx="1"/>
+              <rect x="224" y="6" width="14" height="10" rx="1"/>
+              <rect x="248" y="6" width="14" height="10" rx="1"/>
+              <rect x="272" y="6" width="14" height="10" rx="1"/>
+              <rect x="296" y="6" width="14" height="10" rx="1"/>
+              <rect x="320" y="6" width="14" height="10" rx="1"/>
+              <rect x="344" y="6" width="14" height="10" rx="1"/>
+              <rect x="368" y="6" width="14" height="10" rx="1"/>
+              <rect x="8" y="484" width="14" height="10" rx="1"/>
+              <rect x="32" y="484" width="14" height="10" rx="1"/>
+              <rect x="56" y="484" width="14" height="10" rx="1"/>
+              <rect x="80" y="484" width="14" height="10" rx="1"/>
+              <rect x="104" y="484" width="14" height="10" rx="1"/>
+              <rect x="128" y="484" width="14" height="10" rx="1"/>
+              <rect x="152" y="484" width="14" height="10" rx="1"/>
+              <rect x="176" y="484" width="14" height="10" rx="1"/>
+              <rect x="200" y="484" width="14" height="10" rx="1"/>
+              <rect x="224" y="484" width="14" height="10" rx="1"/>
+              <rect x="248" y="484" width="14" height="10" rx="1"/>
+              <rect x="272" y="484" width="14" height="10" rx="1"/>
+              <rect x="296" y="484" width="14" height="10" rx="1"/>
+              <rect x="320" y="484" width="14" height="10" rx="1"/>
+              <rect x="344" y="484" width="14" height="10" rx="1"/>
+              <rect x="368" y="484" width="14" height="10" rx="1"/>
+            </g>
+            <!-- 5 photo frames with preset color treatments -->
+            <g>
+              <!-- Frame 1: golden hour -->
+              <rect x="32" y="50" width="336" height="60" fill="#000"/>
+              <rect x="36" y="54" width="328" height="52" fill="#f5c77a"/>
+              <rect x="36" y="54" width="328" height="52" fill="url(#frame1grad)"/>
+              <linearGradient id="frame1grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5c77a"/>
+                <stop offset="60%" stop-color="#d9846b"/>
+                <stop offset="100%" stop-color="#5A3A4F"/>
+              </linearGradient>
+              <circle cx="280" cy="78" r="14" fill="#f5d29b" opacity="0.85"/>
+              <text x="44" y="100" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#F5F0E6">01 · GOLDEN HOUR</text>
+
+              <!-- Frame 2: overcast -->
+              <rect x="32" y="120" width="336" height="60" fill="#000"/>
+              <linearGradient id="frame2grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#8a99a3"/>
+                <stop offset="100%" stop-color="#b8c4cb"/>
+              </linearGradient>
+              <rect x="36" y="124" width="328" height="52" fill="url(#frame2grad)"/>
+              <text x="44" y="170" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#0C2830">02 · OVERCAST PACIFIC</text>
+
+              <!-- Frame 3: jungle -->
+              <rect x="32" y="190" width="336" height="60" fill="#000"/>
+              <linearGradient id="frame3grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3d5c3a"/>
+                <stop offset="100%" stop-color="#1a3320"/>
+              </linearGradient>
+              <rect x="36" y="194" width="328" height="52" fill="url(#frame3grad)"/>
+              <text x="44" y="240" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#F5F0E6">03 · JUNGLE INTERIOR</text>
+
+              <!-- Frame 4: surf -->
+              <rect x="32" y="260" width="336" height="60" fill="#000"/>
+              <linearGradient id="frame4grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#99D6D8"/>
+                <stop offset="100%" stop-color="#17617C"/>
+              </linearGradient>
+              <rect x="36" y="264" width="328" height="52" fill="url(#frame4grad)"/>
+              <path d="M36,294 Q120,288 200,294 T364,294 L364,316 L36,316 Z" fill="#F5F0E6" opacity="0.25"/>
+              <text x="44" y="310" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#0C2830">04 · COASTAL SURF</text>
+
+              <!-- Frame 5: interior -->
+              <rect x="32" y="330" width="336" height="60" fill="#000"/>
+              <linearGradient id="frame5grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#e8dcc2"/>
+                <stop offset="100%" stop-color="#c9b68e"/>
+              </linearGradient>
+              <rect x="36" y="334" width="328" height="52" fill="url(#frame5grad)"/>
+              <text x="44" y="380" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#0C2830">05 · INTERIOR WARM</text>
+            </g>
+            <!-- title -->
+            <text x="200" y="430" font-family="Playfair Display, serif" font-size="22" font-weight="500" fill="#F5F0E6" text-anchor="middle">Nosara Coastal</text>
+            <text x="200" y="455" font-family="Inter, sans-serif" font-size="8" letter-spacing="3.5" fill="#F5F0E6" text-anchor="middle" opacity="0.7">10 LIGHTROOM PRESETS</text>
+          </svg>
+        </div>
+        <p class="card__type">Lightroom Presets · 10pk</p>
         <h3 class="card__title">Nosara Coastal Preset Pack</h3>
         <p class="card__price">$15.00</p>
       </article>
@@ -500,86 +1085,225 @@
   </div>
 </section>
 
-<!-- ───────── SERVICES ───────── -->
+<!-- ═════════ SERVICES ═════════ -->
 <section class="section section--teal" id="services">
   <div class="container">
     <div class="section__head">
       <div class="section__head-text">
-        <p class="section__eyebrow">Collection 02</p>
-        <h2>Content services</h2>
-        <p class="section__desc">Done-for-you content production for real estate agents and short-term rental owners. Book a call to scope the right package.</p>
+        <p class="section__eyebrow">Collection 02 — Services</p>
+        <h2>Content services for real estate</h2>
+        <p class="section__desc">Done-for-you content production for agents, developers, and short-term rental owners on the Nicoya peninsula. Book a call — no charge until we agree on scope.</p>
       </div>
     </div>
 
     <div class="grid grid--3">
-      <div class="service-card">
-        <p class="card__type">Starter</p>
-        <h3>Starter Content Package</h3>
-        <p class="service-card__price">$450</p>
+      <article class="service-card">
+        <p class="service-card__tier">Tier 01</p>
+        <h3>Starter</h3>
+        <p class="service-card__price">$450<small>/ shoot</small></p>
+        <hr class="service-card__hr">
         <ul>
-          <li>1 half-day shoot</li>
+          <li>1 half-day shoot on location</li>
           <li>20+ edited stills</li>
           <li>1 short-form vertical video</li>
           <li>5 Instagram post drafts</li>
         </ul>
-        <a class="btn btn--ghost" href="#service-page">Book a call</a>
-      </div>
-      <div class="service-card">
-        <p class="card__type">Growth</p>
-        <h3>Growth Package</h3>
-        <p class="service-card__price">$950</p>
+        <a class="btn btn--ghost-teal" href="#service-page">Book a call</a>
+      </article>
+
+      <article class="service-card" style="border-color: var(--light-teal); background: rgba(153,214,216,0.08);">
+        <p class="service-card__tier">Tier 02 · Most popular</p>
+        <h3>Growth</h3>
+        <p class="service-card__price">$950<small>/ month</small></p>
+        <hr class="service-card__hr">
         <ul>
           <li>2 half-day shoots / month</li>
           <li>50+ edited stills / month</li>
           <li>4 short-form vertical videos</li>
+          <li>10 post drafts</li>
           <li>Monthly strategy call</li>
         </ul>
-        <a class="btn btn--ghost" href="#service-page">Book a call</a>
-      </div>
-      <div class="service-card">
-        <p class="card__type">Full Production</p>
-        <h3>Full Production Package</h3>
-        <p class="service-card__price">$1,800</p>
+        <a class="btn btn--ghost-teal" href="#service-page">Book a call</a>
+      </article>
+
+      <article class="service-card">
+        <p class="service-card__tier">Tier 03</p>
+        <h3>Full Production</h3>
+        <p class="service-card__price">$1,800<small>/ month</small></p>
+        <hr class="service-card__hr">
         <ul>
-          <li>Weekly captures</li>
-          <li>Long-form + short-form video</li>
+          <li>Weekly captures on location</li>
+          <li>Long + short-form video</li>
           <li>Drone footage included</li>
           <li>Copywriting + scheduling</li>
+          <li>Weekly strategy call</li>
         </ul>
-        <a class="btn btn--ghost" href="#service-page">Book a call</a>
-      </div>
+        <a class="btn btn--ghost-teal" href="#service-page">Book a call</a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ───────── MERCH ───────── -->
-<section class="section" id="merch">
+<!-- ═════════ MERCH ═════════ -->
+<section class="section section--cream" id="merch">
   <div class="container">
     <div class="section__head">
       <div class="section__head-text">
-        <p class="section__eyebrow">Collection 03</p>
-        <h2>Nosara merch</h2>
-        <p class="section__desc">Pura vida wearables. Printed on demand by Printful, shipped worldwide.</p>
+        <p class="section__eyebrow">Collection 03 — Merch</p>
+        <h2>Pura vida wearables</h2>
+        <p class="section__desc">A small line of tees, caps, and stickers. Printed on demand by Printful, shipped worldwide.</p>
       </div>
       <a class="section__cta" href="#">View all →</a>
     </div>
 
     <div class="grid grid--3">
+      <!-- TEE -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--tee">NOSARA<br>—— CR ——</div></div>
-        <p class="card__type">Apparel</p>
+        <div class="card__media" style="background: #ede6d5;">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="tee-shadow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#000" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="#ede6d5"/>
+            <!-- floor shadow -->
+            <ellipse cx="200" cy="465" rx="160" ry="10" fill="#000" opacity="0.08"/>
+            <!-- tee silhouette - sand color -->
+            <path d="M120,140
+                     L160,110
+                     Q170,100 185,100
+                     Q200,116 215,100
+                     Q230,100 240,110
+                     L280,140
+                     L310,180
+                     L290,210
+                     L275,195
+                     L275,440
+                     Q275,455 260,455
+                     L140,455
+                     Q125,455 125,440
+                     L125,195
+                     L110,210
+                     L90,180 Z"
+                  fill="#dbcfb0" stroke="#c2b48f" stroke-width="0.8"/>
+            <!-- collar -->
+            <path d="M185,100 Q200,128 215,100" stroke="#c2b48f" stroke-width="1" fill="none"/>
+            <ellipse cx="200" cy="112" rx="18" ry="6" fill="none" stroke="#c2b48f" stroke-width="0.6"/>
+            <!-- tee shadow -->
+            <path d="M125,195 L125,440 Q125,455 140,455 L160,455 L160,200 Z" fill="url(#tee-shadow)"/>
+            <!-- printed graphic -->
+            <g transform="translate(200,260)">
+              <text y="0" font-family="Playfair Display, serif" font-size="22" font-weight="500" fill="#0C2830" text-anchor="middle" letter-spacing="2">NOSARA</text>
+              <line x1="-40" y1="14" x2="40" y2="14" stroke="#0C2830" stroke-width="0.8"/>
+              <text y="32" font-family="Inter, sans-serif" font-size="7" letter-spacing="4" fill="#0C2830" text-anchor="middle">COSTA RICA</text>
+              <!-- small palm icon -->
+              <g transform="translate(0,58)" stroke="#0C2830" fill="none" stroke-width="0.8" stroke-linecap="round">
+                <line x1="0" y1="-2" x2="0" y2="18"/>
+                <path d="M0,-2 Q-10,-8 -16,-4"/>
+                <path d="M0,-2 Q10,-8 16,-4"/>
+                <path d="M0,-2 Q-8,-12 -12,-14"/>
+                <path d="M0,-2 Q8,-12 12,-14"/>
+                <path d="M0,-2 Q0,-12 0,-16"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <p class="card__type">Cotton tee · Unisex</p>
         <h3 class="card__title">Nosara CR Tee</h3>
-        <p class="card__price">$32.00</p>
+        <p class="card__price">$32.00 — 4 sizes</p>
       </article>
+
+      <!-- CAP -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--cap">Nosara</div></div>
-        <p class="card__type">Headwear</p>
+        <div class="card__media" style="background: #ede6d5;">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="500" fill="#ede6d5"/>
+            <!-- floor shadow -->
+            <ellipse cx="200" cy="395" rx="160" ry="14" fill="#000" opacity="0.1"/>
+            <!-- cap body (front panel + side panels view) -->
+            <!-- back panel -->
+            <path d="M80,290 Q80,180 200,170 Q320,180 320,290 L320,310 L80,310 Z" fill="#0C2830"/>
+            <!-- panel seam lines -->
+            <path d="M200,170 L200,310" stroke="#1a3a45" stroke-width="0.8" opacity="0.7"/>
+            <path d="M140,178 Q150,240 152,310" stroke="#1a3a45" stroke-width="0.8" opacity="0.5" fill="none"/>
+            <path d="M260,178 Q250,240 248,310" stroke="#1a3a45" stroke-width="0.8" opacity="0.5" fill="none"/>
+            <!-- top button -->
+            <circle cx="200" cy="172" r="4" fill="#1a4654"/>
+            <!-- brim -->
+            <path d="M70,300 Q200,360 330,300 Q330,330 200,378 Q70,330 70,300 Z" fill="#0a2128"/>
+            <ellipse cx="200" cy="340" rx="135" ry="22" fill="#0C2830" opacity="0.4"/>
+            <!-- embroidered patch / wordmark -->
+            <text x="200" y="248" font-family="Playfair Display, serif" font-size="20" font-weight="500" fill="#C9A875" text-anchor="middle" letter-spacing="3">NOSARA</text>
+            <line x1="170" y1="256" x2="230" y2="256" stroke="#C9A875" stroke-width="0.6"/>
+            <text x="200" y="270" font-family="Inter, sans-serif" font-size="6" letter-spacing="3" fill="#C9A875" text-anchor="middle">EST · CR</text>
+            <!-- stitching detail -->
+            <g stroke="#C9A875" stroke-width="0.3" stroke-dasharray="2 2" fill="none" opacity="0.5">
+              <path d="M82,302 Q200,358 318,302"/>
+            </g>
+          </svg>
+        </div>
+        <p class="card__type">Dad cap · Embroidered</p>
         <h3 class="card__title">Nosara CR Cap</h3>
-        <p class="card__price">$28.00</p>
+        <p class="card__price">$28.00 — 2 colors</p>
       </article>
+
+      <!-- STICKER PACK -->
       <article class="card">
-        <div class="card__media"><div class="card__media-art card__media-art--sticker">★ Pura ★<br>Vida</div></div>
-        <p class="card__type">Accessory</p>
+        <div class="card__media" style="background: #ede6d5;">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="500" fill="#ede6d5"/>
+            <!-- Sticker 1: round Nosara wordmark (top-left) -->
+            <g transform="translate(130,150) rotate(-8)">
+              <circle r="82" fill="#0C2830"/>
+              <circle r="78" fill="none" stroke="#C9A875" stroke-width="0.8"/>
+              <text y="-12" font-family="Playfair Display, serif" font-size="22" font-weight="500" fill="#F5F0E6" text-anchor="middle" letter-spacing="2">NOSARA</text>
+              <line x1="-30" y1="-4" x2="30" y2="-4" stroke="#C9A875" stroke-width="0.5"/>
+              <text y="14" font-family="Inter, sans-serif" font-size="7" letter-spacing="3" fill="#C9A875" text-anchor="middle">PURA VIDA</text>
+              <text y="32" font-family="Inter, sans-serif" font-size="6" letter-spacing="2.5" fill="#F5F0E6" text-anchor="middle" opacity="0.7">EST · COSTA RICA</text>
+              <!-- decorative dots in arc -->
+              <g fill="#C9A875">
+                <circle cx="0" cy="-58" r="1.2"/>
+                <circle cx="42" cy="-40" r="1.2"/>
+                <circle cx="58" cy="0" r="1.2"/>
+                <circle cx="42" cy="40" r="1.2"/>
+                <circle cx="0" cy="58" r="1.2"/>
+                <circle cx="-42" cy="40" r="1.2"/>
+                <circle cx="-58" cy="0" r="1.2"/>
+                <circle cx="-42" cy="-40" r="1.2"/>
+              </g>
+            </g>
+            <!-- Sticker 2: pelican silhouette (top-right) -->
+            <g transform="translate(290,140) rotate(12)">
+              <rect x="-60" y="-50" width="120" height="100" rx="6" fill="#99D6D8"/>
+              <rect x="-60" y="-50" width="120" height="100" rx="6" fill="none" stroke="#0C2830" stroke-width="0.6"/>
+              <!-- pelican -->
+              <g fill="#0C2830">
+                <path d="M-30,-10 Q-20,-25 -5,-22 Q10,-20 20,-12 Q30,0 28,8 Q20,16 8,18 Q-8,20 -22,12 Q-32,4 -30,-10 Z"/>
+                <path d="M28,8 Q40,12 48,4 Q42,16 30,18 Z"/>
+                <circle cx="-22" cy="-12" r="1.2" fill="#99D6D8"/>
+                <path d="M-22,-22 Q-26,-30 -20,-32" stroke="#0C2830" stroke-width="0.8" fill="none"/>
+              </g>
+              <text y="36" font-family="Inter, sans-serif" font-size="6" letter-spacing="2.5" fill="#0C2830" text-anchor="middle">GUIONES</text>
+            </g>
+            <!-- Sticker 3: surfboard (bottom-left) -->
+            <g transform="translate(120,340) rotate(-15)">
+              <ellipse rx="20" ry="78" fill="#C9A875"/>
+              <ellipse rx="20" ry="78" fill="none" stroke="#0C2830" stroke-width="0.6"/>
+              <line y1="-60" y2="60" stroke="#0C2830" stroke-width="0.5" opacity="0.5"/>
+              <circle cy="50" r="3" fill="#0C2830"/>
+              <text y="0" font-family="Playfair Display, serif" font-size="10" font-style="italic" fill="#0C2830" text-anchor="middle" transform="rotate(90)">surf</text>
+            </g>
+            <!-- Sticker 4: small ★ Pura Vida -->
+            <g transform="translate(280,360) rotate(8)">
+              <rect x="-55" y="-30" width="110" height="60" rx="4" fill="#0C2830"/>
+              <text y="-2" font-family="Playfair Display, serif" font-size="14" font-style="italic" fill="#F5F0E6" text-anchor="middle">Pura vida</text>
+              <text y="18" font-family="Inter, sans-serif" font-size="6" letter-spacing="3" fill="#C9A875" text-anchor="middle">★ ★ ★</text>
+            </g>
+          </svg>
+        </div>
+        <p class="card__type">Vinyl stickers · 3-pack</p>
         <h3 class="card__title">Nosara Sticker Pack</h3>
         <p class="card__price">$8.00</p>
       </article>
@@ -587,85 +1311,228 @@
   </div>
 </section>
 
-<!-- ───────── ABOUT STRIP ───────── -->
+<!-- ═════════ ABOUT STRIP ═════════ -->
 <section class="section section--light-teal" id="about">
   <div class="container">
     <div class="about">
-      <div class="about__portrait"></div>
+      <div class="about__portrait">
+        <!-- Editorial photograph composition — Costa Rica coast at dawn -->
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="aboutSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5F0E6"/>
+              <stop offset="40%" stop-color="#e6d5b8"/>
+              <stop offset="70%" stop-color="#C9A875"/>
+              <stop offset="100%" stop-color="#8a5d4f"/>
+            </linearGradient>
+            <linearGradient id="aboutWater" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3b6478"/>
+              <stop offset="60%" stop-color="#17617C"/>
+              <stop offset="100%" stop-color="#0C2830"/>
+            </linearGradient>
+          </defs>
+          <!-- sky -->
+          <rect width="400" height="280" fill="url(#aboutSky)"/>
+          <!-- sun -->
+          <circle cx="200" cy="260" r="60" fill="#f5d29b" opacity="0.9"/>
+          <circle cx="200" cy="260" r="40" fill="#fdeac2"/>
+          <!-- distant mountains -->
+          <path d="M0,270 Q80,240 160,255 Q220,265 280,250 Q340,240 400,260 L400,290 L0,290 Z" fill="#5a3a4f" opacity="0.85"/>
+          <path d="M0,290 Q60,280 130,288 Q200,295 270,282 Q340,275 400,288 L400,310 L0,310 Z" fill="#3a2a3a" opacity="0.85"/>
+          <!-- water -->
+          <rect y="290" width="400" height="210" fill="url(#aboutWater)"/>
+          <!-- sun reflection -->
+          <ellipse cx="200" cy="310" rx="50" ry="2.5" fill="#f5d29b" opacity="0.85"/>
+          <ellipse cx="200" cy="330" rx="45" ry="2" fill="#f5d29b" opacity="0.6"/>
+          <ellipse cx="200" cy="355" rx="55" ry="2.5" fill="#f5d29b" opacity="0.45"/>
+          <ellipse cx="200" cy="385" rx="48" ry="2" fill="#f5d29b" opacity="0.3"/>
+          <ellipse cx="200" cy="420" rx="60" ry="3" fill="#f5d29b" opacity="0.2"/>
+          <!-- wave lines -->
+          <path d="M0,360 Q100,355 200,360 T400,360" stroke="#F5F0E6" stroke-width="0.4" fill="none" opacity="0.25"/>
+          <path d="M0,400 Q100,395 200,400 T400,400" stroke="#F5F0E6" stroke-width="0.4" fill="none" opacity="0.2"/>
+          <path d="M0,445 Q100,440 200,445 T400,445" stroke="#F5F0E6" stroke-width="0.4" fill="none" opacity="0.15"/>
+          <!-- foreground figure silhouette (surfer carrying board) -->
+          <g fill="#0a1f25">
+            <ellipse cx="200" cy="495" rx="55" ry="6" opacity="0.6"/>
+            <!-- body -->
+            <path d="M186,440
+                     Q184,432 188,428
+                     Q192,424 196,424
+                     Q204,424 208,428
+                     Q212,432 210,440
+                     L212,468
+                     Q214,478 208,486
+                     L204,494
+                     L196,494
+                     L192,486
+                     L188,478 Z"/>
+            <!-- head -->
+            <circle cx="198" cy="420" r="7"/>
+            <!-- arm holding board behind head -->
+            <path d="M196,432 Q188,420 175,422" stroke="#0a1f25" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- surfboard behind -->
+            <ellipse cx="160" cy="412" rx="36" ry="6" transform="rotate(-12 160 412)"/>
+          </g>
+        </svg>
+      </div>
       <div class="about__body">
-        <p class="section__eyebrow">About</p>
-        <h2>Julián Monge</h2>
-        <p>Julián Monge is a real estate agent with <strong>Blue Water Properties</strong> in Nosara, Costa Rica — representing buyers, sellers, and investors across Playa Guiones, Pelada, Garza, and the broader Nicoya peninsula.</p>
-        <p>This shop is a small extension of that work — editorial guides, content services, and goods for people drawn to this coast.</p>
-        <a class="btn btn--secondary" href="#">Read more</a>
+        <p class="section__eyebrow" style="color: var(--deep-teal); opacity: 0.7;">About</p>
+        <h2>Julián Monge.</h2>
+        <p>Real estate agent at <strong>Blue Water Properties</strong>, working from Playa Guiones — representing buyers, sellers, and investors across Nosara, Pelada, Garza, and the broader Nicoya peninsula.</p>
+        <p>This shop is a small extension of that work — editorial guides for people moving to or investing in the area, content services for fellow agents and STR owners, and a tight line of pura vida goods for everyone else.</p>
+        <p class="about__sig">— Julián</p>
+        <a class="btn btn--secondary" href="#" style="margin-top: 0.5rem;">More about me</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="annotation">— Service product page —</div>
+<div class="annotation">Service product page detail · /products/growth-package</div>
 
-<!-- ───────── SERVICE PRODUCT PAGE PREVIEW ───────── -->
+<!-- ═════════ SERVICE PRODUCT PAGE ═════════ -->
 <section class="section" id="service-page">
   <div class="container">
     <div class="svc-page">
-      <div class="svc-page__media"></div>
+      <div class="svc-page__media">
+        <!-- Editorial photograph: photographer at golden hour -->
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="svcSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a3a4f"/>
+              <stop offset="30%" stop-color="#8a5d4f"/>
+              <stop offset="60%" stop-color="#C9A875"/>
+              <stop offset="85%" stop-color="#d9846b"/>
+              <stop offset="100%" stop-color="#3a2a3a"/>
+            </linearGradient>
+            <radialGradient id="svcGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f5d29b" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#f5d29b" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#svcSky)"/>
+          <!-- sun glow -->
+          <circle cx="280" cy="220" r="120" fill="url(#svcGlow)"/>
+          <circle cx="280" cy="220" r="32" fill="#f5d29b" opacity="0.95"/>
+          <!-- distant headland -->
+          <path d="M0,290 Q120,275 220,285 Q320,295 400,280 L400,320 L0,320 Z" fill="#2a1f2a" opacity="0.85"/>
+          <!-- water -->
+          <rect y="320" width="400" height="180" fill="#0C2830"/>
+          <!-- foam -->
+          <path d="M0,360 Q100,350 200,358 T400,360 L400,370 L0,370 Z" fill="#F5F0E6" opacity="0.18"/>
+          <path d="M0,395 Q100,388 200,395 T400,395 L400,400 L0,400 Z" fill="#F5F0E6" opacity="0.12"/>
+          <!-- sun reflection -->
+          <ellipse cx="280" cy="340" rx="36" ry="2.5" fill="#f5d29b" opacity="0.75"/>
+          <ellipse cx="280" cy="360" rx="42" ry="2" fill="#f5d29b" opacity="0.55"/>
+          <ellipse cx="280" cy="385" rx="48" ry="2" fill="#f5d29b" opacity="0.4"/>
+          <ellipse cx="280" cy="415" rx="55" ry="2.5" fill="#f5d29b" opacity="0.28"/>
+          <!-- photographer silhouette -->
+          <g fill="#0a1014">
+            <!-- legs -->
+            <path d="M110,460 L113,495 L120,495 L123,460 Z"/>
+            <path d="M128,460 L131,495 L138,495 L141,460 Z"/>
+            <!-- torso -->
+            <path d="M100,400 Q98,395 102,392 L150,392 Q154,395 152,400 L150,460 L102,460 Z"/>
+            <!-- arms holding camera -->
+            <path d="M100,405 L88,418 L92,432 L102,425 Z"/>
+            <path d="M152,405 L162,415 L164,428 L156,422 Z"/>
+            <!-- head -->
+            <circle cx="126" cy="382" r="11"/>
+            <!-- camera up to face -->
+            <rect x="120" y="378" width="36" height="14" rx="2"/>
+            <circle cx="138" cy="385" r="5" fill="#1a3a45"/>
+            <circle cx="138" cy="385" r="3" fill="#0a1014"/>
+            <!-- camera strap -->
+            <path d="M120,388 Q108,400 100,420" stroke="#0a1014" stroke-width="1.5" fill="none"/>
+            <path d="M156,388 Q164,400 168,420" stroke="#0a1014" stroke-width="1.5" fill="none"/>
+          </g>
+          <!-- tripod -->
+          <g stroke="#0a1014" stroke-width="1.5" fill="none">
+            <line x1="220" y1="380" x2="216" y2="465"/>
+            <line x1="220" y1="380" x2="234" y2="465"/>
+            <line x1="220" y1="380" x2="225" y2="465"/>
+            <rect x="208" y="372" width="26" height="10" rx="1" fill="#0a1014"/>
+          </g>
+          <!-- subtle vignette -->
+          <rect width="400" height="500" fill="url(#vignette)" opacity="0.5"/>
+        </svg>
+      </div>
       <div>
-        <p class="svc-page__eyebrow">Services</p>
+        <p class="svc-page__eyebrow">Services · Content Production</p>
         <h1 class="svc-page__title">Growth Package</h1>
-        <p class="svc-page__price">$950.00</p>
+        <p class="svc-page__price">$950 <small style="font-family: var(--sans); font-size: 0.875rem; opacity: 0.6; letter-spacing: 0.16em; text-transform: uppercase; margin-left: 0.4rem;">per month</small></p>
         <div class="svc-page__desc">
-          <p>A monthly content engine for active listings or growing STR portfolios. Two shoots per month, photo + short-form video bundles, post drafts, and a monthly strategy call.</p>
-          <ul>
-            <li>2 half-day shoots / month</li>
-            <li>50+ edited stills / month</li>
-            <li>4 short-form vertical videos / month</li>
-            <li>10 Instagram post drafts</li>
-            <li>1 monthly strategy call</li>
-          </ul>
+          <p>A monthly content engine for active listings or growing short-term-rental portfolios. Two on-location shoots per month, edited photography and short-form video, post drafts, and a strategy call to keep momentum.</p>
         </div>
-        <a class="btn btn--primary svc-page__cta" href="https://calendly.com/julianmonge/growth">Book a call</a>
+        <ul class="svc-page__list">
+          <li>2 half-day shoots / month</li>
+          <li>50+ edited stills</li>
+          <li>4 short-form vertical videos</li>
+          <li>10 Instagram post drafts</li>
+          <li>1 monthly strategy call</li>
+          <li>Drone footage on request</li>
+        </ul>
+        <a class="btn btn--primary svc-page__cta" href="https://calendly.com/julianmonge/growth">Book a call →</a>
         <p class="svc-page__note">Pricing is confirmed on the call. No charge until we both agree on scope.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ───────── FOOTER ───────── -->
-<footer class="footer">
+<!-- ═════════ NEWSLETTER ═════════ -->
+<section class="newsletter">
   <div class="container">
-    <div class="footer__grid">
+    <div class="newsletter__inner">
+      <div>
+        <h2>Nosara, in your inbox.</h2>
+        <p>Market notes, new listings, and the occasional editorial dispatch. Monthly, no spam.</p>
+      </div>
+      <form class="newsletter__form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" aria-label="Email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FOOTER ═════════ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__top">
       <div class="footer__brand">
-        <h3>JULIÁN MONGE</h3>
-        <p>Real estate in Nosara, Costa Rica. A small shop of guides, services, and goods for this coast.</p>
+        <h3 class="footer__brand-mark">JULIÁN MONGE</h3>
+        <small>Blue Water Properties · Nosara, CR</small>
+        <p>A small shop of guides, services, and goods for Costa Rica's Pacific coast — extension of a working real estate practice in Playa Guiones.</p>
       </div>
       <div>
         <h4>Shop</h4>
         <ul>
-          <li><a href="#">Digital guides</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Nosara merch</a></li>
+          <li><a href="#shop">Digital guides</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#merch">Nosara merch</a></li>
+          <li><a href="#">All products</a></li>
         </ul>
       </div>
       <div>
         <h4>About</h4>
         <ul>
-          <li><a href="#">About Julián</a></li>
+          <li><a href="#about">About Julián</a></li>
           <li><a href="https://julianmonge.com">julianmonge.com</a></li>
           <li><a href="#">Blue Water Properties</a></li>
+          <li><a href="#">Press</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="#">Book a call</a></li>
-          <li><a href="#">Email</a></li>
+          <li><a href="https://calendly.com/julianmonge/intro">Book a call</a></li>
+          <li><a href="mailto:hola@julianmonge.com">hola@julianmonge.com</a></li>
           <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Julián Monge — Blue Water Properties</span>
+      <span>© 2026 Julián Monge — Blue Water Properties, Nosara, Costa Rica.</span>
       <span>shop.julianmonge.com</span>
     </div>
   </div>
