@@ -1,0 +1,53 @@
+NOSARA COASTAL — Lightroom Preset Pack
+10 presets · by Julián Monge · shop.julianmonge.com
+====================================================
+
+WHAT'S INSIDE
+  01 Golden Hour          Warm, glowing late-afternoon light
+  02 Overcast Pacific     Cool, crisp clarity for flat grey light
+  03 Jungle Interior      Lush greens, earthy depth
+  04 Coastal Surf         Punchy teal water, bright and clean
+  05 Interior Warm        Real-estate interiors: bright, neutral, low grain
+  06 Sunset Glow          Cinematic teal-orange, dramatic warmth
+  07 Matte Film           Faded blacks, desaturated film look
+  08 Bright & Airy        Light, fresh, low-contrast lifestyle look
+  09 Black & White Coast  High-contrast monochrome, dramatic skies
+  10 Deep Teal            Moody brand-matched editorial tone
+
+These are .xmp presets. They adjust tone curves, color grading, HSL,
+grain, and vignette. They do NOT force exposure or white balance, so
+they apply cleanly to different photos — fine-tune exposure/WB per image.
+
+────────────────────────────────────────────────────
+INSTALL · Lightroom Classic (desktop, v7.3 or newer)
+────────────────────────────────────────────────────
+1. Open Lightroom Classic.
+2. Go to the Develop module.
+3. In the Presets panel (left), click the + → "Import Presets…".
+4. Select all 10 .xmp files (or the whole "Nosara Coastal" folder zipped).
+5. They appear under a "Nosara Coastal" group in the Presets panel.
+
+────────────────────────────────────────────────────
+INSTALL · Lightroom (CC) desktop
+────────────────────────────────────────────────────
+1. Open Lightroom.
+2. Click the Presets icon (Edit panel) → "..." → "Import Presets".
+3. Select the .xmp files. They sync to all your devices, including mobile.
+
+────────────────────────────────────────────────────
+INSTALL · Lightroom Mobile (iOS / Android)
+────────────────────────────────────────────────────
+Easiest: install on Lightroom CC desktop (above) — presets sync to mobile
+automatically when signed into the same Adobe account.
+
+Manual: in the mobile app, open the Presets panel → "..." → "Import
+Presets" and select the .xmp files from your device's Files app.
+
+────────────────────────────────────────────────────
+TIPS
+- Presets are a starting point. Adjust Exposure and White Balance to taste.
+- Lower the effect by reducing Saturation/Vibrance or the grain amount.
+- For raw files you'll get the most range; JPEGs respond more strongly.
+
+© 2026 Julián Monge. For personal and client use.
+Resale or redistribution of the preset files is not permitted.

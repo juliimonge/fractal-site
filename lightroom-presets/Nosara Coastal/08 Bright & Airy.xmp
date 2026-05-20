@@ -1,0 +1,110 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+    crs:PresetType="Normal"
+    crs:Cluster=""
+    crs:UUID="6A6C061FBF7486E2F2430A4830D13A52"
+    crs:SupportsAmount="False"
+    crs:SupportsColor="True"
+    crs:SupportsMonochrome="True"
+    crs:SupportsHighDynamicRange="True"
+    crs:SupportsNormalDynamicRange="True"
+    crs:SupportsSceneReferred="True"
+    crs:SupportsOutputReferred="True"
+    crs:CameraModelRestriction=""
+    crs:Copyright="Julián Monge — shop.julianmonge.com"
+    crs:ContactInfo="shop.julianmonge.com"
+    crs:Version="15.4"
+    crs:ProcessVersion="11.0"
+    crs:Exposure2012="+0.10"
+    crs:Contrast2012="-4"
+    crs:Highlights2012="-18"
+    crs:Shadows2012="+30"
+    crs:Whites2012="+16"
+    crs:Blacks2012="+6"
+    crs:Texture="+4"
+    crs:Clarity2012="-4"
+    crs:Dehaze="0"
+    crs:Vibrance="+10"
+    crs:Saturation="-4"
+    crs:ToneCurveName2012="Custom"
+    crs:ConvertToGrayscale="False"
+    crs:HueAdjustmentRed="0"
+    crs:HueAdjustmentOrange="0"
+    crs:HueAdjustmentYellow="0"
+    crs:HueAdjustmentGreen="0"
+    crs:HueAdjustmentAqua="0"
+    crs:HueAdjustmentBlue="0"
+    crs:HueAdjustmentPurple="0"
+    crs:HueAdjustmentMagenta="0"
+    crs:SaturationAdjustmentRed="0"
+    crs:SaturationAdjustmentOrange="0"
+    crs:SaturationAdjustmentYellow="0"
+    crs:SaturationAdjustmentGreen="0"
+    crs:SaturationAdjustmentAqua="0"
+    crs:SaturationAdjustmentBlue="-6"
+    crs:SaturationAdjustmentPurple="0"
+    crs:SaturationAdjustmentMagenta="0"
+    crs:LuminanceAdjustmentRed="0"
+    crs:LuminanceAdjustmentOrange="0"
+    crs:LuminanceAdjustmentYellow="0"
+    crs:LuminanceAdjustmentGreen="+8"
+    crs:LuminanceAdjustmentAqua="+6"
+    crs:LuminanceAdjustmentBlue="+12"
+    crs:LuminanceAdjustmentPurple="0"
+    crs:LuminanceAdjustmentMagenta="0"
+    crs:ColorGradeShadowHue="0"
+    crs:ColorGradeShadowSat="0"
+    crs:ColorGradeShadowLum="0"
+    crs:ColorGradeMidtoneHue="0"
+    crs:ColorGradeMidtoneSat="0"
+    crs:ColorGradeMidtoneLum="0"
+    crs:ColorGradeHighlightHue="48"
+    crs:ColorGradeHighlightSat="6"
+    crs:ColorGradeHighlightLum="0"
+    crs:ColorGradeGlobalHue="0"
+    crs:ColorGradeGlobalSat="0"
+    crs:ColorGradeGlobalLum="0"
+    crs:ColorGradeBlending="50"
+    crs:SplitToningBalance="+5"
+    crs:Sharpness="40"
+    crs:SharpenRadius="+1.0"
+    crs:SharpenDetail="25"
+    crs:SharpenEdgeMasking="0"
+    crs:LuminanceSmoothing="0"
+    crs:ColorNoiseReduction="25"
+    crs:ColorNoiseReductionDetail="50"
+    crs:ColorNoiseReductionSmoothness="50"
+    crs:GrainAmount="4"
+    crs:GrainSize="22"
+    crs:GrainFrequency="50"
+    crs:PostCropVignetteAmount="0"
+    crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">08 · Bright &amp; Airy</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">08 · Bright &amp; Airy</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Nosara Coastal</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 14</rdf:li>
+      <rdf:li>64, 64</rdf:li>
+      <rdf:li>128, 134</rdf:li>
+      <rdf:li>192, 206</rdf:li>
+      <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
