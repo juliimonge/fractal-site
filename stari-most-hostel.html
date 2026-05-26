@@ -450,21 +450,22 @@ section{scroll-margin-top:var(--header-h);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
 .field{margin-bottom:1.3rem;display:flex;flex-direction:column;}
 .field label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:.5rem;}
-.field input,.field select{
+.field input,.field select,.field textarea{
   font-family:var(--sans);font-size:.95rem;color:var(--ink);
   padding:.85rem 1rem;border:1px solid var(--line);border-radius:7px;background:var(--stone-light);
   transition:border-color .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);
   -webkit-appearance:none;appearance:none;width:100%;
 }
+.field textarea{resize:vertical;min-height:84px;line-height:1.5;}
 .field select{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23b85c38' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem;
 }
-.field input:focus,.field select:focus{
+.field input:focus,.field select:focus,.field textarea:focus{
   outline:none;border-color:var(--terracotta);background:#fff;
   box-shadow:0 0 0 4px rgba(184,92,56,.12);
 }
-.field.flash input,.field.flash select{border-color:var(--gold);box-shadow:0 0 0 4px rgba(199,154,75,.28);}
+.field.flash input,.field.flash select,.field.flash textarea{border-color:var(--gold);box-shadow:0 0 0 4px rgba(199,154,75,.28);}
 .booking-submit{width:100%;margin-top:.4rem;}
 .booking-result{
   margin-top:1.4rem;padding:1.3rem 1.4rem;border-radius:9px;
@@ -478,8 +479,9 @@ section{scroll-margin-top:var(--header-h);}
 .booking-result .br-grid{display:flex;flex-wrap:wrap;gap:1rem 1.8rem;margin:.8rem 0;}
 .booking-result .br-grid div span{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
 .booking-result .br-grid div b{font-family:var(--serif);font-size:1.1rem;color:var(--terracotta-deep);font-weight:600;}
-.booking-result .total{font-family:var(--serif);font-size:1.6rem;color:var(--navy);font-weight:700;}
 .booking-result small{display:block;margin-top:.5rem;color:var(--ink-soft);font-size:.78rem;}
+.booking-result .result-cta{margin-top:.8rem;color:var(--ink-soft);font-size:.84rem;line-height:1.55;}
+.booking-result .result-cta a{color:var(--terracotta-deep);font-weight:600;text-decoration:underline;}
 .field-error{color:var(--terracotta-deep);font-size:.74rem;margin-top:1rem;display:none;}
 .field-error.show{display:block;}
 
@@ -1026,8 +1028,8 @@ section{scroll-margin-top:var(--header-h);}
       <aside class="booking-aside">
         <div>
           <span class="eyebrow">04 / Reserve</span>
-          <h2>Check availability</h2>
-          <p>Pick your dates and room — we'll hold the best rate. No card needed to reserve, and free cancellation up to 48 hours before arrival.</p>
+          <h2>Request to book</h2>
+          <p>Tell us your dates and room and we'll email you back to confirm availability and the best rate. No card needed to enquire, and free cancellation up to 48 hours before arrival.</p>
         </div>
         <ul class="booking-perks">
           <li>Best price, booked direct</li>
@@ -1038,6 +1040,16 @@ section{scroll-margin-top:var(--header-h);}
       </aside>
 
       <form class="booking-form" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Traveller" required>
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" required>
+          </div>
+        </div>
         <div class="form-row">
           <div class="field">
             <label for="checkin">Check-in</label>
@@ -1063,26 +1075,29 @@ section{scroll-margin-top:var(--header-h);}
           <div class="field">
             <label for="roomtype">Room type</label>
             <select id="roomtype" name="roomtype">
-              <option value="Mixed Dorm" data-price="18">Mixed Dorm — €18/night</option>
-              <option value="Female Dorm" data-price="20">Female Dorm — €20/night</option>
-              <option value="Private Room" data-price="55" selected>Private Room — €55/night</option>
-              <option value="Family Room" data-price="70">Family Room — €70/night</option>
+              <option value="Mixed Dorm" data-price="18">Mixed Dorm</option>
+              <option value="Female Dorm" data-price="20">Female Dorm</option>
+              <option value="Private Room" data-price="55" selected>Private Room</option>
+              <option value="Family Room" data-price="70">Family Room</option>
             </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-solid booking-submit">Check availability <span class="arrow">→</span></button>
-        <p class="field-error" id="formError">Please choose a check-out date after your check-in date.</p>
+        <div class="field">
+          <label for="message">Anything else? (optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Arrival time, group details, questions…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid booking-submit">Send enquiry <span class="arrow">→</span></button>
+        <p class="field-error" id="formError">Please add your name, a valid email, and dates with check-out after check-in.</p>
 
         <div class="booking-result" id="bookingResult" aria-live="polite">
-          <h4>Good news — we have space.</h4>
+          <h4>Your enquiry is ready to send.</h4>
           <div class="br-grid">
             <div><span>Dates</span><b id="rDates">—</b></div>
             <div><span>Nights</span><b id="rNights">—</b></div>
             <div><span>Room</span><b id="rRoom">—</b></div>
             <div><span>Guests</span><b id="rGuests">—</b></div>
           </div>
-          <div class="total">Estimated total: <span id="rTotal">—</span></div>
-          <small>Indicative price for this mockup. We'll email confirmation to finalise your stay at Hostel Backpackers.</small>
+          <p class="result-cta">We've opened your email app with these details filled in — just press send and we'll reply to confirm availability. Didn't open? <a id="mailtoLink" href="#">Email us directly</a>.</p>
         </div>
       </form>
     </div>
@@ -1405,42 +1420,68 @@ section{scroll-margin-top:var(--header-h);}
     });
   });
 
-  /* ── Booking form submit ───────────────────────────────── */
+  /* ── Booking enquiry submit → opens a pre-filled email ──── */
+  var HOSTEL_EMAIL = 'julimongea@gmail.com';
   var form = document.getElementById('bookingForm');
   var result = document.getElementById('bookingResult');
   var formError = document.getElementById('formError');
+  var nameInput = document.getElementById('name');
+  var emailInput = document.getElementById('email');
+  var messageInput = document.getElementById('message');
+  var mailtoLink = document.getElementById('mailtoLink');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var ci = new Date(checkin.value + 'T00:00:00');
     var co = new Date(checkout.value + 'T00:00:00');
     var nights = Math.round((co - ci) / 86400000);
+    var name = nameInput.value.trim();
+    var email = emailInput.value.trim();
 
-    if(!checkin.value || !checkout.value || nights < 1){
+    if(!name || !emailRe.test(email) || !checkin.value || !checkout.value || nights < 1){
       formError.classList.add('show');
       result.classList.remove('show');
       return;
     }
     formError.classList.remove('show');
 
-    var opt = roomSelect.options[roomSelect.selectedIndex];
-    var price = parseInt(opt.getAttribute('data-price'), 10);
+    var room = roomSelect.options[roomSelect.selectedIndex].value;
     var guests = document.getElementById('guests').value;
-    var isDorm = opt.value.indexOf('Dorm') !== -1;
+    var guestLabel = guests + (guests === '1' ? ' guest' : ' guests');
+    var datesLabel = fmtDate(checkin.value) + ' → ' + fmtDate(checkout.value);
+    var nightsLabel = nights + (nights === 1 ? ' night' : ' nights');
+    var message = messageInput.value.trim();
 
-    // Dorms priced per bed (per guest); private rooms priced per room
-    var units = isDorm ? parseInt(guests,10) : 1;
-    var total = price * nights * units;
+    document.getElementById('rDates').textContent = datesLabel;
+    document.getElementById('rNights').textContent = nightsLabel;
+    document.getElementById('rRoom').textContent = room;
+    document.getElementById('rGuests').textContent = guestLabel;
 
-    document.getElementById('rDates').textContent = fmtDate(checkin.value) + ' → ' + fmtDate(checkout.value);
-    document.getElementById('rNights').textContent = nights + (nights === 1 ? ' night' : ' nights');
-    document.getElementById('rRoom').textContent = opt.value;
-    document.getElementById('rGuests').textContent = guests + (guests === '1' ? ' guest' : ' guests');
-    document.getElementById('rTotal').textContent = '€' + total +
-      (isDorm ? ' · ' + units + ' bed' + (units>1?'s':'') : '');
+    var bodyLines = [
+      'Hello Hostel Backpackers,',
+      '',
+      "I'd like to enquire about a stay:",
+      '',
+      'Name: ' + name,
+      'Email: ' + email,
+      'Check-in: ' + fmtDate(checkin.value),
+      'Check-out: ' + fmtDate(checkout.value),
+      'Nights: ' + nights,
+      'Room: ' + room,
+      'Guests: ' + guestLabel
+    ];
+    if(message){ bodyLines.push('', 'Message:', message); }
+    bodyLines.push('', 'Thank you!');
 
+    var mailto = 'mailto:' + HOSTEL_EMAIL +
+      '?subject=' + encodeURIComponent('Booking enquiry — Hostel Backpackers, Mostar') +
+      '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+    mailtoLink.setAttribute('href', mailto);
     result.classList.add('show');
     result.scrollIntoView({behavior:'smooth', block:'nearest'});
+    window.location.href = mailto;
   });
 
   /* ── Year ──────────────────────────────────────────────── */
