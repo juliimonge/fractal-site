@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>shop.julianmonge.com — Nosara, considered.</title>
-<meta name="description" content="Editorial guides, services, and goods for Costa Rica's Pacific coast — from Julián Monge, real estate agent at Blue Water Properties, Nosara.">
+<title>Shop — Julián Monge · Real Estate</title>
+<meta name="description" content="Shop — a chapter of julianmonge.com. Editorial guides, content services, and goods for Costa Rica's Pacific coast, from Julián Monge.">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="shop.julianmonge.com — Nosara, considered.">
-<meta property="og:description" content="Editorial guides, services, and goods for Costa Rica's Pacific coast.">
+<meta property="og:title" content="Shop — Julián Monge · Real Estate">
+<meta property="og:description" content="Editorial guides, content services, and goods for Nosara, Costa Rica.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
 
 <style>
@@ -21,19 +20,22 @@
     --deep-teal-2: #103641;
     --ocean: #17617C;
     --ocean-light: #2a8aa6;
-    --light-teal: #99D6D8;
+    --light-teal: #9FC8D0;
+    --light-teal-2: #B6D6DC;
     --off-white: #F5F0E6;
     --off-white-2: #EDE6D5;
     --white: #FFFFFF;
     --gold: #C9A875;
     --gold-deep: #A88654;
     --terracotta: #C2725A;
+    --whatsapp: #25D366;
     --rule: rgba(12, 40, 48, 0.10);
     --rule-strong: rgba(12, 40, 48, 0.20);
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
     --shadow-card: 0 1px 2px rgba(12,40,48,0.04), 0 8px 24px rgba(12,40,48,0.06);
     --shadow-cover: 0 4px 12px rgba(12,40,48,0.10), 0 30px 60px rgba(12,40,48,0.18);
+    --btn-radius: 8px;
   }
 
   * { box-sizing: border-box; }
@@ -77,118 +79,163 @@
   .container { max-width: 1320px; margin: 0 auto; padding: 0 2rem; }
   @media (max-width: 749px) { .container { padding: 0 1.25rem; } }
 
-  /* ───────── BACK BAR ───────── */
-  .back-bar {
-    position: sticky; top: 0; z-index: 80;
-    background: var(--deep-teal);
+  /* ───────── PARENT-SITE HEADER (chapter header) ───────── */
+  /* Mirrors julianmonge.com's transparent-over-hero header lockup
+     so the shop reads as a section of the parent, not a separate site. */
+  .pheader {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 80;
     color: var(--off-white);
-    border-bottom: 1px solid rgba(245,240,230,0.08);
+    transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease;
+    border-bottom: 1px solid transparent;
   }
-  .back-bar__inner {
-    display: flex; align-items: center;
-    min-height: 40px;
-    padding: 0.5rem 2rem;
-    max-width: 1320px; margin: 0 auto;
-  }
-  .back-bar a {
-    color: inherit;
-    font-family: var(--sans);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    transition: color 160ms ease;
-  }
-  .back-bar a:hover { color: var(--light-teal); }
-  .back-bar a:hover .arrow { transform: translateX(-3px); }
-  .arrow { display: inline-block; transition: transform 200ms ease; }
-  @media (max-width: 749px) { .back-bar__inner { padding: 0.5rem 1.25rem; } }
-
-  /* ───────── HEADER ───────── */
-  .header {
-    background-color: rgba(245, 240, 230, 0.88);
+  .pheader.is-sticky {
+    color: var(--deep-teal);
+    background-color: rgba(245,240,230,0.92);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border-bottom: 1px solid var(--rule);
-    position: sticky; top: 40px; z-index: 70;
+    border-bottom-color: var(--rule);
   }
-  .header__inner {
-    display: grid; grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 1.25rem 2rem;
-    max-width: 1320px; margin: 0 auto;
+  .pheader.is-sticky .pnav .whatsapp,
+  .pheader.is-sticky .pnav a[aria-current="page"] { color: var(--ocean); }
+  .pheader.is-sticky .pnav a[aria-current="page"]::after { background: var(--ocean); }
+  .pheader.is-sticky .pnav a:hover,
+  .pheader.is-sticky .icon-btn:hover { color: var(--ocean); }
+  .pheader.is-sticky .cart-badge { background: var(--deep-teal); color: var(--off-white); }
+  .pheader__inner {
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 2rem;
+    padding: 1.5rem 2rem;
+    max-width: 1440px; margin: 0 auto;
   }
-  .header__logo {
+  .lockup {
+    display: inline-flex; align-items: center; gap: 0.875rem;
+    text-decoration: none; color: inherit;
+  }
+  .lockup__badge {
+    width: 38px; height: 38px;
+    border: 1px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 1.125rem;
-    letter-spacing: 0.08em;
-    color: var(--deep-teal);
-    justify-self: start;
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    flex-shrink: 0;
   }
-  .header__logo small {
-    display: block;
+  .lockup__words {
+    display: flex; flex-direction: column;
+    line-height: 1;
+  }
+  .lockup__words strong {
     font-family: var(--sans);
-    font-size: 0.625rem;
-    letter-spacing: 0.28em;
-    font-weight: 500;
-    opacity: 0.55;
-    margin-top: 2px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
-  .header__nav ul {
-    list-style: none; padding: 0; margin: 0;
-    display: flex; gap: 2.5rem;
+  .lockup__words small {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.625rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-top: 6px;
+  }
+  .pnav ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 2.25rem;
     justify-content: center;
   }
-  .header__nav a {
+  .pnav a {
     font-family: var(--sans);
     font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--deep-teal);
-    position: relative;
+    color: inherit;
+    opacity: 0.85;
     padding: 0.5rem 0;
+    position: relative;
+    transition: opacity 200ms ease, color 200ms ease;
   }
-  .header__nav a::after {
-    content: "";
-    position: absolute; left: 0; bottom: 0;
-    height: 1px; width: 0;
-    background: var(--ocean);
-    transition: width 280ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  .pnav a:hover { opacity: 1; color: var(--light-teal); }
+  .pnav a[aria-current="page"] {
+    color: var(--light-teal); opacity: 1;
   }
-  .header__nav a:hover { color: var(--ocean); }
-  .header__nav a:hover::after { width: 100%; }
-  .header__icons {
-    display: flex; justify-content: flex-end; gap: 1.5rem;
-    align-items: center;
+  .pnav a[aria-current="page"]::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 1px; background: var(--light-teal);
   }
-  .header__icons a {
-    color: var(--deep-teal);
+  .pnav .whatsapp {
+    color: var(--light-teal); letter-spacing: 0.18em; opacity: 1;
+  }
+  .pheader__right { display: flex; align-items: center; gap: 1.25rem; }
+  .icon-btn {
+    color: inherit; opacity: 0.85;
     display: inline-flex; align-items: center;
     position: relative;
   }
-  .header__icons a:hover { color: var(--ocean); }
+  .icon-btn:hover { opacity: 1; color: var(--light-teal); }
   .cart-badge {
     position: absolute; top: -6px; right: -8px;
-    background: var(--deep-teal); color: var(--off-white);
-    font-size: 0.625rem; font-weight: 600;
+    background: var(--light-teal); color: var(--deep-teal);
+    font-size: 0.625rem; font-weight: 700;
     width: 16px; height: 16px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-family: var(--sans);
   }
   .icon { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* When scrolled past hero, an opaque sticky version of the header takes over */
+  .pheader--sticky {
+    position: sticky; top: 0; z-index: 70;
+    color: var(--deep-teal);
+    background: rgba(245,240,230,0.92);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pheader--sticky .pnav .whatsapp,
+  .pheader--sticky .pnav a[aria-current="page"] { color: var(--ocean); }
+  .pheader--sticky .pnav a[aria-current="page"]::after { background: var(--ocean); }
+  .pheader--sticky .pnav a:hover,
+  .pheader--sticky .icon-btn:hover { color: var(--ocean); }
+
+  /* Shop sub-nav: visible only after primary header — shows shop sections */
+  .subnav {
+    position: sticky; top: 78px; z-index: 65;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--rule);
+  }
+  .subnav__inner {
+    display: flex; align-items: center; gap: 2rem;
+    padding: 0.875rem 2rem;
+    max-width: 1440px; margin: 0 auto;
+    font-family: var(--sans);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .subnav__crumb { opacity: 0.5; }
+  .subnav__crumb::after { content: "›"; margin: 0 0.625rem; opacity: 0.6; }
+  .subnav a {
+    color: var(--deep-teal); opacity: 0.7;
+    transition: opacity 180ms ease, color 180ms ease;
+  }
+  .subnav a:hover, .subnav a.is-active { opacity: 1; color: var(--ocean); }
+  .subnav__divider { flex: 1; }
+
   @media (max-width: 899px) {
-    .header__inner { grid-template-columns: 1fr auto; padding: 1rem 1.25rem; }
-    .header__nav { display: none; }
-    .header__icons { gap: 1.125rem; }
+    .pheader__inner { grid-template-columns: auto 1fr auto; padding: 1.125rem 1.25rem; gap: 1rem; }
+    .pnav { display: none; }
+    .subnav__inner { padding: 0.75rem 1.25rem; gap: 1rem; overflow-x: auto; white-space: nowrap; }
   }
 
-  /* ───────── HERO ───────── */
+  /* ───────── HERO (chapter intro — quieter than parent's photo hero) ───────── */
   .hero {
     position: relative;
-    min-height: 92vh;
+    min-height: 78vh;
     display: flex; align-items: end;
     overflow: hidden;
     color: var(--off-white);
@@ -197,7 +244,7 @@
   .hero__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .hero__inner {
     position: relative; z-index: 2;
-    padding: 6rem 0 6rem;
+    padding: 10rem 0 5.5rem;
     width: 100%;
   }
   .hero__eyebrow {
@@ -268,10 +315,33 @@
     border: 1px solid currentColor;
     cursor: pointer;
     transition: all 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
-    border-radius: 0;
+    border-radius: var(--btn-radius);
     text-decoration: none;
     position: relative; overflow: hidden;
   }
+  .btn--whatsapp {
+    background: var(--whatsapp);
+    color: var(--white);
+    border-color: var(--whatsapp);
+  }
+  .btn--whatsapp:hover { background: #1eb955; border-color: #1eb955; transform: translateY(-1px); }
+
+  /* ───────── FLOATING WHATSAPP (matches parent site) ───────── */
+  .wa-float {
+    position: fixed; bottom: 1.5rem; right: 1.5rem;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--whatsapp); color: var(--white);
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    z-index: 90;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .wa-float:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+    color: var(--white);
+  }
+  .wa-float svg { width: 28px; height: 28px; fill: currentColor; }
   .btn--primary {
     background: var(--deep-teal);
     color: var(--white);
@@ -614,6 +684,8 @@
   .newsletter__form {
     display: flex; gap: 0;
     border: 1px solid var(--deep-teal);
+    border-radius: var(--btn-radius);
+    overflow: hidden;
   }
   .newsletter__form input {
     flex: 1; padding: 1rem 1.25rem;
@@ -635,48 +707,41 @@
 </head>
 <body>
 
-<!-- ═════════ BACK BAR ═════════ -->
-<aside class="back-bar" aria-label="Site navigation">
-  <div class="back-bar__inner">
-    <a href="https://julianmonge.com">
-      <span class="arrow">←</span>
-      <span>Back to julianmonge.com</span>
-    </a>
-  </div>
-</aside>
-
-<!-- ═════════ HEADER ═════════ -->
-<header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      JULIÁN MONGE
-      <small>Blue Water Properties · Nosara</small>
-    </div>
-    <nav class="header__nav">
-      <ul>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="header__icons">
-      <a href="#search" aria-label="Search">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-      </a>
-      <a href="#account" aria-label="Account">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-      </a>
-      <a href="#cart" aria-label="Cart">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        <span class="cart-badge">2</span>
-      </a>
-    </div>
-  </div>
-</header>
-
 <!-- ═════════ HERO ═════════ -->
 <section class="hero">
+  <!-- Parent header sits OVER the hero, matching julianmonge.com's transparent lockup -->
+  <header class="pheader" role="banner">
+    <div class="pheader__inner">
+      <a href="https://julianmonge.com" class="lockup" aria-label="Julián Monge — Real Estate">
+        <span class="lockup__badge">JM</span>
+        <span class="lockup__words">
+          <strong>JULIÁN MONGE</strong>
+          <small>REAL ESTATE</small>
+        </span>
+      </a>
+      <nav class="pnav" aria-label="Primary">
+        <ul>
+          <li><a href="https://julianmonge.com/listings">Listings</a></li>
+          <li><a href="https://julianmonge.com/roi">ROI Calculator</a></li>
+          <li><a href="https://julianmonge.com/blog">Blog</a></li>
+          <li><a href="#" aria-current="page">Shop</a></li>
+          <li><a href="https://julianmonge.com/about">About</a></li>
+          <li><a href="https://julianmonge.com/contact">Contact</a></li>
+          <li><a href="https://wa.me/506" class="whatsapp">WhatsApp</a></li>
+        </ul>
+      </nav>
+      <div class="pheader__right">
+        <a href="#search" class="icon-btn" aria-label="Search">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </a>
+        <a href="#cart" class="icon-btn" aria-label="Cart">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
   <!-- Layered SVG sunset over horizon with palms -->
   <svg class="hero__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
@@ -766,20 +831,28 @@
   </svg>
 
   <div class="container hero__inner">
-    <p class="hero__eyebrow">Nosara · Costa Rica</p>
+    <p class="hero__eyebrow">JULIANMONGE.COM &nbsp;·&nbsp; CHAPTER 04 &nbsp;·&nbsp; THE SHOP</p>
     <h1>Nosara, <em>considered.</em></h1>
-    <p class="hero__lede">Editorial guides, content services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.</p>
+    <p class="hero__lede">A small shop of editorial guides, content services, and goods for Costa Rica's Pacific coast — an extension of the practice at julianmonge.com.</p>
     <div class="hero__ctas">
-      <a class="btn btn--ghost-teal" href="#shop">Explore the shop</a>
-      <a class="btn btn--ghost" href="#services">Book a service</a>
+      <a class="btn btn--ghost-teal" href="#shop">Browse the shop</a>
+      <a class="btn btn--ghost" href="https://julianmonge.com/listings">View listings</a>
     </div>
   </div>
-
-  <div class="hero__scroll" aria-hidden="true">
-    <span>Scroll</span>
-    <span class="hero__scroll-line"></span>
-  </div>
 </section>
+
+<!-- Shop sub-nav: after the parent header, before the body -->
+<nav class="subnav" aria-label="Shop sections">
+  <div class="subnav__inner">
+    <span class="subnav__crumb">julianmonge.com</span>
+    <span class="subnav__crumb" style="color: var(--deep-teal); opacity: 0.85; font-weight: 500;">Shop</span>
+    <span class="subnav__divider"></span>
+    <a href="#shop" class="is-active">Digital</a>
+    <a href="#services">Services</a>
+    <a href="#merch">Merch</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
 
 <!-- ═════════ MARQUEE ═════════ -->
 <section class="marquee" aria-hidden="true">
@@ -1378,10 +1451,13 @@
       <div class="about__body">
         <p class="section__eyebrow" style="color: var(--deep-teal); opacity: 0.7;">About</p>
         <h2>Julián Monge.</h2>
-        <p>Real estate agent at <strong>Blue Water Properties</strong>, working from Playa Guiones — representing buyers, sellers, and investors across Nosara, Pelada, Garza, and the broader Nicoya peninsula.</p>
-        <p>This shop is a small extension of that work — editorial guides for people moving to or investing in the area, content services for fellow agents and STR owners, and a tight line of pura vida goods for everyone else.</p>
+        <p>Working from Playa Guiones — representing buyers, sellers, and investors across Nosara, Pelada, Garza, and the broader Nicoya peninsula. Raised here. Still here.</p>
+        <p>This shop is a small extension of that practice: editorial guides for people moving to or investing in the area, content services for fellow agents and STR owners, and a tight line of pura vida goods for everyone else.</p>
         <p class="about__sig">— Julián</p>
-        <a class="btn btn--secondary" href="#" style="margin-top: 0.5rem;">More about me</a>
+        <div style="display:flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem;">
+          <a class="btn btn--secondary" href="https://julianmonge.com/about">More about me</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/506">WhatsApp Julián</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1499,44 +1575,65 @@
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <h3 class="footer__brand-mark">JULIÁN MONGE</h3>
-        <small>Blue Water Properties · Nosara, CR</small>
-        <p>A small shop of guides, services, and goods for Costa Rica's Pacific coast — extension of a working real estate practice in Playa Guiones.</p>
+        <a href="https://julianmonge.com" class="lockup" style="margin-bottom: 1.25rem;">
+          <span class="lockup__badge" style="border-color: var(--light-teal); color: var(--light-teal);">JM</span>
+          <span class="lockup__words">
+            <strong style="color: var(--off-white);">JULIÁN MONGE</strong>
+            <small style="color: var(--light-teal); opacity: 0.75;">REAL ESTATE · NOSARA, CR</small>
+          </span>
+        </a>
+        <p>Real estate in Nosara, Costa Rica. The shop is one chapter of <a href="https://julianmonge.com" style="color: var(--light-teal); text-decoration: underline; text-underline-offset: 3px;">julianmonge.com</a> — alongside listings, the ROI calculator, the blog, and the brokerage practice.</p>
+      </div>
+      <div>
+        <h4>Real Estate</h4>
+        <ul>
+          <li><a href="https://julianmonge.com/listings">Listings</a></li>
+          <li><a href="https://julianmonge.com/roi">ROI Calculator</a></li>
+          <li><a href="https://julianmonge.com/blog">Blog</a></li>
+          <li><a href="https://julianmonge.com/about">About</a></li>
+        </ul>
       </div>
       <div>
         <h4>Shop</h4>
         <ul>
           <li><a href="#shop">Digital guides</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#services">Content services</a></li>
           <li><a href="#merch">Nosara merch</a></li>
           <li><a href="#">All products</a></li>
         </ul>
       </div>
       <div>
-        <h4>About</h4>
-        <ul>
-          <li><a href="#about">About Julián</a></li>
-          <li><a href="https://julianmonge.com">julianmonge.com</a></li>
-          <li><a href="#">Blue Water Properties</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="https://calendly.com/julianmonge/intro">Book a call</a></li>
+          <li><a href="https://wa.me/506">WhatsApp Julián</a></li>
           <li><a href="mailto:hola@julianmonge.com">hola@julianmonge.com</a></li>
+          <li><a href="https://calendly.com/julianmonge/intro">Book a call</a></li>
           <li><a href="#">Instagram</a></li>
-          <li><a href="#">WhatsApp</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Julián Monge — Blue Water Properties, Nosara, Costa Rica.</span>
+      <span>© 2026 Julián Monge — Nosara, Costa Rica. &nbsp;·&nbsp; Shop is part of julianmonge.com</span>
       <span>shop.julianmonge.com</span>
     </div>
   </div>
 </footer>
 
+<!-- Floating WhatsApp — mirrors the parent site's persistent green button -->
+<a href="https://wa.me/506" class="wa-float" aria-label="WhatsApp Julián">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M16.001 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.255.594 4.466 1.72 6.405L3.2 28.8l6.59-1.73a12.78 12.78 0 0 0 6.21 1.6h.001c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.8-12.8-12.8zm0 23.36a10.55 10.55 0 0 1-5.38-1.47l-.385-.23-3.91 1.025 1.045-3.81-.252-.395a10.51 10.51 0 0 1-1.615-5.62c0-5.81 4.73-10.54 10.55-10.54s10.55 4.73 10.55 10.54-4.73 10.54-10.55 10.54zm5.78-7.89c-.316-.158-1.872-.923-2.162-1.03-.29-.106-.502-.158-.713.158-.211.317-.819 1.03-1.004 1.241-.185.211-.37.237-.687.079-.317-.158-1.338-.493-2.548-1.572-.941-.84-1.577-1.877-1.762-2.193-.185-.317-.02-.488.139-.645.143-.143.317-.37.475-.555.158-.185.211-.317.317-.528.105-.211.052-.396-.026-.554-.079-.158-.713-1.72-.977-2.355-.258-.62-.52-.535-.713-.545-.185-.01-.396-.012-.607-.012a1.166 1.166 0 0 0-.845.396c-.29.317-1.108 1.082-1.108 2.64s1.135 3.062 1.293 3.273c.158.211 2.234 3.412 5.413 4.785.756.326 1.346.521 1.806.667.759.241 1.45.207 1.996.126.609-.09 1.872-.765 2.137-1.504.264-.74.264-1.374.185-1.504-.079-.132-.29-.211-.607-.37z"/>
+  </svg>
+</a>
+
+<script>
+  (function () {
+    var ph = document.querySelector('.pheader');
+    if (!ph) return;
+    var update = function () { ph.classList.toggle('is-sticky', window.scrollY > 60); };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
 </body>
 </html>
