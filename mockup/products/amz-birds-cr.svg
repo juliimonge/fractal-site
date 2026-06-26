@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="bcrCover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3D5C3A"/>
+      <stop offset="60%" stop-color="#2A4528"/>
+      <stop offset="100%" stop-color="#162C18"/>
+    </linearGradient>
+    <linearGradient id="bcrSpine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1F3520"/>
+      <stop offset="100%" stop-color="#2A4528"/>
+    </linearGradient>
+    <radialGradient id="birdShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="720" rx="200" ry="12" fill="url(#birdShadow)"/>
+  <path d="M 250,180 L 270,160 L 270,690 L 250,710 Z" fill="url(#bcrSpine)"/>
+  <rect x="270" y="160" width="290" height="530" fill="url(#bcrCover)" stroke="#0E1F11" stroke-width="0.6"/>
+  <path d="M 560,160 L 580,170 L 580,700 L 560,690 Z" fill="#1F3520"/>
+  <text x="416" y="235" font-family="Inter, sans-serif" font-weight="600" font-size="9" letter-spacing="4" fill="#C9A875" text-anchor="middle">A FIELD GUIDE TO</text>
+  <text x="416" y="252" font-family="Inter, sans-serif" font-weight="600" font-size="9" letter-spacing="4" fill="#C9A875" text-anchor="middle">THE BIRDS OF</text>
+  <g transform="translate(416, 350)">
+    <text font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="44" letter-spacing="0" fill="#E8DFC8" text-anchor="middle">COSTA</text>
+    <text y="48" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="44" letter-spacing="0" fill="#E8DFC8" text-anchor="middle">RICA</text>
+  </g>
+  <g transform="translate(416, 470)">
+    <ellipse rx="60" ry="42" fill="#0E1F11"/>
+    <g fill="#E8DFC8">
+      <path d="M -30,-10 Q -22,-22 -8,-22 Q 6,-22 12,-10 Q 20,2 14,14 Q 6,22 -10,18 Q -22,12 -30,-4 Z"/>
+      <path d="M 12,-10 Q 28,-14 38,-4 Q 30,2 16,4 Z"/>
+      <circle cx="-20" cy="-12" r="2" fill="#0E1F11"/>
+      <path d="M -20,-22 L -24,-32" stroke="#E8DFC8" stroke-width="1" fill="none"/>
+      <path d="M -16,-22 L -14,-30" stroke="#E8DFC8" stroke-width="1" fill="none"/>
+    </g>
+    <g fill="#C9A875">
+      <path d="M 22,-4 L 30,-8 L 26,-2 Z"/>
+    </g>
+  </g>
+  <line x1="346" y1="555" x2="486" y2="555" stroke="#C9A875" stroke-width="0.5"/>
+  <text x="416" y="582" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="13" fill="#E8DFC8" text-anchor="middle">Richard Garrigues</text>
+  <text x="416" y="600" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="13" fill="#E8DFC8" text-anchor="middle">&amp; Robert Dean</text>
+  <line x1="376" y1="618" x2="456" y2="618" stroke="#C9A875" stroke-width="0.4"/>
+  <text x="416" y="643" font-family="Inter, sans-serif" font-weight="700" font-size="9" letter-spacing="3.5" fill="#C9A875" text-anchor="middle">SECOND EDITION</text>
+</svg>

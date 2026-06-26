@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="capCrownTeal" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1A3F4D"/>
+      <stop offset="60%" stop-color="#0E2A33"/>
+      <stop offset="100%" stop-color="#0A1F26"/>
+    </linearGradient>
+    <linearGradient id="capBrimTeal" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#0A1F26"/>
+      <stop offset="100%" stop-color="#061218"/>
+    </linearGradient>
+    <radialGradient id="capShadowT" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="660" rx="290" ry="14" fill="url(#capShadowT)"/>
+  <path d="M 145,505
+           Q 145,275 400,250
+           Q 655,275 655,505
+           L 655,540
+           L 145,540 Z"
+        fill="url(#capCrownTeal)"/>
+  <path d="M 400,250 L 400,540" stroke="#051218" stroke-width="0.8" opacity="0.45"/>
+  <path d="M 270,272 Q 282,420 287,540" stroke="#051218" stroke-width="0.7" opacity="0.35" fill="none"/>
+  <path d="M 530,272 Q 518,420 513,540" stroke="#051218" stroke-width="0.7" opacity="0.35" fill="none"/>
+  <circle cx="400" cy="260" r="6" fill="#1A3F4D" stroke="#051218" stroke-width="0.4"/>
+  <path d="M 110,540 Q 400,640 690,540 Q 690,585 400,650 Q 110,585 110,540 Z" fill="url(#capBrimTeal)"/>
+  <path d="M 110,540 Q 400,565 690,540" fill="none" stroke="#9FC8D0" stroke-width="0.4" opacity="0.35" stroke-dasharray="3 2"/>
+  <g transform="translate(400, 440)">
+    <text font-family="Inter, sans-serif" font-weight="800" font-size="34" letter-spacing="3" fill="#9FC8D0" text-anchor="middle">NOSARA</text>
+    <line x1="-72" y1="14" x2="72" y2="14" stroke="#C9A875" stroke-width="0.9"/>
+    <text y="38" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="4" fill="#C9A875" text-anchor="middle">EST · COSTA RICA</text>
+  </g>
+</svg>
