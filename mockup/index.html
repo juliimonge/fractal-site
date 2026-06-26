@@ -3,652 +3,466 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shop — Julián Monge · Nosara essentials, vetted.</title>
-<meta name="description" content="Curated essentials for Nosara: reef-safe sun, beach gear, dry bags, travel kit, and our own Nosara merch. Curated by Julián Monge.">
+<title>JM Shop — All things Costa Rica</title>
+<meta name="description" content="Costa Rica merch and curated Amazon picks — Café Britt, Salsa Lizano, Blue Zones books, real reef-safe sun. From Julián Monge in Nosara.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
 
 <style>
   :root {
-    --deep-teal: #0C2830;
-    --ocean: #17617C;
-    --light-teal: #9FC8D0;
-    --off-white: #F5F0E6;
-    --cream: #FAF6EB;
-    --gray-50: #FAFAF9;
-    --gray-100: #F4F4F2;
-    --gray-200: #E7E5E0;
-    --gray-300: #D4D2CC;
-    --gray-400: #9CA09A;
-    --gray-500: #6B6F6A;
-    --gray-700: #383B38;
+    --ink: #0E1A20;
+    --ink-2: #1A2A33;
+    --teal: #1F5A6F;
+    --teal-light: #9FC8D0;
+    --sand: #E8DFC8;
+    --paper: #F6F2E8;
+    --bg: #FAF8F3;
+    --gray-50: #F4F2EC;
+    --gray-100: #E9E5DA;
+    --gray-200: #D4CFC0;
+    --gray-300: #B0AB9C;
+    --gray-500: #6E6A60;
+    --gray-700: #2A2A24;
     --white: #FFFFFF;
-    --gold: #C9A875;
     --whatsapp: #25D366;
     --amazon: #FF9900;
-    --amazon-dark: #232F3E;
-    --success: #2D7A4D;
-    --rule: #E7E5E0;
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --shadow-card: 0 1px 2px rgba(12,40,48,0.04), 0 8px 24px rgba(12,40,48,0.06);
-    --shadow-product: 0 1px 1px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06);
-    --btn-radius: 6px;
+    --amazon-dark: #131A22;
+    --rule: #E0DCD0;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --shadow-product: 0 1px 3px rgba(14,26,32,0.04), 0 12px 32px rgba(14,26,32,0.08);
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--white);
-    color: var(--deep-teal);
+    background: var(--bg);
+    color: var(--ink);
     font-family: var(--sans);
     font-weight: 400;
-    line-height: 1.55;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4 { color: var(--deep-teal); margin: 0; line-height: 1.2; }
-  h1 { font-family: var(--sans); font-weight: 600; font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.025em; line-height: 1.05; }
-  h2 { font-family: var(--sans); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.018em; }
-  h3 { font-family: var(--sans); font-weight: 500; font-size: 1.0625rem; letter-spacing: -0.005em; }
-  p { margin: 0 0 0.875rem; }
-  a { color: var(--ocean); text-decoration: none; transition: color 200ms ease; }
-  a:hover { color: var(--deep-teal); }
+  h1, h2, h3, h4 { color: var(--ink); margin: 0; letter-spacing: -0.022em; font-weight: 700; }
+  h1 { font-size: clamp(2.5rem, 6.5vw, 5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 800; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; }
+  h3 { font-size: 0.9375rem; line-height: 1.25; font-weight: 500; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.75rem; }
+  a { color: inherit; text-decoration: none; transition: color 200ms ease; }
+  img { display: block; max-width: 100%; }
 
-  .container { max-width: 1440px; margin: 0 auto; padding: 0 1.75rem; }
-  @media (max-width: 749px) { .container { padding: 0 1.125rem; } }
+  .container { max-width: 1480px; margin: 0 auto; padding: 0 1.5rem; }
+  @media (max-width: 749px) { .container { padding: 0 1rem; } }
 
-  /* ───────── PROMO STRIP ───────── */
-  .promo {
-    background: var(--deep-teal);
-    color: var(--off-white);
+  /* ───────── ANNOUNCEMENT BAR ───────── */
+  .announce {
+    background: var(--ink);
+    color: var(--paper);
     font-size: 0.75rem;
-    letter-spacing: 0.02em;
-    padding: 0.625rem 1rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 1rem;
     text-align: center;
-    display: flex; align-items: center; justify-content: center; gap: 1.5rem;
   }
-  .promo strong { color: var(--light-teal); font-weight: 600; margin-right: 0.4rem; }
-  .promo__divider { opacity: 0.3; }
-  @media (max-width: 749px) { .promo { font-size: 0.6875rem; gap: 0.875rem; padding: 0.5rem 0.75rem; } .promo__divider { display: none; } }
+  .announce strong { color: var(--teal-light); font-weight: 700; }
+  .announce__sep { opacity: 0.3; margin: 0 0.875rem; }
+  @media (max-width: 599px) { .announce span:not(:first-child) { display: none; } .announce__sep { display: none; } }
 
   /* ───────── HEADER ───────── */
   .header {
     position: sticky; top: 0; z-index: 70;
-    background: var(--white);
+    background: var(--bg);
     border-bottom: 1px solid var(--rule);
   }
-  .header__inner {
-    display: grid; grid-template-columns: auto 1fr auto;
-    align-items: center; gap: 2.5rem;
-    padding: 1rem 1.75rem;
-    max-width: 1440px; margin: 0 auto;
+  .header__row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem;
+    padding: 0.875rem 1.5rem;
+    max-width: 1480px; margin: 0 auto;
   }
-  .lockup {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    text-decoration: none; color: var(--deep-teal);
-    flex-shrink: 0;
-  }
-  .lockup__badge {
-    width: 36px; height: 36px;
-    border: 1px solid var(--deep-teal);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 0.9375rem;
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-  .lockup__words {
-    display: flex; flex-direction: column;
-    line-height: 1;
-  }
-  .lockup__words strong {
+  .wordmark {
     font-family: var(--sans);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+  .wordmark__slash { color: var(--gray-300); margin: 0 0.4rem; font-weight: 400; }
+  .wordmark__shop { color: var(--gray-500); font-weight: 500; }
+
+  .nav { display: flex; align-items: center; gap: 1.75rem; }
+  .nav a {
+    font-size: 0.8125rem;
     font-weight: 600;
-    font-size: 0.8125rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
+    color: var(--ink);
     text-transform: uppercase;
+    padding: 0.5rem 0;
+    position: relative;
   }
-  .lockup__words small {
-    font-family: var(--sans);
-    font-weight: 400;
-    font-size: 0.625rem;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    margin-top: 5px;
+  .nav a:hover { color: var(--teal); }
+  .nav a.is-active { color: var(--teal); }
+  .nav a.is-active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--teal);
   }
 
-  /* Search bar in header (signal: real store) */
-  .header__search {
-    position: relative;
-    max-width: 520px;
-    width: 100%;
-    justify-self: center;
-  }
-  .header__search input {
-    width: 100%;
-    padding: 0.625rem 2.5rem 0.625rem 2.5rem;
-    border: 1px solid var(--rule);
-    border-radius: var(--btn-radius);
-    background: var(--gray-50);
-    font-family: var(--sans);
-    font-size: 0.875rem;
-    color: var(--deep-teal);
-    transition: border-color 200ms ease, background 200ms ease;
-  }
-  .header__search input:focus {
-    outline: none;
-    border-color: var(--ocean);
-    background: var(--white);
-  }
-  .header__search input::placeholder { color: var(--gray-400); }
-  .header__search-icon {
-    position: absolute; left: 0.875rem; top: 50%;
-    transform: translateY(-50%);
-    color: var(--gray-400);
-    pointer-events: none;
-  }
   .header__right { display: flex; align-items: center; gap: 1.25rem; }
-  .header__action {
-    color: var(--deep-teal);
+  .iconbtn {
+    color: var(--ink);
     display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.8125rem; font-weight: 500;
+    font-size: 0.8125rem; font-weight: 600;
     position: relative;
+    background: none; border: 0; cursor: pointer;
+    padding: 0;
   }
-  .header__action:hover { color: var(--ocean); }
-  .header__action--label { display: inline; }
-  .cart-badge {
+  .iconbtn:hover { color: var(--teal); }
+  .iconbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .bag-count {
     position: absolute; top: -6px; right: -10px;
-    background: var(--ocean); color: var(--white);
-    font-size: 0.625rem; font-weight: 700;
-    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--ink); color: var(--paper);
+    font-size: 0.6875rem; font-weight: 700;
+    width: 18px; height: 18px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
   }
-  .icon { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* Department nav */
-  .deptnav {
-    border-bottom: 1px solid var(--rule);
-    background: var(--white);
-    position: sticky; top: 65px; z-index: 65;
-  }
-  .deptnav__inner {
-    display: flex; align-items: center; gap: 0.25rem;
-    padding: 0 1.75rem;
-    max-width: 1440px; margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .deptnav__inner::-webkit-scrollbar { display: none; }
-  .deptnav a {
-    color: var(--deep-teal);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    padding: 0.875rem 1.25rem;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 200ms ease, border-color 200ms ease;
-  }
-  .deptnav a:first-child { padding-left: 0; }
-  .deptnav a.is-active { color: var(--ocean); border-bottom-color: var(--ocean); }
-  .deptnav a:hover { color: var(--ocean); }
-  .deptnav__parent {
-    font-size: 0.6875rem; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--gray-500);
-    padding-right: 1.25rem; border-right: 1px solid var(--rule);
-    margin-right: 0.75rem;
-  }
-  .deptnav__parent a { color: inherit; padding: 0.875rem 0; border: 0; font-weight: 400; }
-  .deptnav__parent a:hover { color: var(--ocean); }
 
   @media (max-width: 899px) {
-    .header__inner { grid-template-columns: auto 1fr auto; gap: 1rem; padding: 0.875rem 1.125rem; }
-    .header__search { display: none; }
-    .lockup__words small { display: none; }
-    .header__action--label { display: none; }
-    .deptnav { top: 57px; }
-    .deptnav__inner { padding: 0 1.125rem; }
-    .deptnav__parent { display: none; }
+    .header__row { gap: 1rem; padding: 0.75rem 1rem; }
+    .nav { display: none; }
+    .iconbtn span { display: none; }
   }
-
-  /* ───────── BUTTONS ───────── */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--sans);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    border: 1px solid currentColor;
-    cursor: pointer;
-    transition: all 200ms ease;
-    border-radius: var(--btn-radius);
-    text-decoration: none;
-    line-height: 1;
-  }
-  .btn--primary {
-    background: var(--deep-teal);
-    color: var(--white);
-    border-color: var(--deep-teal);
-  }
-  .btn--primary:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
-  .btn--secondary {
-    background: transparent;
-    color: var(--deep-teal);
-    border-color: var(--gray-300);
-  }
-  .btn--secondary:hover { background: var(--deep-teal); color: var(--white); border-color: var(--deep-teal); }
-  .btn--amazon {
-    background: var(--white);
-    color: var(--amazon-dark);
-    border-color: var(--gray-300);
-  }
-  .btn--amazon:hover { background: var(--amazon); color: var(--amazon-dark); border-color: var(--amazon); }
-  .btn--ghost-light {
-    background: transparent;
-    color: var(--white);
-    border-color: var(--white);
-  }
-  .btn--ghost-light:hover { background: var(--white); color: var(--deep-teal); }
-  .btn--block { width: 100%; }
-  .btn--sm { padding: 0.5rem 1rem; font-size: 0.75rem; }
 
   /* ───────── HERO ───────── */
   .hero {
     position: relative;
-    background: var(--deep-teal);
+    height: clamp(560px, 78vh, 820px);
+    background-color: var(--ink);
+    background-image:
+      linear-gradient(180deg, rgba(14,26,32,0.30) 0%, rgba(14,26,32,0.10) 40%, rgba(14,26,32,0.75) 100%),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
     color: var(--white);
+    display: flex; align-items: flex-end;
     overflow: hidden;
   }
   .hero__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    min-height: 480px;
-    padding: 4rem 0;
+    width: 100%;
+    padding-bottom: 3.5rem;
   }
-  @media (max-width: 899px) { .hero__inner { grid-template-columns: 1fr; padding: 2.5rem 0; gap: 2rem; min-height: 0; } }
-
   .hero__eyebrow {
     font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-weight: 700;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--light-teal);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--teal-light);
   }
   .hero h1 {
     color: var(--white);
-    max-width: 18ch;
+    max-width: 14ch;
     margin-bottom: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
   }
   .hero__lede {
-    font-size: 1.0625rem;
-    max-width: 46ch;
-    opacity: 0.88;
-    line-height: 1.55;
-    margin-bottom: 1.75rem;
-    font-weight: 300;
+    font-size: 1rem;
+    max-width: 38ch;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    font-weight: 400;
   }
-  .hero__ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .hero__trust {
-    display: flex; gap: 1.5rem; flex-wrap: wrap;
-    font-size: 0.75rem; opacity: 0.75;
-    margin-top: 0.5rem;
-  }
-  .hero__trust span { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .hero__trust .dot { width: 4px; height: 4px; background: var(--light-teal); border-radius: 50%; }
+  .hero__ctas { display: flex; gap: 0.625rem; flex-wrap: wrap; }
 
-  .hero__visual {
-    position: relative;
-    aspect-ratio: 5/4;
-    background: linear-gradient(180deg, #154a5b 0%, #0a1f25 100%);
-    border-radius: 12px;
-    overflow: hidden;
+  /* ───────── BUTTONS ───────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    transition: all 180ms ease;
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 2px;
   }
-  .hero__visual svg { width: 100%; height: 100%; display: block; }
+  .btn--primary { background: var(--ink); color: var(--white); }
+  .btn--primary:hover { background: var(--teal); color: var(--white); }
+  .btn--white { background: var(--white); color: var(--ink); }
+  .btn--white:hover { background: var(--paper); color: var(--ink); }
+  .btn--ghost-light { background: transparent; color: var(--white); border: 1.5px solid var(--white); }
+  .btn--ghost-light:hover { background: var(--white); color: var(--ink); }
+  .btn--secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn--secondary:hover { background: var(--ink); color: var(--white); }
+  .btn--block { width: 100%; }
+  .btn--sm { padding: 0.625rem 1.125rem; font-size: 0.75rem; }
+  .btn--amazon-out {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn--amazon-out:hover { background: var(--amazon); color: var(--amazon-dark); border-color: var(--amazon); }
 
   /* ───────── SECTIONS ───────── */
-  .section { padding: 4.5rem 0; }
-  .section--tight { padding: 2.75rem 0; }
-  .section--cream { background: var(--cream); }
-  .section--gray { background: var(--gray-50); }
-  .section--teal { background: var(--deep-teal); color: var(--white); }
-  .section--teal h2, .section--teal h3 { color: var(--white); }
+  .section { padding: 5rem 0; }
+  .section--tight { padding: 3rem 0; }
+  .section--ink { background: var(--ink); color: var(--white); }
+  .section--ink h2, .section--ink h3 { color: var(--white); }
+  .section--paper { background: var(--paper); }
+  @media (max-width: 749px) { .section { padding: 3.5rem 0; } }
 
   .section__head {
     display: flex; align-items: end; justify-content: space-between;
-    margin-bottom: 2rem; gap: 2rem;
+    margin-bottom: 2.5rem; gap: 2rem;
   }
-  .section__head-text { max-width: 60ch; }
   .section__eyebrow {
     font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-weight: 700;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--ocean);
-    margin: 0 0 0.625rem;
+    color: var(--teal);
+    margin: 0 0 0.75rem;
   }
-  .section--teal .section__eyebrow { color: var(--light-teal); }
-  .section__desc {
-    font-size: 0.9375rem;
-    color: var(--gray-500);
-    line-height: 1.55;
-    margin: 0.625rem 0 0;
-    max-width: 56ch;
-  }
-  .section--teal .section__desc { color: rgba(255,255,255,0.75); }
+  .section--ink .section__eyebrow { color: var(--teal-light); }
+  .section__head h2 { letter-spacing: -0.025em; }
   .section__cta {
+    font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 0.25rem;
     white-space: nowrap;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--ocean);
-    display: inline-flex; align-items: center; gap: 0.4rem;
   }
-  .section__cta:hover { color: var(--deep-teal); gap: 0.6rem; }
-  @media (max-width: 749px) { .section__head { flex-direction: column; align-items: start; margin-bottom: 1.5rem; } }
-
-  /* ───────── CATEGORY TILES ───────── */
-  .cattiles {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-  }
-  @media (max-width: 1099px) { .cattiles { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 599px) { .cattiles { grid-template-columns: repeat(2, 1fr); } }
-  .cattile {
-    background: var(--gray-100);
-    border-radius: 10px;
-    aspect-ratio: 1/1;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-decoration: none; color: var(--deep-teal);
-    padding: 1rem;
-    transition: background 220ms ease, transform 220ms ease;
-    text-align: center;
-    gap: 0.5rem;
-  }
-  .cattile:hover { background: var(--deep-teal); color: var(--white); transform: translateY(-2px); }
-  .cattile svg { width: 36px; height: 36px; stroke: currentColor; fill: none; stroke-width: 1.5; }
-  .cattile span {
-    font-size: 0.8125rem; font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .cattile small {
-    font-size: 0.6875rem; opacity: 0.55;
+  .section--ink .section__cta { color: var(--white); border-color: var(--white); }
+  .section__cta:hover { color: var(--teal); border-color: var(--teal); }
+  @media (max-width: 749px) {
+    .section__head { flex-direction: column; align-items: start; margin-bottom: 2rem; }
   }
 
   /* ───────── PRODUCT GRID ───────── */
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1rem 1.25rem;
   }
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
-  .grid--5 { grid-template-columns: repeat(5, 1fr); }
-  @media (max-width: 1199px) {
-    .grid, .grid--5 { grid-template-columns: repeat(3, 1fr); }
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 1099px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 899px) {
-    .grid, .grid--5 { grid-template-columns: repeat(2, 1fr); }
-    .grid--3 { grid-template-columns: repeat(2, 1fr); }
+    .grid, .grid--3 { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 549px) { .grid--3 { grid-template-columns: 1fr; } }
+  @media (max-width: 549px) {
+    .grid--3 { grid-template-columns: 1fr; }
+  }
 
   .product {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
     display: flex; flex-direction: column;
-    text-decoration: none; color: inherit;
+    color: inherit;
     position: relative;
-  }
-  .product:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-product);
-    border-color: var(--gray-300);
   }
   .product__media {
-    aspect-ratio: 1/1;
-    background: var(--gray-50);
+    aspect-ratio: 4/5;
+    width: 100%;
+    background-color: var(--gray-50);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.3, 1);
   }
-  .product__media svg, .product__media img {
-    width: 100%; height: 100%;
-    display: block; object-fit: cover;
-  }
-  .product__badges {
+  .product:hover .product__media { transform: scale(1.015); }
+
+  .product__tag {
     position: absolute; top: 0.75rem; left: 0.75rem;
-    display: flex; flex-direction: column; gap: 0.375rem;
-    z-index: 2;
-  }
-  .badge {
-    font-size: 0.625rem;
-    font-weight: 700;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.625rem; font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.25rem 0.5rem;
-    border-radius: 3px;
-    display: inline-flex; align-items: center; gap: 0.3rem;
-  }
-  .badge--best { background: var(--deep-teal); color: var(--white); }
-  .badge--new { background: var(--success); color: var(--white); }
-  .badge--low { background: #C6602A; color: var(--white); }
-  .badge--amazon {
-    background: var(--white);
-    color: var(--amazon-dark);
-    border: 1px solid var(--rule);
-    font-weight: 600;
-    letter-spacing: 0;
-    text-transform: none;
-    font-size: 0.6875rem;
-  }
-  .badge--amazon::before {
-    content: "a"; font-weight: 800; color: var(--amazon);
-    font-size: 0.875rem; line-height: 0; margin-right: 1px;
-  }
-
-  .product__heart {
-    position: absolute; top: 0.75rem; right: 0.75rem;
-    background: var(--white);
-    border-radius: 50%;
-    width: 32px; height: 32px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gray-500);
+    padding: 0.3rem 0.5rem;
     z-index: 2;
-    border: 0; cursor: pointer;
-    transition: color 200ms ease, transform 200ms ease;
   }
-  .product__heart:hover { color: #C6602A; transform: scale(1.1); }
-  .product__heart svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .product__tag--dark { background: var(--ink); color: var(--white); }
+  .product__tag--amazon { background: var(--white); color: var(--amazon-dark); display: inline-flex; align-items: center; gap: 0.25rem; }
+  .product__tag--amazon::before { content: "amazon"; color: var(--amazon-dark); font-weight: 700; }
+  .product__tag--amazon::after { content: ""; display: inline-block; width: 14px; height: 5px; background: var(--amazon); border-radius: 50%; transform: scaleY(0.4); margin-top: 6px; margin-left: -10px; }
 
   .product__body {
-    padding: 1rem 1rem 1.125rem;
-    display: flex; flex-direction: column; gap: 0.5rem;
-    flex: 1;
-  }
-  .product__cat {
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    font-weight: 500;
+    padding: 0.875rem 0 0;
+    display: flex; flex-direction: column; gap: 0.375rem;
   }
   .product__title {
-    font-family: var(--sans);
     font-size: 0.9375rem;
     font-weight: 500;
-    color: var(--deep-teal);
+    color: var(--ink);
     line-height: 1.3;
-    letter-spacing: -0.005em;
     margin: 0;
-  }
-  .product__note {
-    font-size: 0.8125rem;
-    color: var(--gray-500);
-    line-height: 1.45;
-    font-style: italic;
-    border-left: 2px solid var(--light-teal);
-    padding-left: 0.625rem;
-    margin: 0.125rem 0 0.25rem;
-  }
-  .product__rating {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.75rem;
-    color: var(--gray-500);
-  }
-  .product__rating .stars {
-    color: var(--gold);
-    font-size: 0.875rem;
-    letter-spacing: -1px;
   }
   .product__price {
     display: flex; align-items: baseline; gap: 0.5rem;
-    margin-top: auto;
-  }
-  .product__price strong {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--deep-teal);
-    letter-spacing: -0.01em;
-  }
-  .product__price s {
-    color: var(--gray-400);
-    font-size: 0.8125rem;
-    font-weight: 400;
-  }
-  .product__price em {
-    color: var(--success);
-    font-style: normal;
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     font-weight: 600;
+    color: var(--ink);
   }
-  .product__cta {
-    margin-top: 0.5rem;
-  }
-
-  /* ───────── MERCH PRODUCT VARIANT ───────── */
-  .merch-card .product__media { background: var(--gray-100); }
-
-  /* ───────── TRUST STRIP ───────── */
-  .trust {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    padding: 2rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  @media (max-width: 899px) { .trust { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-  @media (max-width: 549px) { .trust { grid-template-columns: 1fr; } }
-  .trust__item {
-    display: flex; align-items: center; gap: 0.875rem;
-  }
-  .trust__icon {
-    width: 36px; height: 36px;
-    color: var(--ocean);
-    flex-shrink: 0;
-  }
-  .trust__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; }
-  .trust__text strong {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--deep-teal);
-    margin-bottom: 0.125rem;
-  }
-  .trust__text span {
+  .product__price s { color: var(--gray-300); font-weight: 400; font-size: 0.875rem; }
+  .product__meta {
     font-size: 0.75rem;
     color: var(--gray-500);
+    letter-spacing: 0.01em;
+  }
+  .product__sizes {
+    display: flex; gap: 0.375rem;
+    margin-top: 0.5rem;
+  }
+  .product__sizes span {
+    font-size: 0.6875rem; font-weight: 600;
+    color: var(--ink); opacity: 0.7;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .product__sizes span.is-out {
+    opacity: 0.3;
+    text-decoration: line-through;
   }
 
-  /* ───────── ABOUT (small editorial moment) ───────── */
-  .about {
+  /* ───────── HERO SPLIT (Editorial moment) ───────── */
+  .editorial {
     display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 480px;
+    align-items: stretch;
   }
-  @media (max-width: 899px) { .about { grid-template-columns: 1fr; gap: 2rem; } }
-  .about__media {
-    aspect-ratio: 4/5;
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--deep-teal);
+  @media (max-width: 899px) { .editorial { grid-template-columns: 1fr; } }
+  .editorial__media {
+    background-color: var(--ink-2);
+    background-size: cover;
+    background-position: center;
+    min-height: 360px;
   }
-  .about__media svg { width: 100%; height: 100%; }
-  .about__body p {
+  .editorial__body {
+    padding: 4rem 3.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--paper);
+  }
+  @media (max-width: 749px) {
+    .editorial__body { padding: 2.5rem 1.5rem; }
+  }
+  .editorial__body p {
     font-size: 1rem;
     color: var(--gray-700);
-    line-height: 1.7;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    max-width: 44ch;
   }
-  .about__body p:first-of-type {
+  .editorial__body p:first-of-type {
+    font-size: 1.0625rem;
+    color: var(--ink);
+  }
+
+  /* ───────── AMAZON CALLOUT BAND ───────── */
+  .amzbanner {
+    background: var(--ink);
+    color: var(--white);
+    padding: 3.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .amzbanner__inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 899px) { .amzbanner__inner { grid-template-columns: 1fr; gap: 1.25rem; } }
+  .amzbanner__amazon {
+    font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--amazon);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-bottom: 0.875rem;
+  }
+  .amzbanner__amazon::before { content: ""; width: 6px; height: 6px; background: var(--amazon); border-radius: 50%; }
+  .amzbanner h2 { color: var(--white); }
+  .amzbanner p { color: rgba(255,255,255,0.7); font-size: 0.9375rem; max-width: 48ch; }
+  .amzbanner__actions { display: flex; gap: 0.625rem; flex-wrap: wrap; }
+
+  /* ───────── CATEGORY MARQUEE TILES ───────── */
+  .cats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  }
+  @media (max-width: 749px) { .cats { grid-template-columns: repeat(2, 1fr); } }
+  .cat {
+    aspect-ratio: 4/3;
+    background-color: var(--ink-2);
+    background-size: cover; background-position: center;
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    display: flex; align-items: end;
+  }
+  .cat::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(14,26,32,0.7) 100%);
+  }
+  .cat__label {
+    position: relative; z-index: 2;
+    padding: 1.5rem;
+    display: flex; align-items: end; justify-content: space-between;
+    width: 100%;
+    font-weight: 700;
     font-size: 1.125rem;
-    color: var(--deep-teal);
+    letter-spacing: -0.01em;
   }
-  .about__sig {
-    margin-top: 1.5rem;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.25rem;
-    color: var(--ocean);
+  .cat__label small {
+    font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
   }
+  .cat:hover .cat__media { transform: scale(1.04); }
 
   /* ───────── NEWSLETTER ───────── */
-  .newsletter {
-    background: var(--deep-teal);
-    color: var(--white);
-    padding: 4rem 0;
-  }
+  .newsletter { background: var(--paper); padding: 4rem 0; border-top: 1px solid var(--rule); }
   .newsletter__inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1080px; margin: 0 auto;
   }
-  @media (max-width: 899px) { .newsletter__inner { grid-template-columns: 1fr; gap: 1.5rem; } }
-  .newsletter h2 { color: var(--white); }
-  .newsletter p { color: rgba(255,255,255,0.7); font-size: 0.9375rem; max-width: 44ch; }
+  @media (max-width: 749px) { .newsletter__inner { grid-template-columns: 1fr; gap: 1rem; } }
+  .newsletter h2 { letter-spacing: -0.03em; }
+  .newsletter p { font-size: 0.9375rem; color: var(--gray-500); max-width: 40ch; }
   .newsletter__form {
     display: flex; gap: 0;
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: var(--btn-radius);
-    overflow: hidden;
-    background: rgba(255,255,255,0.06);
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 0.25rem;
   }
   .newsletter__form input {
-    flex: 1; padding: 0.875rem 1rem;
+    flex: 1; padding: 0.625rem 0;
     border: 0; background: transparent;
-    font-family: var(--sans); font-size: 0.875rem;
-    color: var(--white);
+    font-family: var(--sans); font-size: 0.9375rem;
+    color: var(--ink); font-weight: 500;
   }
   .newsletter__form input:focus { outline: none; }
-  .newsletter__form input::placeholder { color: rgba(255,255,255,0.5); }
+  .newsletter__form input::placeholder { color: var(--gray-300); }
   .newsletter__form button {
-    background: var(--white); color: var(--deep-teal);
-    border: 0; padding: 0.875rem 1.5rem;
+    background: transparent; color: var(--ink);
+    border: 0; padding: 0.625rem 0;
     font-family: var(--sans); font-size: 0.8125rem;
-    font-weight: 600; cursor: pointer;
-    transition: background 200ms ease;
+    font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
   }
-  .newsletter__form button:hover { background: var(--light-teal); }
-  .newsletter__fine { font-size: 0.6875rem; opacity: 0.5; margin-top: 0.625rem; }
+  .newsletter__form button:hover { color: var(--teal); }
 
   /* ───────── FOOTER ───────── */
-  .footer {
-    background: var(--gray-100);
-    color: var(--deep-teal);
-    padding: 4rem 0 2rem;
-    border-top: 1px solid var(--rule);
-  }
+  .footer { background: var(--ink); color: var(--paper); padding: 4rem 0 2rem; }
   .footer__top {
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
@@ -657,751 +471,367 @@
   }
   @media (max-width: 1099px) { .footer__top { grid-template-columns: 1fr 1fr 1fr; } }
   @media (max-width: 599px) { .footer__top { grid-template-columns: 1fr 1fr; } }
+  .footer__brand .wordmark { color: var(--white); font-size: 1.125rem; }
   .footer__brand p {
-    font-size: 0.875rem;
-    color: var(--gray-500);
-    line-height: 1.6;
-    max-width: 36ch;
-    margin-top: 1rem;
+    font-size: 0.875rem; color: rgba(246,242,232,0.65); line-height: 1.65;
+    max-width: 36ch; margin-top: 1rem;
   }
   .footer h4 {
-    font-family: var(--sans); font-size: 0.6875rem;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--deep-teal); font-weight: 700;
+    font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--teal-light); font-weight: 700;
     margin: 0 0 1rem;
   }
   .footer ul { list-style: none; padding: 0; margin: 0; }
   .footer li { margin-bottom: 0.6rem; }
-  .footer a {
-    color: var(--gray-700); font-size: 0.875rem;
-    font-weight: 400;
-  }
-  .footer a:hover { color: var(--ocean); }
+  .footer a { color: rgba(246,242,232,0.75); font-size: 0.875rem; }
+  .footer a:hover { color: var(--white); }
   .footer__bottom {
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.75rem; color: var(--gray-500);
-    flex-wrap: wrap; gap: 1rem;
+    display: flex; justify-content: space-between;
+    font-size: 0.75rem; color: rgba(246,242,232,0.45);
+    flex-wrap: wrap; gap: 0.75rem;
   }
-  .footer__disclaimer {
-    background: var(--white);
-    padding: 0.875rem 1rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    color: var(--gray-500);
+  .footer__disclosure {
+    font-size: 0.75rem; color: rgba(246,242,232,0.5);
     line-height: 1.55;
-    margin-top: 2rem;
-    border: 1px solid var(--rule);
+    background: rgba(255,255,255,0.04);
+    padding: 0.875rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
   }
 
   /* ───────── FLOATING WHATSAPP ───────── */
   .wa-float {
     position: fixed; bottom: 1.25rem; right: 1.25rem;
-    width: 54px; height: 54px; border-radius: 50%;
+    width: 52px; height: 52px; border-radius: 50%;
     background: var(--whatsapp); color: var(--white);
     display: inline-flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
     z-index: 90;
-    transition: transform 200ms ease, box-shadow 200ms ease;
+    transition: transform 200ms ease;
   }
-  .wa-float:hover {
-    transform: translateY(-2px) scale(1.04);
-    color: var(--white);
-  }
-  .wa-float svg { width: 26px; height: 26px; fill: currentColor; }
+  .wa-float:hover { transform: translateY(-2px) scale(1.04); color: var(--white); }
+  .wa-float svg { width: 24px; height: 24px; fill: currentColor; }
 </style>
 </head>
 <body>
 
-<!-- ═════════ PROMO STRIP ═════════ -->
-<div class="promo">
-  <span><strong>Free shipping</strong> on merch over $75 — worldwide</span>
-  <span class="promo__divider">·</span>
-  <span><strong>New picks</strong> added weekly</span>
-  <span class="promo__divider">·</span>
-  <span><strong>Curated by Julián</strong> from Nosara, CR</span>
+<!-- ═════════ ANNOUNCEMENT ═════════ -->
+<div class="announce">
+  <span><strong>Free shipping</strong> over $75 worldwide</span>
+  <span class="announce__sep">·</span>
+  <span><strong>30-day</strong> easy returns</span>
+  <span class="announce__sep">·</span>
+  <span>Made + shipped from <strong>Nosara, CR</strong></span>
 </div>
 
 <!-- ═════════ HEADER ═════════ -->
-<header class="header" role="banner">
-  <div class="header__inner">
-    <a href="https://julianmonge.com" class="lockup" aria-label="Julián Monge — Real Estate">
-      <span class="lockup__badge">JM</span>
-      <span class="lockup__words">
-        <strong>JULIÁN MONGE</strong>
-        <small>SHOP · NOSARA, CR</small>
-      </span>
+<header class="header">
+  <div class="header__row">
+    <a href="/" class="wordmark">
+      JULIÁN MONGE<span class="wordmark__slash">/</span><span class="wordmark__shop">SHOP</span>
     </a>
-    <div class="header__search" role="search">
-      <span class="header__search-icon">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-      </span>
-      <input type="search" placeholder="Search reef-safe sun, dry bags, hammocks…" aria-label="Search the shop">
-    </div>
+    <nav class="nav">
+      <a href="#shop" class="is-active">Shop</a>
+      <a href="#essentials">Essentials</a>
+      <a href="#about">About</a>
+      <a href="https://julianmonge.com">Julianmonge.com</a>
+    </nav>
     <div class="header__right">
-      <a href="#account" class="header__action" aria-label="Account">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-        <span class="header__action--label">Account</span>
-      </a>
-      <a href="#cart" class="header__action" aria-label="Cart">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        <span class="header__action--label">Cart</span>
-        <span class="cart-badge">3</span>
-      </a>
+      <button class="iconbtn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        <span>Search</span>
+      </button>
+      <button class="iconbtn" aria-label="Bag">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span>
+        <span class="bag-count">2</span>
+      </button>
     </div>
   </div>
-
-  <!-- Department nav -->
-  <nav class="deptnav" aria-label="Departments">
-    <div class="deptnav__inner">
-      <span class="deptnav__parent"><a href="https://julianmonge.com">julianmonge.com</a></span>
-      <a href="#" class="is-active">All</a>
-      <a href="#essentials">Nosara Essentials</a>
-      <a href="#sun">Sun &amp; Surf</a>
-      <a href="#beach">Beach</a>
-      <a href="#travel">Travel</a>
-      <a href="#home">Home &amp; Outdoor</a>
-      <a href="#merch">Merch</a>
-      <a href="#guides">Guides</a>
-    </div>
-  </nav>
 </header>
 
 <!-- ═════════ HERO ═════════ -->
 <section class="hero">
+  <div class="container hero__inner">
+    <p class="hero__eyebrow">From Nosara · Costa Rica</p>
+    <h1>All things Costa Rica.</h1>
+    <p class="hero__lede">Our own Pacific-coast merch, plus a curated Amazon shelf of the real Tico goods worth shipping anywhere — coffee, Lizano, hammocks, Blue Zones books, the bird guide.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--white" href="#shop">Shop the line</a>
+      <a class="btn btn--ghost-light" href="#essentials">Open Amazon shelf →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FEATURED MERCH (LEAD) ═════════ -->
+<section class="section" id="shop">
   <div class="container">
-    <div class="hero__inner">
+    <div class="section__head">
       <div>
-        <p class="hero__eyebrow">Nosara, Costa Rica · Curated by Julián</p>
-        <h1>The gear we actually use.</h1>
-        <p class="hero__lede">Reef-safe sun. Dry bags that survive monsoon. Hammocks that hold up. A short, opinionated shelf of essentials for life on the Nicoya peninsula — plus our own Nosara merch.</p>
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="#essentials">Shop essentials</a>
-          <a class="btn btn--ghost-light" href="#merch">Browse merch</a>
-        </div>
-        <div class="hero__trust">
-          <span><span class="dot"></span>4.8★ across 1,240+ buyers</span>
-          <span><span class="dot"></span>Ships from Amazon &amp; from us</span>
-          <span><span class="dot"></span>Returns within 30 days</span>
-        </div>
+        <p class="section__eyebrow">SS26 · The Shop</p>
+        <h2>Six pieces. Heavyweight.</h2>
       </div>
-      <div class="hero__visual">
-        <!-- Stylized aerial-feel SVG, not illustrative — quieter than before -->
-        <svg viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1a4654"/>
-              <stop offset="60%" stop-color="#0e3240"/>
-              <stop offset="100%" stop-color="#081a22"/>
-            </linearGradient>
-            <linearGradient id="heroSand" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#c7b890" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#c7b890" stop-opacity="0.1"/>
-            </linearGradient>
-          </defs>
-          <rect width="800" height="640" fill="url(#heroBg)"/>
-          <!-- Aerial water suggestion: stacked horizontal lines -->
-          <g stroke="#F5F0E6" stroke-width="0.5" fill="none" opacity="0.10">
-            <path d="M0,120 Q200,116 400,120 T800,120"/>
-            <path d="M0,160 Q200,156 400,160 T800,160"/>
-            <path d="M0,200 Q200,196 400,200 T800,200"/>
-            <path d="M0,240 Q200,236 400,240 T800,240"/>
-            <path d="M0,280 Q200,276 400,280 T800,280"/>
-            <path d="M0,320 Q200,316 400,320 T800,320"/>
-            <path d="M0,360 Q200,356 400,360 T800,360"/>
-            <path d="M0,400 Q200,396 400,400 T800,400"/>
-            <path d="M0,440 Q200,436 400,440 T800,440"/>
-          </g>
-          <!-- Foam line where sand meets water -->
-          <path d="M0,470 Q150,465 300,470 Q450,478 600,468 Q700,460 800,470 L800,475 L0,475 Z" fill="#F5F0E6" opacity="0.2"/>
-          <!-- Sand -->
-          <path d="M0,475 Q200,470 400,478 Q600,488 800,475 L800,640 L0,640 Z" fill="url(#heroSand)"/>
-          <!-- Subtle product silhouettes on sand: surfboard + bag (anchoring) -->
-          <g opacity="0.85">
-            <!-- Surfboard -->
-            <ellipse cx="280" cy="555" rx="80" ry="14" fill="#0a1820" opacity="0.25"/>
-            <ellipse cx="280" cy="548" rx="80" ry="12" fill="#F5F0E6"/>
-            <line x1="200" y1="548" x2="360" y2="548" stroke="#c7b890" stroke-width="0.6" opacity="0.6"/>
-            <circle cx="356" cy="548" r="2.5" fill="#0C2830"/>
-            <!-- Dry bag silhouette -->
-            <ellipse cx="500" cy="588" rx="38" ry="8" fill="#0a1820" opacity="0.25"/>
-            <path d="M468,584 L470,520 Q470,512 478,510 L522,510 Q530,512 530,520 L532,584 Z" fill="#17617C"/>
-            <path d="M468,584 L470,520 Q470,512 478,510 L482,510 L482,584 Z" fill="#0C2830" opacity="0.3"/>
-            <ellipse cx="500" cy="512" rx="26" ry="3" fill="#0a2330"/>
-            <rect x="486" y="498" width="28" height="14" rx="2" fill="#0C2830"/>
-            <line x1="475" y1="540" x2="525" y2="540" stroke="#F5F0E6" stroke-width="0.4" opacity="0.4"/>
-          </g>
-          <!-- Brand watermark bottom right -->
-          <g transform="translate(680,610)" opacity="0.4">
-            <text font-family="Inter, sans-serif" font-size="9" letter-spacing="3" fill="#F5F0E6">JM SHOP · 2026</text>
-          </g>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════ TRUST STRIP ═════════ -->
-<div class="container">
-  <div class="trust">
-    <div class="trust__item">
-      <div class="trust__icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
-      <div class="trust__text">
-        <strong>Vetted by Julián</strong>
-        <span>Tested in Nosara before listed</span>
-      </div>
-    </div>
-    <div class="trust__item">
-      <div class="trust__icon">
-        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="14" height="10" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-      </div>
-      <div class="trust__text">
-        <strong>Ships fast</strong>
-        <span>Amazon Prime + Printful · Worldwide</span>
-      </div>
-    </div>
-    <div class="trust__item">
-      <div class="trust__icon">
-        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><polyline points="14 4 21 4 21 11"/><line x1="21" y1="4" x2="12" y2="13"/></svg>
-      </div>
-      <div class="trust__text">
-        <strong>Easy returns</strong>
-        <span>30 days, no-fuss policy</span>
-      </div>
-    </div>
-    <div class="trust__item">
-      <div class="trust__icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8 8 5 13 12 22c7-9 4-14 0-20z"/><path d="M12 2c-1.5 4-1.5 7 0 10 1.5-3 1.5-6 0-10z" fill="currentColor" opacity="0.3"/></svg>
-      </div>
-      <div class="trust__text">
-        <strong>Reef-safe by default</strong>
-        <span>Curated for ocean &amp; jungle</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═════════ CATEGORY TILES ═════════ -->
-<section class="section">
-  <div class="container">
-    <div class="section__head">
-      <div class="section__head-text">
-        <p class="section__eyebrow">Shop by department</p>
-        <h2>Find what you need.</h2>
-      </div>
-    </div>
-    <div class="cattiles">
-      <a class="cattile" href="#sun">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21"/><line x1="3" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21" y2="12"/><line x1="5.6" y1="5.6" x2="7" y2="7"/><line x1="17" y1="17" x2="18.4" y2="18.4"/><line x1="5.6" y1="18.4" x2="7" y2="17"/><line x1="17" y1="7" x2="18.4" y2="5.6"/></svg>
-        <span>Sun &amp; Surf</span>
-        <small>14 items</small>
-      </a>
-      <a class="cattile" href="#beach">
-        <svg viewBox="0 0 24 24"><path d="M2 18c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1"/><path d="M2 22c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1"/><path d="M8 14V6l4-2 4 2v8"/></svg>
-        <span>Beach</span>
-        <small>11 items</small>
-      </a>
-      <a class="cattile" href="#travel">
-        <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="16"/></svg>
-        <span>Travel</span>
-        <small>9 items</small>
-      </a>
-      <a class="cattile" href="#home">
-        <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
-        <span>Home &amp; Outdoor</span>
-        <small>16 items</small>
-      </a>
-      <a class="cattile" href="#merch">
-        <svg viewBox="0 0 24 24"><path d="M16 4l4 2v4l-2 1v9H6V11l-2-1V6l4-2 2 3h4l2-3z"/></svg>
-        <span>Nosara Merch</span>
-        <small>3 items</small>
-      </a>
-      <a class="cattile" href="#guides">
-        <svg viewBox="0 0 24 24"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="14" y2="13"/></svg>
-        <span>Guides</span>
-        <small>4 items</small>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════ NOSARA ESSENTIALS (Amazon curated) ═════════ -->
-<section class="section section--gray" id="essentials">
-  <div class="container">
-    <div class="section__head">
-      <div class="section__head-text">
-        <p class="section__eyebrow">Featured · Nosara Essentials</p>
-        <h2>Vetted picks from our Amazon storefront.</h2>
-        <p class="section__desc">A short, opinionated shelf — what we actually use after living on this coast. Updated weekly. Affiliate links: your price is the same, we earn a small commission to keep the lights on.</p>
-      </div>
-      <a class="section__cta" href="https://amazon.com/shop/julianmonge">View full Amazon shop →</a>
+      <a href="#" class="section__cta">All apparel →</a>
     </div>
 
     <div class="grid">
-      <!-- 1. Reef-safe sunscreen -->
+      <!-- 1. TEE — SAND -->
       <a class="product" href="#">
-        <div class="product__media">
-          <div class="product__badges">
-            <span class="badge badge--best">★ Top pick</span>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag">Best seller</span>
+        <div class="product__body">
+          <h3 class="product__title">Nosara CR Heavyweight Tee — Sand</h3>
+          <div class="product__price"><strong>$32</strong></div>
+          <div class="product__sizes">
+            <span>XS</span><span>S</span><span>M</span><span>L</span><span class="is-out">XL</span><span>2XL</span>
           </div>
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <!-- Sunscreen tube -->
-            <ellipse cx="200" cy="340" rx="60" ry="6" fill="#000" opacity="0.10"/>
-            <defs>
-              <linearGradient id="tube1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#e8e2d0"/>
-                <stop offset="50%" stop-color="#f8f4e8"/>
-                <stop offset="100%" stop-color="#d4cdb5"/>
-              </linearGradient>
-            </defs>
-            <rect x="155" y="120" width="90" height="210" rx="6" fill="url(#tube1)" stroke="#c5bda4" stroke-width="0.8"/>
-            <rect x="170" y="100" width="60" height="22" rx="3" fill="#0C2830"/>
-            <rect x="178" y="102" width="44" height="18" rx="2" fill="#17617C"/>
-            <!-- Label -->
-            <rect x="160" y="160" width="80" height="140" fill="#F5F0E6" stroke="#c5bda4" stroke-width="0.5"/>
-            <text x="200" y="190" font-family="Inter, sans-serif" font-size="9" letter-spacing="2" fill="#0C2830" text-anchor="middle" font-weight="700">REEF-SAFE</text>
-            <line x1="170" y1="200" x2="230" y2="200" stroke="#17617C" stroke-width="0.6"/>
-            <text x="200" y="222" font-family="Playfair Display, serif" font-size="20" font-weight="600" fill="#0C2830" text-anchor="middle">SPF 50</text>
-            <text x="200" y="244" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.5" fill="#17617C" text-anchor="middle">MINERAL SUNSCREEN</text>
-            <line x1="180" y1="258" x2="220" y2="258" stroke="#c5bda4" stroke-width="0.5"/>
-            <text x="200" y="275" font-family="Inter, sans-serif" font-size="6" letter-spacing="1" fill="#0C2830" text-anchor="middle" opacity="0.6">ZINC OXIDE</text>
-            <text x="200" y="286" font-family="Inter, sans-serif" font-size="6" letter-spacing="1" fill="#0C2830" text-anchor="middle" opacity="0.6">3 FL OZ · 89 ML</text>
-          </svg>
-        </div>
-        <div class="product__body">
-          <span class="product__cat">SUN · MINERAL SPF</span>
-          <h3 class="product__title">Blue Lizard Sensitive Mineral Sunscreen SPF 50</h3>
-          <p class="product__note">"What I put on my kids and what I put on myself. Doesn't sting eyes; rinses clean." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.8 · 12,420 reviews</span></div>
-          <div class="product__price"><strong>$17.99</strong><s>$22.00</s></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
         </div>
       </a>
 
-      <!-- 2. Quick-dry towel -->
+      <!-- 2. TEE — DEEP TEAL -->
       <a class="product" href="#">
-        <div class="product__media">
-          <div class="product__badges"><span class="badge badge--new">New pick</span></div>
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="330" rx="130" ry="8" fill="#000" opacity="0.08"/>
-            <!-- Folded towel: layered rectangles -->
-            <g>
-              <rect x="80" y="200" width="240" height="120" rx="4" fill="#1d5a72"/>
-              <rect x="80" y="200" width="240" height="20" fill="#0C2830"/>
-              <rect x="80" y="240" width="240" height="3" fill="#99D6D8" opacity="0.7"/>
-              <rect x="80" y="270" width="240" height="3" fill="#99D6D8" opacity="0.7"/>
-              <rect x="80" y="300" width="240" height="3" fill="#99D6D8" opacity="0.7"/>
-              <!-- Second fold layer -->
-              <rect x="90" y="170" width="220" height="40" rx="3" fill="#17617C"/>
-              <rect x="100" y="140" width="200" height="40" rx="3" fill="#1d6a86"/>
-              <rect x="110" y="110" width="180" height="40" rx="3" fill="#247693"/>
-            </g>
-            <!-- Brand tag -->
-            <rect x="280" y="290" width="32" height="14" rx="1" fill="#F5F0E6"/>
-            <text x="296" y="299" font-family="Inter, sans-serif" font-size="5" letter-spacing="1" fill="#0C2830" text-anchor="middle">PACKTOWL</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=85&auto=format&fit=crop');"></div>
         <div class="product__body">
-          <span class="product__cat">BEACH · TOWEL</span>
-          <h3 class="product__title">PackTowl Personal Microfiber Towel · XL</h3>
-          <p class="product__note">"Dries faster than the surf session. Fits in a dry bag. Replaces three cotton towels." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.7 · 8,310 reviews</span></div>
-          <div class="product__price"><strong>$32.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Nosara CR Heavyweight Tee — Deep Teal</h3>
+          <div class="product__price"><strong>$32</strong></div>
+          <div class="product__sizes">
+            <span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span>
+          </div>
         </div>
       </a>
 
-      <!-- 3. Dry bag -->
+      <!-- 3. DAD CAP — TEAL -->
       <a class="product" href="#">
-        <div class="product__media">
-          <div class="product__badges"><span class="badge badge--best">★ Top pick</span></div>
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="358" rx="90" ry="8" fill="#000" opacity="0.10"/>
-            <defs>
-              <linearGradient id="bag1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#0a4a5a"/>
-                <stop offset="50%" stop-color="#17617C"/>
-                <stop offset="100%" stop-color="#0a4a5a"/>
-              </linearGradient>
-            </defs>
-            <!-- bag body -->
-            <path d="M130,350 L132,180 Q132,150 152,148 L248,148 Q268,150 268,180 L270,350 Z" fill="url(#bag1)" stroke="#063846" stroke-width="0.8"/>
-            <!-- top roll -->
-            <ellipse cx="200" cy="148" rx="58" ry="6" fill="#063846"/>
-            <rect x="142" y="120" width="116" height="30" rx="2" fill="#0a4a5a"/>
-            <rect x="142" y="120" width="116" height="10" fill="#063846"/>
-            <!-- clip -->
-            <rect x="180" y="100" width="40" height="20" rx="3" fill="#0C2830"/>
-            <rect x="186" y="106" width="28" height="8" rx="2" fill="#17617C"/>
-            <!-- strap -->
-            <path d="M132,200 Q90,210 100,330" stroke="#0C2830" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.6"/>
-            <!-- logo -->
-            <text x="200" y="270" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" font-weight="800" fill="#F5F0E6" text-anchor="middle">SEA TO SUMMIT</text>
-            <text x="200" y="290" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" fill="#99D6D8" text-anchor="middle">20L · WATERPROOF</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=900&q=85&auto=format&fit=crop');"></div>
         <div class="product__body">
-          <span class="product__cat">SURF · DRY BAG</span>
-          <h3 class="product__title">Sea to Summit Big River Dry Bag · 20L</h3>
-          <p class="product__note">"Survived three monsoons in Guiones. The roll-top still seals. Worth twice what they charge." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.9 · 3,840 reviews</span></div>
-          <div class="product__price"><strong>$38.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Nosara Dad Cap — Embroidered, Deep Teal</h3>
+          <div class="product__price"><strong>$28</strong></div>
+          <div class="product__meta">One size · Adjustable</div>
         </div>
       </a>
 
-      <!-- 4. Insulated bottle -->
+      <!-- 4. DAD CAP — SAND -->
       <a class="product" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="340" rx="50" ry="6" fill="#000" opacity="0.10"/>
-            <defs>
-              <linearGradient id="bottle1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#6a7a73"/>
-                <stop offset="50%" stop-color="#a3b3ac"/>
-                <stop offset="100%" stop-color="#5a6a63"/>
-              </linearGradient>
-            </defs>
-            <rect x="170" y="100" width="60" height="30" rx="6" fill="#0C2830"/>
-            <rect x="170" y="120" width="60" height="10" fill="#1a3a45"/>
-            <rect x="160" y="130" width="80" height="200" rx="10" fill="url(#bottle1)" stroke="#4a5a53" stroke-width="0.8"/>
-            <!-- label band -->
-            <rect x="160" y="200" width="80" height="80" fill="#F5F0E6"/>
-            <text x="200" y="230" font-family="Inter, sans-serif" font-size="8" letter-spacing="2" font-weight="700" fill="#0C2830" text-anchor="middle">HYDRO</text>
-            <text x="200" y="250" font-family="Playfair Display, serif" font-size="18" font-weight="600" fill="#0C2830" text-anchor="middle">FLASK</text>
-            <text x="200" y="268" font-family="Inter, sans-serif" font-size="6" letter-spacing="1" fill="#17617C" text-anchor="middle">32 OZ · INSULATED</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1521369909029-2afed882baee?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--dark">New</span>
         <div class="product__body">
-          <span class="product__cat">TRAVEL · BOTTLE</span>
-          <h3 class="product__title">Hydro Flask Wide Mouth 32oz</h3>
-          <p class="product__note">"Ice survives 12 hours in the heat here. Wide mouth for filling at any tienda." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.8 · 24,610 reviews</span></div>
-          <div class="product__price"><strong>$44.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Nosara Dad Cap — Embroidered, Sand</h3>
+          <div class="product__price"><strong>$28</strong></div>
+          <div class="product__meta">One size · Adjustable</div>
         </div>
       </a>
 
-      <!-- 5. Mosquito repellent -->
+      <!-- 5. CREWNECK -->
       <a class="product" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="345" rx="45" ry="5" fill="#000" opacity="0.10"/>
-            <defs>
-              <linearGradient id="spray1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#2d4538"/>
-                <stop offset="50%" stop-color="#3f5d4c"/>
-                <stop offset="100%" stop-color="#243a2e"/>
-              </linearGradient>
-            </defs>
-            <rect x="180" y="95" width="40" height="14" rx="4" fill="#0C2830"/>
-            <rect x="174" y="109" width="52" height="20" rx="2" fill="#1a2a22"/>
-            <path d="M170,129 L162,170 L162,330 Q162,340 172,340 L228,340 Q238,340 238,330 L238,170 L230,129 Z" fill="url(#spray1)" stroke="#1a2a22" stroke-width="0.8"/>
-            <rect x="166" y="190" width="68" height="120" fill="#F5F0E6"/>
-            <text x="200" y="215" font-family="Inter, sans-serif" font-size="8" letter-spacing="2" font-weight="700" fill="#2d4538" text-anchor="middle">PROVEN</text>
-            <text x="200" y="248" font-family="Playfair Display, serif" font-size="14" font-weight="600" fill="#0C2830" text-anchor="middle">Picaridin</text>
-            <text x="200" y="265" font-family="Inter, sans-serif" font-size="6" letter-spacing="1.5" fill="#2d4538" text-anchor="middle">20% · 14-HOUR</text>
-            <line x1="180" y1="280" x2="220" y2="280" stroke="#2d4538" stroke-width="0.4"/>
-            <text x="200" y="298" font-family="Inter, sans-serif" font-size="5" letter-spacing="1" fill="#0C2830" text-anchor="middle" opacity="0.6">DEET-FREE · 4FL OZ</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=900&q=85&auto=format&fit=crop');"></div>
         <div class="product__body">
-          <span class="product__cat">SUN · BUG REPELLENT</span>
-          <h3 class="product__title">Proven Picaridin 20% Insect Repellent</h3>
-          <p class="product__note">"Doesn't melt sunscreen, doesn't smell like a chem lab. 14 hours of coverage." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.7 · 6,930 reviews</span></div>
-          <div class="product__price"><strong>$12.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Pacific Coast Crewneck — Heavyweight Fleece</h3>
+          <div class="product__price"><strong>$74</strong></div>
+          <div class="product__sizes">
+            <span>S</span><span>M</span><span>L</span><span>XL</span>
+          </div>
         </div>
       </a>
 
-      <!-- 6. Hammock -->
+      <!-- 6. TOTE -->
       <a class="product" href="#">
-        <div class="product__media">
-          <div class="product__badges"><span class="badge badge--low">Only 3 left</span></div>
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="345" rx="100" ry="6" fill="#000" opacity="0.08"/>
-            <!-- Hammock stuff sack rolled -->
-            <ellipse cx="200" cy="220" rx="120" ry="60" fill="#C2725A"/>
-            <ellipse cx="200" cy="220" rx="120" ry="60" fill="none" stroke="#92543F" stroke-width="0.8"/>
-            <ellipse cx="80" cy="220" rx="8" ry="60" fill="#92543F"/>
-            <ellipse cx="320" cy="220" rx="8" ry="60" fill="#92543F"/>
-            <!-- Cord -->
-            <path d="M80,220 Q60,180 100,140" stroke="#0C2830" stroke-width="2" fill="none"/>
-            <path d="M320,220 Q340,180 300,140" stroke="#0C2830" stroke-width="2" fill="none"/>
-            <!-- Stitching lines -->
-            <line x1="100" y1="200" x2="300" y2="200" stroke="#92543F" stroke-width="0.5" stroke-dasharray="3 3"/>
-            <line x1="100" y1="240" x2="300" y2="240" stroke="#92543F" stroke-width="0.5" stroke-dasharray="3 3"/>
-            <!-- Tag -->
-            <rect x="175" y="210" width="50" height="22" fill="#F5F0E6"/>
-            <text x="200" y="222" font-family="Inter, sans-serif" font-size="6" letter-spacing="1.5" font-weight="700" fill="#0C2830" text-anchor="middle">ENO</text>
-            <text x="200" y="230" font-family="Inter, sans-serif" font-size="5" letter-spacing="0.5" fill="#0C2830" text-anchor="middle">DOUBLENEST</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1591348278863-a8fb3887e2aa?w=900&q=85&auto=format&fit=crop');"></div>
         <div class="product__body">
-          <span class="product__cat">HOME · HAMMOCK</span>
-          <h3 class="product__title">ENO DoubleNest Hammock</h3>
-          <p class="product__note">"Two adults, an afternoon coffee, six years of Nosara sun. Still going." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.9 · 18,200 reviews</span></div>
-          <div class="product__price"><strong>$74.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Heavy Canvas Beach Tote — Natural</h3>
+          <div class="product__price"><strong>$36</strong></div>
+          <div class="product__meta">18oz canvas · 14×16in</div>
         </div>
       </a>
 
-      <!-- 7. Travel adapter -->
+      <!-- 7. STICKER PACK -->
       <a class="product" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="320" rx="80" ry="6" fill="#000" opacity="0.10"/>
-            <!-- Adapter body -->
-            <rect x="120" y="150" width="160" height="160" rx="14" fill="#F5F0E6" stroke="#c5bda4" stroke-width="0.8"/>
-            <!-- USB-C ports -->
-            <rect x="140" y="220" width="40" height="8" rx="3" fill="#0C2830"/>
-            <rect x="200" y="220" width="40" height="8" rx="3" fill="#0C2830"/>
-            <rect x="140" y="245" width="40" height="8" rx="3" fill="#0C2830"/>
-            <rect x="200" y="245" width="40" height="8" rx="3" fill="#0C2830"/>
-            <!-- USB-A port -->
-            <rect x="160" y="275" width="80" height="12" rx="2" fill="#0C2830"/>
-            <rect x="165" y="277" width="70" height="8" fill="#17617C" opacity="0.3"/>
-            <!-- Label -->
-            <text x="200" y="175" font-family="Inter, sans-serif" font-size="7" letter-spacing="2" font-weight="700" fill="#0C2830" text-anchor="middle">ANKER</text>
-            <text x="200" y="195" font-family="Playfair Display, serif" font-size="13" font-weight="500" fill="#0C2830" text-anchor="middle">100W GaN</text>
-            <text x="200" y="210" font-family="Inter, sans-serif" font-size="5" letter-spacing="1" fill="#17617C" text-anchor="middle">4-PORT · WORLDWIDE</text>
-            <!-- plug folded -->
-            <path d="M155,150 L155,135 L165,135 L165,150 M235,150 L235,135 L245,135 L245,150" stroke="#0C2830" stroke-width="2" fill="none"/>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=85&auto=format&fit=crop');"></div>
         <div class="product__body">
-          <span class="product__cat">TRAVEL · CHARGING</span>
-          <h3 class="product__title">Anker 100W 4-Port GaN Charger</h3>
-          <p class="product__note">"One brick for laptop, phone, drone, and headphones. Costa Rica plug compatible." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.7 · 5,180 reviews</span></div>
-          <div class="product__price"><strong>$59.99</strong><s>$79.99</s><em>Save $20</em></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Nosara Sticker Pack — 3-Pack</h3>
+          <div class="product__price"><strong>$8</strong></div>
+          <div class="product__meta">Die-cut vinyl · Weatherproof</div>
         </div>
       </a>
 
-      <!-- 8. Headlamp -->
+      <!-- 8. ENAMEL MUG -->
       <a class="product" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#FAFAF9"/>
-            <ellipse cx="200" cy="320" rx="100" ry="6" fill="#000" opacity="0.10"/>
-            <!-- Headband -->
-            <path d="M80,180 Q200,140 320,180 L320,200 Q200,160 80,200 Z" fill="#0C2830"/>
-            <path d="M80,180 Q200,140 320,180" stroke="#1a3a45" stroke-width="0.5" fill="none"/>
-            <!-- Lamp module -->
-            <rect x="150" y="190" width="100" height="50" rx="6" fill="#1a2a32"/>
-            <rect x="150" y="190" width="100" height="50" rx="6" fill="none" stroke="#0a141a" stroke-width="0.8"/>
-            <!-- Lens -->
-            <circle cx="180" cy="215" r="14" fill="#f5d29b" opacity="0.85"/>
-            <circle cx="180" cy="215" r="10" fill="#fdeac2"/>
-            <circle cx="180" cy="215" r="5" fill="#fff"/>
-            <!-- Secondary LED -->
-            <circle cx="220" cy="215" r="6" fill="#99D6D8" opacity="0.4"/>
-            <circle cx="220" cy="215" r="3" fill="#99D6D8"/>
-            <!-- Logo strip -->
-            <text x="200" y="265" font-family="Inter, sans-serif" font-size="6" letter-spacing="2" font-weight="700" fill="#F5F0E6" text-anchor="middle">BLACK DIAMOND</text>
-            <text x="200" y="278" font-family="Inter, sans-serif" font-size="5" letter-spacing="1.5" fill="#99D6D8" text-anchor="middle">SPOT 400 · WATERPROOF</text>
-          </svg>
-        </div>
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--dark">Pre-order</span>
         <div class="product__body">
-          <span class="product__cat">HOME · LIGHT</span>
-          <h3 class="product__title">Black Diamond Spot 400 Headlamp</h3>
-          <p class="product__note">"For walking the dog after sunset on dark Nosara roads. Red mode for sea turtles." — JM</p>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.8 · 9,420 reviews</span></div>
-          <div class="product__price"><strong>$49.95</strong></div>
-          <span class="badge badge--amazon">Amazon</span>
-          <span class="btn btn--amazon btn--sm btn--block product__cta">View on Amazon →</span>
+          <h3 class="product__title">Nosara Enamel Mug — Cream</h3>
+          <div class="product__price"><strong>$22</strong></div>
+          <div class="product__meta">12oz · Powder-coated steel</div>
         </div>
       </a>
-    </div>
-
-    <div style="text-align: center; margin-top: 2.5rem;">
-      <a class="btn btn--secondary" href="https://amazon.com/shop/julianmonge">Browse all Amazon picks →</a>
     </div>
   </div>
 </section>
 
-<!-- ═════════ NOSARA MERCH (own products) ═════════ -->
-<section class="section" id="merch">
+<!-- ═════════ EDITORIAL / ABOUT MOMENT ═════════ -->
+<section class="editorial" id="about">
+  <div class="editorial__media" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1400&q=85&auto=format&fit=crop');"></div>
+  <div class="editorial__body">
+    <p class="section__eyebrow">About</p>
+    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1.25rem;">Costa Rica, by someone who lives here.</h2>
+    <p>Julián Monge is a real estate agent in Nosara — raised on the Nicoya peninsula, working from Playa Guiones. This shop is two things: our own Pacific-coast merch, and a tightly-curated Amazon shelf of real Costa Rican goods worth shipping anywhere.</p>
+    <p>Our merch is printed on demand by Printful — no overstock, no waste. Our Amazon picks are real Tico products we either grew up with or stand behind. If something stops being good, it comes off the shelf.</p>
+    <div style="display: flex; gap: 0.625rem; flex-wrap: wrap; margin-top: 1rem;">
+      <a class="btn btn--secondary btn--sm" href="https://julianmonge.com">Visit julianmonge.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ CATEGORY TILES ═════════ -->
+<section class="section section--paper">
   <div class="container">
     <div class="section__head">
-      <div class="section__head-text">
-        <p class="section__eyebrow">Featured · Nosara Merch</p>
-        <h2>Our own line. Small batch.</h2>
-        <p class="section__desc">A tight, considered set of pura-vida goods. Printed and shipped on demand by Printful — no overstock, no warehouse, no waste.</p>
+      <div>
+        <p class="section__eyebrow">Shop by category</p>
+        <h2>Apparel · Caps · Bags · Home.</h2>
       </div>
-      <a class="section__cta" href="#">View all 3 →</a>
     </div>
 
-    <div class="grid grid--3">
-      <!-- TEE -->
-      <a class="product merch-card" href="#">
-        <div class="product__media">
-          <div class="product__badges"><span class="badge badge--best">★ Best seller</span></div>
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#F4F4F2"/>
-            <!-- Folded tee on flat lay -->
-            <ellipse cx="200" cy="320" rx="160" ry="14" fill="#000" opacity="0.06"/>
-            <!-- folded body -->
-            <rect x="80" y="120" width="240" height="190" rx="3" fill="#dbcfb0"/>
-            <rect x="80" y="120" width="240" height="190" rx="3" fill="none" stroke="#c2b48f" stroke-width="0.6"/>
-            <!-- fold lines -->
-            <line x1="160" y1="120" x2="160" y2="310" stroke="#c2b48f" stroke-width="0.5"/>
-            <line x1="240" y1="120" x2="240" y2="310" stroke="#c2b48f" stroke-width="0.5"/>
-            <line x1="80" y1="240" x2="320" y2="240" stroke="#c2b48f" stroke-width="0.5"/>
-            <!-- collar peek -->
-            <ellipse cx="200" cy="118" rx="32" ry="6" fill="#c2b48f"/>
-            <!-- printed graphic visible on top panel -->
-            <text x="200" y="195" font-family="Playfair Display, serif" font-size="18" font-weight="600" fill="#0C2830" text-anchor="middle" letter-spacing="2">NOSARA</text>
-            <line x1="170" y1="205" x2="230" y2="205" stroke="#0C2830" stroke-width="0.6"/>
-            <text x="200" y="220" font-family="Inter, sans-serif" font-size="6" letter-spacing="3" fill="#0C2830" text-anchor="middle">COSTA RICA</text>
-          </svg>
-        </div>
-        <div class="product__body">
-          <span class="product__cat">APPAREL · UNISEX TEE</span>
-          <h3 class="product__title">Nosara CR Tee — Sand</h3>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.9 · 142 reviews</span></div>
-          <div class="product__price"><strong>$32.00</strong></div>
-          <span class="btn btn--primary btn--sm btn--block product__cta">Add to cart</span>
-        </div>
+    <div class="cats">
+      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=85&auto=format&fit=crop');">
+        <div class="cat__label">Apparel<small>3 styles</small></div>
       </a>
-
-      <!-- CAP -->
-      <a class="product merch-card" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#F4F4F2"/>
-            <ellipse cx="200" cy="305" rx="140" ry="10" fill="#000" opacity="0.10"/>
-            <!-- cap crown -->
-            <path d="M80,260 Q80,150 200,140 Q320,150 320,260 L320,280 L80,280 Z" fill="#0C2830"/>
-            <!-- panel seams -->
-            <path d="M200,140 L200,280" stroke="#1a3a45" stroke-width="0.6" opacity="0.7"/>
-            <path d="M140,148 Q150,210 152,280" stroke="#1a3a45" stroke-width="0.6" opacity="0.5" fill="none"/>
-            <path d="M260,148 Q250,210 248,280" stroke="#1a3a45" stroke-width="0.6" opacity="0.5" fill="none"/>
-            <circle cx="200" cy="142" r="4" fill="#1a4654"/>
-            <!-- brim -->
-            <path d="M70,270 Q200,330 330,270 Q330,300 200,350 Q70,300 70,270 Z" fill="#0a2128"/>
-            <!-- embroidered wordmark -->
-            <text x="200" y="218" font-family="Playfair Display, serif" font-size="18" font-weight="600" fill="#C9A875" text-anchor="middle" letter-spacing="3">NOSARA</text>
-            <line x1="170" y1="226" x2="230" y2="226" stroke="#C9A875" stroke-width="0.6"/>
-            <text x="200" y="240" font-family="Inter, sans-serif" font-size="6" letter-spacing="3" fill="#C9A875" text-anchor="middle">EST · CR</text>
-          </svg>
-        </div>
-        <div class="product__body">
-          <span class="product__cat">APPAREL · DAD CAP</span>
-          <h3 class="product__title">Nosara CR Cap — Deep Teal</h3>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.8 · 86 reviews</span></div>
-          <div class="product__price"><strong>$28.00</strong></div>
-          <span class="btn btn--primary btn--sm btn--block product__cta">Add to cart</span>
-        </div>
+      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=900&q=85&auto=format&fit=crop');">
+        <div class="cat__label">Caps<small>2 colors</small></div>
       </a>
-
-      <!-- STICKER PACK -->
-      <a class="product merch-card" href="#">
-        <div class="product__media">
-          <button class="product__heart" aria-label="Save"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="400" fill="#F4F4F2"/>
-            <g transform="translate(130,160) rotate(-6)">
-              <circle r="62" fill="#0C2830"/>
-              <circle r="58" fill="none" stroke="#C9A875" stroke-width="0.6"/>
-              <text y="-6" font-family="Playfair Display, serif" font-size="14" font-weight="600" fill="#F5F0E6" text-anchor="middle" letter-spacing="2">NOSARA</text>
-              <line x1="-22" y1="0" x2="22" y2="0" stroke="#C9A875" stroke-width="0.5"/>
-              <text y="14" font-family="Inter, sans-serif" font-size="5" letter-spacing="2.5" fill="#C9A875" text-anchor="middle">PURA VIDA</text>
-            </g>
-            <g transform="translate(270,170) rotate(10)">
-              <rect x="-50" y="-40" width="100" height="80" rx="5" fill="#99D6D8"/>
-              <g fill="#0C2830">
-                <path d="M-22,-6 Q-12,-20 5,-18 Q18,-14 22,-4 Q22,8 12,14 Q-4,16 -18,8 Q-26,2 -22,-6 Z"/>
-                <path d="M22,-4 Q32,-2 38,-10 Q34,8 22,12 Z"/>
-              </g>
-              <text y="30" font-family="Inter, sans-serif" font-size="5" letter-spacing="2" fill="#0C2830" text-anchor="middle">GUIONES</text>
-            </g>
-            <g transform="translate(200,300) rotate(-8)">
-              <rect x="-58" y="-22" width="116" height="44" rx="4" fill="#0C2830"/>
-              <text y="2" font-family="Playfair Display, serif" font-size="14" font-style="italic" fill="#F5F0E6" text-anchor="middle">Pura vida</text>
-              <text y="14" font-family="Inter, sans-serif" font-size="5" letter-spacing="2.5" fill="#C9A875" text-anchor="middle">★ ★ ★</text>
-            </g>
-          </svg>
-        </div>
-        <div class="product__body">
-          <span class="product__cat">ACCESSORY · 3-PACK</span>
-          <h3 class="product__title">Nosara Sticker Pack</h3>
-          <div class="product__rating"><span class="stars">★★★★★</span><span>4.9 · 211 reviews</span></div>
-          <div class="product__price"><strong>$8.00</strong></div>
-          <span class="btn btn--primary btn--sm btn--block product__cta">Add to cart</span>
-        </div>
+      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1591348278863-a8fb3887e2aa?w=900&q=85&auto=format&fit=crop');">
+        <div class="cat__label">Bags<small>1 style</small></div>
+      </a>
+      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=900&q=85&auto=format&fit=crop');">
+        <div class="cat__label">Home<small>2 items</small></div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═════════ ABOUT (small, anchored, NOT the hero) ═════════ -->
-<section class="section section--cream" id="about">
+<!-- ═════════ AMAZON STOREFRONT CALLOUT ═════════ -->
+<section class="amzbanner" id="essentials">
   <div class="container">
-    <div class="about">
-      <div class="about__media">
-        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="aboutSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#F5F0E6"/>
-              <stop offset="40%" stop-color="#e6d5b8"/>
-              <stop offset="70%" stop-color="#C9A875"/>
-              <stop offset="100%" stop-color="#8a5d4f"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="280" fill="url(#aboutSky)"/>
-          <circle cx="200" cy="240" r="50" fill="#f5d29b" opacity="0.9"/>
-          <circle cx="200" cy="240" r="32" fill="#fdeac2"/>
-          <path d="M0,270 Q80,240 160,255 Q220,265 280,250 Q340,240 400,260 L400,290 L0,290 Z" fill="#5a3a4f" opacity="0.85"/>
-          <rect y="290" width="400" height="210" fill="#0C2830"/>
-          <ellipse cx="200" cy="310" rx="50" ry="2.5" fill="#f5d29b" opacity="0.85"/>
-          <ellipse cx="200" cy="340" rx="55" ry="2.5" fill="#f5d29b" opacity="0.5"/>
-          <ellipse cx="200" cy="380" rx="60" ry="3" fill="#f5d29b" opacity="0.3"/>
-          <ellipse cx="200" cy="430" rx="68" ry="3.5" fill="#f5d29b" opacity="0.18"/>
-        </svg>
+    <div class="amzbanner__inner">
+      <div>
+        <p class="amzbanner__amazon">Amazon Storefront · Costa Rica gateway</p>
+        <h2 style="font-size: clamp(1.875rem, 3.5vw, 2.75rem); margin-bottom: 1rem; letter-spacing: -0.03em;">Costa Rica, shipped anywhere.</h2>
+        <p>Real Tico goods that ship internationally — Café Britt coffee, Salsa Lizano, hand-woven hammocks, the Garrigues bird guide, Blue Zones books on Nicoya. Curated by someone who actually lives here. As an Amazon Associate we earn from qualifying purchases.</p>
       </div>
-      <div class="about__body">
-        <p class="section__eyebrow">About</p>
-        <h2>Curated by someone who actually lives here.</h2>
-        <p>Julián Monge is a real estate agent in Nosara — raised on this coast, working from Playa Guiones. Everything in this shop has been tested by him or someone close to him, in the salt, the sun, and the monsoon.</p>
-        <p>This isn't a dropshipping operation. It's a shortlist: the gear that actually holds up, the merch we wear ourselves, and the guides we wish we'd had when we moved here. If something stops being good, it comes off the shelf.</p>
-        <p class="about__sig">— Julián</p>
-        <div style="display: flex; gap: 0.625rem; flex-wrap: wrap; margin-top: 1rem;">
-          <a class="btn btn--secondary" href="https://julianmonge.com">julianmonge.com</a>
-          <a class="btn btn--primary" href="https://wa.me/506">WhatsApp Julián</a>
-        </div>
+      <div style="display: flex; flex-direction: column; gap: 0.875rem; align-items: flex-start;">
+        <a class="btn btn--white" href="https://amazon.com/shop/julianmonge">Open Amazon storefront →</a>
+        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.55);">Opens at amazon.com/shop/julianmonge</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═════════ AMAZON ESSENTIALS GRID ═════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <p class="section__eyebrow">From the Amazon shop · All real, all Tico</p>
+        <h2>Things that say Costa Rica.</h2>
+      </div>
+      <a href="https://amazon.com/shop/julianmonge" class="section__cta">All picks →</a>
+    </div>
+
+    <div class="grid">
+      <!-- 1. CAFÉ BRITT — Costa Rica's most-exported coffee brand -->
+      <a class="product" href="https://www.amazon.com/s?k=caf%C3%A9+britt+costa+rica+tarrazu" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Café Britt Costa Rica Tarrazú — Whole Bean</h3>
+          <div class="product__meta">Costa Rican Tarrazú region · Medium roast</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 2. SALSA LIZANO — the iconic Tico condiment -->
+      <a class="product" href="https://www.amazon.com/s?k=salsa+lizano" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1604908554007-9325a9b3d4d3?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Salsa Lizano — Costa Rica's national sauce</h3>
+          <div class="product__meta">The Tico household standard · 700ml bottle</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 3. BLUE ZONES BOOK — Nicoya is one of five -->
+      <a class="product" href="https://www.amazon.com/s?k=blue+zones+solution+dan+buettner" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">The Blue Zones Solution — Dan Buettner</h3>
+          <div class="product__meta">Nicoya is one of the five Blue Zones · Paperback</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 4. SUN BUM MINERAL — widely sold in Nosara surf shops -->
+      <a class="product" href="https://www.amazon.com/s?k=sun+bum+mineral+spf+50" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Sun Bum Mineral SPF 50 Sunscreen</h3>
+          <div class="product__meta">Reef-safe · The Nosara surf-shop standard</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 5. BIRDS OF COSTA RICA — the field guide -->
+      <a class="product" href="https://www.amazon.com/s?k=birds+of+costa+rica+garrigues+dean" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1444464666168-49d633b86797?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">The Birds of Costa Rica — Garrigues &amp; Dean</h3>
+          <div class="product__meta">The definitive field guide · 200+ species illustrated</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 6. HAND-WOVEN HAMMOCK — Central American style -->
+      <a class="product" href="https://www.amazon.com/s?k=yellow+leaf+hammock+single" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1564769625683-c12d44ec1d80?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Hand-Woven Hammock — Central American</h3>
+          <div class="product__meta">Hand-woven · The porch standard in Nicoya</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 7. SEX WAX TROPICAL — warm-water surf wax -->
+      <a class="product" href="https://www.amazon.com/s?k=sex+wax+quick+humps+tropical" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Sex Wax Quick Humps — Tropical</h3>
+          <div class="product__meta">Warm-water formula · For 25°C+ Pacific surf</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+
+      <!-- 8. COSTA RICA LONELY PLANET — visitor classic -->
+      <a class="product" href="https://www.amazon.com/s?k=lonely+planet+costa+rica" target="_blank" rel="nofollow noopener sponsored">
+        <div class="product__media" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.04)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=85&auto=format&fit=crop');"></div>
+        <span class="product__tag product__tag--amazon"></span>
+        <div class="product__body">
+          <h3 class="product__title">Lonely Planet Costa Rica — Latest Edition</h3>
+          <div class="product__meta">Travel guide · The visitor's classic</div>
+          <span class="btn btn--amazon-out btn--sm btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+        </div>
+      </a>
+    </div>
+
+    <p style="font-size: 0.75rem; color: var(--gray-500); margin-top: 2rem; max-width: 56ch;">
+      Picks are real Tico goods sold on Amazon. Links open Amazon search so you land on the current best listing — your price doesn't change, we earn a small commission. Anything that stops being available comes off the shelf.
+    </p>
+  </div>
   </div>
 </section>
 
@@ -1410,51 +840,42 @@
   <div class="container">
     <div class="newsletter__inner">
       <div>
-        <p class="section__eyebrow" style="color: var(--light-teal);">Weekly · Free</p>
-        <h2>One pick a week. Nothing else.</h2>
-        <p>The single best thing we tested this week — sun, surf, home, or travel. No tracking, no spam, unsubscribe anytime.</p>
+        <p class="section__eyebrow">Weekly · Free</p>
+        <h2>One thing, every Friday.</h2>
+        <p>One pick a week — sun, surf, home, or travel — that we actually use. No tracking, no spam.</p>
       </div>
-      <div>
-        <form class="newsletter__form" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="your@email.com" aria-label="Email">
-          <button type="submit">Subscribe</button>
-        </form>
-        <p class="newsletter__fine">By subscribing you agree to our privacy policy. Affiliate disclosure: we earn a small commission on Amazon picks.</p>
-      </div>
+      <form class="newsletter__form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" aria-label="Email">
+        <button type="submit">Subscribe →</button>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- ═════════ FOOTER ═════════ -->
-<footer class="footer" id="contact">
+<footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <a href="https://julianmonge.com" class="lockup">
-          <span class="lockup__badge">JM</span>
-          <span class="lockup__words">
-            <strong>JULIÁN MONGE</strong>
-            <small>SHOP · NOSARA, CR</small>
-          </span>
-        </a>
-        <p>A small curated shop of essentials, merch, and guides for Costa Rica's Pacific coast. The shop is part of <a href="https://julianmonge.com">julianmonge.com</a> — the real estate practice based in Playa Guiones.</p>
+        <a href="/" class="wordmark">JULIÁN MONGE / SHOP</a>
+        <p>A small shop of Nosara merch and curated essentials, from Julián Monge — real estate agent on Costa Rica's Pacific coast.</p>
       </div>
       <div>
         <h4>Shop</h4>
         <ul>
-          <li><a href="#essentials">Nosara Essentials</a></li>
-          <li><a href="#merch">Nosara Merch</a></li>
-          <li><a href="#guides">Digital guides</a></li>
-          <li><a href="https://amazon.com/shop/julianmonge">Amazon storefront</a></li>
+          <li><a href="#shop">Apparel</a></li>
+          <li><a href="#shop">Caps</a></li>
+          <li><a href="#shop">Bags &amp; Home</a></li>
+          <li><a href="#shop">All products</a></li>
         </ul>
       </div>
       <div>
-        <h4>Departments</h4>
+        <h4>Essentials</h4>
         <ul>
-          <li><a href="#sun">Sun &amp; Surf</a></li>
-          <li><a href="#beach">Beach</a></li>
-          <li><a href="#travel">Travel</a></li>
-          <li><a href="#home">Home &amp; Outdoor</a></li>
+          <li><a href="https://amazon.com/shop/julianmonge">Amazon storefront</a></li>
+          <li><a href="#essentials">Sun &amp; Surf</a></li>
+          <li><a href="#essentials">Beach &amp; Travel</a></li>
+          <li><a href="#essentials">Home &amp; Outdoor</a></li>
         </ul>
       </div>
       <div>
@@ -1463,27 +884,27 @@
           <li><a href="https://julianmonge.com/listings">Listings</a></li>
           <li><a href="https://julianmonge.com/roi">ROI Calculator</a></li>
           <li><a href="https://julianmonge.com/blog">Blog</a></li>
-          <li><a href="https://julianmonge.com/about">About Julián</a></li>
+          <li><a href="https://julianmonge.com/about">About</a></li>
         </ul>
       </div>
       <div>
         <h4>Help</h4>
         <ul>
           <li><a href="#">Shipping &amp; returns</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Size guide</a></li>
           <li><a href="https://wa.me/506">WhatsApp</a></li>
           <li><a href="mailto:hola@julianmonge.com">hola@julianmonge.com</a></li>
         </ul>
       </div>
     </div>
 
-    <p class="footer__disclaimer">
-      <strong>Affiliate disclosure:</strong> As an Amazon Associate we earn from qualifying purchases. Your price doesn't change. Sponsored placements are clearly labeled.
+    <p class="footer__disclosure">
+      <strong style="color: var(--teal-light);">Affiliate disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. Your price doesn't change. Sponsored placements are clearly labeled when present.
     </p>
 
     <div class="footer__bottom">
-      <span>© 2026 Julián Monge — Nosara, Costa Rica. · Shop is part of julianmonge.com</span>
-      <span>shop.julianmonge.com</span>
+      <span>© 2026 Julián Monge — Nosara, Costa Rica</span>
+      <span>shop.julianmonge.com · Part of julianmonge.com</span>
     </div>
   </div>
 </footer>
