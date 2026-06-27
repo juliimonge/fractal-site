@@ -8,7 +8,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
 
 <style>
@@ -139,20 +138,21 @@
   /* ───────── HERO ───────── */
   .hero {
     position: relative;
-    height: clamp(560px, 78vh, 820px);
-    background-color: var(--ink);
-    background-image:
-      linear-gradient(180deg, rgba(14,26,32,0.30) 0%, rgba(14,26,32,0.10) 40%, rgba(14,26,32,0.75) 100%),
-      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=85&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+    height: clamp(520px, 70vh, 740px);
+    background: var(--ink);
     color: var(--white);
     display: flex; align-items: flex-end;
     overflow: hidden;
   }
+  .hero__art {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .hero__art svg { width: 100%; height: 100%; display: block; }
   .hero__inner {
     width: 100%;
-    padding-bottom: 3.5rem;
+    padding-bottom: 4rem;
+    position: relative; z-index: 2;
   }
   .hero__eyebrow {
     font-size: 0.6875rem;
@@ -402,33 +402,34 @@
   @media (max-width: 749px) { .cats { grid-template-columns: repeat(2, 1fr); } }
   .cat {
     aspect-ratio: 4/3;
-    background-color: var(--ink-2);
-    background-size: cover; background-position: center;
+    background-size: 72% auto;
+    background-position: center 45%;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    color: var(--white);
+    color: var(--ink);
     display: flex; align-items: end;
+    transition: transform 240ms cubic-bezier(0.2, 0.7, 0.3, 1);
   }
-  .cat::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(14,26,32,0.7) 100%);
-  }
+  .cat:hover { transform: translateY(-3px); }
+  .cat--sand { background-color: #E8DFC8; }
+  .cat--cream { background-color: #F1EBD7; }
+  .cat--terracotta { background-color: #D9A088; color: #2A1410; }
+  .cat--jungle { background-color: #4C6A48; color: var(--white); }
   .cat__label {
     position: relative; z-index: 2;
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
     display: flex; align-items: end; justify-content: space-between;
     width: 100%;
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 1rem;
     letter-spacing: -0.01em;
   }
   .cat__label small {
     font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em;
     text-transform: uppercase;
-    opacity: 0.75;
+    opacity: 0.7;
   }
-  .cat:hover .cat__media { transform: scale(1.04); }
 
   /* ───────── NEWSLETTER ───────── */
   .newsletter { background: var(--paper); padding: 4rem 0; border-top: 1px solid var(--rule); }
@@ -554,6 +555,55 @@
 
 <!-- ═════════ HERO ═════════ -->
 <section class="hero">
+  <div class="hero__art" aria-hidden="true">
+    <svg viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E1A20"/>
+          <stop offset="65%" stop-color="#0E1A20"/>
+          <stop offset="100%" stop-color="#0A1418"/>
+        </linearGradient>
+        <radialGradient id="heroGlow" cx="0.78" cy="0.32" r="0.45">
+          <stop offset="0%" stop-color="#1F5A6F" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#1F5A6F" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1600" height="800" fill="url(#heroBg)"/>
+      <rect width="1600" height="800" fill="url(#heroGlow)"/>
+      <!-- Sun -->
+      <circle cx="1250" cy="260" r="78" fill="#C9A875" opacity="0.92"/>
+      <circle cx="1250" cy="260" r="78" fill="#FAF8F3" opacity="0.06"/>
+      <!-- Horizon line -->
+      <line x1="0" y1="500" x2="1600" y2="500" stroke="#9FC8D0" stroke-width="0.5" opacity="0.35"/>
+      <!-- Sun reflection lines on water -->
+      <g stroke="#C9A875" opacity="0.4" stroke-linecap="round">
+        <line x1="1230" y1="520" x2="1270" y2="520" stroke-width="1.5"/>
+        <line x1="1220" y1="540" x2="1280" y2="540" stroke-width="1.2" opacity="0.7"/>
+        <line x1="1215" y1="565" x2="1285" y2="565" stroke-width="1" opacity="0.55"/>
+        <line x1="1210" y1="595" x2="1290" y2="595" stroke-width="1" opacity="0.4"/>
+        <line x1="1200" y1="630" x2="1300" y2="630" stroke-width="1" opacity="0.3"/>
+        <line x1="1190" y1="670" x2="1310" y2="670" stroke-width="1" opacity="0.22"/>
+        <line x1="1180" y1="715" x2="1320" y2="715" stroke-width="1" opacity="0.14"/>
+      </g>
+      <!-- Wave hair lines -->
+      <g stroke="#9FC8D0" fill="none" opacity="0.18">
+        <path d="M0,560 Q400,556 800,560 T1600,560" stroke-width="0.4"/>
+        <path d="M0,600 Q400,596 800,600 T1600,600" stroke-width="0.4"/>
+        <path d="M0,650 Q400,646 800,650 T1600,650" stroke-width="0.4"/>
+        <path d="M0,710 Q400,706 800,710 T1600,710" stroke-width="0.4"/>
+      </g>
+      <!-- Nicoya peninsula silhouette (low, far horizon, abstracted) -->
+      <path d="M0,500
+               Q120,496 240,498
+               Q360,500 400,488
+               Q450,474 500,484
+               Q580,498 660,495
+               L660,510 L0,510 Z"
+            fill="#0A1418" opacity="0.85"/>
+      <!-- Quiet eyebrow rule at top-left -->
+      <line x1="80" y1="120" x2="160" y2="120" stroke="#9FC8D0" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
   <div class="container hero__inner">
     <p class="hero__eyebrow">From Nosara · Costa Rica</p>
     <h1>All things Costa Rica.</h1>
@@ -671,7 +721,45 @@
 
 <!-- ═════════ EDITORIAL / ABOUT MOMENT ═════════ -->
 <section class="editorial" id="about">
-  <div class="editorial__media" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1400&q=85&auto=format&fit=crop');"></div>
+  <div class="editorial__media">
+    <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; display:block;">
+      <defs>
+        <linearGradient id="aboutBg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1F5A6F"/>
+          <stop offset="55%" stop-color="#143F4F"/>
+          <stop offset="100%" stop-color="#0A1F26"/>
+        </linearGradient>
+        <radialGradient id="aboutSun" cx="0.5" cy="0.32" r="0.42">
+          <stop offset="0%" stop-color="#E8C58E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#E8C58E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="800" height="1000" fill="url(#aboutBg)"/>
+      <rect width="800" height="1000" fill="url(#aboutSun)"/>
+      <circle cx="400" cy="320" r="98" fill="#E8C58E" opacity="0.95"/>
+      <circle cx="400" cy="320" r="98" fill="#F6F2E8" opacity="0.08"/>
+      <line x1="60" y1="540" x2="740" y2="540" stroke="#9FC8D0" stroke-width="0.4" opacity="0.4"/>
+      <g stroke="#E8C58E" stroke-linecap="round" opacity="0.45">
+        <line x1="370" y1="565" x2="430" y2="565" stroke-width="1.6"/>
+        <line x1="358" y1="595" x2="442" y2="595" stroke-width="1.4" opacity="0.85"/>
+        <line x1="346" y1="630" x2="454" y2="630" stroke-width="1.2" opacity="0.65"/>
+        <line x1="332" y1="675" x2="468" y2="675" stroke-width="1" opacity="0.45"/>
+        <line x1="316" y1="725" x2="484" y2="725" stroke-width="1" opacity="0.32"/>
+        <line x1="300" y1="785" x2="500" y2="785" stroke-width="1" opacity="0.22"/>
+        <line x1="280" y1="855" x2="520" y2="855" stroke-width="1" opacity="0.14"/>
+      </g>
+      <g stroke="#9FC8D0" fill="none" opacity="0.16">
+        <path d="M0,610 Q200,606 400,610 T800,610" stroke-width="0.4"/>
+        <path d="M0,660 Q200,656 400,660 T800,660" stroke-width="0.4"/>
+        <path d="M0,720 Q200,716 400,720 T800,720" stroke-width="0.4"/>
+        <path d="M0,800 Q200,796 400,800 T800,800" stroke-width="0.4"/>
+      </g>
+      <path d="M0,540 Q160,536 320,538 Q420,540 540,532 Q660,524 800,536 L800,560 L0,560 Z" fill="#0A1F26" opacity="0.7"/>
+      <g transform="translate(400, 920)" fill="#F6F2E8" opacity="0.5">
+        <text font-family="Inter, sans-serif" font-size="11" letter-spacing="6" font-weight="600" text-anchor="middle">NICOYA · COSTA RICA</text>
+      </g>
+    </svg>
+  </div>
   <div class="editorial__body">
     <p class="section__eyebrow">About</p>
     <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1.25rem;">Costa Rica, by someone who lives here.</h2>
@@ -694,16 +782,16 @@
     </div>
 
     <div class="cats">
-      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=85&auto=format&fit=crop');">
+      <a class="cat cat--sand" href="#" style="background-image: url('products/tee-sand.svg');">
         <div class="cat__label">Apparel<small>3 styles</small></div>
       </a>
-      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=900&q=85&auto=format&fit=crop');">
+      <a class="cat cat--cream" href="#" style="background-image: url('products/cap-teal.svg');">
         <div class="cat__label">Caps<small>2 colors</small></div>
       </a>
-      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1591348278863-a8fb3887e2aa?w=900&q=85&auto=format&fit=crop');">
+      <a class="cat cat--terracotta" href="#" style="background-image: url('products/tote.svg');">
         <div class="cat__label">Bags<small>1 style</small></div>
       </a>
-      <a class="cat" href="#" style="background-image: url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=900&q=85&auto=format&fit=crop');">
+      <a class="cat cat--jungle" href="#" style="background-image: url('products/mug.svg');">
         <div class="cat__label">Home<small>2 items</small></div>
       </a>
     </div>
