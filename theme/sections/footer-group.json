@@ -1,0 +1,26 @@
+{
+  "type": "footer-group",
+  "name": "Footer group",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter-strip",
+      "settings": {}
+    },
+    "footer": {
+      "type": "footer-main",
+      "blocks": {
+        "shop":      { "type": "column", "settings": { "heading": "Shop",
+          "items": "Apparel | /collections/apparel\nCaps | /collections/caps\nBags & Home | /collections/home\nAll products | /collections/all" } },
+        "essentials":{ "type": "column", "settings": { "heading": "Essentials",
+          "items": "Amazon storefront | https://amazon.com/shop/julianmonge\nSun & Surf | /collections/sun-surf\nBeach & Travel | /collections/travel\nHome & Outdoor | /collections/home-outdoor" } },
+        "realestate":{ "type": "column", "settings": { "heading": "Real Estate",
+          "items": "Listings | https://julianmonge.com/listings\nROI Calculator | https://julianmonge.com/roi\nBlog | https://julianmonge.com/blog\nAbout | https://julianmonge.com/about" } },
+        "help":      { "type": "column", "settings": { "heading": "Help",
+          "items": "Shipping & returns | /pages/shipping-returns\nSize guide | /pages/size-guide\nWhatsApp | https://wa.me/506\nhola@julianmonge.com | mailto:hola@julianmonge.com" } }
+      },
+      "block_order": ["shop", "essentials", "realestate", "help"],
+      "settings": {}
+    }
+  },
+  "order": ["newsletter", "footer"]
+}

@@ -1,0 +1,99 @@
+{%- liquid
+  assign amz_url = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
+  assign cta_label = product.metafields.custom.amazon_cta | default: 'View on Amazon'
+  assign curator = product.metafields.custom.curator_note
+-%}
+
+<section class="jm-amz-product jm-container" data-section-id="{{ section.id }}">
+  <div class="jm-amz-product__grid">
+    <div class="jm-amz-product__media">
+      {%- if product.featured_media -%}
+        <img src="{{ product.featured_media | image_url: width: 1200 }}"
+             alt="{{ product.featured_media.alt | default: product.title | escape }}"
+             loading="eager">
+      {%- endif -%}
+    </div>
+
+    <div class="jm-amz-product__detail">
+      <p class="jm-amz-product__eyebrow">Amazon Storefront · Curated by Julián</p>
+      <h1>{{ product.title }}</h1>
+
+      {%- if product.metafields.custom.short_specs != blank -%}
+        <p class="jm-amz-product__specs">{{ product.metafields.custom.short_specs }}</p>
+      {%- endif -%}
+
+      <div class="jm-amz-product__description rte">
+        {{ product.description }}
+      </div>
+
+      {%- if curator != blank -%}
+        <blockquote class="jm-amz-product__curator">
+          {{ curator }}
+          <cite>— JM</cite>
+        </blockquote>
+      {%- endif -%}
+
+      <a href="{{ amz_url }}"
+         class="jm-btn jm-btn--primary jm-amz-product__cta"
+         target="_blank"
+         rel="nofollow noopener sponsored"
+         aria-label="{{ cta_label }} for {{ product.title | escape }}">
+        {{ cta_label }} →
+      </a>
+
+      <p class="jm-amz-product__note">
+        As an Amazon Associate we earn from qualifying purchases. Your price doesn't change.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .jm-amz-product { padding: 3rem 0 5rem; }
+  .jm-amz-product__grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 750px) {
+    .jm-amz-product__grid { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  }
+  .jm-amz-product__media {
+    aspect-ratio: 1/1; background: #FAFAF8;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .jm-amz-product__media img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .jm-amz-product__eyebrow {
+    font-size: 0.6875rem; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--amazon); margin: 0 0 1rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .jm-amz-product__eyebrow::before { content: ""; width: 6px; height: 6px; background: var(--amazon); border-radius: 50%; }
+  .jm-amz-product h1 { margin: 0 0 1rem; font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+  .jm-amz-product__specs { font-size: 0.9375rem; color: var(--gray-500); margin: 0 0 1.5rem; }
+  .jm-amz-product__description { margin-bottom: 1.5rem; line-height: 1.65; color: var(--gray-700); }
+  .jm-amz-product__curator {
+    margin: 0 0 2rem; padding: 1rem 1.25rem;
+    background: var(--paper); border-left: 3px solid var(--teal);
+    font-style: italic; color: var(--ink); font-size: 0.9375rem; line-height: 1.55;
+  }
+  .jm-amz-product__curator cite {
+    display: block; font-style: normal; margin-top: 0.5rem;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--gray-500); text-transform: uppercase;
+  }
+  .jm-amz-product__cta { min-width: 240px; }
+  .jm-amz-product__note { margin-top: 1rem; font-size: 0.8125rem; color: var(--gray-500); max-width: 38ch; }
+</style>
+
+{% schema %}
+{
+  "name": "Amazon affiliate product",
+  "tag": "section",
+  "class": "shopify-section-amz-product",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Amazon affiliate products are not purchasable on the Shopify store. The CTA opens an Amazon URL from the product's custom.amazon_url metafield. Falls back to the brand's Amazon Storefront URL if no per-product link is set."
+    }
+  ],
+  "presets": [{ "name": "Amazon affiliate product" }]
+}
+{% endschema %}

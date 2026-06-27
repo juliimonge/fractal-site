@@ -1,0 +1,78 @@
+<section class="jm-editorial">
+  <div class="jm-editorial__media">
+    <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; display:block;">
+      <defs>
+        <linearGradient id="aboutBg-{{ section.id }}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1F5A6F"/>
+          <stop offset="55%" stop-color="#143F4F"/>
+          <stop offset="100%" stop-color="#0A1F26"/>
+        </linearGradient>
+        <radialGradient id="aboutSun-{{ section.id }}" cx="0.5" cy="0.32" r="0.42">
+          <stop offset="0%" stop-color="#E8C58E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#E8C58E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="800" height="1000" fill="url(#aboutBg-{{ section.id }})"/>
+      <rect width="800" height="1000" fill="url(#aboutSun-{{ section.id }})"/>
+      <circle cx="400" cy="320" r="98" fill="#E8C58E" opacity="0.95"/>
+      <line x1="60" y1="540" x2="740" y2="540" stroke="#9FC8D0" stroke-width="0.4" opacity="0.4"/>
+      <g stroke="#E8C58E" stroke-linecap="round" opacity="0.45">
+        <line x1="370" y1="565" x2="430" y2="565" stroke-width="1.6"/>
+        <line x1="358" y1="595" x2="442" y2="595" stroke-width="1.4" opacity="0.85"/>
+        <line x1="346" y1="630" x2="454" y2="630" stroke-width="1.2" opacity="0.65"/>
+        <line x1="332" y1="675" x2="468" y2="675" stroke-width="1" opacity="0.45"/>
+        <line x1="316" y1="725" x2="484" y2="725" stroke-width="1" opacity="0.32"/>
+        <line x1="300" y1="785" x2="500" y2="785" stroke-width="1" opacity="0.22"/>
+        <line x1="280" y1="855" x2="520" y2="855" stroke-width="1" opacity="0.14"/>
+      </g>
+      <path d="M0,540 Q160,536 320,538 Q420,540 540,532 Q660,524 800,536 L800,560 L0,560 Z" fill="#0A1F26" opacity="0.7"/>
+      <text x="400" y="920" font-family="Inter, sans-serif" font-size="11" letter-spacing="6" font-weight="600" fill="#F6F2E8" opacity="0.5" text-anchor="middle">NICOYA · COSTA RICA</text>
+    </svg>
+  </div>
+  <div class="jm-editorial__body">
+    <p class="jm-section__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2>{{ section.settings.heading | escape }}</h2>
+    <div class="jm-editorial__copy">{{ section.settings.body }}</div>
+    {%- if section.settings.cta_label != blank -%}
+      <div class="jm-editorial__cta">
+        <a class="jm-btn jm-btn--secondary jm-btn--sm" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label | escape }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .jm-editorial {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    min-height: 480px;
+  }
+  @media (max-width: 899px) { .jm-editorial { grid-template-columns: 1fr; } }
+  .jm-editorial__media { background: var(--ink-2); min-height: 360px; }
+  .jm-editorial__body {
+    padding: 4rem 3.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--paper);
+  }
+  @media (max-width: 749px) { .jm-editorial__body { padding: 2.5rem 1.5rem; } }
+  .jm-editorial h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1.25rem; }
+  .jm-editorial__copy p { font-size: 1rem; color: var(--gray-700); line-height: 1.65; margin-bottom: 1rem; max-width: 44ch; }
+  .jm-editorial__copy p:first-of-type { font-size: 1.0625rem; color: var(--ink); }
+  .jm-editorial__cta { margin-top: 0.5rem; }
+</style>
+
+{% schema %}
+{
+  "name": "Editorial about",
+  "tag": "section",
+  "class": "shopify-section-editorial",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "About" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Costa Rica, by someone who lives here." },
+    { "type": "richtext", "id": "body", "label": "Body",
+      "default": "<p>Julián Monge is a real estate agent in Nosara — raised on the Nicoya peninsula, working from Playa Guiones. This shop is two things: our own Pacific-coast merch, and a tightly-curated Amazon shelf of real Costa Rican goods worth shipping anywhere.</p><p>Our merch is printed on demand by Printful — no overstock, no waste. Our Amazon picks are real Tico products we either grew up with or stand behind. If something stops being good, it comes off the shelf.</p>" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Visit julianmonge.com" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "Editorial about" }]
+}
+{% endschema %}

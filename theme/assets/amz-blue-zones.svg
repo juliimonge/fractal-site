@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="bzCover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A4F6B"/>
+      <stop offset="50%" stop-color="#0E3950"/>
+      <stop offset="100%" stop-color="#082638"/>
+    </linearGradient>
+    <linearGradient id="bzSpine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A2E40"/>
+      <stop offset="100%" stop-color="#0E3950"/>
+    </linearGradient>
+    <radialGradient id="bookShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="720" rx="200" ry="12" fill="url(#bookShadow)"/>
+  <path d="M 250,180 L 270,160 L 270,690 L 250,710 Z" fill="url(#bzSpine)"/>
+  <rect x="270" y="160" width="290" height="530" fill="url(#bzCover)" stroke="#061826" stroke-width="0.6"/>
+  <path d="M 560,160 L 580,170 L 580,700 L 560,690 Z" fill="#0A2E40"/>
+  <rect x="296" y="195" width="240" height="3" fill="#C9A875"/>
+  <text x="416" y="240" font-family="Inter, sans-serif" font-weight="600" font-size="9" letter-spacing="4" fill="#7DB5C8" text-anchor="middle">NEW YORK TIMES BESTSELLER</text>
+  <text x="416" y="280" font-family="'Playfair Display', Georgia, serif" font-weight="500" font-size="9" font-style="italic" letter-spacing="2" fill="#E8DFC8" text-anchor="middle">DAN BUETTNER</text>
+  <line x1="346" y1="295" x2="486" y2="295" stroke="#C9A875" stroke-width="0.5"/>
+  <g transform="translate(416, 430)">
+    <text y="-50" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="42" letter-spacing="-1" fill="#E8DFC8" text-anchor="middle">The</text>
+    <text y="0" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="52" letter-spacing="-1" fill="#FFFFFF" text-anchor="middle">BLUE</text>
+    <text y="50" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="52" letter-spacing="-1" fill="#FFFFFF" text-anchor="middle">ZONES</text>
+  </g>
+  <line x1="346" y1="500" x2="486" y2="500" stroke="#C9A875" stroke-width="0.5"/>
+  <text x="416" y="530" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#7DB5C8" text-anchor="middle">SOLUTION</text>
+  <text x="416" y="572" font-family="Inter, sans-serif" font-weight="400" font-size="9" font-style="italic" letter-spacing="1" fill="#C9A875" text-anchor="middle">Eating and Living Like</text>
+  <text x="416" y="588" font-family="Inter, sans-serif" font-weight="400" font-size="9" font-style="italic" letter-spacing="1" fill="#C9A875" text-anchor="middle">the World's Healthiest People</text>
+  <g transform="translate(416, 645)">
+    <circle r="20" fill="none" stroke="#C9A875" stroke-width="1"/>
+    <text y="5" font-family="Inter, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#C9A875" text-anchor="middle">NICOYA</text>
+  </g>
+</svg>

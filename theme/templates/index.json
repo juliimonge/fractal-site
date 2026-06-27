@@ -1,76 +1,88 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
+      "type": "hero-store",
       "settings": {
-        "heading": "Nosara, considered.",
-        "subheading": "Editorial guides, services, and goods for Costa Rica's Pacific coast — from a working real estate agent based in Playa Guiones.",
-        "button_label_1": "Explore digital guides",
-        "button_link_1": "shopify://collections/digital-products",
-        "button_label_2": "Browse services",
-        "button_link_2": "shopify://collections/services",
-        "image_overlay_opacity": 25,
-        "image_height": "large",
-        "color_scheme": "background-2",
-        "show_text_box": true,
-        "desktop_content_position": "middle-left",
-        "show_text_below": false,
-        "heading_size": "h0"
+        "eyebrow": "From Nosara · Costa Rica",
+        "heading": "All things Costa Rica.",
+        "lede": "Our own Pacific-coast merch, plus a curated Amazon shelf of the real Tico goods worth shipping anywhere — coffee, Lizano, hammocks, Blue Zones books, the bird guide.",
+        "cta_primary_label": "Shop the line",
+        "cta_primary_link": "shopify://collections/nosara-merch",
+        "cta_secondary_label": "Open Amazon shelf",
+        "cta_secondary_link": ""
       }
     },
-    "featured_digital": {
-      "type": "featured-collection",
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "t1": { "type": "trust", "settings": { "icon": "shield", "title": "Vetted by Julián", "subtitle": "Tested in Nosara before listed" } },
+        "t2": { "type": "trust", "settings": { "icon": "truck", "title": "Ships fast", "subtitle": "Amazon Prime + Printful · Worldwide" } },
+        "t3": { "type": "trust", "settings": { "icon": "return", "title": "Easy returns", "subtitle": "30 days, no-fuss policy" } },
+        "t4": { "type": "trust", "settings": { "icon": "leaf", "title": "Reef-safe by default", "subtitle": "Curated for ocean & jungle" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "cats": {
+      "type": "category-tiles",
+      "blocks": {
+        "c1": { "type": "tile", "settings": { "title": "Apparel", "count": "3 styles", "link": "shopify://collections/apparel", "asset": "tee-sand.svg", "bg": "sand" } },
+        "c2": { "type": "tile", "settings": { "title": "Caps", "count": "2 colors", "link": "shopify://collections/caps", "asset": "cap-teal.svg", "bg": "cream" } },
+        "c3": { "type": "tile", "settings": { "title": "Bags", "count": "1 style", "link": "shopify://collections/bags", "asset": "tote.svg", "bg": "terracotta" } },
+        "c4": { "type": "tile", "settings": { "title": "Home", "count": "2 items", "link": "shopify://collections/home", "asset": "mug.svg", "bg": "jungle" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
       "settings": {
-        "title": "Digital guides",
-        "heading_size": "h2",
-        "description": "Instant-download playbooks for moving to, investing in, and creating content about Nosara.",
-        "collection": "digital-products",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "view_all_style": "link",
-        "show_view_all": true,
-        "color_scheme": "background-1"
+        "eyebrow": "Shop by category",
+        "heading": "Apparel · Caps · Bags · Home."
       }
     },
-    "featured_services": {
+    "merch": {
       "type": "featured-collection",
       "settings": {
-        "title": "Content services",
-        "heading_size": "h2",
-        "description": "Done-for-you content packages for real estate agents and short-term-rental owners.",
-        "collection": "services",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "view_all_style": "link",
-        "show_view_all": true,
-        "color_scheme": "background-2"
-      }
-    },
-    "featured_merch": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Nosara merch",
-        "heading_size": "h2",
-        "description": "Pura vida wearables. Printed on demand, shipped worldwide.",
+        "eyebrow": "SS26 · The Shop",
+        "heading": "Six pieces. Heavyweight.",
         "collection": "nosara-merch",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "view_all_style": "link",
-        "show_view_all": true,
-        "color_scheme": "background-1"
+        "products_to_show": 8,
+        "cta_label": "All apparel",
+        "bg": "default",
+        "amazon_mode": false
       }
     },
-    "about_strip": {
-      "type": "rich-text",
+    "about": {
+      "type": "editorial-about",
       "settings": {
-        "heading": "About Julián",
-        "heading_size": "h2",
-        "text": "<p>Julián Monge is a real estate agent with Blue Water Properties in Nosara, Costa Rica. This shop is a small extension of that work — guides, services, and goods for people drawn to this coast.</p>",
-        "button_label": "Read more",
-        "button_link": "shopify://pages/about",
-        "color_scheme": "background-1"
+        "eyebrow": "About",
+        "heading": "Costa Rica, by someone who lives here.",
+        "body": "<p>Julián Monge is a real estate agent in Nosara — raised on the Nicoya peninsula, working from Playa Guiones. This shop is two things: our own Pacific-coast merch, and a tightly-curated Amazon shelf of real Costa Rican goods worth shipping anywhere.</p><p>Our merch is printed on demand by Printful — no overstock, no waste. Our Amazon picks are real Tico products we either grew up with or stand behind. If something stops being good, it comes off the shelf.</p>",
+        "cta_label": "Visit julianmonge.com",
+        "cta_link": "https://julianmonge.com"
+      }
+    },
+    "amzbanner": {
+      "type": "amazon-callout",
+      "settings": {
+        "eyebrow": "Amazon Storefront · Costa Rica gateway",
+        "heading": "Costa Rica, shipped anywhere.",
+        "body": "Real Tico goods that ship internationally — Café Britt coffee, Salsa Lizano, hand-woven hammocks, the Garrigues bird guide, Blue Zones books on Nicoya. Curated by someone who actually lives here. As an Amazon Associate we earn from qualifying purchases.",
+        "cta_label": "Open Amazon storefront",
+        "amazon_url": "https://amazon.com/shop/julianmonge"
+      }
+    },
+    "essentials": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "From the Amazon shop · All real, all Tico",
+        "heading": "Things that say Costa Rica.",
+        "collection": "nosara-essentials",
+        "products_to_show": 8,
+        "cta_label": "All picks",
+        "cta_link": "https://amazon.com/shop/julianmonge",
+        "bg": "default",
+        "amazon_mode": true,
+        "amazon_disclosure": "Picks are real Tico goods sold on Amazon. Links open Amazon search so you land on the current best listing — your price doesn't change, we earn a small commission."
       }
     }
   },
-  "order": ["hero", "featured_digital", "featured_services", "featured_merch", "about_strip"]
+  "order": ["hero", "trust", "cats", "merch", "about", "amzbanner", "essentials"]
 }

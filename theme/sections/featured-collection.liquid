@@ -1,0 +1,101 @@
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  assign limit = section.settings.products_to_show | default: 8
+  assign is_amazon = section.settings.amazon_mode
+-%}
+
+<section class="jm-section{% if section.settings.bg == 'paper' %} jm-section--paper{% elsif section.settings.bg == 'ink' %} jm-section--ink{% endif %}">
+  <div class="jm-container">
+    <div class="jm-section__head">
+      <div>
+        <p class="jm-section__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <h2>{{ section.settings.heading | escape }}</h2>
+      </div>
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_link | default: collection.url }}" class="jm-section__cta">{{ section.settings.cta_label | escape }} →</a>
+      {%- endif -%}
+    </div>
+
+    <div class="jm-grid">
+      {%- for product in collection.products limit: limit -%}
+        {%- liquid
+          assign amz_link = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
+          assign curator_note = product.metafields.custom.curator_note
+        -%}
+        <a class="jm-product" href="{% if is_amazon and amz_link != blank %}{{ amz_link }}{% else %}{{ product.url }}{% endif %}"
+           {%- if is_amazon -%} target="_blank" rel="nofollow noopener sponsored"{%- endif -%}>
+          <div class="jm-product__media"
+               {%- if product.featured_media -%}
+                 style="background-image: url('{{ product.featured_media | image_url: width: 800 }}');"
+               {%- endif -%}>
+            {%- if is_amazon -%}
+              <span class="jm-product__tag jm-product__tag--amazon"></span>
+            {%- elsif product.tags contains 'best-seller' -%}
+              <span class="jm-product__tag">Best seller</span>
+            {%- elsif product.tags contains 'new' -%}
+              <span class="jm-product__tag jm-product__tag--dark">New</span>
+            {%- endif -%}
+          </div>
+          <div class="jm-product__body">
+            <h3 class="jm-product__title">{{ product.title | escape }}</h3>
+            {%- if curator_note != blank -%}
+              <p class="jm-product__meta">{{ curator_note }}</p>
+            {%- elsif product.metafields.custom.short_specs != blank -%}
+              <p class="jm-product__meta">{{ product.metafields.custom.short_specs }}</p>
+            {%- endif -%}
+            {%- unless is_amazon -%}
+              <div class="jm-product__price">
+                <strong>{{ product.price | money_without_trailing_zeros }}</strong>
+                {%- if product.compare_at_price > product.price -%}
+                  <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                {%- endif -%}
+              </div>
+            {%- endunless -%}
+            {%- if is_amazon -%}
+              <span class="jm-btn jm-btn--amazon-out jm-btn--sm jm-btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- else -%}
+        <p style="grid-column: 1/-1; color: var(--gray-500); font-size: 0.9375rem;">
+          No products in this collection yet. Add products in Shopify admin.
+        </p>
+      {%- endfor -%}
+    </div>
+
+    {%- if is_amazon and section.settings.amazon_disclosure != blank -%}
+      <p style="font-size: 0.75rem; color: var(--gray-500); margin-top: 2rem; max-width: 56ch;">{{ section.settings.amazon_disclosure | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "tag": "section",
+  "class": "shopify-section-featured-collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Six pieces. Heavyweight." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show",
+      "min": 4, "max": 12, "step": 1, "default": 8 },
+    { "type": "text", "id": "cta_label", "label": "Section CTA label", "default": "All apparel" },
+    { "type": "url", "id": "cta_link", "label": "Section CTA link (optional)" },
+    { "type": "select", "id": "bg", "label": "Background",
+      "options": [
+        { "value": "default", "label": "Default (paper bg)" },
+        { "value": "paper", "label": "Cream paper" },
+        { "value": "ink", "label": "Ink (dark)" }
+      ], "default": "default"
+    },
+    { "type": "header", "content": "Amazon mode" },
+    { "type": "checkbox", "id": "amazon_mode", "label": "Amazon storefront mode",
+      "info": "Treats products as affiliate links (no price shown, View on Amazon CTA, opens in new tab). Uses each product's custom.amazon_url metafield.",
+      "default": false },
+    { "type": "textarea", "id": "amazon_disclosure", "label": "Amazon disclosure (footnote)",
+      "default": "Links open Amazon search. As an Amazon Associate we earn from qualifying purchases — your price doesn't change." }
+  ],
+  "presets": [{ "name": "Featured collection" }]
+}
+{% endschema %}

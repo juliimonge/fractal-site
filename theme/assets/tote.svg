@@ -1,0 +1,35 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="canvas" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#EAE0C6"/>
+      <stop offset="55%" stop-color="#DDD2B5"/>
+      <stop offset="100%" stop-color="#C7BB9A"/>
+    </linearGradient>
+    <radialGradient id="toteShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="720" rx="240" ry="12" fill="url(#toteShadow)"/>
+  <path d="M 290,220 Q 290,150 350,150 Q 380,150 380,200" fill="none" stroke="#0C2830" stroke-width="14" stroke-linecap="round"/>
+  <path d="M 290,220 Q 290,150 350,150 Q 380,150 380,200" fill="none" stroke="#1d3a45" stroke-width="11" stroke-linecap="round"/>
+  <path d="M 510,220 Q 510,150 450,150 Q 420,150 420,200" fill="none" stroke="#0C2830" stroke-width="14" stroke-linecap="round"/>
+  <path d="M 510,220 Q 510,150 450,150 Q 420,150 420,200" fill="none" stroke="#1d3a45" stroke-width="11" stroke-linecap="round"/>
+  <rect x="220" y="210" width="360" height="490" rx="4" fill="url(#canvas)" stroke="#B0A688" stroke-width="0.8"/>
+  <rect x="220" y="210" width="360" height="14" fill="#C7BB9A" opacity="0.5"/>
+  <g stroke="#B0A688" stroke-width="0.3" opacity="0.4" fill="none">
+    <line x1="220" y1="280" x2="580" y2="280"/>
+    <line x1="220" y1="350" x2="580" y2="350"/>
+    <line x1="220" y1="420" x2="580" y2="420"/>
+    <line x1="220" y1="490" x2="580" y2="490"/>
+    <line x1="220" y1="560" x2="580" y2="560"/>
+    <line x1="220" y1="630" x2="580" y2="630"/>
+  </g>
+  <line x1="220" y1="700" x2="580" y2="700" stroke="#B0A688" stroke-width="3" opacity="0.5"/>
+  <g transform="translate(400, 440)">
+    <text font-family="Inter, sans-serif" font-weight="800" font-size="40" letter-spacing="3.5" fill="#0C2830" text-anchor="middle" opacity="0.92">NOSARA</text>
+    <line x1="-90" y1="18" x2="90" y2="18" stroke="#0C2830" stroke-width="1" opacity="0.85"/>
+    <text y="44" font-family="Inter, sans-serif" font-weight="600" font-size="14" letter-spacing="5" fill="#0C2830" text-anchor="middle" opacity="0.85">COSTA RICA</text>
+  </g>
+</svg>

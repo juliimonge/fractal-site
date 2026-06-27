@@ -1,0 +1,16 @@
+{
+  "type": "announcement-group",
+  "name": "Announcement group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "msg1": { "type": "message", "settings": { "bold_prefix": "Free shipping", "text": "on merch over $75 worldwide" } },
+        "msg2": { "type": "message", "settings": { "bold_prefix": "30-day", "text": "easy returns" } },
+        "msg3": { "type": "message", "settings": { "bold_prefix": "Curated by Julián", "text": "from Nosara, CR" } }
+      },
+      "block_order": ["msg1", "msg2", "msg3"]
+    }
+  },
+  "order": ["announcement-bar"]
+}

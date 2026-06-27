@@ -6,58 +6,23 @@
         "type": "header",
         "content": "Colors"
       },
-      {
-        "type": "color",
-        "id": "color_brand_deep_teal",
-        "label": "Deep Teal",
-        "default": "#0C2830"
-      },
-      {
-        "type": "color",
-        "id": "color_brand_ocean_blue",
-        "label": "Ocean Blue",
-        "default": "#17617C"
-      },
-      {
-        "type": "color",
-        "id": "color_brand_light_teal",
-        "label": "Light Teal",
-        "default": "#99D6D8"
-      },
-      {
-        "type": "color",
-        "id": "color_brand_off_white",
-        "label": "Warm Off-White",
-        "default": "#F5F0E6"
-      },
-      {
-        "type": "color",
-        "id": "color_brand_white",
-        "label": "White",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "header",
-        "content": "External links"
-      },
-      {
-        "type": "url",
-        "id": "brand_parent_site_url",
-        "label": "Parent site URL",
-        "info": "Used by the sticky back bar."
-      },
-      {
-        "type": "url",
-        "id": "brand_calendly_url",
-        "label": "Default Calendly URL",
-        "info": "Used by service product pages when no per-product metafield is set."
-      },
-      {
-        "type": "text",
-        "id": "brand_tagline",
-        "label": "Brand tagline",
-        "default": "Real estate in Nosara, Costa Rica."
-      }
+      { "type": "color", "id": "color_ink",        "label": "Ink (primary text + dark surfaces)",      "default": "#0E1A20" },
+      { "type": "color", "id": "color_teal",       "label": "Teal (links + accents)",                  "default": "#1F5A6F" },
+      { "type": "color", "id": "color_teal_light", "label": "Light Teal (on-dark accents)",            "default": "#9FC8D0" },
+      { "type": "color", "id": "color_sand",       "label": "Sand (warm surfaces)",                    "default": "#E8DFC8" },
+      { "type": "color", "id": "color_paper",      "label": "Paper (cream sections)",                  "default": "#F6F2E8" },
+      { "type": "color", "id": "color_bg",         "label": "Page background",                         "default": "#FAF8F3" },
+
+      { "type": "header", "content": "External links" },
+      { "type": "url",  "id": "brand_parent_site_url", "label": "Parent site (julianmonge.com)" },
+      { "type": "url",  "id": "brand_amazon_storefront_url", "label": "Amazon Storefront URL",
+        "info": "Your Amazon Influencer storefront URL — e.g. https://amazon.com/shop/julianmonge" },
+      { "type": "text", "id": "brand_whatsapp_number", "label": "WhatsApp number",
+        "info": "Country code + number, digits only. Used by the floating WhatsApp button. Leave blank to hide.",
+        "default": "" },
+
+      { "type": "header", "content": "Brand voice" },
+      { "type": "text",     "id": "brand_tagline",  "label": "Brand tagline",  "default": "All things Costa Rica." }
     ]
   }
 ]

@@ -1,0 +1,40 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="hamFabric" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D88660"/>
+      <stop offset="50%" stop-color="#C2725A"/>
+      <stop offset="100%" stop-color="#9C5A45"/>
+    </linearGradient>
+    <linearGradient id="hamCap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9C5A45"/>
+      <stop offset="100%" stop-color="#6E3F2F"/>
+    </linearGradient>
+    <radialGradient id="hamShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="610" rx="220" ry="14" fill="url(#hamShadow)"/>
+  <ellipse cx="180" cy="395" rx="20" ry="180" fill="url(#hamCap)"/>
+  <ellipse cx="620" cy="395" rx="20" ry="180" fill="url(#hamCap)"/>
+  <rect x="180" y="215" width="440" height="360" rx="6" fill="url(#hamFabric)"/>
+  <g stroke="#9C5A45" stroke-width="0.7" opacity="0.35" stroke-dasharray="4 3" fill="none">
+    <line x1="180" y1="270" x2="620" y2="270"/>
+    <line x1="180" y1="320" x2="620" y2="320"/>
+    <line x1="180" y1="370" x2="620" y2="370"/>
+    <line x1="180" y1="420" x2="620" y2="420"/>
+    <line x1="180" y1="470" x2="620" y2="470"/>
+    <line x1="180" y1="520" x2="620" y2="520"/>
+  </g>
+  <line x1="200" y1="240" x2="200" y2="550" stroke="#9C5A45" stroke-width="0.4" opacity="0.45"/>
+  <line x1="600" y1="240" x2="600" y2="550" stroke="#9C5A45" stroke-width="0.4" opacity="0.45"/>
+  <path d="M 175,290 Q 130,250 90,235" stroke="#0C2830" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 625,290 Q 670,250 710,235" stroke="#0C2830" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <circle cx="90" cy="235" r="6" fill="#0C2830"/>
+  <circle cx="710" cy="235" r="6" fill="#0C2830"/>
+  <rect x="350" y="378" width="100" height="40" rx="3" fill="#F5EFE0"/>
+  <rect x="350" y="378" width="100" height="40" rx="3" fill="none" stroke="#9C5A45" stroke-width="0.6"/>
+  <text x="400" y="397" font-family="Inter, sans-serif" font-weight="800" font-size="13" letter-spacing="2" fill="#0C2830" text-anchor="middle">CARIBBEAN</text>
+  <text x="400" y="411" font-family="Inter, sans-serif" font-weight="500" font-size="7" letter-spacing="2" fill="#9C5A45" text-anchor="middle">HAND-WOVEN</text>
+</svg>

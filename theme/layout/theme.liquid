@@ -4,20 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="{{ settings.color_brand_deep_teal | default: '#0C2830' }}">
+    <meta name="theme-color" content="{{ settings.color_ink | default: '#0E1A20' }}">
     <link rel="canonical" href="{{ canonical_url }}">
+
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
-
-    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
 
     <title>
       {{ page_title }}
@@ -36,54 +33,54 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'brand.css' | asset_url | stylesheet_tag }}
-    {{ 'back-bar.css' | asset_url | stylesheet_tag }}
-
-    {%- if settings.predictive_search_enabled -%}
-      <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
-    {%- endif -%}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      if (Element.prototype.closest === undefined) {
-        Element.prototype.closest = function(selector) {
-          let el = this;
-          while (el) {
-            if (el.matches(selector)) return el;
-            el = el.parentElement;
-          }
-        };
-      }
     </script>
   </head>
 
-  <body class="gradient">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{ 'accessibility.skip_to_text' | t }}
-    </a>
+  <body>
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">Skip to content</a>
 
-    {% sections 'back-bar-group' %}
+    {% sections 'announcement-group' %}
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     {% sections 'footer-group' %}
 
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-    </ul>
+    {%- if settings.brand_whatsapp_number != blank -%}
+      <a href="https://wa.me/{{ settings.brand_whatsapp_number | strip | replace: '+', '' | replace: ' ', '' | replace: '-', '' }}"
+         class="jm-wa-float" aria-label="WhatsApp Julián" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16.001 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.255.594 4.466 1.72 6.405L3.2 28.8l6.59-1.73a12.78 12.78 0 0 0 6.21 1.6h.001c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.8-12.8-12.8zm0 23.36a10.55 10.55 0 0 1-5.38-1.47l-.385-.23-3.91 1.025 1.045-3.81-.252-.395a10.51 10.51 0 0 1-1.615-5.62c0-5.81 4.73-10.54 10.55-10.54s10.55 4.73 10.55 10.54-4.73 10.54-10.55 10.54zm5.78-7.89c-.316-.158-1.872-.923-2.162-1.03-.29-.106-.502-.158-.713.158-.211.317-.819 1.03-1.004 1.241-.185.211-.37.237-.687.079-.317-.158-1.338-.493-2.548-1.572-.941-.84-1.577-1.877-1.762-2.193-.185-.317-.02-.488.139-.645.143-.143.317-.37.475-.555.158-.185.211-.317.317-.528.105-.211.052-.396-.026-.554-.079-.158-.713-1.72-.977-2.355-.258-.62-.52-.535-.713-.545-.185-.01-.396-.012-.607-.012a1.166 1.166 0 0 0-.845.396c-.29.317-1.108 1.082-1.108 2.64s1.135 3.062 1.293 3.273c.158.211 2.234 3.412 5.413 4.785.756.326 1.346.521 1.806.667.759.241 1.45.207 1.996.126.609-.09 1.872-.765 2.137-1.504.264-.74.264-1.374.185-1.504-.079-.132-.29-.211-.607-.37z"/>
+        </svg>
+      </a>
+      <style>
+        .jm-wa-float {
+          position: fixed; bottom: 1.25rem; right: 1.25rem;
+          width: 54px; height: 54px; border-radius: 50%;
+          background: var(--whatsapp); color: var(--white);
+          display: inline-flex; align-items: center; justify-content: center;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+          z-index: 90;
+          transition: transform 200ms ease;
+        }
+        .jm-wa-float:hover { transform: translateY(-2px) scale(1.04); color: var(--white); }
+        .jm-wa-float svg { width: 26px; height: 26px; fill: currentColor; }
+      </style>
+    {%- endif -%}
 
     <script>
       window.shopUrls = {
         cart: '{{ routes.cart_url }}',
-        cartAdd: '{{ routes.cart_add_url }}',
-        cartChange: '{{ routes.cart_change_url }}'
+        cartAdd: '{{ routes.cart_add_url }}'
       };
       window.shopBrand = {
         homepage: {{ settings.brand_parent_site_url | default: 'https://julianmonge.com' | json }},
-        calendly: {{ settings.brand_calendly_url | default: 'https://calendly.com/julianmonge' | json }}
+        amazon: {{ settings.brand_amazon_storefront_url | default: 'https://amazon.com/shop/julianmonge' | json }}
       };
     </script>
   </body>

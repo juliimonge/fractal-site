@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#FAFAF8"/>
+  <defs>
+    <linearGradient id="sandFabric" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#EFE6CF"/>
+      <stop offset="55%" stop-color="#E5DCC4"/>
+      <stop offset="100%" stop-color="#D5C8AA"/>
+    </linearGradient>
+    <radialGradient id="sandShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="720" rx="260" ry="14" fill="url(#sandShadow)"/>
+  <path d="M 360,175
+           Q 400,205 440,175
+           L 540,215
+           L 615,295
+           L 580,355
+           L 540,320
+           L 540,705
+           Q 540,720 525,720
+           L 275,720
+           Q 260,720 260,705
+           L 260,320
+           L 220,355
+           L 185,295
+           L 260,215 Z"
+        fill="url(#sandFabric)" stroke="#BFB28D" stroke-width="0.6"/>
+  <path d="M 360,175 Q 400,210 440,175" fill="none" stroke="#BFB28D" stroke-width="1.6" opacity="0.7"/>
+  <ellipse cx="400" cy="195" rx="40" ry="6" fill="#D5C8AA" opacity="0.5"/>
+  <path d="M 260,320 Q 282,500 282,705" fill="none" stroke="#BFB28D" stroke-width="0.6" opacity="0.35"/>
+  <path d="M 540,320 Q 518,500 518,705" fill="none" stroke="#BFB28D" stroke-width="0.6" opacity="0.35"/>
+  <line x1="580" y1="355" x2="615" y2="295" stroke="#BFB28D" stroke-width="0.5" opacity="0.4"/>
+  <line x1="220" y1="355" x2="185" y2="295" stroke="#BFB28D" stroke-width="0.5" opacity="0.4"/>
+  <g transform="translate(400, 395)">
+    <text font-family="Inter, sans-serif" font-weight="800" font-size="32" letter-spacing="3" fill="#0C2830" text-anchor="middle">NOSARA</text>
+    <line x1="-58" y1="14" x2="58" y2="14" stroke="#0C2830" stroke-width="0.7"/>
+    <text y="36" font-family="Inter, sans-serif" font-weight="600" font-size="11" letter-spacing="4" fill="#0C2830" text-anchor="middle">COSTA RICA</text>
+  </g>
+</svg>

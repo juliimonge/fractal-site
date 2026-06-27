@@ -1,0 +1,136 @@
+{%- liquid
+  assign brand_name = section.settings.brand_name | default: 'JULIÁN MONGE'
+  assign brand_qualifier = section.settings.brand_qualifier | default: 'SHOP'
+-%}
+
+<footer class="jm-footer" id="footer">
+  <div class="jm-container">
+    <div class="jm-footer__top">
+      <div class="jm-footer__brand">
+        <a href="{{ routes.root_url }}" class="jm-lockup">
+          <span class="jm-lockup__words" style="color: var(--white);">
+            <strong>{{ brand_name | escape }}</strong>
+            <span class="jm-lockup__slash" style="color: rgba(255,255,255,0.4);">/</span>
+            <span class="jm-lockup__qual" style="color: var(--teal-light); font-weight: 500;">{{ brand_qualifier | escape }}</span>
+          </span>
+        </a>
+        {%- if section.settings.brand_blurb != blank -%}
+          <p>{{ section.settings.brand_blurb }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'column' -%}
+          <div {{ block.shopify_attributes }}>
+            <h4>{{ block.settings.heading | escape }}</h4>
+            <ul>
+              {%- if block.settings.menu != blank -%}
+                {%- for link in linklists[block.settings.menu].links -%}
+                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                {%- endfor -%}
+              {%- else -%}
+                {%- assign items = block.settings.items | newline_to_br | split: '<br />' -%}
+                {%- for raw in items -%}
+                  {%- assign parts = raw | split: '|' -%}
+                  {%- if parts.size >= 2 -%}
+                    <li><a href="{{ parts[1] | strip }}">{{ parts[0] | strip | escape }}</a></li>
+                  {%- elsif parts[0] != blank -%}
+                    <li><a href="#">{{ parts[0] | strip | escape }}</a></li>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.disclosure != blank -%}
+      <p class="jm-footer__disclosure">{{ section.settings.disclosure }}</p>
+    {%- endif -%}
+
+    <div class="jm-footer__bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }} — {{ section.settings.bottom_left | escape }}</span>
+      <span>{{ section.settings.bottom_right | escape }}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .jm-footer { background: var(--ink); color: var(--paper); padding: 4rem 0 2rem; }
+  .jm-footer__top {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem; margin-bottom: 3rem;
+  }
+  @media (max-width: 1099px) { .jm-footer__top { grid-template-columns: 1fr 1fr 1fr; } }
+  @media (max-width: 599px) { .jm-footer__top { grid-template-columns: 1fr 1fr; } }
+  .jm-footer__brand p { font-size: 0.875rem; color: rgba(246,242,232,0.65); line-height: 1.6; max-width: 36ch; margin-top: 1rem; }
+  .jm-footer h4 {
+    font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--teal-light); font-weight: 700; margin: 0 0 1rem;
+  }
+  .jm-footer ul { list-style: none; padding: 0; margin: 0; }
+  .jm-footer li { margin-bottom: 0.6rem; }
+  .jm-footer a { color: rgba(246,242,232,0.75); font-size: 0.875rem; }
+  .jm-footer a:hover { color: var(--white); }
+  .jm-footer__disclosure {
+    font-size: 0.75rem; color: rgba(246,242,232,0.5); line-height: 1.55;
+    background: rgba(255,255,255,0.04);
+    padding: 0.875rem 1rem; margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+  .jm-footer__disclosure strong { color: var(--teal-light); }
+  .jm-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between;
+    font-size: 0.75rem; color: rgba(246,242,232,0.45);
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "shopify-section-footer",
+  "max_blocks": 5,
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "JULIÁN MONGE" },
+    { "type": "text", "id": "brand_qualifier", "label": "Brand qualifier", "default": "SHOP" },
+    { "type": "textarea", "id": "brand_blurb", "label": "Brand blurb",
+      "default": "A small shop of Nosara merch and curated essentials, from Julián Monge — real estate agent on Costa Rica's Pacific coast." },
+    { "type": "richtext", "id": "disclosure", "label": "Affiliate disclosure",
+      "default": "<p><strong>Affiliate disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. Your price doesn't change. Sponsored placements are clearly labeled when present.</p>" },
+    { "type": "text", "id": "bottom_left", "label": "Bottom-left text", "default": "Nosara, Costa Rica" },
+    { "type": "text", "id": "bottom_right", "label": "Bottom-right text", "default": "shop.julianmonge.com · Part of julianmonge.com" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu (preferred)",
+          "info": "If set, uses Shopify menu items. Otherwise uses the manual list below." },
+        { "type": "textarea", "id": "items", "label": "Manual links (one per line, format: Label | url)",
+          "default": "Apparel | /collections/apparel\nCaps | /collections/caps\nBags & Home | /collections/home\nAll products | /collections/all" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        { "type": "column", "settings": { "heading": "Shop",
+          "items": "Apparel | /collections/apparel\nCaps | /collections/caps\nBags & Home | /collections/home\nAll products | /collections/all" } },
+        { "type": "column", "settings": { "heading": "Essentials",
+          "items": "Amazon storefront | https://amazon.com/shop/julianmonge\nSun & Surf | /collections/sun-surf\nBeach & Travel | /collections/travel\nHome & Outdoor | /collections/home-outdoor" } },
+        { "type": "column", "settings": { "heading": "Real Estate",
+          "items": "Listings | https://julianmonge.com/listings\nROI Calculator | https://julianmonge.com/roi\nBlog | https://julianmonge.com/blog\nAbout | https://julianmonge.com/about" } },
+        { "type": "column", "settings": { "heading": "Help",
+          "items": "Shipping & returns | /pages/shipping-returns\nSize guide | /pages/size-guide\nWhatsApp | https://wa.me/506\nhola@julianmonge.com | mailto:hola@julianmonge.com" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

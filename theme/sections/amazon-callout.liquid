@@ -1,0 +1,61 @@
+<section class="jm-amzbanner">
+  <div class="jm-container">
+    <div class="jm-amzbanner__inner">
+      <div>
+        <p class="jm-amzbanner__amazon">{{ section.settings.eyebrow | escape }}</p>
+        <h2>{{ section.settings.heading | escape }}</h2>
+        <p>{{ section.settings.body | escape }}</p>
+      </div>
+      <div class="jm-amzbanner__actions">
+        {%- assign amz_url = settings.brand_amazon_storefront_url | default: section.settings.amazon_url -%}
+        {%- if amz_url != blank -%}
+          <a class="jm-btn jm-btn--white" href="{{ amz_url }}" target="_blank" rel="nofollow noopener sponsored">{{ section.settings.cta_label | escape }} →</a>
+          <span class="jm-amzbanner__url">Opens at {{ amz_url | replace: 'https://', '' | replace: 'http://', '' }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .jm-amzbanner {
+    background: var(--ink); color: var(--white);
+    padding: 3.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .jm-amzbanner__inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 899px) { .jm-amzbanner__inner { grid-template-columns: 1fr; gap: 1.25rem; } }
+  .jm-amzbanner h2 { color: var(--white); font-size: clamp(1.875rem, 3.5vw, 2.75rem); margin-bottom: 1rem; letter-spacing: -0.03em; }
+  .jm-amzbanner p { color: rgba(255,255,255,0.7); font-size: 0.9375rem; max-width: 48ch; }
+  .jm-amzbanner__amazon {
+    font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--amazon);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-bottom: 0.875rem;
+  }
+  .jm-amzbanner__amazon::before { content: ""; width: 6px; height: 6px; background: var(--amazon); border-radius: 50%; }
+  .jm-amzbanner__actions { display: flex; flex-direction: column; gap: 0.875rem; align-items: flex-start; }
+  .jm-amzbanner__url { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+</style>
+
+{% schema %}
+{
+  "name": "Amazon storefront callout",
+  "tag": "section",
+  "class": "shopify-section-amzbanner",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Amazon Storefront · Costa Rica gateway" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Costa Rica, shipped anywhere." },
+    { "type": "textarea", "id": "body", "label": "Body",
+      "default": "Real Tico goods that ship internationally — Café Britt coffee, Salsa Lizano, hand-woven hammocks, the Garrigues bird guide, Blue Zones books on Nicoya. Curated by someone who actually lives here. As an Amazon Associate we earn from qualifying purchases." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Open Amazon storefront" },
+    { "type": "url", "id": "amazon_url", "label": "Amazon URL fallback",
+      "info": "Uses theme settings.brand_amazon_storefront_url first; this is a per-section fallback." }
+  ],
+  "presets": [{ "name": "Amazon storefront callout" }]
+}
+{% endschema %}

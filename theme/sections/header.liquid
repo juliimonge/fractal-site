@@ -1,62 +1,150 @@
 {%- liquid
-  assign nav_logo = section.settings.logo
-  assign nav_title = section.settings.logo_text | default: shop.name
+  assign brand_name = section.settings.brand_name | default: 'JULIÁN MONGE'
+  assign brand_qualifier = section.settings.brand_qualifier | default: 'SHOP'
+  assign menu = section.settings.menu
 -%}
 
-<header class="header header--brand page-width" role="banner">
-  <a href="{{ routes.root_url }}" class="header__heading-link" aria-label="{{ shop.name }}">
-    {%- if nav_logo != blank -%}
-      {{ nav_logo | image_url: width: 240 | image_tag:
-        loading: 'eager',
-        widths: '120, 240, 360',
-        height: nav_logo.height,
-        width: nav_logo.width,
-        alt: nav_title,
-        class: 'header__heading-logo'
-      }}
-    {%- else -%}
-      <span class="header__heading-logo">{{ nav_title }}</span>
+<header class="jm-header" role="banner">
+  <div class="jm-header__row">
+    <a href="{{ routes.root_url }}" class="jm-lockup" aria-label="{{ brand_name | escape }}">
+      <span class="jm-lockup__words">
+        <strong>{{ brand_name | escape }}</strong>
+        <span class="jm-lockup__slash">/</span>
+        <span class="jm-lockup__qual">{{ brand_qualifier | escape }}</span>
+      </span>
+    </a>
+
+    {%- if section.settings.show_search -%}
+      <form action="{{ routes.search_url }}" method="get" role="search" class="jm-header__search">
+        <span class="jm-header__search-icon" aria-hidden="true">
+          <svg class="jm-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </span>
+        <input type="search" name="q" placeholder="{{ section.settings.search_placeholder | escape }}" aria-label="Search the shop">
+        <input type="hidden" name="type" value="product">
+      </form>
     {%- endif -%}
-  </a>
 
-  <nav class="header__inline-menu" aria-label="Primary">
-    <ul class="list-menu list-menu--inline" role="list">
-      <li><a href="{{ routes.collections_url }}/digital-products" class="header__menu-item">Shop</a></li>
-      <li><a href="{{ routes.collections_url }}/services" class="header__menu-item">Services</a></li>
-      <li><a href="{{ routes.root_url }}pages/about" class="header__menu-item">About</a></li>
-      <li><a href="{{ routes.root_url }}pages/contact" class="header__menu-item">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="header__icons">
-    <a href="{{ routes.search_url }}" class="header__icon header__icon--search" aria-label="Search">
-      {% render 'icon-search' %}
-    </a>
-    <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" aria-label="Cart">
-      {% render 'icon-cart' %}
-      {%- if cart != empty -%}
-        <span class="cart-count-bubble">{{ cart.item_count }}</span>
+    <nav class="jm-nav" aria-label="Primary">
+      {%- if menu != blank -%}
+        {%- for link in linklists[menu].links -%}
+          <a href="{{ link.url }}" {% if link.active %}class="is-active"{% endif %}>{{ link.title | escape }}</a>
+        {%- endfor -%}
       {%- endif -%}
-    </a>
+    </nav>
+
+    <div class="jm-header__right">
+      <a href="{{ routes.account_url }}" class="jm-iconbtn" aria-label="Account">
+        <svg class="jm-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <span>Account</span>
+      </a>
+      <a href="{{ routes.cart_url }}" class="jm-iconbtn" aria-label="Cart">
+        <svg class="jm-icon" viewBox="0 0 24 24"><path d="M6 7h12l-1.5 11.5a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6 7zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span>
+        {%- if cart.item_count > 0 -%}
+          <span class="jm-bag-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
   </div>
 </header>
+
+<style>
+  .jm-header {
+    position: sticky; top: 0; z-index: 70;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  .jm-header__row {
+    display: grid; grid-template-columns: auto 1fr auto auto;
+    align-items: center; gap: 2rem;
+    padding: 0.875rem 1.5rem;
+    max-width: var(--page-width); margin: 0 auto;
+  }
+  .jm-lockup {
+    display: inline-flex; align-items: center;
+    text-decoration: none; color: var(--ink);
+  }
+  .jm-lockup__words {
+    font-family: var(--sans); font-weight: 800;
+    font-size: 1rem; letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+  .jm-lockup__slash { color: var(--gray-300); margin: 0 0.4rem; font-weight: 400; }
+  .jm-lockup__qual { color: var(--gray-500); font-weight: 500; }
+
+  .jm-header__search {
+    position: relative;
+    max-width: 520px; width: 100%;
+    justify-self: center;
+  }
+  .jm-header__search input {
+    width: 100%;
+    padding: 0.625rem 2.5rem 0.625rem 2.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--gray-50);
+    font-family: var(--sans); font-size: 0.875rem;
+    color: var(--ink);
+  }
+  .jm-header__search input:focus { outline: none; border-color: var(--teal); background: var(--white); }
+  .jm-header__search input::placeholder { color: var(--gray-300); }
+  .jm-header__search-icon {
+    position: absolute; left: 0.875rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-300); pointer-events: none;
+  }
+
+  .jm-nav { display: flex; align-items: center; gap: 1.75rem; }
+  .jm-nav a {
+    font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink);
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  .jm-nav a:hover { color: var(--teal); }
+  .jm-nav a.is-active { color: var(--teal); }
+  .jm-nav a.is-active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 2px; background: var(--teal);
+  }
+
+  .jm-header__right { display: flex; align-items: center; gap: 1.25rem; }
+  .jm-iconbtn {
+    color: var(--ink);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.8125rem; font-weight: 600;
+    position: relative;
+  }
+  .jm-iconbtn:hover { color: var(--teal); }
+  .jm-icon { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .jm-bag-count {
+    position: absolute; top: -6px; right: -10px;
+    background: var(--ink); color: var(--paper);
+    font-size: 0.6875rem; font-weight: 700;
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  @media (max-width: 899px) {
+    .jm-header__row { grid-template-columns: auto 1fr auto; gap: 1rem; padding: 0.75rem 1rem; }
+    .jm-header__search { display: none; }
+    .jm-nav { display: none; }
+    .jm-iconbtn span:not(.jm-bag-count) { display: none; }
+  }
+</style>
 
 {% schema %}
 {
   "name": "Header",
-  "class": "section-header",
+  "class": "shopify-section-header",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "text",
-      "id": "logo_text",
-      "label": "Logo text",
-      "default": "JULIÁN MONGE"
-    }
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "JULIÁN MONGE" },
+    { "type": "text", "id": "brand_qualifier", "label": "Brand qualifier", "default": "SHOP" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_search", "label": "Show search bar", "default": true },
+    { "type": "text", "id": "search_placeholder", "label": "Search placeholder",
+      "default": "Search merch, essentials…" }
   ]
 }
 {% endschema %}

@@ -1,0 +1,61 @@
+<div class="jm-announce">
+  {%- for block in section.blocks -%}
+    {%- if block.settings.text != blank -%}
+      <span {{ block.shopify_attributes }}>
+        {%- if block.settings.bold_prefix != blank -%}
+          <strong>{{ block.settings.bold_prefix | escape }}</strong>
+        {%- endif -%}
+        {{ block.settings.text | escape }}
+      </span>
+      {%- unless forloop.last -%}<span class="jm-announce__sep">·</span>{%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+<style>
+  .jm-announce {
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.875rem;
+  }
+  .jm-announce strong { color: var(--teal-light); font-weight: 700; margin-right: 0.4rem; }
+  .jm-announce__sep { opacity: 0.3; }
+  @media (max-width: 599px) {
+    .jm-announce > span:not(:first-child):not(.jm-announce__sep) { display: none; }
+    .jm-announce__sep { display: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "tag": "section",
+  "class": "shopify-section-announcement",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "bold_prefix", "label": "Bold prefix", "default": "Free shipping" },
+        { "type": "text", "id": "text", "label": "Message", "default": "on merch over $75 worldwide" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "blocks": [
+        { "type": "message", "settings": { "bold_prefix": "Free shipping", "text": "on merch over $75 worldwide" } },
+        { "type": "message", "settings": { "bold_prefix": "30-day", "text": "easy returns" } },
+        { "type": "message", "settings": { "bold_prefix": "Curated by Julián", "text": "from Nosara, CR" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

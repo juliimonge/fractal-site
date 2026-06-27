@@ -1,0 +1,96 @@
+<section class="jm-hero">
+  <div class="jm-hero__art" aria-hidden="true">
+    <svg viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="heroBg-{{ section.id }}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E1A20"/>
+          <stop offset="65%" stop-color="#0E1A20"/>
+          <stop offset="100%" stop-color="#0A1418"/>
+        </linearGradient>
+        <radialGradient id="heroGlow-{{ section.id }}" cx="0.78" cy="0.32" r="0.45">
+          <stop offset="0%" stop-color="#1F5A6F" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#1F5A6F" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1600" height="800" fill="url(#heroBg-{{ section.id }})"/>
+      <rect width="1600" height="800" fill="url(#heroGlow-{{ section.id }})"/>
+      <circle cx="1250" cy="260" r="78" fill="#C9A875" opacity="0.92"/>
+      <line x1="0" y1="500" x2="1600" y2="500" stroke="#9FC8D0" stroke-width="0.5" opacity="0.35"/>
+      <g stroke="#C9A875" opacity="0.4" stroke-linecap="round">
+        <line x1="1230" y1="520" x2="1270" y2="520" stroke-width="1.5"/>
+        <line x1="1220" y1="540" x2="1280" y2="540" stroke-width="1.2" opacity="0.7"/>
+        <line x1="1215" y1="565" x2="1285" y2="565" stroke-width="1" opacity="0.55"/>
+        <line x1="1210" y1="595" x2="1290" y2="595" stroke-width="1" opacity="0.4"/>
+        <line x1="1200" y1="630" x2="1300" y2="630" stroke-width="1" opacity="0.3"/>
+        <line x1="1190" y1="670" x2="1310" y2="670" stroke-width="1" opacity="0.22"/>
+        <line x1="1180" y1="715" x2="1320" y2="715" stroke-width="1" opacity="0.14"/>
+      </g>
+      <g stroke="#9FC8D0" fill="none" opacity="0.18">
+        <path d="M0,560 Q400,556 800,560 T1600,560" stroke-width="0.4"/>
+        <path d="M0,600 Q400,596 800,600 T1600,600" stroke-width="0.4"/>
+        <path d="M0,650 Q400,646 800,650 T1600,650" stroke-width="0.4"/>
+        <path d="M0,710 Q400,706 800,710 T1600,710" stroke-width="0.4"/>
+      </g>
+      <path d="M0,500 Q120,496 240,498 Q360,500 400,488 Q450,474 500,484 Q580,498 660,495 L660,510 L0,510 Z" fill="#0A1418" opacity="0.85"/>
+    </svg>
+  </div>
+  <div class="jm-container jm-hero__inner">
+    <p class="jm-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h1>{{ section.settings.heading | escape }}</h1>
+    <p class="jm-hero__lede">{{ section.settings.lede | escape }}</p>
+    <div class="jm-hero__ctas">
+      {%- if section.settings.cta_primary_label != blank -%}
+        <a class="jm-btn jm-btn--white" href="{{ section.settings.cta_primary_link }}">{{ section.settings.cta_primary_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.cta_secondary_label != blank -%}
+        <a class="jm-btn jm-btn--ghost-light" href="{{ section.settings.cta_secondary_link }}">{{ section.settings.cta_secondary_label | escape }} →</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .jm-hero {
+    position: relative;
+    height: clamp(520px, 70vh, 740px);
+    background: var(--ink); color: var(--white);
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .jm-hero__art { position: absolute; inset: 0; pointer-events: none; }
+  .jm-hero__art svg { width: 100%; height: 100%; display: block; }
+  .jm-hero__inner { width: 100%; padding-bottom: 4rem; position: relative; z-index: 2; }
+  .jm-hero__eyebrow {
+    font-size: 0.6875rem; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    margin: 0 0 1rem; color: var(--teal-light);
+  }
+  .jm-hero h1 {
+    color: var(--white); max-width: 14ch;
+    margin-bottom: 1.25rem;
+  }
+  .jm-hero__lede {
+    font-size: 1rem; max-width: 38ch;
+    margin-bottom: 1.5rem; opacity: 0.9; font-weight: 400;
+  }
+  .jm-hero__ctas { display: flex; gap: 0.625rem; flex-wrap: wrap; }
+</style>
+
+{% schema %}
+{
+  "name": "Store hero",
+  "tag": "section",
+  "class": "shopify-section-hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "From Nosara · Costa Rica" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "All things Costa Rica." },
+    { "type": "textarea", "id": "lede", "label": "Lede",
+      "default": "Our own Pacific-coast merch, plus a curated Amazon shelf of the real Tico goods worth shipping anywhere — coffee, Lizano, hammocks, Blue Zones books, the bird guide." },
+    { "type": "text", "id": "cta_primary_label", "label": "Primary CTA label", "default": "Shop the line" },
+    { "type": "url", "id": "cta_primary_link", "label": "Primary CTA link" },
+    { "type": "text", "id": "cta_secondary_label", "label": "Secondary CTA label", "default": "Open Amazon shelf" },
+    { "type": "url", "id": "cta_secondary_link", "label": "Secondary CTA link" }
+  ],
+  "presets": [{ "name": "Store hero" }]
+}
+{% endschema %}

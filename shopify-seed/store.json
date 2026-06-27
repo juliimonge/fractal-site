@@ -1,277 +1,386 @@
 {
   "store": {
     "owner": "Julián Monge",
-    "brokerage": "Blue Water Properties",
+    "concept": "All things Costa Rica — Nosara merch + curated Amazon storefront",
     "location": "Nosara, Costa Rica",
     "subdomain": "shop.julianmonge.com",
     "parent_site": "https://julianmonge.com",
-    "calendly_default": "https://calendly.com/julianmonge/intro"
+    "amazon_storefront": "https://amazon.com/shop/julianmonge"
   },
 
   "collections": [
     {
-      "handle": "digital-products",
-      "title": "Digital Products",
-      "descriptionHtml": "<p>Editorial PDF guides, social templates, and presets — instant download via Shopify Digital Downloads.</p>",
-      "sortOrder": "MANUAL",
-      "seo": {
-        "title": "Digital guides for Nosara, Costa Rica — Julián Monge",
-        "description": "Instant-download PDF guides, Canva social templates, and Lightroom presets for buyers, agents, and creators in Nosara."
-      }
-    },
-    {
-      "handle": "services",
-      "title": "Services",
-      "descriptionHtml": "<p>Done-for-you content production packages. Book a call to scope the right package.</p>",
-      "sortOrder": "PRICE_ASC",
-      "seo": {
-        "title": "Content services for real estate agents in Nosara — Julián Monge",
-        "description": "Starter, Growth, and Full Production content packages for real estate agents and short-term rental owners in Costa Rica."
-      }
-    },
-    {
       "handle": "nosara-merch",
       "title": "Nosara Merch",
-      "descriptionHtml": "<p>Print-on-demand tees, caps, and stickers. Fulfilled by Printful.</p>",
+      "descriptionHtml": "<p>Our own line of heavyweight cotton tees, embroidered caps, totes, and home goods. Printed on demand by Printful.</p>",
       "sortOrder": "MANUAL",
       "seo": {
-        "title": "Nosara, Costa Rica merch — tees, caps, stickers",
-        "description": "Pura vida wearables for Nosara lovers. Printed on demand, shipped worldwide."
+        "title": "Nosara CR merch — tees, caps, totes | Julián Monge",
+        "description": "Heavyweight cotton tees, embroidered caps, canvas totes, and home goods. Printed on demand, shipped worldwide."
+      }
+    },
+    {
+      "handle": "apparel",
+      "title": "Apparel",
+      "descriptionHtml": "<p>Tees and crewneck fleece — heavyweight cotton, garment-dyed.</p>",
+      "sortOrder": "MANUAL"
+    },
+    {
+      "handle": "caps",
+      "title": "Caps",
+      "descriptionHtml": "<p>Embroidered dad caps.</p>",
+      "sortOrder": "MANUAL"
+    },
+    {
+      "handle": "bags",
+      "title": "Bags",
+      "descriptionHtml": "<p>Heavyweight canvas totes.</p>",
+      "sortOrder": "MANUAL"
+    },
+    {
+      "handle": "home",
+      "title": "Home",
+      "descriptionHtml": "<p>Enamel mugs, stickers, small goods.</p>",
+      "sortOrder": "MANUAL"
+    },
+    {
+      "handle": "nosara-essentials",
+      "title": "Nosara Essentials",
+      "descriptionHtml": "<p>Curated Amazon storefront picks — real Costa Rica goods that ship internationally.</p>",
+      "sortOrder": "MANUAL",
+      "seo": {
+        "title": "Costa Rica essentials on Amazon — curated by Julián Monge",
+        "description": "Café Britt, Salsa Lizano, Blue Zones books, Sun Bum reef-safe, Sex Wax tropical, hand-woven hammocks, the Garrigues bird guide."
       }
     }
   ],
 
   "products": [
     {
-      "collection": "digital-products",
-      "title": "Invest in Nosara — PDF Guide",
-      "handle": "invest-in-nosara",
-      "productType": "Digital Download",
-      "vendor": "Julián Monge",
-      "tags": ["digital", "guide", "nosara", "investment"],
-      "status": "ACTIVE",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>A 60+ page PDF on real estate investment in Nosara: market dynamics, neighborhoods (Guiones, Pelada, Garza), titled vs concession land, rental yields, and the buyer's process. Delivered as a downloadable PDF immediately after purchase.</p>",
-      "price": "29.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "29.00", "sku": "DG-INVEST-NOSARA", "requiresShipping": false, "taxable": false }
-      ],
-      "seo": {
-        "title": "Invest in Nosara — PDF buyer's guide | Julián Monge",
-        "description": "60+ page PDF guide to real estate investment in Nosara, Costa Rica. Market data, neighborhoods, titled vs concession, rental yields."
-      }
-    },
-    {
-      "collection": "digital-products",
-      "title": "Relocate to Nosara — Relocation Playbook",
-      "handle": "relocate-to-nosara",
-      "productType": "Digital Download",
-      "vendor": "Julián Monge",
-      "tags": ["digital", "guide", "nosara", "relocation"],
-      "status": "ACTIVE",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>A practical playbook for moving to Nosara: visas, residency paths, healthcare, schools, internet, vehicles, and a 90-day relocation checklist. PDF.</p>",
-      "price": "39.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "39.00", "sku": "DG-RELOCATE-NOSARA", "requiresShipping": false, "taxable": false }
-      ],
-      "seo": {
-        "title": "Relocate to Nosara — Costa Rica relocation playbook | Julián Monge",
-        "description": "Practical PDF playbook for moving to Nosara, Costa Rica: visas, residency, healthcare, schools, and a 90-day relocation checklist."
-      }
-    },
-    {
-      "collection": "digital-products",
-      "title": "Real Estate Agent Social Templates — Canva Pack",
-      "handle": "real-estate-social-templates",
-      "productType": "Digital Download",
-      "vendor": "Julián Monge",
-      "tags": ["digital", "canva", "real-estate", "social"],
-      "status": "ACTIVE",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>40+ Canva templates for real estate agents: listing announcements, just-sold, market updates, neighborhood guides, reels covers. Editable Canva file delivered as a link in a PDF.</p>",
-      "price": "19.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "19.00", "sku": "DG-CANVA-RE-PACK", "requiresShipping": false, "taxable": false }
-      ],
-      "seo": {
-        "title": "Real Estate Agent Canva Templates — 40+ social posts | Julián Monge",
-        "description": "Editable Canva templates for real estate agents: listing announcements, just-sold, market updates, neighborhood guides, reels."
-      }
-    },
-    {
-      "collection": "digital-products",
-      "title": "Nosara Coastal — Lightroom Preset Pack",
-      "handle": "nosara-coastal-lightroom-presets",
-      "productType": "Digital Download",
-      "vendor": "Julián Monge",
-      "tags": ["digital", "lightroom", "presets", "photography"],
-      "status": "ACTIVE",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>10 Lightroom presets tuned for Nosara's light — golden hour, overcast, jungle, surf, and interior real estate. Mobile and desktop compatible (.xmp and .dng).</p>",
-      "price": "15.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "15.00", "sku": "DG-LR-NOSARA-COASTAL", "requiresShipping": false, "taxable": false }
-      ],
-      "seo": {
-        "title": "Nosara Coastal Lightroom Presets — 10 pack | Julián Monge",
-        "description": "10 Lightroom presets tuned for Nosara's light. Golden hour, overcast, jungle, surf, interiors. Mobile and desktop."
-      }
-    },
-
-    {
-      "collection": "services",
-      "title": "Starter Content Package",
-      "handle": "starter-content-package",
-      "productType": "Service",
-      "vendor": "Julián Monge",
-      "tags": ["service", "content", "starter"],
-      "status": "ACTIVE",
-      "templateSuffix": "service",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>A one-listing or one-event content sprint. One half-day shoot, edited photo set, one short-form vertical video, and Instagram-ready posts. Best for agents and STR owners testing the waters.</p><ul><li>1 half-day shoot</li><li>20+ edited stills</li><li>1 short-form vertical video</li><li>5 Instagram post drafts</li></ul>",
-      "price": "450.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "450.00", "sku": "SRV-STARTER", "requiresShipping": false, "taxable": false }
-      ],
-      "metafields": [
-        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/starter" },
-        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
-      ],
-      "seo": {
-        "title": "Starter Content Package — Real estate content production, Nosara",
-        "description": "Half-day shoot, edited photos, one short-form video, and 5 Instagram posts. For agents and STR owners getting started."
-      }
-    },
-    {
-      "collection": "services",
-      "title": "Growth Package",
-      "handle": "growth-package",
-      "productType": "Service",
-      "vendor": "Julián Monge",
-      "tags": ["service", "content", "growth"],
-      "status": "ACTIVE",
-      "templateSuffix": "service",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>A monthly content engine for active listings or growing STR portfolios. Two shoots per month, photo + short-form video bundles, post drafts, and a monthly strategy call.</p><ul><li>2 half-day shoots / month</li><li>50+ edited stills / month</li><li>4 short-form vertical videos / month</li><li>10 Instagram post drafts</li><li>1 monthly strategy call</li></ul>",
-      "price": "950.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "950.00", "sku": "SRV-GROWTH", "requiresShipping": false, "taxable": false }
-      ],
-      "metafields": [
-        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/growth" },
-        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
-      ],
-      "seo": {
-        "title": "Growth Package — Monthly content production for real estate | Nosara",
-        "description": "Two shoots per month, 50+ photos, 4 short-form videos, post drafts, and a monthly strategy call. For active listings and STR portfolios."
-      }
-    },
-    {
-      "collection": "services",
-      "title": "Full Production Package",
-      "handle": "full-production-package",
-      "productType": "Service",
-      "vendor": "Julián Monge",
-      "tags": ["service", "content", "full-production"],
-      "status": "ACTIVE",
-      "templateSuffix": "service",
-      "requiresShipping": false,
-      "taxable": false,
-      "descriptionHtml": "<p>End-to-end content production. Dedicated weekly capture, long-form and short-form video, drone, photography, copywriting, and content scheduling. For brokerages and developers.</p><ul><li>Weekly captures</li><li>Unlimited edited stills</li><li>Long-form + short-form video</li><li>Drone footage included</li><li>Copywriting + scheduling</li><li>Weekly strategy call</li></ul>",
-      "price": "1800.00",
-      "options": ["Title"],
-      "variants": [
-        { "title": "Default", "price": "1800.00", "sku": "SRV-FULL-PRODUCTION", "requiresShipping": false, "taxable": false }
-      ],
-      "metafields": [
-        { "namespace": "custom", "key": "calendly_url", "type": "single_line_text_field", "value": "https://calendly.com/julianmonge/full-production" },
-        { "namespace": "custom", "key": "cta_label", "type": "single_line_text_field", "value": "Book a call" }
-      ],
-      "seo": {
-        "title": "Full Production Package — Weekly content for brokerages & developers | Nosara",
-        "description": "End-to-end content: weekly captures, long + short-form video, drone, photography, copy, scheduling. For brokerages and developers."
-      }
-    },
-
-    {
-      "collection": "nosara-merch",
-      "title": "Nosara CR Tee",
-      "handle": "nosara-cr-tee",
+      "collection": "apparel",
+      "title": "Nosara CR Heavyweight Tee — Sand",
+      "handle": "nosara-tee-sand",
       "productType": "Apparel",
-      "vendor": "Julián Monge",
-      "tags": ["merch", "printful", "apparel", "tee"],
-      "status": "DRAFT",
+      "tags": ["merch", "tee", "apparel", "best-seller", "printful"],
+      "status": "ACTIVE",
       "requiresShipping": true,
       "taxable": true,
-      "descriptionHtml": "<p>Soft cotton tee with a minimal Nosara, CR mark. Printed on demand by Printful. Sizes XS–3XL.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "descriptionHtml": "<p>Heavyweight 6oz garment-dyed cotton. Soft on day one, softer in year three. NOSARA / COSTA RICA chest mark, two-color print.</p><p><strong>Fit:</strong> Relaxed. Size down for closer fit.<br/><strong>Care:</strong> Cold wash inside-out.</p>",
       "price": "32.00",
-      "options": ["Size", "Color"],
+      "options": ["Size"],
       "variants": [
-        { "title": "S / Sand", "price": "32.00", "sku": "MERCH-TEE-S-SAND", "optionValues": [{"optionName":"Size","name":"S"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
-        { "title": "M / Sand", "price": "32.00", "sku": "MERCH-TEE-M-SAND", "optionValues": [{"optionName":"Size","name":"M"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
-        { "title": "L / Sand", "price": "32.00", "sku": "MERCH-TEE-L-SAND", "optionValues": [{"optionName":"Size","name":"L"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
-        { "title": "XL / Sand", "price": "32.00", "sku": "MERCH-TEE-XL-SAND", "optionValues": [{"optionName":"Size","name":"XL"},{"optionName":"Color","name":"Sand"}], "requiresShipping": true }
+        { "title": "XS", "price": "32.00", "sku": "TEE-SAND-XS", "optionValues": [{"optionName":"Size","name":"XS"}] },
+        { "title": "S",  "price": "32.00", "sku": "TEE-SAND-S",  "optionValues": [{"optionName":"Size","name":"S"}] },
+        { "title": "M",  "price": "32.00", "sku": "TEE-SAND-M",  "optionValues": [{"optionName":"Size","name":"M"}] },
+        { "title": "L",  "price": "32.00", "sku": "TEE-SAND-L",  "optionValues": [{"optionName":"Size","name":"L"}] },
+        { "title": "XL", "price": "32.00", "sku": "TEE-SAND-XL", "optionValues": [{"optionName":"Size","name":"XL"}] },
+        { "title": "2XL","price": "34.00", "sku": "TEE-SAND-2XL","optionValues": [{"optionName":"Size","name":"2XL"}] }
       ],
-      "seo": {
-        "title": "Nosara CR Tee — Pura vida apparel | Julián Monge",
-        "description": "Minimal Nosara, CR cotton tee. Printed on demand by Printful. Sizes XS–3XL."
-      }
+      "themeImage": "tee-sand.svg"
     },
     {
-      "collection": "nosara-merch",
-      "title": "Nosara CR Cap",
-      "handle": "nosara-cr-cap",
+      "collection": "apparel",
+      "title": "Nosara CR Heavyweight Tee — Deep Teal",
+      "handle": "nosara-tee-teal",
+      "productType": "Apparel",
+      "tags": ["merch", "tee", "apparel", "printful"],
+      "status": "ACTIVE",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>Heavyweight 6oz garment-dyed cotton in deep teal. Two-color print on dark fabric.</p>",
+      "price": "32.00",
+      "options": ["Size"],
+      "variants": [
+        { "title": "XS", "price": "32.00", "sku": "TEE-TEAL-XS", "optionValues": [{"optionName":"Size","name":"XS"}] },
+        { "title": "S",  "price": "32.00", "sku": "TEE-TEAL-S",  "optionValues": [{"optionName":"Size","name":"S"}] },
+        { "title": "M",  "price": "32.00", "sku": "TEE-TEAL-M",  "optionValues": [{"optionName":"Size","name":"M"}] },
+        { "title": "L",  "price": "32.00", "sku": "TEE-TEAL-L",  "optionValues": [{"optionName":"Size","name":"L"}] },
+        { "title": "XL", "price": "32.00", "sku": "TEE-TEAL-XL", "optionValues": [{"optionName":"Size","name":"XL"}] },
+        { "title": "2XL","price": "34.00", "sku": "TEE-TEAL-2XL","optionValues": [{"optionName":"Size","name":"2XL"}] }
+      ],
+      "themeImage": "tee-teal.svg"
+    },
+    {
+      "collection": "caps",
+      "title": "Nosara CR Cap — Deep Teal",
+      "handle": "nosara-cap-teal",
       "productType": "Headwear",
-      "vendor": "Julián Monge",
-      "tags": ["merch", "printful", "cap"],
-      "status": "DRAFT",
+      "tags": ["merch", "cap", "headwear", "printful"],
+      "status": "ACTIVE",
       "requiresShipping": true,
       "taxable": true,
-      "descriptionHtml": "<p>Unstructured dad cap with a Nosara wordmark. Printed and embroidered on demand. One size adjustable.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "descriptionHtml": "<p>Unstructured 6-panel washed cotton dad cap. Front embroidery in light teal + gold.</p>",
       "price": "28.00",
-      "options": ["Color"],
+      "options": ["Size"],
       "variants": [
-        { "title": "Sand", "price": "28.00", "sku": "MERCH-CAP-SAND", "optionValues": [{"optionName":"Color","name":"Sand"}], "requiresShipping": true },
-        { "title": "Deep Teal", "price": "28.00", "sku": "MERCH-CAP-TEAL", "optionValues": [{"optionName":"Color","name":"Deep Teal"}], "requiresShipping": true }
+        { "title": "One size", "price": "28.00", "sku": "CAP-TEAL-OS", "optionValues": [{"optionName":"Size","name":"One size"}] }
       ],
-      "seo": {
-        "title": "Nosara CR Cap — Embroidered dad cap | Julián Monge",
-        "description": "Unstructured dad cap with embroidered Nosara wordmark. Printed on demand. One size adjustable."
-      }
+      "themeImage": "cap-teal.svg"
     },
     {
-      "collection": "nosara-merch",
-      "title": "Nosara Sticker Pack",
-      "handle": "nosara-sticker-pack",
-      "productType": "Accessory",
-      "vendor": "Julián Monge",
-      "tags": ["merch", "printful", "sticker"],
-      "status": "DRAFT",
+      "collection": "caps",
+      "title": "Nosara CR Cap — Sand",
+      "handle": "nosara-cap-sand",
+      "productType": "Headwear",
+      "tags": ["merch", "cap", "headwear", "new", "printful"],
+      "status": "ACTIVE",
       "requiresShipping": true,
       "taxable": true,
-      "descriptionHtml": "<p>A 3-pack of die-cut vinyl stickers — pelican, surfboard, Nosara wordmark. Weatherproof. Printed on demand.</p><p><strong>Note:</strong> Inventory and variants are managed by Printful after the product is connected.</p>",
+      "descriptionHtml": "<p>Unstructured 6-panel washed cotton dad cap in sand. Embroidery in ink + gold.</p>",
+      "price": "28.00",
+      "options": ["Size"],
+      "variants": [
+        { "title": "One size", "price": "28.00", "sku": "CAP-SAND-OS", "optionValues": [{"optionName":"Size","name":"One size"}] }
+      ],
+      "themeImage": "cap-sand.svg"
+    },
+    {
+      "collection": "apparel",
+      "title": "Pacific Coast Crewneck — Heavyweight Fleece",
+      "handle": "pacific-coast-crewneck",
+      "productType": "Apparel",
+      "tags": ["merch", "crewneck", "apparel", "printful"],
+      "status": "ACTIVE",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>Heavyweight 9oz reverse-weave fleece. Small chest embroidery.</p>",
+      "price": "74.00",
+      "options": ["Size"],
+      "variants": [
+        { "title": "S",  "price": "74.00", "sku": "CRN-ECRU-S",  "optionValues": [{"optionName":"Size","name":"S"}] },
+        { "title": "M",  "price": "74.00", "sku": "CRN-ECRU-M",  "optionValues": [{"optionName":"Size","name":"M"}] },
+        { "title": "L",  "price": "74.00", "sku": "CRN-ECRU-L",  "optionValues": [{"optionName":"Size","name":"L"}] },
+        { "title": "XL", "price": "74.00", "sku": "CRN-ECRU-XL", "optionValues": [{"optionName":"Size","name":"XL"}] }
+      ],
+      "themeImage": "crewneck.svg"
+    },
+    {
+      "collection": "bags",
+      "title": "Heavy Canvas Beach Tote — Natural",
+      "handle": "nosara-tote",
+      "productType": "Bag",
+      "tags": ["merch", "tote", "bag", "printful"],
+      "status": "ACTIVE",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>18oz natural canvas tote, 14×16 inches. Stamped NOSARA / COSTA RICA front mark.</p>",
+      "price": "36.00",
+      "options": ["Size"],
+      "variants": [
+        { "title": "One size", "price": "36.00", "sku": "TOTE-NAT-OS", "optionValues": [{"optionName":"Size","name":"One size"}] }
+      ],
+      "themeImage": "tote.svg"
+    },
+    {
+      "collection": "home",
+      "title": "Nosara Sticker Pack — 3-Pack",
+      "handle": "nosara-stickers",
+      "productType": "Accessory",
+      "tags": ["merch", "sticker", "accessory", "printful"],
+      "status": "ACTIVE",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>3 die-cut weatherproof vinyl stickers — Nosara roundel, Guiones pelican, Pura Vida banner.</p>",
       "price": "8.00",
       "options": ["Title"],
       "variants": [
-        { "title": "Default", "price": "8.00", "sku": "MERCH-STICKER-3PACK", "requiresShipping": true }
+        { "title": "Default", "price": "8.00", "sku": "STK-3PACK" }
       ],
-      "seo": {
-        "title": "Nosara Sticker Pack — 3 die-cut vinyl stickers | Julián Monge",
-        "description": "Weatherproof die-cut vinyl stickers: pelican, surfboard, Nosara wordmark. 3-pack, printed on demand."
-      }
+      "themeImage": "stickers.svg"
+    },
+    {
+      "collection": "home",
+      "title": "Nosara Enamel Mug — Cream",
+      "handle": "nosara-mug",
+      "productType": "Home",
+      "tags": ["merch", "mug", "home", "printful"],
+      "status": "ACTIVE",
+      "requiresShipping": true,
+      "taxable": true,
+      "descriptionHtml": "<p>12oz powder-coated steel enamel mug. Wraparound NOSARA / COSTA RICA print.</p>",
+      "price": "22.00",
+      "options": ["Title"],
+      "variants": [
+        { "title": "Default", "price": "22.00", "sku": "MUG-CREAM-12" }
+      ],
+      "themeImage": "mug.svg"
+    },
+
+    {
+      "collection": "nosara-essentials",
+      "title": "Café Britt Costa Rica Tarrazú — Whole Bean",
+      "handle": "cafe-britt-tarrazu",
+      "productType": "Amazon Pick",
+      "vendor": "Café Britt",
+      "tags": ["amazon", "coffee", "tarrazu", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>100% Costa Rican Arabica from the Tarrazú region. Medium roast, whole bean.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-CAFE-BRITT" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=caf%C3%A9+britt+costa+rica+tarrazu" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "Costa Rican Tarrazú · Medium Roast" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "The most-exported Tico coffee. Tarrazú region, high-altitude, clean cup. The default in every Nosara kitchen I know." }
+      ],
+      "themeImage": "amz-cafe-britt.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Salsa Lizano — Costa Rica's national sauce",
+      "handle": "salsa-lizano",
+      "productType": "Amazon Pick",
+      "vendor": "Lizano",
+      "tags": ["amazon", "food", "salsa", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>The Tico household standard since 1920. Goes on rice, beans, eggs, gallo pinto, plantains, anything.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-LIZANO" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=salsa+lizano" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "700ml bottle · Vegetable condiment" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "If you've spent a week here, you know. Take a bottle home. Take three." }
+      ],
+      "themeImage": "amz-lizano.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "The Blue Zones Solution — Dan Buettner",
+      "handle": "blue-zones-solution",
+      "productType": "Amazon Pick",
+      "vendor": "National Geographic",
+      "tags": ["amazon", "book", "blue-zones", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>NYT bestseller. Nicoya is one of the five Blue Zones — regions of the world where people regularly live past 100.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-BLUE-ZONES" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=blue+zones+solution+dan+buettner" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "Paperback · 320 pages · National Geographic" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "Required reading if you're moving to the peninsula. The Nicoya chapter explains a lot of what you'll see daily." }
+      ],
+      "themeImage": "amz-blue-zones.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Sun Bum Mineral SPF 50 Sunscreen",
+      "handle": "sun-bum-mineral-spf50",
+      "productType": "Amazon Pick",
+      "vendor": "Sun Bum",
+      "tags": ["amazon", "sun", "reef-safe", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>Non-nano zinc oxide, reef-friendly, water-resistant 80 minutes. The Nosara surf-shop standard.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-SUN-BUM-50" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=sun+bum+mineral+spf+50" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "3 fl oz · Non-nano zinc · Reef-friendly" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "What's on the kids and on me. Doesn't sting, rinses clean, and the reef thanks you." }
+      ],
+      "themeImage": "amz-sun-bum.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Birds of Costa Rica — Garrigues & Dean",
+      "handle": "birds-of-costa-rica",
+      "productType": "Amazon Pick",
+      "vendor": "Cornell University Press",
+      "tags": ["amazon", "book", "nature", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>The definitive field guide. Second edition. Every bird you'll see, illustrated and described.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-BIRDS-CR" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=birds+of+costa+rica+garrigues+dean" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "2nd Ed · Paperback · 426 pages" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "Lives on the porch. Toucans, motmots, fifty kinds of hummingbird. You'll use it." }
+      ],
+      "themeImage": "amz-birds-cr.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Hand-Woven Caribbean Hammock",
+      "handle": "caribbean-hammock",
+      "productType": "Amazon Pick",
+      "vendor": "Caribbean Hammocks",
+      "tags": ["amazon", "home", "hammock", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>Hand-woven Central American style. The porch standard from Nicoya to Limón.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-HAMMOCK" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=hand+woven+caribbean+hammock" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "Hand-woven · Single + Double sizes" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "Two people, an afternoon coffee. Better than any porch chair you'll ever buy." }
+      ],
+      "themeImage": "amz-hammock.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Sex Wax Quick Humps — Tropical",
+      "handle": "sex-wax-tropical",
+      "productType": "Amazon Pick",
+      "vendor": "Mr. Zog's",
+      "tags": ["amazon", "surf", "wax", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>Warm-water surfboard wax, 25°C+. Bumpy, sticky, grippy.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-SEX-WAX" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=sex+wax+quick+humps+tropical" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "Tropical formula · 25°C+ water" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "Tropical bar. Anything else melts off the board by 10am." }
+      ],
+      "themeImage": "amz-sex-wax.svg"
+    },
+    {
+      "collection": "nosara-essentials",
+      "title": "Lonely Planet Costa Rica — Latest Edition",
+      "handle": "lonely-planet-costa-rica",
+      "productType": "Amazon Pick",
+      "vendor": "Lonely Planet",
+      "tags": ["amazon", "book", "travel", "essentials"],
+      "status": "ACTIVE",
+      "templateSuffix": "amazon",
+      "requiresShipping": false,
+      "taxable": false,
+      "descriptionHtml": "<p>The visitor's classic. Nicoya to Arenal to Manuel Antonio.</p>",
+      "price": "0.00",
+      "options": ["Title"],
+      "variants": [{ "title": "Default", "price": "0.00", "sku": "AMZ-LP-CR" }],
+      "metafields": [
+        { "namespace": "custom", "key": "amazon_url", "type": "url", "value": "https://www.amazon.com/s?k=lonely+planet+costa+rica" },
+        { "namespace": "custom", "key": "short_specs", "type": "single_line_text_field", "value": "Travel guide · Latest edition" },
+        { "namespace": "custom", "key": "curator_note", "type": "multi_line_text_field", "value": "For people who came for Nosara and want to see what else there is. There's a lot." }
+      ],
+      "themeImage": "amz-lonely-planet.svg"
     }
   ]
 }
