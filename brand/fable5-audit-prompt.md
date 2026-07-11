@@ -23,6 +23,8 @@ Everything you deliver should feel like it was made by someone who actually live
   2. **Curated Amazon storefront ("Nosara Essentials")** — real Costa Rica goods sold on Amazon that we've vetted: Café Britt Tarrazú coffee, Salsa Lizano, *The Blue Zones Solution* by Buettner, Sun Bum reef-safe SPF 50, *Birds of Costa Rica* by Garrigues & Dean, hand-woven Caribbean hammocks, Sex Wax Quick Humps Tropical, Lonely Planet Costa Rica.
 - **Positioning:** *"All things Costa Rica."* Not a tourist shop — a genuine gateway curated by someone local. Nicoya is one of the world's five Blue Zones; the brand quietly leans on that longevity/place-rooted identity.
 - **Parent relationship:** `julianmonge.com` is the real-estate practice. `shop.julianmonge.com` is a chapter of that parent brand — the shop's header should feel like an extension, not a separate identity.
+- **Amazon Associate tag (live):** `julianmonge02-20`. Every Amazon link in the store already carries this tag via a Liquid helper (`snippets/amazon-affiliate-url.liquid`) — clicks earn commission as of approval. Your audit shouldn't propose reversing that.
+- **Launch timeline:** October. LLC / Chase business account gets set up in September so payouts have somewhere to land. Meanwhile the store lives in a free Shopify Partner development store.
 
 ### The customer
 - Visitors who fell for Nosara and want a piece of it home

@@ -19,10 +19,12 @@
     <div class="jm-grid">
       {%- for product in collection.products limit: limit -%}
         {%- liquid
-          assign amz_link = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
+          assign raw_amz_link = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
           assign curator_note = product.metafields.custom.curator_note
         -%}
-        <a class="jm-product" href="{% if is_amazon and amz_link != blank %}{{ amz_link }}{% else %}{{ product.url }}{% endif %}"
+        {%- capture amz_link -%}{%- render 'amazon-affiliate-url', url: raw_amz_link -%}{%- endcapture -%}
+        {%- assign amz_link = amz_link | strip -%}
+        <a class="jm-product" href="{% if is_amazon and raw_amz_link != blank %}{{ amz_link }}{% else %}{{ product.url }}{% endif %}"
            {%- if is_amazon -%} target="_blank" rel="nofollow noopener sponsored"{%- endif -%}>
           <div class="jm-product__media"
                {%- if product.featured_media -%}

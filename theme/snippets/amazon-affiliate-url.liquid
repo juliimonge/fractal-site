@@ -1,0 +1,26 @@
+{%- comment -%}
+  amazon-affiliate-url — ensures every Amazon link we render carries the
+  merchant's Associate tag so we get commission on qualifying purchases.
+
+  Usage:
+    <a href="{%- render 'amazon-affiliate-url', url: some_amazon_url -%}">…</a>
+
+  If `url` is blank, falls back to the storefront URL from theme settings.
+  If the URL already has ?tag= or &tag=, it's returned unchanged (so
+  hand-curated per-product tagged URLs are preserved).
+{%- endcomment -%}
+
+{%- assign tag = settings.brand_amazon_associate_tag | default: 'julianmonge02-20' -%}
+{%- if url == blank -%}
+  {%- assign url = settings.brand_amazon_storefront_url -%}
+{%- endif -%}
+
+{%- if url == blank -%}
+  {{- '#' -}}
+{%- elsif url contains 'tag=' -%}
+  {{- url -}}
+{%- elsif url contains '?' -%}
+  {{- url | append: '&tag=' | append: tag -}}
+{%- else -%}
+  {{- url | append: '?tag=' | append: tag -}}
+{%- endif -%}

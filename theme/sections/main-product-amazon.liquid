@@ -1,8 +1,10 @@
 {%- liquid
-  assign amz_url = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
+  assign raw_amz_url = product.metafields.custom.amazon_url | default: settings.brand_amazon_storefront_url
   assign cta_label = product.metafields.custom.amazon_cta | default: 'View on Amazon'
   assign curator = product.metafields.custom.curator_note
 -%}
+{%- capture amz_url -%}{%- render 'amazon-affiliate-url', url: raw_amz_url -%}{%- endcapture -%}
+{%- assign amz_url = amz_url | strip -%}
 
 <section class="jm-amz-product jm-container" data-section-id="{{ section.id }}">
   <div class="jm-amz-product__grid">

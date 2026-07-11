@@ -7,10 +7,12 @@
         <p>{{ section.settings.body | escape }}</p>
       </div>
       <div class="jm-amzbanner__actions">
-        {%- assign amz_url = settings.brand_amazon_storefront_url | default: section.settings.amazon_url -%}
-        {%- if amz_url != blank -%}
+        {%- assign raw_amz_url = settings.brand_amazon_storefront_url | default: section.settings.amazon_url -%}
+        {%- capture amz_url -%}{%- render 'amazon-affiliate-url', url: raw_amz_url -%}{%- endcapture -%}
+        {%- assign amz_url = amz_url | strip -%}
+        {%- if raw_amz_url != blank -%}
           <a class="jm-btn jm-btn--white" href="{{ amz_url }}" target="_blank" rel="nofollow noopener sponsored">{{ section.settings.cta_label | escape }} →</a>
-          <span class="jm-amzbanner__url">Opens at {{ amz_url | replace: 'https://', '' | replace: 'http://', '' }}</span>
+          <span class="jm-amzbanner__url">Opens at {{ raw_amz_url | replace: 'https://', '' | replace: 'http://', '' }}</span>
         {%- endif -%}
       </div>
     </div>
