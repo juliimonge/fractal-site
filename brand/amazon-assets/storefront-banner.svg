@@ -1,0 +1,40 @@
+<svg viewBox="0 0 2000 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bannerBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E1A20"/>
+      <stop offset="70%" stop-color="#0E1A20"/>
+      <stop offset="100%" stop-color="#0A1418"/>
+    </linearGradient>
+    <radialGradient id="bannerGlow" cx="0.80" cy="0.30" r="0.42">
+      <stop offset="0%" stop-color="#1F5A6F" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#1F5A6F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="2000" height="500" fill="url(#bannerBg)"/>
+  <rect width="2000" height="500" fill="url(#bannerGlow)"/>
+
+  <!-- sun + reflection, far right (clear of the headline) -->
+  <circle cx="1750" cy="150" r="52" fill="#C9A875" opacity="0.92"/>
+  <line x1="0" y1="330" x2="2000" y2="330" stroke="#9FC8D0" stroke-width="0.8" opacity="0.35"/>
+  <g stroke="#C9A875" stroke-linecap="round" opacity="0.4">
+    <line x1="1727" y1="348" x2="1773" y2="348" stroke-width="2"/>
+    <line x1="1719" y1="368" x2="1781" y2="368" stroke-width="1.6" opacity="0.7"/>
+    <line x1="1710" y1="392" x2="1790" y2="392" stroke-width="1.4" opacity="0.5"/>
+    <line x1="1700" y1="420" x2="1800" y2="420" stroke-width="1.2" opacity="0.35"/>
+    <line x1="1687" y1="452" x2="1813" y2="452" stroke-width="1.2" opacity="0.22"/>
+  </g>
+  <!-- peninsula silhouette, low left -->
+  <path d="M0,330 Q150,325 300,327 Q420,330 480,318 Q540,304 600,314 Q700,328 800,325 L800,345 L0,345 Z" fill="#0A1418" opacity="0.85"/>
+  <!-- wave hairlines -->
+  <g stroke="#9FC8D0" fill="none" opacity="0.15">
+    <path d="M0,380 Q500,376 1000,380 T2000,380" stroke-width="0.5"/>
+    <path d="M0,425 Q500,421 1000,425 T2000,425" stroke-width="0.5"/>
+    <path d="M0,470 Q500,466 1000,470 T2000,470" stroke-width="0.5"/>
+  </g>
+
+  <!-- text block — centered, inside the middle 60% (x 400–1600) for mobile crop safety -->
+  <text x="1000" y="185" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="22" letter-spacing="14" fill="#9FC8D0" text-anchor="middle">CURATED FROM NOSARA · COSTA RICA</text>
+  <text x="1000" y="272" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="76" letter-spacing="2" fill="#F6F2E8" text-anchor="middle">ALL THINGS COSTA RICA</text>
+  <line x1="820" y1="308" x2="1180" y2="308" stroke="#C9A875" stroke-width="1.5"/>
+  <text x="1000" y="345" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="24" letter-spacing="4" fill="#F6F2E8" opacity="0.85" text-anchor="middle">The Tico goods worth shipping anywhere — by Julián Monge</text>
+</svg>

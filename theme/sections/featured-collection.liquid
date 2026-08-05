@@ -24,7 +24,7 @@
         -%}
         {%- capture amz_link -%}{%- render 'amazon-affiliate-url', url: raw_amz_link -%}{%- endcapture -%}
         {%- assign amz_link = amz_link | strip -%}
-        <a class="jm-product" href="{% if is_amazon and raw_amz_link != blank %}{{ amz_link }}{% else %}{{ product.url }}{% endif %}"
+        <a class="jm-product" href="{% if is_amazon and raw_amz_link != blank %}{{ amz_link }}{% elsif section.settings.coming_soon_mode %}#newsletter{% else %}{{ product.url }}{% endif %}"
            {%- if is_amazon -%} target="_blank" rel="nofollow noopener sponsored"{%- endif -%}>
           <div class="jm-product__media"
                {%- if product.featured_media -%}
@@ -32,6 +32,8 @@
                {%- endif -%}>
             {%- if is_amazon -%}
               <span class="jm-product__tag jm-product__tag--amazon"></span>
+            {%- elsif section.settings.coming_soon_mode -%}
+              <span class="jm-product__tag jm-product__tag--dark">{{ section.settings.coming_soon_label | default: 'October' | escape }}</span>
             {%- elsif product.tags contains 'best-seller' -%}
               <span class="jm-product__tag">Best seller</span>
             {%- elsif product.tags contains 'new' -%}
@@ -55,6 +57,8 @@
             {%- endunless -%}
             {%- if is_amazon -%}
               <span class="jm-btn jm-btn--amazon-out jm-btn--sm jm-btn--block" style="margin-top: 0.5rem;">View on Amazon</span>
+            {%- elsif section.settings.coming_soon_mode -%}
+              <span class="jm-btn jm-btn--secondary jm-btn--sm jm-btn--block" style="margin-top: 0.5rem;">{{ section.settings.coming_soon_cta | default: 'Notify me' | escape }}</span>
             {%- endif -%}
           </div>
         </a>
@@ -91,6 +95,12 @@
         { "value": "ink", "label": "Ink (dark)" }
       ], "default": "default"
     },
+    { "type": "header", "content": "Coming soon mode" },
+    { "type": "checkbox", "id": "coming_soon_mode", "label": "Coming soon mode",
+      "info": "Pre-launch state: cards show a launch tag and a Notify me CTA that links to the newsletter instead of the product page. Turn OFF at launch.",
+      "default": false },
+    { "type": "text", "id": "coming_soon_label", "label": "Coming soon tag", "default": "October" },
+    { "type": "text", "id": "coming_soon_cta", "label": "Coming soon CTA", "default": "Notify me" },
     { "type": "header", "content": "Amazon mode" },
     { "type": "checkbox", "id": "amazon_mode", "label": "Amazon storefront mode",
       "info": "Treats products as affiliate links (no price shown, View on Amazon CTA, opens in new tab). Uses each product's custom.amazon_url metafield.",

@@ -6,32 +6,106 @@
         "eyebrow": "From Nosara · Costa Rica",
         "heading": "All things Costa Rica.",
         "lede": "Our own Pacific-coast merch, plus a curated Amazon shelf of the real Tico goods worth shipping anywhere — coffee, Lizano, hammocks, Blue Zones books, the bird guide.",
-        "cta_primary_label": "Shop the line",
-        "cta_primary_link": "shopify://collections/nosara-merch",
-        "cta_secondary_label": "Open Amazon shelf",
-        "cta_secondary_link": ""
+        "cta_primary_label": "Shop the Amazon shelf",
+        "cta_primary_link": "#shopify-section-essentials",
+        "cta_secondary_label": "Preview the merch line",
+        "cta_secondary_link": "#shopify-section-merch"
       }
     },
     "trust": {
       "type": "trust-strip",
       "blocks": {
-        "t1": { "type": "trust", "settings": { "icon": "shield", "title": "Vetted by Julián", "subtitle": "Tested in Nosara before listed" } },
-        "t2": { "type": "trust", "settings": { "icon": "truck", "title": "Ships fast", "subtitle": "Amazon Prime + Printful · Worldwide" } },
-        "t3": { "type": "trust", "settings": { "icon": "return", "title": "Easy returns", "subtitle": "30 days, no-fuss policy" } },
-        "t4": { "type": "trust", "settings": { "icon": "leaf", "title": "Reef-safe by default", "subtitle": "Curated for ocean & jungle" } }
+        "t1": {
+          "type": "trust",
+          "settings": {
+            "icon": "shield",
+            "title": "Vetted by Julián",
+            "subtitle": "Tested in Nosara before listed"
+          }
+        },
+        "t2": {
+          "type": "trust",
+          "settings": {
+            "icon": "truck",
+            "title": "Ships fast",
+            "subtitle": "Amazon Prime + Printful · Worldwide"
+          }
+        },
+        "t3": {
+          "type": "trust",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "subtitle": "30 days, no-fuss policy"
+          }
+        },
+        "t4": {
+          "type": "trust",
+          "settings": {
+            "icon": "leaf",
+            "title": "Reef-safe by default",
+            "subtitle": "Curated for ocean & jungle"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
       "settings": {}
     },
     "cats": {
       "type": "category-tiles",
       "blocks": {
-        "c1": { "type": "tile", "settings": { "title": "Apparel", "count": "3 styles", "link": "shopify://collections/apparel", "asset": "tee-sand.svg", "bg": "sand" } },
-        "c2": { "type": "tile", "settings": { "title": "Caps", "count": "2 colors", "link": "shopify://collections/caps", "asset": "cap-teal.svg", "bg": "cream" } },
-        "c3": { "type": "tile", "settings": { "title": "Bags", "count": "1 style", "link": "shopify://collections/bags", "asset": "tote.svg", "bg": "terracotta" } },
-        "c4": { "type": "tile", "settings": { "title": "Home", "count": "2 items", "link": "shopify://collections/home", "asset": "mug.svg", "bg": "jungle" } }
+        "c1": {
+          "type": "tile",
+          "settings": {
+            "title": "Apparel",
+            "count": "3 styles",
+            "link": "shopify://collections/apparel",
+            "asset": "tee-sand.svg",
+            "bg": "sand"
+          }
+        },
+        "c2": {
+          "type": "tile",
+          "settings": {
+            "title": "Caps",
+            "count": "2 colors",
+            "link": "shopify://collections/caps",
+            "asset": "cap-teal.svg",
+            "bg": "cream"
+          }
+        },
+        "c3": {
+          "type": "tile",
+          "settings": {
+            "title": "Bags",
+            "count": "1 style",
+            "link": "shopify://collections/bags",
+            "asset": "tote.svg",
+            "bg": "terracotta"
+          }
+        },
+        "c4": {
+          "type": "tile",
+          "settings": {
+            "title": "Home",
+            "count": "2 items",
+            "link": "shopify://collections/home",
+            "asset": "mug.svg",
+            "bg": "jungle"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
       "settings": {
         "eyebrow": "Shop by category",
         "heading": "Apparel · Caps · Bags · Home."
@@ -40,13 +114,16 @@
     "merch": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "SS26 · The Shop",
-        "heading": "Six pieces. Heavyweight.",
+        "eyebrow": "The Merch Line · Coming October",
+        "heading": "Our own line. Dropping October.",
         "collection": "nosara-merch",
         "products_to_show": 8,
-        "cta_label": "All apparel",
+        "cta_label": "Get notified",
         "bg": "default",
-        "amazon_mode": false
+        "amazon_mode": false,
+        "coming_soon_mode": true,
+        "coming_soon_label": "October",
+        "coming_soon_cta": "Notify me"
       }
     },
     "about": {
@@ -73,7 +150,7 @@
       "type": "featured-collection",
       "settings": {
         "eyebrow": "From the Amazon shop · All real, all Tico",
-        "heading": "Things that say Costa Rica.",
+        "heading": "Shop the shelf. Live now.",
         "collection": "nosara-essentials",
         "products_to_show": 8,
         "cta_label": "All picks",
@@ -84,5 +161,13 @@
       }
     }
   },
-  "order": ["hero", "trust", "cats", "merch", "about", "amzbanner", "essentials"]
+  "order": [
+    "hero",
+    "trust",
+    "amzbanner",
+    "essentials",
+    "merch",
+    "cats",
+    "about"
+  ]
 }

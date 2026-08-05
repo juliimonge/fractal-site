@@ -1,0 +1,16 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14242C"/>
+      <stop offset="100%" stop-color="#0E1A20"/>
+    </linearGradient>
+  </defs>
+  <!-- Amazon crops avatars to a circle — everything inside r=240 -->
+  <rect width="500" height="500" fill="url(#avatarBg)"/>
+  <!-- wordmark, centered lockup -->
+  <text x="250" y="252" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="88" letter-spacing="6" fill="#F6F2E8" text-anchor="middle">JM</text>
+  <line x1="172" y1="286" x2="328" y2="286" stroke="#C9A875" stroke-width="2"/>
+  <text x="250" y="326" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="24" letter-spacing="9" fill="#9FC8D0" text-anchor="middle">NOSARA</text>
+  <!-- outer ring, inside circle-crop safe zone -->
+  <circle cx="250" cy="250" r="228" fill="none" stroke="#9FC8D0" stroke-width="2" opacity="0.55"/>
+</svg>
