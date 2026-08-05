@@ -45,7 +45,22 @@ Practical sequence, unchanged: Amazon live in days (earning while you build), Sh
 
 ## 0.5 · What you have TODAY: Associates-only mode
 
-**Current state:** you have the Associates tracking ID `julianmonge02-20`. No Influencer storefront page yet.
+**Confirmed from the dashboard (Aug 2026):** signing in lands on the **Amazon Associates** dashboard — StoreID `julianmonge02-20`, no "Your Storefront" tab, interface set to ES locale. That is Associates only; the Influencer storefront does not exist yet.
+
+Dashboard state at time of writing: 0 clicks, 0 items, $0.00 — expected, since no tagged links are published anywhere yet.
+
+### Priority before anything else: finish the verification checklist
+
+The dashboard shows **"Próximos pasos → Completa tu lista de verificación"**. Click it and finish every item. It contains the two things that decide whether you ever actually get paid:
+
+1. **Tax interview** — W-8BEN for a non-US person, or W-9 if/when the LLC is US-based. Commissions accrue but are **held indefinitely** until this is complete.
+2. **Payment method** — bank details, or Amazon gift-card balance as a placeholder. Switch the payee to the LLC/Chase account in September when it exists.
+
+This is required regardless of Influencer status, and it's the single most common reason people earn commission for months and receive nothing.
+
+### The 180-day clock
+
+Amazon closes Associates accounts that don't record **3 qualifying sales within 180 days** of approval. The dashboard's 30-day chart starts early July, so the clock is already running. Getting the picks published is what clears it — not waiting for October.
 
 That is enough to start earning. Here's exactly what works and what doesn't:
 
@@ -82,13 +97,20 @@ Nothing about this is hard to clear once the site is public and you're posting l
 
 ## 1 · Create the storefront — step by step
 
-### 1a · Check what you already have
+### 1a · Check what you already have — ✅ ANSWERED
 
-`julianmonge02-20` is an **Associates tracking-ID** format (`name-20`). That earns commission on tagged links but does **not** by itself give you a storefront page. Confirm which you have:
+Confirmed: Associates only (see §0.5). Signing in from the Influencer page redirects to the Associates dashboard, which is normal — Amazon recognizes the existing account and sends you to the tools you already have. It is **not** a sign the Influencer application succeeded.
 
-- Go to [affiliate-program.amazon.com](https://affiliate-program.amazon.com) and sign in
-- Look at the top navigation. If you see a **"Your Storefront"** tab (or an "Influencer" section) → you already have the Influencer program, skip to §2
-- If you only see Associates tools (Product Linking, Reports, SiteStripe) → apply for Influencer below
+### 1a-bis · Why the Influencer link keeps dumping you into Associates
+
+The Influencer application is a separate flow that requires connecting a **social account**. If you land on the Associates dashboard instead of an application form, try these in order:
+
+1. **Direct application URL** while signed in: `https://affiliate-program.amazon.com/influencers`
+2. **From the Associates dashboard**: open the **☰ hamburger menu** (top right of the screenshot) and look for *Influencer / Influencer Program / Programa de Influencers*
+3. **From the Amazon app on your phone** — the mobile flow is often the one that actually surfaces the application: Amazon app → Account → *Influencer Program*
+4. **Switch the interface to English** first (the **ES ▾** dropdown next to the flag). The Influencer flow is a US-marketplace program and the Spanish interface sometimes hides the entry point
+
+If the form appears, connect Instagram (or TikTok/YouTube). Amazon weighs engagement over follower count; decisions are typically instant to a few days.
 
 Also just try loading `amazon.com/shop/julianmonge` in a browser. If a page loads that's yours, you have it.
 
