@@ -16,7 +16,9 @@
 {%- endif -%}
 
 {%- if url == blank -%}
-  {{- '#' -}}
+  {%- comment -%} No per-product link and no storefront yet — a tagged amazon.com
+  root is still a valid Associates link, and never a dead '#'. {%- endcomment -%}
+  {{- 'https://www.amazon.com/?tag=' | append: tag -}}
 {%- elsif url contains 'tag=' -%}
   {{- url -}}
 {%- elsif url contains '?' -%}

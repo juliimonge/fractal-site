@@ -6,21 +6,18 @@
     "color_sand": "#E8DFC8",
     "color_paper": "#F6F2E8",
     "color_bg": "#FAF8F3",
-
     "brand_parent_site_url": "https://julianmonge.com",
-    "brand_amazon_storefront_url": "https://amazon.com/shop/julianmonge",
+    "brand_amazon_storefront_url": "",
     "brand_amazon_associate_tag": "julianmonge02-20",
     "brand_whatsapp_number": "",
     "brand_tagline": "All things Costa Rica.",
-
     "type_header_font": "inter_n7",
     "type_body_font": "inter_n4",
-
     "buttons_radius": 2,
     "buttons_border_thickness": 1,
     "page_width": 1480,
-
-    "predictive_search_enabled": true
+    "predictive_search_enabled": true,
+    "brand_amazon_storefront_live": false
   },
   "presets": {
     "Brand": {

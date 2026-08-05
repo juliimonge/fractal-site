@@ -153,8 +153,8 @@
         "heading": "Shop the shelf. Live now.",
         "collection": "nosara-essentials",
         "products_to_show": 8,
-        "cta_label": "All picks",
-        "cta_link": "https://amazon.com/shop/julianmonge",
+        "cta_label": "",
+        "cta_link": "",
         "bg": "default",
         "amazon_mode": true,
         "amazon_disclosure": "Picks are real Tico goods sold on Amazon. Links open Amazon search so you land on the current best listing — your price doesn't change, we earn a small commission."

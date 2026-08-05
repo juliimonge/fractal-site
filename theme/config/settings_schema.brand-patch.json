@@ -15,8 +15,11 @@
 
       { "type": "header", "content": "External links" },
       { "type": "url",  "id": "brand_parent_site_url", "label": "Parent site (julianmonge.com)" },
+      { "type": "checkbox", "id": "brand_amazon_storefront_live", "label": "Amazon storefront is live",
+        "info": "Leave OFF until the Amazon Influencer storefront page actually exists. While OFF, storefront buttons point at the on-site picks grid instead of a 404 — individual product links still earn commission. Turn ON the day amazon.com/shop/<handle> works.",
+        "default": false },
       { "type": "url",  "id": "brand_amazon_storefront_url", "label": "Amazon Storefront URL",
-        "info": "Your Amazon Influencer storefront URL — e.g. https://amazon.com/shop/julianmonge" },
+        "info": "Your Amazon Influencer storefront URL — e.g. https://amazon.com/shop/julianmonge. Only used when the checkbox above is ON." },
       { "type": "text", "id": "brand_amazon_associate_tag", "label": "Amazon Associate tag",
         "info": "Your Amazon Associates tag (e.g. julianmonge02-20). Any Amazon URL rendered on the site that doesn't already include ?tag= or &tag= will get this one appended automatically.",
         "default": "julianmonge02-20" },

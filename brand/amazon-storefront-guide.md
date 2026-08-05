@@ -43,6 +43,43 @@ Practical sequence, unchanged: Amazon live in days (earning while you build), Sh
 
 ---
 
+## 0.5 · What you have TODAY: Associates-only mode
+
+**Current state:** you have the Associates tracking ID `julianmonge02-20`. No Influencer storefront page yet.
+
+That is enough to start earning. Here's exactly what works and what doesn't:
+
+| | Works today | Needs Influencer |
+|---|---|---|
+| Tagged links earn commission | ✅ | |
+| Product cards on your site link out and earn | ✅ | |
+| SiteStripe link generation on any Amazon page | ✅ | |
+| Your own curated grid on shop.julianmonge.com | ✅ | |
+| A public `amazon.com/shop/<handle>` page | | ⏳ |
+| Idea Lists | | ⏳ |
+| Shoppable photos/video on Amazon's own pages | | ⏳ |
+
+**The site has been updated to match reality.** All "Open Amazon storefront" buttons now point to the on-site picks grid instead of a page that would 404. Every product card still links out to Amazon with your tag, so the earning path is fully intact. When the storefront exists, flip one checkbox — Theme settings → Brand → **"Amazon storefront is live"** — and the storefront buttons come back automatically.
+
+### How to generate real tagged links right now (SiteStripe)
+
+This works with Associates-only and is how you'll get the exact links for the site:
+
+1. Sign in to Amazon in the same browser where you're signed into Associates
+2. Browse to any product page — the **SiteStripe** bar appears across the top of the page
+3. Click **Text** → it generates a short tagged link (`amzn.to/...`) already carrying `julianmonge02-20`
+4. Copy it. That link earns from the moment someone clicks it.
+
+Do this for the hero picks in each category and send them over — I'll swap the site's search-links for direct product links, which convert meaningfully better.
+
+### The one deadline that matters
+
+Amazon closes new Associates accounts that don't make **3 qualifying sales within 180 days** of approval. Not a soft rule — the account gets shut and you reapply.
+
+Nothing about this is hard to clear once the site is public and you're posting links, but it's the reason to get the picks live rather than waiting for October. If you're near the window with no sales, sharing the picks link with a few people who shop Amazon anyway resolves it.
+
+---
+
 ## 1 · Create the storefront — step by step
 
 ### 1a · Check what you already have

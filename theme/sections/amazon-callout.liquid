@@ -7,12 +7,22 @@
         <p>{{ section.settings.body | escape }}</p>
       </div>
       <div class="jm-amzbanner__actions">
-        {%- assign raw_amz_url = settings.brand_amazon_storefront_url | default: section.settings.amazon_url -%}
-        {%- capture amz_url -%}{%- render 'amazon-affiliate-url', url: raw_amz_url -%}{%- endcapture -%}
-        {%- assign amz_url = amz_url | strip -%}
-        {%- if raw_amz_url != blank -%}
+        {%- comment -%}
+          Two modes:
+          · storefront_live = false (Associates-only) → CTA scrolls to the on-site
+            picks grid. Every card there links out to Amazon with the tag, so we
+            still earn, and we never link to a storefront page that doesn't exist.
+          · storefront_live = true (Influencer approved) → CTA opens the real
+            amazon.com/shop/<handle> page.
+        {%- endcomment -%}
+        {%- if settings.brand_amazon_storefront_live and settings.brand_amazon_storefront_url != blank -%}
+          {%- capture amz_url -%}{%- render 'amazon-affiliate-url', url: settings.brand_amazon_storefront_url -%}{%- endcapture -%}
+          {%- assign amz_url = amz_url | strip -%}
           <a class="jm-btn jm-btn--white" href="{{ amz_url }}" target="_blank" rel="nofollow noopener sponsored">{{ section.settings.cta_label | escape }} →</a>
-          <span class="jm-amzbanner__url">Opens at {{ raw_amz_url | replace: 'https://', '' | replace: 'http://', '' }}</span>
+          <span class="jm-amzbanner__url">Opens at {{ settings.brand_amazon_storefront_url | replace: 'https://', '' | replace: 'http://', '' }}</span>
+        {%- else -%}
+          <a class="jm-btn jm-btn--white" href="{{ section.settings.onsite_cta_link | default: '#shopify-section-essentials' }}">{{ section.settings.onsite_cta_label | default: 'Shop the picks' | escape }} →</a>
+          <span class="jm-amzbanner__url">Every pick links straight to Amazon</span>
         {%- endif -%}
       </div>
     </div>
@@ -54,7 +64,11 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Costa Rica, shipped anywhere." },
     { "type": "textarea", "id": "body", "label": "Body",
       "default": "Real Tico goods that ship internationally — Café Britt coffee, Salsa Lizano, hand-woven hammocks, the Garrigues bird guide, Blue Zones books on Nicoya. Curated by someone who actually lives here. As an Amazon Associate we earn from qualifying purchases." },
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Open Amazon storefront" },
+    { "type": "text", "id": "cta_label", "label": "CTA label (storefront live)", "default": "Open Amazon storefront" },
+    { "type": "header", "content": "Before the Influencer storefront exists" },
+    { "type": "paragraph", "content": "While Theme settings → Brand → 'Amazon storefront is live' is OFF, this CTA points at the on-site picks grid instead of a storefront page that would 404. Tagged links on each product card still earn." },
+    { "type": "text", "id": "onsite_cta_label", "label": "CTA label (Associates-only)", "default": "Shop the picks" },
+    { "type": "text", "id": "onsite_cta_link", "label": "CTA link (Associates-only)", "default": "#shopify-section-essentials" },
     { "type": "url", "id": "amazon_url", "label": "Amazon URL fallback",
       "info": "Uses theme settings.brand_amazon_storefront_url first; this is a per-section fallback." }
   ],
