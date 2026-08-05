@@ -9,18 +9,88 @@
 
 ---
 
-## 1 · Confirm which program you're actually in
+## 0 · Amazon storefront OR the Shopify store? — Both. Here's why.
 
-Amazon has two related programs and the storefront features differ:
+They are not competing options. They sell **different inventory** and neither can do the other's job.
 
-| Program | What you get | Check |
+| | Amazon storefront | shop.julianmonge.com |
 |---|---|---|
-| **Amazon Associates** (tag `julianmonge02-20`) | Tagged links earn commission. No storefront page. | [affiliate-program.amazon.com](https://affiliate-program.amazon.com) → sign in → your tag shows in the top bar |
-| **Amazon Influencer Program** | Everything Associates has PLUS a public storefront page (`amazon.com/shop/handle`) with idea lists, photos, videos | [affiliate-program.amazon.com/influencers](https://affiliate-program.amazon.com/influencers) → sign in → "Your Storefront" appears in the nav |
+| **Sells** | Things you don't own — Café Britt, Lizano, DJI, Sony, dehumidifiers | Things you do own — merch, presets, PDF guides, services |
+| **You earn** | A commission per sale (single digits %) | The full margin (60–100%) |
+| **Costs you** | $0 | $39/mo + Printful cost per item |
+| **Inventory risk** | None | None (print-on-demand) |
+| **Live when** | Days | October |
+| **Brand control** | Almost none — it's an Amazon page | Total |
+| **You keep the customer** | No. Amazon does. | Yes — email, repeat, upsell |
 
-The tag format `julianmonge02-20` works for both. **If you only have Associates today**, apply to the Influencer Program with your Instagram/TikTok/YouTube (they check follower engagement, not raw count — accounts in the low thousands get approved regularly). Approval is usually instant-to-48h.
+**Why you can't drop the Amazon side:** you cannot legally sell Café Britt or a DJI drone on your Shopify store — you don't own that inventory and don't want to. Affiliate commission is the only mechanism that monetizes "here's the coffee I actually drink." That's ~90% of your list content.
 
-**If you already have the Influencer storefront** (you mentioned the link name tag — if `amazon.com/shop/julianmonge02-20` or similar resolves, you have it), skip to §2.
+**Why you can't drop the Shopify side:** a bare Amazon storefront has no brand, no email list, no way to sell your own tee or your Lightroom presets, and Amazon owns the customer relationship. It's a payout mechanism, not a business.
+
+**How they work together — this is the actual strategy:**
+
+```
+julianmonge.com (real estate authority)
+        ↓
+shop.julianmonge.com  ← the brand, the story, the email list
+        ├── Amazon links  → commission on other people's products
+        └── Own products  → full margin on yours (October)
+```
+
+The site is the front door that makes the Amazon links credible. Nobody trusts a raw Amazon storefront; they trust a real estate agent in Nosara with a point of view who happens to link to Amazon. **The site is the asset. Amazon is a revenue stream running through it.**
+
+Practical sequence, unchanged: Amazon live in days (earning while you build), Shopify live in October.
+
+---
+
+## 1 · Create the storefront — step by step
+
+### 1a · Check what you already have
+
+`julianmonge02-20` is an **Associates tracking-ID** format (`name-20`). That earns commission on tagged links but does **not** by itself give you a storefront page. Confirm which you have:
+
+- Go to [affiliate-program.amazon.com](https://affiliate-program.amazon.com) and sign in
+- Look at the top navigation. If you see a **"Your Storefront"** tab (or an "Influencer" section) → you already have the Influencer program, skip to §2
+- If you only see Associates tools (Product Linking, Reports, SiteStripe) → apply for Influencer below
+
+Also just try loading `amazon.com/shop/julianmonge` in a browser. If a page loads that's yours, you have it.
+
+### 1b · Apply for the Influencer Program (if needed)
+
+1. Go to **[amazon.com/influencers](https://www.amazon.com/influencers)** (or the Influencer link inside the Associates dashboard)
+2. Sign in with the **same Amazon account** that owns your Associates tag — this keeps everything under one payout and one tax profile
+3. Choose the social account you're applying with. Amazon accepts **Instagram, TikTok, YouTube, or Facebook**
+4. Authorize the account so Amazon can read follower count and engagement
+5. Submit
+
+**On approval odds:** Amazon weighs *engagement* more than raw follower count — a real estate account with a few thousand engaged local followers gets approved regularly, where a 50k-follower account with dead engagement can get declined. Decisions are typically instant to a few days.
+
+**If declined:** you can reapply, and you can apply with a different social account. Post consistently for a few weeks and try again — the Associates tag keeps earning on your site links in the meantime, so nothing is blocked.
+
+### 1c · Claim your storefront URL
+
+Once approved, Amazon assigns a default storefront URL and lets you set a **vanity handle**:
+
+- Go to **Your Storefront → Edit storefront → storefront name/URL**
+- Request `julianmonge` → your page becomes `amazon.com/shop/julianmonge`
+- If taken, fall back to `nosaraessentials` or `julianmongecr`
+- **Pick carefully — handles are hard or impossible to change later**, and this URL goes on the site, in your IG bio, and in the theme settings
+
+### 1d · Tell me the final URL
+
+Once the handle is set, send it to me and I'll update:
+- `theme/config/settings_data.json` → `brand_amazon_storefront_url`
+- The Amazon callout section CTA
+- The mockup preview
+
+Right now those all point at the placeholder `amazon.com/shop/julianmonge`.
+
+### 1e · What the storefront gives you that plain links don't
+
+- A public page you can put in an IG bio, on the site, in a Linktree
+- **Idea Lists** — the collections in §3 below
+- **Shoppable photos and videos** — Amazon shows your content next to the product on Amazon's own pages, which is a second earning surface most people ignore
+- On-Amazon discovery (your videos can surface in Amazon's Inspire feed)
 
 ---
 
@@ -64,14 +134,19 @@ Idea Lists are the Amazon storefront's version of collections. Create these four
 | The Birds of Costa Rica — Garrigues & Dean | `birds of costa rica garrigues dean` | The definitive field guide. Lives on the porch. |
 | Lonely Planet Costa Rica | `lonely planet costa rica` | The visitor's classic. |
 
-### List 4 — `Home & Porch`
-| Product | Search | Note |
-|---|---|---|
-| Hand-woven hammock | `hand woven caribbean hammock cotton` | The porch standard from Nicoya to Limón. Pick the best-reviewed listing. |
+### List 4 — `Tropical Home & Real Estate`
+Your strongest authority list — you sell these houses, you know what salt air and green season do to them. Framed as *"what I tell every buyer to order before their container arrives."*
 
-**How to add:** Storefront → **Idea Lists → Create list** → search each product inside the Amazon UI → add → paste the one-line note. The notes above are already in brand voice — use them verbatim.
+16 products, full table in **`brand/amazon-list-architecture.md` §3**. Site heroes: hOmeLabs dehumidifier, Schlage Encode smart lock, APC UPS, Thermacell.
 
-**Growing the lists:** aim for 8–12 items per list over the next month. Same test for every addition: *would you actually pack it for/from Nosara?* Candidates: Kuhl/prAna sun shirts, YETI Panga dry duffel, Birkenstock EVAs, a machete file, Britt chocolate-covered coffee beans, chorreador + cloth filters, Imperial beer glasses.
+### List 5 — `Photo & Drone Gear`
+Sony · DJI · iPhone — what you actually shoot with. Feeds the content-services funnel.
+
+30 products across four sub-sections (Sony bodies & glass / DJI air & motion / iPhone / tropical survival kit), full table in **`brand/amazon-list-architecture.md` §4**. Site heroes: DJI Mini 4 Pro, Sony a6700, Sony 10-20mm f/4, Osmo Pocket 3.
+
+**How to add:** Storefront → **Idea Lists → Create list** → search each product inside the Amazon UI → add → paste the one-line note. The notes in the architecture doc are already in brand voice — use them verbatim.
+
+**Growing the lists:** aim for 8–12 items minimum per list. Same test for every addition: *would you actually pack it for/from Nosara, or put it in a client's house?* Further candidates: Kuhl/prAna sun shirts, YETI Panga dry duffel, Birkenstock EVAs, Britt chocolate-covered beans, chorreador + cloth filters.
 
 ---
 
@@ -139,9 +214,11 @@ Until October, merch cards render in **"Coming October — Notify me"** state (e
 
 ## Do-this-week list
 
-1. [ ] Confirm Influencer storefront exists (§1) — if not, apply today
-2. [ ] Claim handle + set name/bio/photo/banner (§2, assets in §5)
-3. [ ] Create the 4 idea lists with the 8 products (§3)
-4. [ ] Send me the 8 direct product links → I swap them into the site (§4)
-5. [ ] Complete the tax interview + payout details (§7)
-6. [ ] Add disclosure to Instagram bio if posting links (§6)
+1. [ ] Check whether you have Influencer or only Associates (§1a) — apply if needed (§1b)
+2. [ ] Claim the `amazon.com/shop/...` handle (§1c) and **send me the final URL** (§1d)
+3. [ ] Set name / bio / profile photo / banner (§2 — artwork ready in `brand/amazon-assets/`)
+4. [ ] Create the 5 idea lists (§3 + `amazon-list-architecture.md`) — start with 4–6 items each, grow weekly
+5. [ ] Validate the gear picks against what you actually own — strike or swap anything you wouldn't vouch for
+6. [ ] Send me direct tagged product links for the site's hero picks (§4)
+7. [ ] Complete the tax interview + payout details (§7)
+8. [ ] Add the affiliate disclosure to your Instagram bio if you post links there (§6)

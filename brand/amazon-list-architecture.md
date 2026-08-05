@@ -76,39 +76,77 @@ Replaces the earlier 4-list structure. "Home & Porch" is absorbed into the new r
 
 ---
 
-## 4 · List 5 — Photo & Drone Gear (Bang for Buck)
+## 4 · List 5 — Photo & Drone Gear (Sony · DJI · iPhone)
 
-**Who it's for:** people who saw your listing photos/reels and asked what you shoot with. Also feeds your content-services credibility.
+**Who it's for:** people who saw your listing photos/reels and asked what you shoot with. Also feeds the content-services funnel — "this is my kit" → "or hire me."
 
-**Framing line:** *"The rig I'd buy today if I were starting over — nothing here is the most expensive option, everything here is the one that earns its bag space."*
+**Framing line:** *"Three systems, one bag: Sony for stills, DJI for air and motion, iPhone for everything that happens too fast to set up."*
+
+This is the honest version — it's what you actually shoot. The three-system framing is also the most useful thing on the list, because it's the real answer to "what should I buy": most people don't need all three, and the list tells them which one solves their problem.
 
 ### The Content Kit (these 4 go on the SITE)
 
 | Product | Why it's the hero | Note in your voice |
 |---|---|---|
-| **DJI Mini 4K** | The bang-for-buck drone, full stop | "Under 249g so the paperwork stays simple. 4K listing aerials for $300." |
-| **Sony ZV-E10 II** | Value king APS-C for photo + video | "Everything on my feed that isn't a drone shot." |
-| **Sigma 18-50mm f/2.8** | THE budget zoom for that body | "Lives on the camera. Sharp at every listing walkthrough." |
-| **DJI Osmo Pocket 3** | Walkthrough video without a gimbal bag | "Property tours in one take. Clients think it's a crew." |
+| **DJI Mini 4 Pro** | Sub-249g, obstacle avoidance, vertical video for reels | "Under 249g keeps the paperwork simple. Every listing aerial on my feed is this." |
+| **Sony a6700** (or your body) | The APS-C workhorse for stills + 4K | "Stills, walkthroughs, client portraits. One body does all of it." |
+| **Sony 10-20mm f/4 PZ G** | The interiors lens — the actual real-estate secret | "Rooms photograph small. This is how you show them honestly." |
+| **DJI Osmo Mobile / Pocket 3** | Motion without a rig | "Property tour in one take. People assume there was a crew." |
 
-### The rest of the Amazon list (depth — Amazon-only)
+### Sony — bodies & glass (Amazon list)
 
 | Product | Search term | One-line note |
 |---|---|---|
-| DJI Mini 4 Pro | `dji mini 4 pro` | The step-up: obstacle avoidance, vertical video. Still under 249g. |
-| Sony 10-20mm f/4 PZ G | `sony 10-20mm f4 pz g` | The interiors lens. Makes small rooms honest but generous. |
-| K&F Concept ND filter set (for Mini) | `k&f nd filters dji mini` | Aerials at golden hour need ND. This set is 80% of Freewell at 40% of the price. |
-| Rode Wireless Micro | `rode wireless micro` | Client testimonials and pieces-to-camera. Plug in, it works. |
-| SmallRig CT-10 tripod | `smallrig tripod ct-10` | Light enough to always be in the truck. |
-| SanDisk Extreme Pro 256GB (2-pack) | `sandisk extreme pro 256gb 2 pack` | Cards fail; carry two. Never buy them at the airport. |
-| Anker 737 power bank | `anker 737 power bank` | Recharges the drone twice in the field. |
-| Pelican Vault v200 case | `pelican vault v200` | The humidity answer: gear lives in the case, case lives with silica. |
-| Rechargeable silica gel canister (2-pack) | `rechargeable silica gel canister` | Bake to recharge. In every case and camera drawer I own. |
-| K&F lens cleaning kit | `k&f lens cleaning kit` | Salt spray on every lens, every shoot. Clean daily or buy new glass. |
-| Drone landing pad | `drone landing pad 30 inch` | Dust and sand in the motors is how Minis die. |
-| GoPro HERO12/13 | `gopro hero 12` | The surf/water angle the Sony can't do. |
+| Sony a6700 | `sony a6700 body` | Best all-round APS-C for this work. AF you don't fight. |
+| Sony ZV-E10 II | `sony zv-e10 ii` | The cheaper start. Same lenses, lighter on video features. |
+| Sony a7 IV | `sony a7 iv body` | Full-frame step up when interiors and low light get serious. |
+| Sony 10-20mm f/4 PZ G | `sony 10-20mm f4 pz g` | APS-C interiors. Power zoom, light, sharp corners. |
+| Tamron 17-28mm f/2.8 | `tamron 17-28mm f2.8 sony e` | The full-frame wide that doesn't cost GM money. |
+| Sigma 18-50mm f/2.8 | `sigma 18-50mm f2.8 sony e` | The everyday APS-C zoom. Best value lens Sony shooters own. |
+| Sony 20mm f/1.8 G | `sony 20mm f1.8 g` | Wide prime for dusk exteriors and interiors with character. |
 
-**One authority note to include on the list intro:** flying sub-249g (Mini series) keeps you in the simplest regulatory class in most countries including Costa Rica — one line, establishes you know the terrain, no legal-advice framing.
+### DJI — air & motion (Amazon list)
+
+| Product | Search term | One-line note |
+|---|---|---|
+| DJI Mini 4 Pro | `dji mini 4 pro fly more` | The one. Sub-249g, tracks, shoots vertical for reels. |
+| DJI Mini 4K | `dji mini 4k drone` | If the budget is tight. Same weight class, fewer smarts. |
+| DJI Air 3S | `dji air 3s` | Bigger sensor when the listing justifies it. Not sub-249g. |
+| DJI Osmo Pocket 3 | `dji osmo pocket 3` | Pocket gimbal camera. Walkthroughs, one hand, no setup. |
+| DJI Osmo Mobile 7 | `dji osmo mobile 7` | Turns the iPhone into the walkthrough rig. Cheapest big upgrade. |
+| DJI Mic Mini | `dji mic mini wireless` | Client testimonials and pieces-to-camera. Clip and go. |
+| ND filter set for Mini 4 Pro | `nd filters dji mini 4 pro` | Golden-hour aerials need ND or the motion looks like video. |
+| Drone landing pad | `drone landing pad 30 inch` | Sand in the motors is how Minis die here. |
+
+### iPhone — the always-there camera (Amazon list)
+
+The list nobody else writes well. Most of your audience will never buy a Sony — this is the section that actually helps them.
+
+| Product | Search term | One-line note |
+|---|---|---|
+| Sandmarc ND filter set (iPhone) | `sandmarc nd filter iphone` | The single upgrade that makes phone video stop looking like phone video. |
+| Moment anamorphic / wide lens | `moment lens iphone` | Wide for interiors when the Sony is at home. |
+| SmallRig iPhone cage | `smallrig iphone cage mount` | Mounting points for mic and light. Turns a phone into a rig. |
+| MagSafe tripod mount | `magsafe tripod mount` | Snap-on, level, done. Lives in the truck. |
+| Samsung T7 Shield SSD 1TB | `samsung t7 shield 1tb` | ProRes records straight to it. Rugged enough for the tropics. |
+| Ulanzi mini LED light | `ulanzi mini led video light` | Dark kitchens and closets. Pocket-sized. |
+| Anker MagSafe power bank | `anker magsafe power bank` | Shooting video kills a phone in an hour. |
+
+**Free but worth calling out in the list intro:** the **Blackmagic Camera app** (free, iOS) gives you log/ProRes control on the iPhone — the biggest single jump in phone footage quality and it costs nothing.
+
+### Tropical survival kit (Amazon list — the section only you can write)
+
+| Product | Search term | One-line note |
+|---|---|---|
+| Pelican Vault v200 case | `pelican vault v200` | Gear lives in the case. The case lives with silica. |
+| Rechargeable silica canister (2-pack) | `rechargeable silica gel canister` | Bake to recharge. In every case and drawer I own. |
+| K&F lens cleaning kit | `k&f lens cleaning kit` | Salt spray on every lens, every shoot. Clean daily or buy glass twice. |
+| SanDisk Extreme Pro 256GB (2-pack) | `sandisk extreme pro 256gb 2 pack` | Cards fail. Carry two. Never buy them at the airport. |
+| Anker 737 power bank | `anker 737 power bank` | Recharges the drone twice in the field. |
+| Peak Design Everyday Backpack | `peak design everyday backpack 20l` | Rain cover matters more than brand. This one has it. |
+| GoPro HERO13 | `gopro hero 13` | The water angle nothing else in the bag can do. |
+
+**Authority note for the list intro:** sub-249g (the Mini line) keeps you in the simplest drone class in most jurisdictions including Costa Rica. One sentence, establishes you know the terrain, no legal-advice framing.
 
 ---
 
